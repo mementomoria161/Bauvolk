@@ -345,7 +345,7 @@ function setlanguage(language) {
     document.querySelectorAll('#lang-de, #lang-en').forEach((item) => {item.style.textDecoration = "none";})
 	document.getElementById("lang-" + language).style.textDecoration = "underline"
 	document.querySelectorAll('*:lang(' + language + '):not(br)').forEach((item) => {item.hidden = false;})
-
+    
 	localStorage.setItem("gefaengnishefte_language", language);
 }
 
@@ -402,7 +402,7 @@ function cleartpcookies() {
         if(key.includes("gefaengnishefte_")) {fpcookies[key] = value}    
     }
 
-    // clearcookies()
+    clearcookies()
 
     for (let [key, value] of Object.entries(fpcookies)) {
         localStorage.setItem(key, value)
