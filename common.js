@@ -402,7 +402,7 @@ function cleartpcookies() {
         if(key.includes("gefaengnishefte_")) {fpcookies[key] = value}    
     }
 
-    clearcookies()
+    // clearcookies()
 
     for (let [key, value] of Object.entries(fpcookies)) {
         localStorage.setItem(key, value)
