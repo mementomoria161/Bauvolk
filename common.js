@@ -1155,13 +1155,13 @@ function leavecontrols() {
 
 function init_footnotes() {
     for (let i = 0; i < FOOTNOTE_LIST.length; i++) {
-
-        let footnote = document.getElementById("f"+ (i+1))
-        footnote.className = 'footnote';
-        footnote.tabIndex = '0'
-        footnote.innerHTML = tosuperscript(i+1)
-        footnote.addEventListener("mouseenter", selectfootnote)
-        footnote.insertAdjacentHTML('beforeend', footnote_template(i));
+        document.querySelectorAll("[data-footnote='" + (i+1) + "']").forEach((footnote) => {
+            footnote.className = 'footnote';
+            footnote.tabIndex = '0'
+            footnote.innerHTML = tosuperscript(i+1)
+            footnote.addEventListener("mouseenter", selectfootnote)
+            footnote.insertAdjacentHTML('beforeend', footnote_template(i));
+        })
     }
 
     if(localStorage.getItem("gefaengnishefte_cookies") != "true"){
