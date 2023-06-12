@@ -134,7 +134,7 @@ function init_footer() {
     limit_buttons(layoutCurrent, LAYOUT_LIST, "to-top", "to-bottom")
     document.getElementById("content").addEventListener("scroll", autosetlayout)
     init_footnotes()
-    init_sharewindow()
+    // init_sharewindow()
 }
 
 
@@ -142,23 +142,6 @@ function init_footer() {
 ///////////////////////////////////////////////////// PWA ///////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-
-// if ('serviceWorker' in navigator) { navigator.serviceWorker.register('sw.js').then(() => { console.log('Service Worker Registered'); }); }
-
-// self.addEventListener('install', (e) => {
-//     e.waitUntil(
-//       caches.open('myapp-store').then((cache) => cache.addAll([
-//         '/index.html'
-//       ])),
-//     );
-//   });
-  
-//   self.addEventListener('fetch', (e) => {
-//     console.log(e.request.url);
-//     e.respondWith(
-//       caches.match(e.request).then((response) => response || fetch(e.request)),
-//     );
-//   });
 
 var PWA_PROMPT;
 
@@ -178,25 +161,25 @@ function init_pwa() {
         }
     });
 
-    document.getElementById("notifications").addEventListener("click", () => {
-        Notification.requestPermission().then((result) => {
-            if (result === "granted") {
-                issue_notification("ISSUE I", "A new ISSUE has just been released!", "https://gefaengnishefte.org/images/issues/issue-i-illustration.WebP");
-            }
-        });
-    });
+    // document.getElementById("notifications").addEventListener("click", () => {
+    //     Notification.requestPermission().then((result) => {
+    //         if (result === "granted") {
+    //             issue_notification("ISSUE I", "A new ISSUE has just been released!", "https://gefaengnishefte.org/images/issues/issue-i-illustration.WebP");
+    //         }
+    //     });
+    // });
 }
 
 
 
-function issue_notification(issue, body, img) {
-    let options = {
-      body: body,
-      icon: img,
-    };
-    new Notification(issue, options);
-    setTimeout(issue_notification, 30000);
-  }
+// function issue_notification(issue, body, img) {
+//     let options = {
+//       body: body,
+//       icon: img,
+//     };
+//     new Notification(issue, options);
+//     setTimeout(issue_notification, 30000);
+// }
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -1264,7 +1247,7 @@ function focusfootnote(event) {
 }
 
 function selectfootnote(event) {
-    close_sharewindow()
+    // close_sharewindow()
 
     if(footnotefocused != "none") {
         resetfootnote()
@@ -1342,59 +1325,59 @@ function footnote_horizontal_bounds() {
 
 // var copy_link = ""
 
-function init_sharewindow() {
-    for (let i = 0; i < LINK_LIST.length; i++) {
-        document.getElementById("link-opt").insertAdjacentHTML('beforeend', share_template(i));
-    }
+// function init_sharewindow() {
+//     for (let i = 0; i < LINK_LIST.length; i++) {
+//         document.getElementById("link-opt").insertAdjacentHTML('beforeend', share_template(i));
+//     }
 
-    select_share(0)
-}
+//     select_share(0)
+// }
 
-function share_template(i) {return '<span onclick="select_share(' + i + ')"><span lang="de">' + LINK_LIST[i].title_de + '</span><span lang="en">' + LINK_LIST[i].title_en + '</span><br></span>'}
-
-
-
-function open_sharewindow() {
-    document.getElementById("sharewindow").style.display = "block"
-    // document.getElementById("sharewindow").showModal()
-}
-
-function close_sharewindow() {
-    document.getElementById("sharewindow").style.display = "none"
-    // document.getElementById("sharewindow").close()
-}
+// function share_template(i) {return '<span onclick="select_share(' + i + ')"><span lang="de">' + LINK_LIST[i].title_de + '</span><span lang="en">' + LINK_LIST[i].title_en + '</span><br></span>'}
 
 
-function select_share(index) {
 
-    let linkopts = document.getElementById("link-opt").children
+// function open_sharewindow() {
+//     document.getElementById("sharewindow").style.display = "block"
+//     // document.getElementById("sharewindow").showModal()
+// }
 
-    for (let i = 0; i < linkopts.length; i++) {
-        linkopts.item(i).style.textDecoration = "none"
-    }
-
-    linkopts.item(index).style.textDecoration = "underline"
-    // copy_link = LINK_LIST[index].link
-}
+// function close_sharewindow() {
+//     document.getElementById("sharewindow").style.display = "none"
+//     // document.getElementById("sharewindow").close()
+// }
 
 
-function copy_share() {
+// function select_share(index) {
 
-    // navigator.clipboard.writeText(copy_link);
+//     let linkopts = document.getElementById("link-opt").children
+
+//     for (let i = 0; i < linkopts.length; i++) {
+//         linkopts.item(i).style.textDecoration = "none"
+//     }
+
+//     linkopts.item(index).style.textDecoration = "underline"
+//     // copy_link = LINK_LIST[index].link
+// }
+
+
+// function copy_share() {
+
+//     // navigator.clipboard.writeText(copy_link);
     
-    let btn = document.getElementById("link-copy-btn")
-    let textOriginal = btn.innerHTML
-    let textReplace = '<span lang="de">Link kopiert!</span><span lang="en">Copied link!</span>'
+//     let btn = document.getElementById("link-copy-btn")
+//     let textOriginal = btn.innerHTML
+//     let textReplace = '<span lang="de">Link kopiert!</span><span lang="en">Copied link!</span>'
     
-    btn.innerHTML = textReplace;
+//     btn.innerHTML = textReplace;
 
-    setTimeout(function(){
-        btn.innerHTML = textOriginal;
-        reset_language()
-    }, 3000);
+//     setTimeout(function(){
+//         btn.innerHTML = textOriginal;
+//         reset_language()
+//     }, 3000);
 
-    reset_language()
-}
+//     reset_language()
+// }
 
 function copy_link(button, link_suffix) {
 
