@@ -1258,7 +1258,7 @@ function selectfootnote(event) {
 
     footnotefocused = event.target;
 
-    footnotefocused.style.color = "#890000";
+    footnotefocused.style.color = "#750000";
     
     footnotefocused.childNodes[1].style.zIndex = "19";
     footnotefocused.childNodes[1].style.display = "inline";
