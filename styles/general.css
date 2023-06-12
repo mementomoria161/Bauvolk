@@ -336,7 +336,7 @@ button[disabled]{
 }
 
 	
-#install-app {
+/* #install-app {
 	margin-bottom: 20px;
 	display: none;
 	width: 100%;
@@ -346,7 +346,7 @@ button[disabled]{
 	color: black;
 	background-color: lightgrey;
 	cursor: pointer;
-}
+} */
 
 
 @media screen and (max-width: 450px) {
@@ -355,7 +355,7 @@ button[disabled]{
 		gap:5px;
 	}
 
-	.abo button, .abo input, #install-app  {
+	.abo button, .abo input  {
 		font-size: 13pt;
 		text-align:left;
 		padding-left: 10px;
@@ -367,7 +367,7 @@ button[disabled]{
 }
 
 @media screen and (max-width: 350px) {
-	.abo button, .abo input, #install-app  {
+	.abo button, .abo input  {
 		font-size: 11pt;
 	}
 }
