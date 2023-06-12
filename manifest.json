@@ -1,6 +1,6 @@
 {
-    "name": "GEF&Auml;NGISHEFTE",
-    "short_name": "GEF&Auml;NGNISHEFTE",
+    "name": "GEFÄNGISHEFTE",
+    "short_name": "GEFÄNGNISHEFTE",
     "icons": [
       {
         "src": "https://www.gefaengnishefte.org/images/favicon/red/android-chrome-192x192.png",
@@ -17,7 +17,7 @@
     "background_color": "#890000",
     "display": "standalone",
     "description": "Gedanken einer politisch desinteressierten Jugend.",
-    "start_url": "www.gefaengnisheft.org",
+    "start_url": "www.gefaengnishefte.org",
     "dir": "ltr",
     "orientation": "portrait"
-}
+  }
