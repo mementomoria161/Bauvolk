@@ -17,6 +17,10 @@ html {
 box-sizing: inherit;
 }
 
+.install-app-btn-container {
+	display: none;
+}
+
 /* *:lang('de'):not(br) {
 	visibility: hidden;
 } */

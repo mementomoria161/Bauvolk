@@ -137,6 +137,51 @@ function init_footer() {
 }
 
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////// PWA ///////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+// if ('serviceWorker' in navigator) { navigator.serviceWorker.register('sw.js').then(() => { console.log('Service Worker Registered'); }); }
+
+// self.addEventListener('install', (e) => {
+//     e.waitUntil(
+//       caches.open('myapp-store').then((cache) => cache.addAll([
+//         '/index.html'
+//       ])),
+//     );
+//   });
+  
+//   self.addEventListener('fetch', (e) => {
+//     console.log(e.request.url);
+//     e.respondWith(
+//       caches.match(e.request).then((response) => response || fetch(e.request)),
+//     );
+//   });
+
+// let deferredPrompt;
+
+// window.addEventListener('beforeinstallprompt', (e) => {
+//     deferredPrompt = e;
+// });
+
+
+// const installApp = document.getElementById('install-app');
+
+// installApp.addEventListener('click', async () => {
+//     if (deferredPrompt !== null) {
+//         deferredPrompt.prompt();
+//         const { outcome } = await deferredPrompt.userChoice;
+//         if (outcome === 'accepted') {
+//             deferredPrompt = null;
+//         }
+//     }
+// });
+
+// window.addEventListener('beforeinstallprompt', (e) => {
+//     $('.install-app-btn-container').show();
+//     deferredPrompt = e;
+// });
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -959,10 +1004,11 @@ var SLIDE_LIST = []
 var slide_current = 0
 
 function init_controls() {
-    slidesList = document.getElementById("slides").children
+    let slidesList = document.getElementById("slides").children
     for (let i = 0; i < slidesList.length; i++) {
         let slideID = 'slide'+ (i+1)
         slidesList.item(i).setAttribute('id', slideID);
+        console.log(SLIDE_LIST)
         SLIDE_LIST.push(slideID);
     }
 
