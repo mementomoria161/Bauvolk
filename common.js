@@ -114,6 +114,7 @@ function init() {
 
     init_scrollbar()
     init_language()
+    init_pwa()
 
     if(typeof suf_init  === "function") {
         suf_init()
@@ -159,29 +160,24 @@ function init_footer() {
 //     );
 //   });
 
-// let deferredPrompt;
+var PWA_PROMPT;
 
-// window.addEventListener('beforeinstallprompt', (e) => {
-//     deferredPrompt = e;
-// });
+window.addEventListener('beforeinstallprompt', (e) => {
+    document.getElementById('install-app').style.display = "block";
+    PWA_PROMPT = e;
+});
 
-
-// const installApp = document.getElementById('install-app');
-
-// installApp.addEventListener('click', async () => {
-//     if (deferredPrompt !== null) {
-//         deferredPrompt.prompt();
-//         const { outcome } = await deferredPrompt.userChoice;
-//         if (outcome === 'accepted') {
-//             deferredPrompt = null;
-//         }
-//     }
-// });
-
-// window.addEventListener('beforeinstallprompt', (e) => {
-//     $('.install-app-btn-container').show();
-//     deferredPrompt = e;
-// });
+function init_pwa() {
+    document.getElementById('install-app').addEventListener('click', async () => {
+        if (PWA_PROMPT !== null) {
+            PWA_PROMPT.prompt();
+            const { outcome } = await PWA_PROMPT.userChoice;
+            if (outcome === 'accepted') {
+                PWA_PROMPT = null;
+            }
+        }
+    });
+}
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -1008,7 +1004,6 @@ function init_controls() {
     for (let i = 0; i < slidesList.length; i++) {
         let slideID = 'slide'+ (i+1)
         slidesList.item(i).setAttribute('id', slideID);
-        console.log(SLIDE_LIST)
         SLIDE_LIST.push(slideID);
     }
 
