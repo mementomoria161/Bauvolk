@@ -15,7 +15,7 @@
     ],
     "theme_color": "#750000",
     "background_color": "#750000",
-    "display": "standalone",
+    "display": "fullscreen",
     "description": "Gedanken einer politisch desinteressierten Jugend.",
     "start_url": "https://www.gefaengnishefte.org/",
     "dir": "ltr",
