@@ -336,8 +336,10 @@ button[disabled]{
 }
 
 	
-/* #install-app {
-	margin-bottom: 20px;
+#install-app {
+	-webkit-tap-highlight-color: transparent;
+	-webkit-touch-callout: none;
+	/* margin-bottom: 20px;
 	display: none;
 	width: 100%;
 	height: fit-content;
@@ -345,8 +347,8 @@ button[disabled]{
 	padding: 5px 20px;
 	color: black;
 	background-color: lightgrey;
-	cursor: pointer;
-} */
+	cursor: pointer; */
+}
 
 
 @media screen and (max-width: 450px) {
