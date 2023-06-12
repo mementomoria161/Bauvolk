@@ -335,6 +335,27 @@ function remove_after(string, character) {
 
 
 
+// SHARE LINK
+
+function copy_link(button, link_suffix) {
+
+    navigator.clipboard.writeText("https://gefaengnishefte.org/" + link_suffix);
+    
+    let textOriginal = button.innerHTML
+    let textReplace = '<span lang="de">Link kopiert!</span><span lang="en">Copied link!</span>'
+
+    button.innerHTML = textReplace;
+
+    setTimeout(function(){
+        button.innerHTML = textOriginal;
+        reset_language()
+    }, 3000);
+
+    reset_language()
+}
+
+
+
 
 
 
@@ -1247,7 +1268,6 @@ function focusfootnote(event) {
 }
 
 function selectfootnote(event) {
-    // close_sharewindow()
 
     if(footnotefocused != "none") {
         resetfootnote()
@@ -1312,86 +1332,4 @@ function footnote_horizontal_bounds() {
         note.style.right = noteYoffset + "px"
         // console.log("left")
     }
-}
-
-
-
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////// SHARING ////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// SHARE LINK
-
-// var copy_link = ""
-
-// function init_sharewindow() {
-//     for (let i = 0; i < LINK_LIST.length; i++) {
-//         document.getElementById("link-opt").insertAdjacentHTML('beforeend', share_template(i));
-//     }
-
-//     select_share(0)
-// }
-
-// function share_template(i) {return '<span onclick="select_share(' + i + ')"><span lang="de">' + LINK_LIST[i].title_de + '</span><span lang="en">' + LINK_LIST[i].title_en + '</span><br></span>'}
-
-
-
-// function open_sharewindow() {
-//     document.getElementById("sharewindow").style.display = "block"
-//     // document.getElementById("sharewindow").showModal()
-// }
-
-// function close_sharewindow() {
-//     document.getElementById("sharewindow").style.display = "none"
-//     // document.getElementById("sharewindow").close()
-// }
-
-
-// function select_share(index) {
-
-//     let linkopts = document.getElementById("link-opt").children
-
-//     for (let i = 0; i < linkopts.length; i++) {
-//         linkopts.item(i).style.textDecoration = "none"
-//     }
-
-//     linkopts.item(index).style.textDecoration = "underline"
-//     // copy_link = LINK_LIST[index].link
-// }
-
-
-// function copy_share() {
-
-//     // navigator.clipboard.writeText(copy_link);
-    
-//     let btn = document.getElementById("link-copy-btn")
-//     let textOriginal = btn.innerHTML
-//     let textReplace = '<span lang="de">Link kopiert!</span><span lang="en">Copied link!</span>'
-    
-//     btn.innerHTML = textReplace;
-
-//     setTimeout(function(){
-//         btn.innerHTML = textOriginal;
-//         reset_language()
-//     }, 3000);
-
-//     reset_language()
-// }
-
-function copy_link(button, link_suffix) {
-
-    navigator.clipboard.writeText("https://gefaengnishefte.org/" + link_suffix);
-    
-    let textOriginal = button.innerHTML
-    let textReplace = '<span lang="de">Link kopiert!</span><span lang="en">Copied link!</span>'
-
-    button.innerHTML = textReplace;
-
-    setTimeout(function(){
-        button.innerHTML = textOriginal;
-        reset_language()
-    }, 3000);
-
-    reset_language()
 }

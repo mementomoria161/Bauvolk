@@ -85,10 +85,15 @@
             .note {
                 display: none;
                 position: absolute;
+                border: 2px outset grey;
+                padding: 10px;
                 bottom: 30px;
                 left: 10px;
                 font-size: 11pt;
                 line-height: 1.7;
+                width: 400px;
+                max-width: calc(100vw - 110px);
+                background-color: #750000;
             }
 
             
@@ -136,54 +141,6 @@
                 background: white !important;
             }
 
-
-            /* UNIFIED FOOTNOTE AND SHAREWINDOW */
-
-            .note, #sharewindow {
-                width: 400px;
-                max-width: calc(100vw - 110px);
-                background-color: #750000;
-                border: 2px outset grey;
-                padding: 10px;
-            }
-
-
-            /* SHAREWINDOW */
-
-            /* #sharewindow {
-                display:none;
-                position: fixed;
-                left:50%;
-                top:50%;
-                transform: translate(-50%, -50%);
-            }
-
-            #close_sharewindow {
-                font-size: 15pt;
-                cursor: pointer;
-                text-align: right;
-                margin-bottom: 10px;
-                color: white;
-            }
-
-            #link-opt > * {
-                cursor: pointer;
-            }
-
-            #link-copy-wrap {
-                display:flex;
-                justify-content:center;
-                margin-bottom: 10px;
-            }
-
-            #link-opt {
-                margin-bottom: 20px;
-                line-height: 2;
-                font-size: 0.93rem;
-	            font-size: var(--font-small);
-                color: white;
-            } */
-
             
             /* REACTIVE */
 
@@ -206,16 +163,11 @@
                     right:30px;
                 }
 
-                #sharewindow, .note {
+                .note {
                     position: fixed;
                     bottom: 60px;
                     left: 30px;
                 }
-
-                /* #sharewindow {
-                    top: unset;
-                    transform: none;
-                } */
             }
 
 
@@ -235,7 +187,7 @@
                     bottom:95px;
                 }
                 
-                #to-bottom, #sharewindow, .note {
+                #to-bottom, .note {
                     bottom:45px;
                 }
             }
@@ -247,7 +199,6 @@
     <body>
 
         <div id="footer-content">
-            <!-- <button class="footerelement" id="teilen" onclick="open_sharewindow()"><span lang="de">ISSUE teilen</span><span lang="en">Share ISSUE</span></button> -->
             <button onclick="copy_link(this, '')" class="footerelement"><span lang="de">ISSUE teilen</span><span lang="en">Share ISSUE</span></button>
             <a lang="en" href="files/en/ISSUE I – ALTERNATIVE UTOPIAS.pdf" download><button class="footerelement">Download PDF</button></a>
             <a lang="de" href="files/de/ISSUE I – ALTERNATIVE UTOPIEN.pdf" download><button class="footerelement">PDF herunterladen</button></a>
@@ -256,10 +207,5 @@
         <button id="to-top" onclick="hoch()"><div id="to-top-label">‹</div></button>
         <button id="to-bottom" onclick="runter()"><div id="to-top-label">›</div></button>
 
-        <!-- <div id="sharewindow">
-            <div id="close_sharewindow" onclick="close_sharewindow()">X</div>
-            <div id="link-opt"></div>
-            <div id="link-copy-wrap"><button id="link-copy-btn" class="footerelement" onclick="copy_share()"><span lang="de">Link kopieren</span><span lang="en">Copy link</span></button></div>
-        </div> -->
     </body>
 </html>
