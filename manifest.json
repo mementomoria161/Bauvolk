@@ -19,5 +19,12 @@
     "description": "Gedanken einer politisch desinteressierten Jugend.",
     "start_url": "www.gefaengnishefte.org",
     "dir": "ltr",
-    "orientation": "portrait"
+    "orientation": "portrait",
+    "prefer_related_applications": false,
+    "categories": [
+      "education",
+      "government",
+      "politics"
+    ],
+    "lang": "de"
   }
