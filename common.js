@@ -179,6 +179,27 @@ function init_pwa() {
     });
 }
 
+const button = document.getElementById("notifications");
+button.addEventListener("click", () => {
+  Notification.requestPermission().then((result) => {
+    if (result === "granted") {
+      randomNotification();
+    }
+  });
+});
+
+function randomNotification() {
+    const notifTitle = "test";
+    const notifBody = `Created by TESTING}.`;
+    const notifImg = `images/issues/issue-i-illustration.WebP`;
+    const options = {
+      body: notifBody,
+      icon: notifImg,
+    };
+    new Notification(notifTitle, options);
+    setTimeout(randomNotification, 30000);
+  }
+
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////// SCROLL & WINDOW /////////////////////////////////////////////////
@@ -1321,7 +1342,7 @@ function footnote_horizontal_bounds() {
 
 // SHARE LINK
 
-var copy_link = ""
+// var copy_link = ""
 
 function init_sharewindow() {
     for (let i = 0; i < LINK_LIST.length; i++) {
@@ -1355,13 +1376,13 @@ function select_share(index) {
     }
 
     linkopts.item(index).style.textDecoration = "underline"
-    copy_link = LINK_LIST[index].link
+    // copy_link = LINK_LIST[index].link
 }
 
 
 function copy_share() {
 
-    navigator.clipboard.writeText(copy_link);
+    // navigator.clipboard.writeText(copy_link);
     
     let btn = document.getElementById("link-copy-btn")
     let textOriginal = btn.innerHTML
@@ -1371,6 +1392,23 @@ function copy_share() {
 
     setTimeout(function(){
         btn.innerHTML = textOriginal;
+        reset_language()
+    }, 3000);
+
+    reset_language()
+}
+
+function copy_link(button, link_suffix) {
+
+    navigator.clipboard.writeText("https://gefaengnishefte.org/" + link_suffix);
+    
+    let textOriginal = button.innerHTML
+    let textReplace = '<span lang="de">Link kopiert!</span><span lang="en">Copied link!</span>'
+
+    button.innerHTML = textReplace;
+
+    setTimeout(function(){
+        button.innerHTML = textOriginal;
         reset_language()
     }, 3000);
 

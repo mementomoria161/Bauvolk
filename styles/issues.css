@@ -117,13 +117,17 @@ body {
 	max-width: 700px;
 	width: 100%;
 	margin-bottom: 150px;
-	padding-bottom: 100px !important;
+	/* padding-bottom: 30px !important; */
 	background-color: white;
 	border: solid 2px black;
 }
 
 .artikel-title {
 	margin-bottom: 65px;
+}
+
+.inline-link {
+	margin-top: 60px;
 }
 
 
