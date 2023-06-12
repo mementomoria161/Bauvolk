@@ -177,16 +177,17 @@ function init_pwa() {
             }
         }
     });
+
+    document.getElementById("notifications").addEventListener("click", () => {
+        Notification.requestPermission().then((result) => {
+            if (result === "granted") {
+            randomNotification();
+            }
+        });
+    });
 }
 
-const button = document.getElementById("notifications");
-button.addEventListener("click", () => {
-  Notification.requestPermission().then((result) => {
-    if (result === "granted") {
-      randomNotification();
-    }
-  });
-});
+
 
 function randomNotification() {
     const notifTitle = "test";
