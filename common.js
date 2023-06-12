@@ -181,7 +181,7 @@ function init_pwa() {
     document.getElementById("notifications").addEventListener("click", () => {
         Notification.requestPermission().then((result) => {
             if (result === "granted") {
-            randomNotification();
+                issue_notification("ISSUE I", "A new ISSUE has just been released!", "https://gefaengnishefte.org/images/issues/issue-i-illustration.WebP");
             }
         });
     });
@@ -189,16 +189,13 @@ function init_pwa() {
 
 
 
-function randomNotification() {
-    const notifTitle = "test";
-    const notifBody = `Created by TESTING}.`;
-    const notifImg = `images/issues/issue-i-illustration.WebP`;
-    const options = {
-      body: notifBody,
-      icon: notifImg,
+function issue_notification(issue, body, img) {
+    let options = {
+      body: body,
+      icon: img,
     };
-    new Notification(notifTitle, options);
-    setTimeout(randomNotification, 30000);
+    new Notification(issue, options);
+    setTimeout(issue_notification, 30000);
   }
 
 
