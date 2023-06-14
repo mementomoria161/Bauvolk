@@ -780,8 +780,6 @@ function init_abo() {
     if(localStorage.getItem("gefaengnishefte_abo") == null) {localStorage.setItem("gefaengnishefte_abo", "email")}
 	setabo(localStorage.getItem("gefaengnishefte_abo"))
 
-
-
     // LISTENERS
 	document.getElementById("email-form").addEventListener('submit', function(event){submit_email(event)})
     document.getElementById("email-form").addEventListener('input', input_email)
