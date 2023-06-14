@@ -278,9 +278,14 @@ function init_options() {
 }
 
 function reset_decoration(element) {
-    console.log(element.style.textDecoration)
+
     let decoration = element.style.textDecoration
-    element.style.textDecoration = decoration
+    element.style.textDecoration = "none"
+
+    if(decoration.includes("underline")) {
+        element.style.textDecoration = "underline"
+    }
+    
 
     let children = element.children
 

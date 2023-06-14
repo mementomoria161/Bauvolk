@@ -81,6 +81,8 @@ body {
 	display:flex;
 	align-items: flex-start;
 	justify-content: space-between;
+	-webkit-tap-highlight-color: transparent;
+	-webkit-touch-callout: none;
 }
 
 .abstract-text {
