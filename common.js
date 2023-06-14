@@ -29,26 +29,18 @@ var LOADED = {              // SEQUENCE MATTERS
     controls: {
         init: false,
         func: init_controls,
-        // tag: "div",
-        // fix: "append"
     },
     databanner: {
         init: false,
         func: init_cookies,
-        // tag: "div",
-        // fix: "append"
     },
     footer: {
         init: false,
         func: init_footer,
-        // tag: "footer",
-        // fix: "append"
     },
     header: {
         init: false,
         func: init_header,
-        // tag: "header",
-        // fix: "prepend"
     }
 }
 
@@ -115,6 +107,7 @@ function init() {
     init_scrollbar()
     init_language()
     init_pwa()
+    init_options()
 
     if(typeof suf_init  === "function") {
         suf_init()
@@ -135,7 +128,6 @@ function init_footer() {
     limit_buttons(layoutCurrent, LAYOUT_LIST, "to-top", "to-bottom")
     document.getElementById("content").addEventListener("scroll", autosetlayout)
     init_footnotes()
-    // init_sharewindow()
 }
 
 
@@ -275,9 +267,9 @@ function enable(element) {
 }
 
 function init_options() {
-    var options = document.getElementsByClassName("option")
+    let options = document.getElementsByClassName("option")
 
-    for (let i = 0; i < options.length; i)
+    for (let i = 0; i < options.length; i++)
     {
         options[i].addEventListener("click", () => {
             reset_decoration(options[i])
@@ -286,15 +278,23 @@ function init_options() {
 }
 
 function reset_decoration(element) {
-    element.style.textDecoration = "none"
+    console.log(element.style.textDecoration)
+    let decoration = element.style.textDecoration
+    element.style.textDecoration = decoration
+
+    let children = element.children
+
+    for (let i = 0; i < children.length; i++)
+    {
+        reset_decoration(children[i])
+    }
 }
 
 
 // SCROLLING
 
-function smooth_scroll(link, target_ID) {
-    reset_decoration(link)
-    document.getElementById(target_ID).scrollIntoView({behavior: 'smooth'})
+function smooth_scroll(ID) {
+    document.getElementById(ID).scrollIntoView({behavior: 'smooth'})
 }
 
 

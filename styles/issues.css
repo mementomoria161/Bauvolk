@@ -9,7 +9,7 @@ body {
 	padding: 0px 60px 20px 60px;
 }
 
-#inhaltsverzeichnis, #coverwrap, .artikel, #ccinfo {
+#inhaltsverzeichnis, #cover-wrap, .artikel, #ccinfo {
 	padding:20px;
 }
 
@@ -30,7 +30,7 @@ body {
 	scroll-margin-top:50px;
 }
 
-#coverwrap {
+#cover-wrap {
 	display:flex;
 	flex-direction: column;
 }
@@ -67,7 +67,7 @@ body {
 	}
 }
 
-.abstract, .abstracttitle {
+.abstract, .abstract-title {
 	min-width: 500px;
 	width: 100%;
 	max-width: 500px;
@@ -77,16 +77,13 @@ body {
 	height:65px;
 }
 
-.abstracttitle {
+.abstract-title {
 	display:flex;
 	align-items: flex-start;
 	justify-content: space-between;
-	-webkit-tap-highlight-color: transparent;
-	-webkit-touch-callout: none;
-	cursor: pointer;
 }
 
-.abstracttext {
+.abstract-text {
 	line-height: 1.5;
 }
 
@@ -170,7 +167,7 @@ body {
 		grid-template-areas: "header" "main" "footer";
 	}
 	
-	.abstract, .abstracttitle {
+	.abstract, .abstract-title {
 		max-width: unset;
 	}
 
@@ -195,17 +192,17 @@ body {
 		justify-content: center;
 	}
 
-	#inhaltsverzeichnis, #coverwrap {
+	#inhaltsverzeichnis, #cover-wrap {
 		background-color: white;
 		border: solid 2px black;
 		padding:20px;
 	}
 
-	#title, #coverwrap {
+	#title, #cover-wrap {
 		max-width: 700px;
 	}
 
-	.abstract, .abstracttitle {
+	.abstract, .abstract-title {
 		min-width: unset;
 		max-width: 500px;
 	}
@@ -216,7 +213,7 @@ body {
 		padding: 0px 12px;
 	}
 	
-	#inhaltsverzeichnis, #coverwrap, .artikel, #ccinfo {
+	#inhaltsverzeichnis, #cover-wrap, .artikel, #ccinfo {
 		padding:10px;
 	}
 
