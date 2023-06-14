@@ -243,8 +243,9 @@ function reset_scroll() {
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-function dummy_function() {
-    return "nothing"
+function prevent_tap_select(element) {
+    alert(element)
+    element.style.display = "inline";
 }
 
 // RESSETTING
