@@ -62,23 +62,11 @@ async function fetchHTML(URL, ID) {
 
 
 function loadElement(ID, HTML) {
-    // console.log(document.readyState)
-    // console.log("load " + ID)
-    
+        
     if (document.readyState == "loading") {
         setTimeout(loadElement, 20, ID, HTML);
     }
     else {
-        // let comp = document.createElement(LOADED[ID].tag)
-        // comp.innerHTML = HTML
-
-        // if(LOADED[ID].fix == "prepend") {
-        //     document.body.prepend(comp)
-        // }
-        // else {
-        //     document.body.append(comp)
-        // }
-
         document.getElementById(ID).innerHTML = HTML
         LOADED[ID].init = true;
 
@@ -271,6 +259,7 @@ function init_options() {
 
     for (let i = 0; i < options.length; i++)
     {
+        console.log(options[i])
         options[i].addEventListener("click", () => {
             reset_decoration(options[i])
         })
@@ -278,21 +267,23 @@ function init_options() {
 }
 
 function reset_decoration(element) {
+    window.getSelection().removeAllRanges();
 
-    let decoration = element.style.textDecoration
-    element.style.textDecoration = "none"
+    // let decoration = element.style.textDecoration
+    // element.style.textDecoration = "none"
 
-    if(decoration.includes("underline")) {
-        element.style.textDecoration = "underline"
-    }
+    // if(decoration.includes("underline")) {
+    //     element.style.textDecoration = "underline"
+    // }
     
 
-    let children = element.children
+    // let children = element.children
 
-    for (let i = 0; i < children.length; i++)
-    {
-        reset_decoration(children[i])
-    }
+    // for (let i = 0; i < children.length; i++)
+    // {
+    //     console.log(children[i])
+    //     reset_decoration(children[i])
+    // }
 }
 
 
