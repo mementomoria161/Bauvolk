@@ -274,14 +274,16 @@ function enable(element) {
     element.style.color = "white";
 }
 
-// function init_options() {
-//     var options = document.getElementsByClassName("option")
+function init_options() {
+    var options = document.getElementsByClassName("option")
 
-//     for (let i = 0; i < options.length; i)
-//     {
-//         options[i].addEventListener();
-//     }
-// }
+    for (let i = 0; i < options.length; i)
+    {
+        options[i].addEventListener("click", () => {
+            reset_decoration(options[i])
+        })
+    }
+}
 
 function reset_decoration(element) {
     element.style.textDecoration = "none"
