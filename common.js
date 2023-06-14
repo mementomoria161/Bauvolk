@@ -243,6 +243,10 @@ function reset_scroll() {
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
+function dummy_function() {
+    return "nothing"
+}
+
 // RESSETTING
 
 function limit_buttons(current, list, first, last) {
