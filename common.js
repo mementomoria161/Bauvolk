@@ -244,10 +244,10 @@ function reset_scroll() {
 
 
 function reset_display(element) {
-    // console.log(element)
-    // let style = window.getComputedStyle(element, null).display
-    // console.log(style)
-    element.style.display = window.getComputedStyle(element, null).display
+    console.log(element)
+    let style = window.getComputedStyle(element, null).display
+    console.log(style)
+    element.style.display = style
 }
 
 // RESSETTING
