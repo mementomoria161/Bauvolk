@@ -243,14 +243,6 @@ function reset_scroll() {
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-function reset_display(element) {
-    // console.log(element)
-    // let style = window.getComputedStyle(element, null).display
-    // console.log(style)
-    // element.style.display = style
-    element.style.textDecoration = "none"
-}
-
 // RESSETTING
 
 function limit_buttons(current, list, first, last) {
@@ -282,11 +274,24 @@ function enable(element) {
     element.style.color = "white";
 }
 
+// function init_options() {
+//     var options = document.getElementsByClassName("option")
+
+//     for (let i = 0; i < options.length; i)
+//     {
+//         options[i].addEventListener();
+//     }
+// }
+
+function reset_decoration(element) {
+    element.style.textDecoration = "none"
+}
+
 
 // SCROLLING
 
 function smooth_scroll(link, target_ID) {
-    reset_display(link)
+    reset_decoration(link)
     document.getElementById(target_ID).scrollIntoView({behavior: 'smooth'})
 }
 

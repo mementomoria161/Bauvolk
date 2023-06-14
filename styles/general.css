@@ -112,42 +112,35 @@ body {
 a:hover, a:visited, a:link, a:active
 {
 	text-decoration: none;
+	transition: 0.1s;
 }
 
 
 #header a:active {
 	color: white;
-	transition: 0.1s;
 }
 #header a:visited {
 	color: white;
-	transition: 0.1s;
 }
 #header a:link {
 	color: white;
-	transition: 0.1s;
 }
 #header a:hover {
 	color: lightgrey;
-	transition: 0.1s;
 }
 
 
 #content a:active {
 	color: var(--content-color-text);
-	transition: 0.1s;
 }
 #content a:visited {
 	color: var(--content-color-text);
-	transition: 0.1s;
 }
 #content a:link {
 	color: var(--content-color-text);
-	transition: 0.1s;
 }
 #content a:hover {
 	color: var(--content-color-link-hover);
-	transition: 0.1s;
 }
 
 
