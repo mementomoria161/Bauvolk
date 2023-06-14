@@ -147,7 +147,7 @@ function init_footer() {
 var PWA_PROMPT;
 
 window.addEventListener('beforeinstallprompt', (e) => {
-    document.getElementById('install-app').style.display = "block";
+    document.getElementById('install-app').style.display = "inline";
     PWA_PROMPT = e;
 });
 
