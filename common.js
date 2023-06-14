@@ -243,9 +243,11 @@ function reset_scroll() {
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-function prevent_tap_select(element) {
-    console.log(element)
-    element.style.display = "inline";
+function reset_display(element) {
+    // console.log(element)
+    // let style = window.getComputedStyle(element, null).display
+    // console.log(style)
+    element.style.display = window.getComputedStyle(element, null).display
 }
 
 // RESSETTING
@@ -282,8 +284,9 @@ function enable(element) {
 
 // SCROLLING
 
-function smooth_scroll(ID) {
-    document.getElementById(ID).scrollIntoView({behavior: 'smooth'})
+function smooth_scroll(link, target_ID) {
+    reset_display(link)
+    document.getElementById(target_ID).scrollIntoView({behavior: 'smooth'})
 }
 
 
