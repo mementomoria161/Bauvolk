@@ -244,7 +244,7 @@ function reset_scroll() {
 
 
 function prevent_tap_select(element) {
-    alert(element)
+    console.log(element)
     element.style.display = "inline";
 }
 
