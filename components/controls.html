@@ -118,18 +118,18 @@
 
             /* SIZING */
 
-            .control_label_small {
+            .control_s {
                 position:relative;
                 bottom:17px;
                 display: none;
             }
 
             @media screen and (max-width: 520px) {
-                .control_label_large {
+                .control_l {
                     display: none;
                 }
 
-                .control_label_small {
+                .control_s {
                     display: inline;
                 }
 
@@ -170,12 +170,15 @@
 
         <div id="control-btns" onmouseleave="hide_slide_index()">
             <button id="letztes" onclick="letztes()">
-                <span class="control_label_large"><span lang="de">VORHERIGES</span><span lang="en">PREVIOUS</span></span><span class="control_label_small">‹</span>
+                <span class="control_l" lang="de">VORHERIGES</span>
+                <span class="control_l" lang="en">PREVIOUS</span>
+                <span class="control_s">‹</span>
             </button>
-            <button id="slide-current" onmouseenter="display_slide_index()">
-            </button>
+            <button id="slide-current" onmouseenter="display_slide_index()"></button>
             <button id="nächstes" onclick="nächstes()">
-                <span class="control_label_large"><span lang="de">NÄCHSTES</span><span lang="en">NEXT</span></span><span class="control_label_small">›</span>
+                <span class="control_l" lang="de">NÄCHSTES</span>
+                <span class="control_l" lang="en">NEXT</span>
+                <span class="control_s">›</span>
             </button>
         </div>
     </body>
