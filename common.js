@@ -131,6 +131,7 @@ function init_header() {
 
 
 function init_footer() {
+    create_layout_list()
     limit_buttons(layoutCurrent, LAYOUT_LIST, "to-top", "to-bottom")
     document.getElementById("content").addEventListener("scroll", autosetlayout)
     init_footnotes()
@@ -968,6 +969,16 @@ function init_highlights() {
 ///////////////////////////////////////////// VERTICAL NAVIGATION ///////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+
+var LAYOUT_LIST = []
+
+function create_layout_list() {
+    let sections = document.getElementById("content").children
+
+    for (let i = 0; i < sections.length; i++ ) {
+        LAYOUT_LIST.push(sections[i].id)
+    }
+}
 
 var layoutCurrent = 0
 
