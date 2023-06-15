@@ -138,6 +138,8 @@ function init_pwa() {
             const { outcome } = await PWA_PROMPT.userChoice;
             if (outcome === 'accepted') {
                 PWA_PROMPT = null;
+                console.log("accepted")
+                document.getElementById('install-app').style.display = "none";
             }
         }
     });
