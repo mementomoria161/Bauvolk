@@ -138,7 +138,6 @@ function init_pwa() {
             const { outcome } = await PWA_PROMPT.userChoice;
             if (outcome === 'accepted') {
                 PWA_PROMPT = null;
-                console.log("accepted")
                 document.getElementById('install-app').style.display = "none";
             }
         }
@@ -340,9 +339,10 @@ function remove_after(string, character) {
 function share(button, index, language) {
     if ('share' in navigator) {
         share_api(index, language, button)
-      } else {
+    } 
+    else {
         copy_link(button, SHARE_DATA[index].url)
-      }    
+    }
 }
 
 async function share_api(index, language, button) {
@@ -374,14 +374,18 @@ async function share_api(index, language, button) {
 function copy_link(button, url) {
 
     navigator.clipboard.writeText(url);
+
+    if(button.getAttribute("data-text-replaced") == "true") {return}
     
     let textOriginal = button.innerHTML
     let textReplace = '<span lang="de">Link kopiert!</span><span lang="en">Copied link!</span>'
 
     button.innerHTML = textReplace;
+    button.setAttribute("data-text-replaced", "true")
 
     setTimeout(function(){
         button.innerHTML = textOriginal;
+        button.setAttribute("data-text-replaced", "")
         reset_language()
     }, 3000);
 
