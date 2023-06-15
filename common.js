@@ -334,6 +334,32 @@ function remove_after(string, character) {
 
 // SHARE LINK
 
+
+async function share(index, language) {
+    
+    let share_source = SHARE_DATA[index]
+    let share_object = {}
+    share_object.url = share_source.url
+    if(language == "de") {
+        share_object.title = share_source.title_de
+        share_object.text = share_source.abstract_de
+    }
+    else if(language == "en") {
+        share_object.title = share_source.title_en
+        share_object.text = share_source.abstract_en
+    }
+    else {
+        return
+    }
+
+
+    try {
+        await navigator.share(share_object);
+    } catch (err) {
+        console.log(err)
+    }
+}
+
 function copy_link(button, link_suffix) {
 
     navigator.clipboard.writeText("https://gefaengnishefte.org/" + link_suffix);
