@@ -335,11 +335,18 @@ function remove_after(string, character) {
 // SHARE LINK
 
 
-async function share(index, language) {
+function share(button, index, language) {
+
+    // copy_link(button, SHARE_DATA[index].url)
+    share_api(index, language, button)
+}
+
+async function share_api(index, language, button) {
     
     let share_source = SHARE_DATA[index]
     let share_object = {}
     share_object.url = share_source.url
+
     if(language == "de") {
         share_object.title = share_source.title_de
         share_object.text = share_source.abstract_de
@@ -349,7 +356,7 @@ async function share(index, language) {
         share_object.text = share_source.abstract_en
     }
     else {
-        return
+        copy_link(button, SHARE_DATA[index].url)
     }
 
 
@@ -360,9 +367,9 @@ async function share(index, language) {
     }
 }
 
-function copy_link(button, link_suffix) {
+function copy_link(button, url) {
 
-    navigator.clipboard.writeText("https://gefaengnishefte.org/" + link_suffix);
+    navigator.clipboard.writeText(url);
     
     let textOriginal = button.innerHTML
     let textReplace = '<span lang="de">Link kopiert!</span><span lang="en">Copied link!</span>'
