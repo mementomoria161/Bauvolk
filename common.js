@@ -336,9 +336,11 @@ function remove_after(string, character) {
 
 
 function share(button, index, language) {
-
-    // copy_link(button, SHARE_DATA[index].url)
-    share_api(index, language, button)
+    if ('share' in navigator) {
+        share_api(index, language, button)
+      } else {
+        copy_link(button, SHARE_DATA[index].url)
+      }    
 }
 
 async function share_api(index, language, button) {
