@@ -255,6 +255,7 @@ function enable(element) {
 }
 
 
+// OPTIONS
 
 function init_options() {
     let options = document.getElementsByClassName("option")

@@ -129,6 +129,12 @@ a:hover, a:visited, a:link, a:active
 	color: lightgrey;
 }
 
+@media (hover: hover) and (pointer: coarse) {
+	#header a:hover {
+		color: white;
+	}
+}
+
 
 #content a:active {
 	color: var(--content-color-text);
