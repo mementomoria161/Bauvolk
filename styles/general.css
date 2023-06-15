@@ -109,36 +109,31 @@ body {
 
 /* LINK */
 
-a:hover, a:visited, a:link, a:active
+a:link, a:active, a:visited
 {
 	text-decoration: none;
 	transition: 0.1s;
+	color: white;
+}
+
+a:hover {
+	color: lightgrey;
 }
 
 
-#header a:active {
+#header a:link, #header a:visited, #header a:active  {
 	color: white;
 }
-#header a:visited {
-	color: white;
-}
-#header a:link {
-	color: white;
-}
+
 #header a:hover {
 	color: lightgrey;
 }
 
 
-#content a:active {
+#content a:link, #content a:visited, #content a:active {
 	color: var(--content-color-text);
 }
-#content a:visited {
-	color: var(--content-color-text);
-}
-#content a:link {
-	color: var(--content-color-text);
-}
+
 #content a:hover {
 	color: var(--content-color-link-hover);
 }
@@ -226,9 +221,7 @@ iframe {
 	aspect-ratio: 16/9;
 }
 
-input {
-	border-radius: 0;
-	border-style:inset;
+input, button {
 	-webkit-tap-highlight-color: transparent;
 	-webkit-touch-callout: none;
 	-webkit-user-select: none;
@@ -236,6 +229,11 @@ input {
 	-moz-user-select: none;
 	-ms-user-select: none;
 	user-select: none;
+}
+
+input {
+	border-radius: 0;
+	border-style:inset;
 }
 
 input:focus {
@@ -250,13 +248,6 @@ button {
 	appearance: none;
 	border-radius: 0;
 	border: 2px outset grey;
-	-webkit-tap-highlight-color: transparent;
-	-webkit-touch-callout: none;
-	-webkit-user-select: none;
-	-khtml-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
 }
 
 button:active {
@@ -350,34 +341,4 @@ button[disabled]{
 	.abo button, .abo input  {
 		font-size: 11pt;
 	}
-}
-
-input::selection {
-	color:initial !important;
-	background: transparent !important;
-}
-
-input::-webkit-selection {
-	color:initial !important;
-	background: transparent !important;
-}
-
-input::-moz-selection {
-	color:initial !important;
-	background: transparent !important;
-}
-
-button::selection {
-	color:initial !important;
-	background: transparent !important;
-}
-
-button::-webkit-selection {
-	color:initial !important;
-	background: transparent !important;
-}
-
-button::-moz-selection {
-	color:initial !important;
-	background: transparent !important;
 }
