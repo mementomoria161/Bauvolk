@@ -254,36 +254,19 @@ function enable(element) {
     element.style.color = "white";
 }
 
+
+
 function init_options() {
     let options = document.getElementsByClassName("option")
 
     for (let i = 0; i < options.length; i++)
     {
-        console.log(options[i])
-        options[i].addEventListener("click", () => {
-            reset_decoration(options[i])
-        })
+        options[i].addEventListener("click", reset_selection)
     }
 }
 
-function reset_decoration(element) {
+function reset_selection() {
     window.getSelection().removeAllRanges();
-
-    // let decoration = element.style.textDecoration
-    // element.style.textDecoration = "none"
-
-    // if(decoration.includes("underline")) {
-    //     element.style.textDecoration = "underline"
-    // }
-    
-
-    // let children = element.children
-
-    // for (let i = 0; i < children.length; i++)
-    // {
-    //     console.log(children[i])
-    //     reset_decoration(children[i])
-    // }
 }
 
 
@@ -413,11 +396,11 @@ function reset_language() {
         localStorage.setItem("gefaengnishefte_language", "de")
     }
     
-	setlanguage(localStorage.getItem("gefaengnishefte_language"))
+	set_language(localStorage.getItem("gefaengnishefte_language"))
 }
 
 
-function setlanguage(language) {
+function set_language(language) {
 	document.querySelectorAll('[lang="de"], [lang="en"]').forEach((item) => {item.hidden = true;})
     document.querySelectorAll('#lang-de, #lang-en').forEach((item) => {item.style.textDecoration = "none";})
 	document.getElementById("lang-" + language).style.textDecoration = "underline"
@@ -468,10 +451,10 @@ function show_databanner() {
 
 // CLEARING
 
-window.addEventListener("beforeunload", cleartpcookies);
+window.addEventListener("beforeunload", clear_cookies_third_party);
 
 
-function cleartpcookies() {
+function clear_cookies_third_party() {
 
     let fpcookies = {}
 
@@ -479,7 +462,7 @@ function cleartpcookies() {
         if(key.includes("gefaengnishefte_")) {fpcookies[key] = value}    
     }
 
-    clearcookies()
+    clear_cookies()
 
     for (let [key, value] of Object.entries(fpcookies)) {
         localStorage.setItem(key, value)
@@ -487,7 +470,7 @@ function cleartpcookies() {
 }
 
 
-function clearcookies() {
+function clear_cookies() {
     sessionStorage.clear();
     localStorage.clear();
 
@@ -554,7 +537,7 @@ function showcookiecontent() {
     }
 
     datainfoshown = false;
-    cleartpcookies()
+    clear_cookies_third_party()
 
     if(document.getElementById("slides")){load_slide_frames()}
 }
@@ -625,7 +608,7 @@ function load_frame(frames, current, slide) {
     // else if(slide != slide_current) {
     //     console.log("load aborted")
     // }
-    cleartpcookies()
+    clear_cookies_third_party()
 }
 
 

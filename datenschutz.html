@@ -49,9 +49,9 @@
         </script>
 
         <script>
-            function clearcookiesbutton() {
-                clearcookies()
-                changelabel("clearcookies", "<span lang='de'>Cookies erfolgreich gelöscht!*</span><span lang='en'>Cookies successfully deleted!*</span>", "<span lang='de'>Ablehnen und Cookies löschen*</span><span lang='en'>Decline and delete cookies*</span>")
+            function clear_cookiesbutton() {
+                clear_cookies()
+                changelabel("clear_cookies", "<span lang='de'>Cookies erfolgreich gelöscht!*</span><span lang='en'>Cookies successfully deleted!*</span>", "<span lang='de'>Ablehnen und Cookies löschen*</span><span lang='en'>Decline and delete cookies*</span>")
             }
 
             function acceptcookiesbutton() {
@@ -132,7 +132,7 @@
                 display:none;
             }
 
-            #clearcookies {
+            #clear_cookies {
                 width:290px;
             }
         </style>
@@ -152,7 +152,7 @@
                 <br><br>
                 <div id="dataoptionen">
                     <button id="acceptcookies" class="dataoption" onclick="acceptcookiesbutton()"><span lang="de">Akzeptieren</span><span lang="en">Accept</span></button>
-                    <button id="clearcookies" class="dataoption" onclick="clearcookiesbutton()"><span lang="de">Ablehnen und Cookies löschen*</span><span lang="en">Decline and delete cookies*</span></button>
+                    <button id="clear_cookies" class="dataoption" onclick="clear_cookiesbutton()"><span lang="de">Ablehnen und Cookies löschen*</span><span lang="en">Decline and delete cookies*</span></button>
                 </div>
                 <br>
                 <small lang="de">* Nicht immer können alle Third-Party-Cookies von uns gelöscht werden.</small>
