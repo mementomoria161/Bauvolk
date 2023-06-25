@@ -44,6 +44,8 @@
 				-moz-user-select: none;
 				-ms-user-select: none;
 				user-select: none;
+				pointer-events: none;
+				cursor: auto;
 			}
 
 			#navigation {
@@ -52,8 +54,6 @@
 				display: flex;
 				justify-content: space-between;
 				gap: 30px;
-				pointer-events: none;
-				cursor: auto;
 			}
 
 
@@ -211,6 +211,10 @@
 
 				.menu-content {
 					border: 0px none transparent;
+				}
+
+				#navigation {
+					justify-content: flex-end;
 				}
 			}
 
