@@ -998,7 +998,7 @@ function init_highlights() {
                     element.classList.add("nav-selection");
                 }
                 else {
-                    element.style.fontWeight = "800"
+                    element.style.fontWeight = "700"
                 }
                 
             }
