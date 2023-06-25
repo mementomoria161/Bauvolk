@@ -912,7 +912,7 @@ function openmenu(origin) {
 	anchor.style.visibility = "visible";
 
 	if (window.innerWidth >= 800) {
-		menu.style.width = document.getElementById("navigation").offsetWidth + 201 + 'px'; // og value 30
+		menu.style.width = document.getElementById("navigation").offsetWidth + 181 + 'px'; // og value 30
 	}
 	else {
 		menu.style.width = "100vw";
