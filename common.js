@@ -992,7 +992,15 @@ function init_highlights() {
         if (window_url == ("https://www.GEFAENGNISHEFTE.org" + URLsnippet).toLowerCase()) {
             for (let i = 0; i < IDs.length; i++ ) {
                 console.log("window: " + window_url + "   snippet: " + URLsnippet + " -> " + IDs[i])
-                document.getElementById(IDs[i]).classList.add("nav-selection");
+
+                let element = document.getElementById(IDs[i])
+                if(element.classList.contains("nav-selectable")) {
+                    element.classList.add("nav-selection");
+                }
+                else {
+                    element.style.fontWeight = "800"
+                }
+                
             }
             return
         }

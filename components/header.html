@@ -44,20 +44,19 @@
 				-moz-user-select: none;
 				-ms-user-select: none;
 				user-select: none;
-				pointer-events: none;
-				cursor: auto;
+				/* pointer-events: none;
+				cursor: auto; */
+			}
+
+			.nav-selectable {
+				padding: 0px 15px;
 			}
 
 			#navigation {
-				/* width: 330px; */
 				padding: 15px 20px;
 				display: flex;
 				justify-content: space-between;
 				gap: 10px;
-			}
-
-			#navigation > * {
-				padding: 0px 10px;
 			}
 
 
@@ -243,8 +242,8 @@
 				<a class="dropanchor" id="highlight-issues" href="https://www.GEFAENGNISHEFTE.org">ISSUES</a>
 
 				<div class="dropmenu menu-content">
-					<a class="issue-title" id="info-issue-i"  href="https://www.GEFAENGNISHEFTE.org/issue-i"><span>ISSUE I</span> <span lang="de">ALTERNATIVE UTOPIEN</span><span lang="en">ALTERNATIVE UTOPIAS</span></a>
-					<a class="issue-title" id="info-issue-ii"  href="https://www.GEFAENGNISHEFTE.org/issue-i"><span>ISSUE II</span> <span lang="de">REFORM ODER REVOLUTION</span><span lang="en">REFORM OR REVOLUTION</span></a>
+					<a class="issue-title nav-selectable" id="info-issue-i"  href="https://www.GEFAENGNISHEFTE.org/issue-i"><span>ISSUE I</span> <span lang="de">ALTERNATIVE UTOPIEN</span><span lang="en">ALTERNATIVE UTOPIAS</span></a>
+					<a class="issue-title nav-selectable" id="info-issue-ii"  href="https://www.GEFAENGNISHEFTE.org/issue-i"><span>ISSUE II</span> <span lang="de">REFORM ODER REVOLUTION</span><span lang="en">REFORM OR REVOLUTION</span></a>
 				</div>
 			</div>
 
@@ -254,14 +253,14 @@
 				<a class="dropanchor" id="highlight-kanon" href="https://www.GEFAENGNISHEFTE.org/kanon">KANON</a>
 
 				<div class="dropmenu menu-content">
-					<a href="https://www.GEFAENGNISHEFTE.org/kanon"><span lang="de">Eine Zusammenstellung sehenswerter Inhalte</span><span lang="en">A collection of content worth watching</span></a>
+					<a class="nav-selectable" href="https://www.GEFAENGNISHEFTE.org/kanon"><span lang="de">Eine Zusammenstellung sehenswerter Inhalte</span><span lang="en">A collection of content worth watching</span></a>
 				</div>
 			</div>
 
 			<!-- MENU/ETC -->
 
 			<div>
-				<span class="dropanchor" id="etc" onmouseenter="openmenu(this)">ETC</span>
+				<span class="dropanchor nav-selectable" id="etc" onmouseenter="openmenu(this)">ETC</span>
 				<span class="dropanchor" id="openmenu" onclick="openmenu(this)"><span lang="de">MENÜ</span><span lang="en">MENU</span></span>
 				<span class="dropanchor" id="closemenu" onclick="safeclosemenu()">X</span>
 
@@ -270,8 +269,8 @@
 					<!-- EXPANDED MENU -->
 
 					<div class="menu-content" id="menu-expanded">
-						<a id="highlight-issues-expanded" href="https://www.GEFAENGNISHEFTE.org">ISSUES</a><br>
-						<a id="highlight-kanon-expanded" href="https://www.GEFAENGNISHEFTE.org/kanon">KANON</a>
+						<a class="nav-selectable" id="highlight-issues-expanded" href="https://www.GEFAENGNISHEFTE.org">ISSUES</a><br>
+						<a class="nav-selectable" id="highlight-kanon-expanded" href="https://www.GEFAENGNISHEFTE.org/kanon">KANON</a>
 					</div>
 					
 				
