@@ -995,7 +995,7 @@ function init_highlights() {
 
                 let element = document.getElementById(IDs[i])
                 if(element.classList.contains("nav-selectable")) {
-                    element.classList.add("nav-selection");
+                    element.classList.add("nav-selected");
                 }
                 else {
                     element.style.fontWeight = "700"
