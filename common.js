@@ -992,7 +992,7 @@ function init_highlights() {
         if (window_url == ("https://www.GEFAENGNISHEFTE.org" + URLsnippet).toLowerCase()) {
             for (let i = 0; i < IDs.length; i++ ) {
                 console.log("window: " + window_url + "   snippet: " + URLsnippet + " -> " + IDs[i])
-                document.getElementById(IDs[i]).style.fontWeight = "700";
+                document.getElementById(IDs[i]).style.backgroundColor = "white";
             }
             return
         }
