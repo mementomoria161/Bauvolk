@@ -913,7 +913,7 @@ function openmenu(origin) {
 
 	if (window.innerWidth >= 800) {
 		// menu.style.width = document.getElementById("navigation").offsetWidth + 201 + 'px'; // og value 30
-        menu.style.width = '500px';
+        menu.style.width = "500px";
 	}
 	else {
 		menu.style.width = "100vw";
