@@ -912,8 +912,8 @@ function openmenu(origin) {
 	anchor.style.visibility = "visible";
 
 	if (window.innerWidth >= 800) {
-		// menu.style.width = document.getElementById("navigation").offsetWidth + 201 + 'px'; // og value 30
-        menu.style.width = "491px";
+		menu.style.width = document.getElementById("navigation").offsetWidth + 201 + 'px'; // og value 30
+        // menu.style.width = "491px";
 	}
 	else {
 		menu.style.width = "100vw";
@@ -995,12 +995,12 @@ function init_highlights() {
                 console.log("window: " + window_url + "   snippet: " + URLsnippet + " -> " + IDs[i])
 
                 let element = document.getElementById(IDs[i])
-                if(element.classList.contains("nav-selectable")) {
-                    element.classList.add("nav-selected");
-                }
-                else {
+                // if(element.classList.contains("nav-selectable")) {
+                //     element.classList.add("nav-selected");
+                // }
+                // else {
                     element.style.fontWeight = "700"
-                }
+                // }
                 
             }
             return
