@@ -188,7 +188,7 @@ cite {
 /* SCROLLBAR */
 
 *::-webkit-scrollbar {
-	width: 2px;
+	width: 8px;
 	height: 8px;
 	z-index:10;
 }
