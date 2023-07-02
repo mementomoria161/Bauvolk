@@ -134,12 +134,19 @@ article {
 	gap: 30px;
 }
 
-#interaction-bottom {
+.interaction {
 	display: flex;
+	flex-direction: column;
 	gap: 60px;
+}
+
+#interaction-top {
+	margin-bottom: 150px;
+}
+
+#interaction-bottom {
 	margin-top: 200px;
 	margin-bottom: 120px;
-	flex-direction: column;
 }
 
 
@@ -169,7 +176,7 @@ article {
 		grid-template-rows: auto 1fr auto;
 		grid-template-areas: "header" "main" "footer";
 	}
-	
+
 	.abstract, .abstract-title {
 		max-width: unset;
 	}
