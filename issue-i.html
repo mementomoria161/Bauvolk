@@ -146,7 +146,7 @@
                             has degenerated into totalitarian state capitalism?
                         </p>
                     </div>
-                    <div class="abstract-separator"></div>
+                    
                     <div class="abstract">
                         <a class="abstract-title option" onclick="smooth_scroll('der-neue-rahmen')">
                             <h2 lang="de">DER NEUE RAHMEN</h2>
@@ -170,7 +170,7 @@
                             can be ensured.
                         </p>
                     </div>
-                    <div class="abstract-separator"></div>
+
                     <div class="abstract">
                         <a class="abstract-title option" onclick="smooth_scroll('agieren-und-agitieren')">
                             <h2 lang="de">AGIEREN UND AGITIEREN</h2>
@@ -198,7 +198,7 @@
             </section>
 
 
-            <article class="artikel" id="die-vergesellschaftung-des-kapitalismus">
+            <article id="die-vergesellschaftung-des-kapitalismus">
                 <h1 lang="de" class="artikel-title">DIE VERGESELLSCHAFTUNG<br/>DES KAPITALISMUS</h1>
                 <h1 lang="en" class="artikel-title">THE SOCIALIZATION<br/>OF CAPITALISM</h1>
                 
@@ -213,7 +213,7 @@
             </article>
 
 
-            <article class="artikel" id="der-neue-rahmen">
+            <article id="der-neue-rahmen">
                 <h1 lang="de" class="artikel-title">DER NEUE<br/>RAHMEN</h1>
                 <h1 lang="en" class="artikel-title">THE NEW<br/>FRAME</h1>
                 <p>
@@ -227,7 +227,7 @@
             </article>
 
 
-            <article class="artikel" id="agieren-und-agitieren">
+            <article id="agieren-und-agitieren">
                 <h1 lang="de" class="artikel-title">AGIEREN UND<br/>AGITIEREN</h1>
                 <h1 lang="en" class="artikel-title">ACT AND<br/>AGIT</h1>
                 <p>
@@ -241,12 +241,39 @@
             </article>
 
 
-            <section id="ccinfo">
-                <div id="cctext">
-                    <span lang="de"><p>Alle von uns erschaffenen Inhalte dürfen nicht-kommerziell und unter unserer Nennung als Autor*innen verwendet werden <a href="https://creativecommons.org/licenses/by-nc/4.0/" style="text-decoration: underline;">(CC BY-NC 4.0)</a>. Eine kommerzielle Nutzung ist in fast allen Fällen auf Rückfrage problemlos möglich.</p></span>
-                    <span lang="en"><p>All content created by us may be used non-commercially and with our attribution as authors <a href="https://creativecommons.org/licenses/ by-nc/4.0/" style="text-decoration: underline;">(CC BY-NC 4.0)</a>. Commercial use is possible without any problems in almost all cases on request.</p></span>
+            <section id="interaction-bottom" class="interaction">
+                <!-- <div>
+                    <p lang="de">Wenn über neue ISSUES benachrichtigt werden möchtest, kannst du hier per <span class="option" id="email-opt" onclick="setabo('email')">Email</span> oder über <span class="option" id="telegram-opt" onclick="setabo('telegram')">Telegram</span> abonnieren.</p>
+                    <p lang="en">Wenn über neue ISSUES benachrichtigt werden möchtest, kannst du hier abonnieren.</p>      
+                    <form id="email-form">
+                        <span class="abo"><button class="footerelement" type="submit" id="email-btn" class="email-btn"><span lang="de">Abonnieren</span><span lang="en">Subscribe</span></button>
+                        <span><input type="email" name="Email" id="email-input" placeholder="Email" required></span></span>
+                        <input type="hidden" name="_subject" value="Abonnement">
+                        <input type="hidden" name="_captcha" value="true">
+                        <label id="email-info" for="email-checkbox"><input type="checkbox" id="email-checkbox" required>   <span lang="de">Ich möchte über neue ISSUES benachrichtigt werden. <br><br>Hinweise zum Widerruf und der Verarbeitung deiner Daten geben wir in unserer <a href="https://www.GEFAENGNISHEFTE.org/datenschutz">Datenschutzerklärung</a>. Einen Link zum <a href="https://www.GEFAENGNISHEFTE.org/deabonnieren">Deabonnieren</a> findest du in jeder Mail.</span><span lang="en">I want to be notified about new ISSUES. <br><br>We provide information on revocation and the processing of your data in our <a href="https://www.GEFAENGNISHEFTE.org/datenschutz">data protection section</a>. A link to <a href="https://www.GEFAENGNISHEFTE.org/deabonnieren">unsubscribe</a> is included in every mail.</span></label>
+                    </form>
+                    
+                    <a id="telegram-form" class="abo" href="https://t.me/GEFAENGNISHEFTE" target="_blank"><button id="telegram-btn">t.me/GEFAENGNISHEFTE</button></a>
+                </div> -->
+
+                <div>
+                    <p lang="de">Wenn du eine physische Kopie dieses ISSUE möchtest, kannst du es hier zum Produktionspreis an deine Adresse bestellen.</p>
+                    <p lang="en">All content created by us may be used non-commercially and with our attribution as authors <a href="https://creativecommons.org/licenses/ by-nc/4.0/" style="text-decoration: underline;">(CC BY-NC 4.0)</a>. Commercial use is possible without any problems in almost all cases on request.</p>
+                    <a href="https://www.paypal.com/paypalme/GEFAENGNISHEFTE/EUR" target="_blank"><button class="footerelement">Bestellen</button></a>
                 </div>
-                <div id="ccicon">
+
+                <div>
+                    <p lang="de">Wir haben viel Arbeit und ein wenig Geld in die Produktion der GEFÄNGNISHEFTE gesteckt. Wir freuen uns sehr über finanzielle Unterstützung.</p>
+                    <p lang="en">Wir haben viel Arbeit und ein wenig Geld in die Produktion der GEFÄNGNISHEFTE gesteckt. Wir freuen uns sehr über finanzielle Unterstützung.</p>
+                    <a id="donation-button" href="https://www.paypal.com/paypalme/GEFAENGNISHEFTE/EUR" target="_blank"><button class="footerelement">PayPal</button></a>
+                </div>
+            </section>
+
+
+            <section id="creative-commons">
+                <p lang="de">Alle von uns erschaffenen Inhalte dürfen nicht-kommerziell und unter unserer Nennung als Autor*innen verwendet werden <a href="https://creativecommons.org/licenses/by-nc/4.0/" style="text-decoration: underline;">(CC BY-NC 4.0)</a>. Eine kommerzielle Nutzung ist in fast allen Fällen auf <a href="mailto:GEFAENGNISHEFTE@riseup.net" target="_blank">Rückfrage</a> problemlos möglich.</p>
+                <p lang="en">All content created by us may be used non-commercially and with our attribution as authors <a href="https://creativecommons.org/licenses/ by-nc/4.0/" style="text-decoration: underline;">(CC BY-NC 4.0)</a>. Commercial use is possible without any problems in almost all cases on <a href="mailto:GEFAENGNISHEFTE@riseup.net" target="_blank"></a>request</a>.</p>
+                <div id="creative-commons-icons">
                     <img src="images/internal/cc.svg">
                     <img src="images/internal/by.svg">
                     <img src="images/internal/nc-eu.svg">

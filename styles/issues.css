@@ -9,11 +9,14 @@ body {
 	padding: 0px 60px 20px 60px;
 }
 
-#inhaltsverzeichnis, #cover-wrap, .artikel, #ccinfo {
+section, article {
 	padding:20px;
+	scroll-margin-top:50px;
+	background-color: white;
+	border: solid 2px black;
+	max-width: 700px;
+	width: 100%;
 }
-
-:root { --illustration-height: 0px;}
 
 
 /* COVER */
@@ -24,10 +27,9 @@ body {
 	justify-content: space-between;
 	gap:250px 100px;
 	margin-bottom: 350px;
-	background-color: white;
-	border: solid 2px black;
 	margin-top:20px;
-	scroll-margin-top:50px;
+	max-width: unset;
+	width: unset;
 }
 
 #cover-wrap {
@@ -46,6 +48,8 @@ body {
 	width:100%;
 	max-width:900px;
 }
+
+:root { --illustration-height: 0px;}
 
 #title {
 	display: flex;
@@ -67,14 +71,16 @@ body {
 	}
 }
 
+#inhaltsverzeichnis {
+	display: flex;
+	flex-direction: column;
+	gap:65px;
+}
+
 .abstract, .abstract-title {
 	min-width: 500px;
 	width: 100%;
 	max-width: 500px;
-}
-
-.abstract-separator {
-	height:65px;
 }
 
 .abstract-title {
@@ -93,8 +99,6 @@ body {
 	font-size:26pt;
 	-webkit-tap-highlight-color: transparent;
 	-webkit-touch-callout: none;
-	-webkit-tap-highlight-color: transparent;
-	-webkit-touch-callout: none;
 	-webkit-user-select: none;
 	-khtml-user-select: none;
 	-moz-user-select: none;
@@ -107,18 +111,10 @@ body {
 
 /* INHALT */
 
-.artikel {
-	scroll-margin-top:50px;
-
+article {
+	margin-bottom: 150px;
 	text-align: justify;
 	line-height: 2;
-	
-	max-width: 700px;
-	width: 100%;
-	margin-bottom: 150px;
-	/* padding-bottom: 30px !important; */
-	background-color: white;
-	border: solid 2px black;
 }
 
 .artikel-title {
@@ -130,33 +126,38 @@ body {
 }
 
 
-/* CC INFO */
+/* BOTTOM */
 
-#ccinfo {
-	width: 100%;
-	margin-top: 140px;
-	margin-bottom: 120px;
-	display:flex;
-	flex-wrap: wrap;
-	justify-content: space-between;
-	gap:30px;
-	width:700px;
-	background-color: white;
-	border: solid 2px black;
+.interaction > div, #creative-commons {
+	display: flex;
+	flex-direction: column;
+	gap: 30px;
 }
 
-/* #cctext {
-	max-width: 60%;
-} */
+#interaction-bottom {
+	display: flex;
+	gap: 60px;
+	margin-top: 200px;
+	margin-bottom: 120px;
+	flex-direction: column;
+}
 
-#ccicon {
+
+#creative-commons {
+	scroll-margin-top:0px;
+	margin-bottom: 120px;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+
+#creative-commons-icons {
 	display: flex;
 	flex-flow: row;
 	gap:2px;
 	align-items: flex-end;
 }
 
-#ccicon * {
+#creative-commons-icons * {
 	height: 48px;
 }
 
@@ -177,7 +178,7 @@ body {
 		height:unset !important;
 	}
 
-	.artikel, #ccinfo {
+	article, section {
 		margin-left: auto;
 		margin-right: auto;
 	}
@@ -215,7 +216,7 @@ body {
 		padding: 0px 12px;
 	}
 	
-	#inhaltsverzeichnis, #cover-wrap, .artikel, #ccinfo {
+	#inhaltsverzeichnis, #cover-wrap, article, #creative-commons {
 		padding:10px;
 	}
 

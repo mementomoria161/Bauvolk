@@ -670,19 +670,16 @@ function load_frame(frames, current, slide) {
 const MAIL_MSG = {
     "email-btn": {
         initial: {msg: '<span lang="de">Abonnieren</span><span lang="en">Subscribe</span>', disabled: false, func: null},
-        // sending: {msg: '<span lang="de">Sende...</span><span lang="en">Sending...</span>', disabled: false, func: null},
         success: {msg: '<span lang="de">Abonniert!</span><span lang="en">Subscribed!</span>', disabled: true, func: reset_emailinfo},
         error: {msg: '<span lang="de">FEHLER!</span><span lang="en">ERROR!</span>', disabled: false, func: null}
     },
     "email-deabo-btn": {
         initial: {msg: '<span lang="de">Deabonnieren</span><span lang="en">Unsubscribe</span>', disabled: false, func: null},
-        // sending: {msg: '<span lang="de">Sende...</span><span lang="en">Sending...</span>', disabled: false, func: null},
         success: {msg: '<span lang="de">Deabonniert.</span><span lang="en">Unsubscribed.</span>', disabled: true, func: null},
         error: {msg: '<span lang="de">FEHLER!</span><span lang="en">ERROR!</span>', disabled: false, func: null}
     },
     "email-confirm-info": {
         initial: {msg: '', disabled: false, func: null},
-        // sending: {msg: '<span lang="de">Sende...</span><span lang="en">Sending...</span>', disabled: false, func: null},
         success: {msg: '<span lang="de">Deine E-mail wurde erfolgreich bestätigt!</span><span lang="en">Your E-Mail has been confirmed successfully!</span>', disabled: true, func: null},
         error: {msg: '<span lang="de">Etwas ist bei der Bestätigung schiefgelaufen.<br>Bitte versuche es noch einmal, oder schreibe Nachricht an <a href="mailto:GEFAENGNISHEFTE@riseup.net">GEFAENGNISHEFTE@riseup.net</a></span><span lang="en">Something went wrong during the confirmation process.<br>Please try again, or message us at <a href="mailto:GEFAENGNISHEFTE@riseup.net">GEFAENGNISHEFTE@riseup.net</a></span>', disabled: false, func: null}
     }
@@ -745,7 +742,7 @@ function fetch_mail(content, ID) {
 
 function submit_email(event) {
 	event.preventDefault()
-
+    
     let data = new FormData(event.target)
     data.append('Code', makeid(40));
     fetch_mail(make_table(data), "email-btn")
