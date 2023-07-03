@@ -161,9 +161,13 @@
             var protected_hover = false
 
             function display_combined(index) {
-                if(slide_current == index || protected_hover) {return}
-                display_slide(index)
-                title_display(index)
+                if(slide_current == index || protected_hover) {
+                    display_slide(index)
+                }
+                else {
+                    display_slide(index)
+                    title_display(index)
+                }
             }
 
             function title_display(index) {
