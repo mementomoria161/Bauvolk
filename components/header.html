@@ -201,29 +201,64 @@
 			#openmenu, #menu-expanded, .menu-divider {
 				display: none;
 			}
+			
 
 			@media screen and (max-width: 800px) {
+
+				#menu {
+					margin-top: 20px;
+					place-content: center;
+					gap: 40px;
+					grid-template-rows: auto auto;
+					grid-template-columns: auto;
+					grid-template-areas: "menu-expanded" "menu-etc";
+				}
+
+				#menu-expanded {grid-area: menu-expanded;}
+				#menu-etc {grid-area: menu-etc;}
 
 				.menu-horizontal, #etc {
 					display: none;
 				}
 
-				#openmenu, #menu-expanded, .menu-divider {
+				#openmenu, #menu-expanded {
 					display: block;
 				}
 
 				.menu-content {
-					border: 0px none transparent;
+					width: 80vw;
+					padding: 10px !important;
+					/* border: 0px none transparent; */
 				}
 
 				#navigation {
 					justify-content: flex-end;
 				}
+
+				#menu-etc {
+					display: flex;
+					flex-direction: column-reverse;
+					border: 0px none transparent;
+					padding: 0px !important;
+					gap:40px;
+				}
+
+				#menu-etc > div {
+					border: 2px outset grey;
+					width: 100%;
+					padding: 10px !important;
+				}
 			}
 
-			@media screen and (max-width: 400px) {
+			@media screen and (max-width: 450px) {
 				.long {
 					display:none;
+				}
+			}
+
+			@media screen and (max-height: 600px) {
+				#menu, #menu-etc {
+					gap:15px;
 				}
 			}
 
@@ -264,7 +299,7 @@
 				<span class="dropanchor" id="openmenu" onclick="openmenu(this)"><span lang="de">MENÜ</span><span lang="en">MENU</span></span>
 				<span class="dropanchor" id="closemenu" onclick="safeclosemenu()">X</span>
 
-				<div class="dropmenu">
+				<div class="dropmenu" id="menu">
 
 					<!-- EXPANDED MENU -->
 
@@ -274,7 +309,7 @@
 					</div>
 					
 				
-					<hr class="menu-divider">
+					<!-- <hr class="menu-divider"> -->
 
 					<!-- INFO -->
 					<div class="menu-content" id="menu-etc">
@@ -309,7 +344,7 @@
 						</div>
 					</div>
 
-					<hr class="menu-divider">
+					<!-- <hr class="menu-divider"> -->
 				</div>
 			</div>
 		</nav>

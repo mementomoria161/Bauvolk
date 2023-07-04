@@ -911,9 +911,14 @@ function openmenu(origin) {
 	if (window.innerWidth >= 800) {
 		menu.style.width = document.getElementById("navigation").offsetWidth + 201 + 'px'; // og value 30
         // menu.style.width = "491px";
+        menu.style.height = "initial";
 	}
 	else {
 		menu.style.width = "100vw";
+        console.log('calc(100vh - ' + document.getElementById("navigation").offsetHeight + 'px)')
+        menu.style.height = 'calc(100vh - ' + document.getElementById("navigation").offsetHeight + 'px)';
+        menu.style.display = "grid"
+        
 		document.getElementById("logo").style.display = "none";
         document.getElementById("navigation").style.width = "100vw";
         document.getElementById("navigation").style.justifyContent = "flex-end";
