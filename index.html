@@ -62,7 +62,8 @@
 
             const ISSUE_LIST = [
                 {
-                    no: "ISSUE I",
+                    no_de: "HEFT I",
+                    no_en: "ISSUE I",
                     title_no: "title-i",
                     date_de: "MAI 2023",
                     date_en: "MAI 2023",
@@ -70,10 +71,11 @@
                     title_en: "ALTERNATIVE <br>UTOPIAS",
                     cover_de: "images/issues/de/issue-i-cover.WebP",
                     cover_en: "images/issues/en/issue-i-cover.WebP",
-                    url: "issue-i"
+                    url: "heft-i"
                 },
                 {
-                    no: "ISSUE II",
+                    no_de: "HEFT I",
+                    no_en: "ISSUE I",
                     title_no: "title-ii",
                     date_de: "ENDE 2023",
                     date_en: "LATE 2023",
@@ -81,10 +83,11 @@
                     title_en: "REFORM OR <br>REVOLUTION",
                     cover_de: "images/issues/de/issue-ii-cover.WebP",
                     cover_en: "images/issues/en/issue-ii-cover.WebP",
-                    url: "issue-ii"
+                    url: "heft-ii"
                 },
                 {
-                    no: "ISSUE III",
+                    no_de: "HEFT I",
+                    no_en: "ISSUE I",
                     title_no: "title-ii",
                     date_de: "ANFANG 2024",
                     date_en: "EARLY 2024",
@@ -92,10 +95,11 @@
                     title_en: "COUNCIL OR <br>PARLIAMENT",
                     cover_de: "images/issues/de/issue-ii-cover.WebP",
                     cover_en: "images/issues/en/issue-ii-cover.WebP",
-                    url: "issue-ii"
+                    url: "heft-ii"
                 },
                 {
-                    no: "ISSUE IV",
+                    no_de: "HEFT I",
+                    no_en: "ISSUE I",
                     title_no: "title-ii",
                     date_de: "ENDE 2024",
                     date_en: "LATE 2024",
@@ -103,10 +107,11 @@
                     title_en: "IS POPULISM <br>A GOOD THING?",
                     cover_de: "images/issues/de/issue-ii-cover.WebP",
                     cover_en: "images/issues/en/issue-ii-cover.WebP",
-                    url: "issue-ii"
+                    url: "heft-ii"
                 },
                 {
-                    no: "ISSUE V",
+                    no_de: "HEFT I",
+                    no_en: "ISSUE I",
                     title_no: "title-ii",
                     date_de: "ANFANG 2025",
                     date_en: "EARLY 2025",
@@ -114,15 +119,15 @@
                     title_en: "MATERIAL OR <br>SYMBOL POLITICS",
                     cover_de: "images/issues/de/issue-ii-cover.WebP",
                     cover_en: "images/issues/en/issue-ii-cover.WebP",
-                    url: "issue-ii"
+                    url: "heft-ii"
                 }
             ]
 
             // TEMPLATES
 
-            function cover_template(i){let issue = ISSUE_LIST[i]; return '<a class="cover" href=' + issue.url + '><img class="cover-image" loading="lazy" lang="de" src=' + issue.cover_de + ' alt=' + issue.no + ' COVER/><img class="cover-image" loading="lazy" lang="en" src=' + issue.cover_en + ' alt=' + issue.no + 'COVER/></a>'}
-            function basic_template(issue) {return '<span>' + issue.no + '</span><span lang="de">' + issue.title_de + '</span><span lang="en">' + issue.title_en + '</span>'}
-            function basic_template_date(issue) {return '<span lang="de">' + issue.no + '&#x2005;&#x2005;&#x2005;&#x2005;' + issue.date_de +  '</span><span lang="en">' + issue.no + '&#x2005;&#x2005;&#x2005;&#x2005;' +  issue.date_en + '</span><span lang="de">' + issue.title_de + '</span><span lang="en">' + issue.title_en + '</span>'}
+            function cover_template(i){let issue = ISSUE_LIST[i]; return '<a class="cover" href=' + issue.url + '><img class="cover-image" loading="lazy" lang="de" src=' + issue.cover_de + ' alt=' + issue.no_de + ' COVER/><img class="cover-image" loading="lazy" lang="en" src=' + issue.cover_en + ' alt=' + issue.no_en + 'COVER/></a>'}
+            function basic_template(issue) {return '<span lang="de">' + issue.no_de + '</span><span lang="en">' + issue.no_en + '</span><span lang="de">' + issue.title_de + '</span><span lang="en">' + issue.title_en + '</span>'}
+            function basic_template_date(issue) {return '<span lang="de">' + issue.no_de + '&#x2005;&#x2005;&#x2005;&#x2005;' + issue.date_de +  '</span><span lang="en">' + issue.no_en + '&#x2005;&#x2005;&#x2005;&#x2005;' +  issue.date_en + '</span><span lang="de">' + issue.title_de + '</span><span lang="en">' + issue.title_en + '</span>'}
             function title_template(i){let issue = ISSUE_LIST[i]; return  cover_template(i) + '<a onmouseover="display_combined(' + i + ')" class="issue-title vertical" href=' + issue.url + '>' + basic_template_date(issue)+ '</a>'}
             function index_title_template(i){let issue = ISSUE_LIST[i]; return '<a class="issue-title center" href=' + issue.url + '>' + basic_template(issue) + '</a>'}
             function index_template(slide, i){let issue = ISSUE_LIST[i]; return '<span onclick="display_combined(' + i + ')" id="index' + i + '" class="indexitem issue-title">' + basic_template(issue) + '</span><hr>'}
