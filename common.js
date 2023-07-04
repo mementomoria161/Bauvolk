@@ -924,6 +924,17 @@ function openmenu(origin) {
         document.getElementById("navigation").style.justifyContent = "flex-end";
 		document.getElementById("openmenu").style.display = "none";
 		document.getElementById("closemenu").style.display = "inline";
+
+        // let animation = [
+        //     { opacity: 0},
+        //     { opacity: 1},
+        // ];
+
+        // menu.animate(animation, {duration: 500, iterations: 1})
+        // menu.addEventListener("animationstart", function(e) {
+        //     console.log("test")
+        //     alert("test")
+        //   });
 	}
 
 	menuopen = true
@@ -954,6 +965,8 @@ function closemenu() {
 		document.getElementById("openmenu").style.display = "inline";
         document.getElementById("navigation").style.width = "fit-content";
         document.getElementById("navigation").style.justifyContent = "space-between";
+
+        // menu.animate([{ opacity: 1},{ opacity: 0},], {duration: 500, iterations: 1})
 	}
 
 	menuopen = false

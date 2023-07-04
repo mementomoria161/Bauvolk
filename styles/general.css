@@ -306,6 +306,10 @@ button[disabled]{
 	background-color:white;
 }
 
+.abo span {
+	width:100%;
+}
+
 .abo button {
 	float:right;
 	background-color:lightgrey;
