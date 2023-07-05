@@ -129,7 +129,7 @@
             function basic_template(issue) {return '<span lang="de">' + issue.no_de + '</span><span lang="en">' + issue.no_en + '</span><span lang="de">' + issue.title_de + '</span><span lang="en">' + issue.title_en + '</span>'}
             function basic_template_date(issue) {return '<span lang="de" class="left">' + issue.no_de + '<br>' + issue.date_de + '</span><span lang="en" class="left">' + issue.no_en +  '<br>' + issue.date_en + '</span><span lang="de">' + issue.title_de + '</span><span lang="en">' + issue.title_en + '</span>'}
             function title_template(i){let issue = ISSUE_LIST[i]; return  cover_template(i) + '<a onmouseover="display_combined(' + i + ')" class="issue-title vertical" href=' + issue.url + '>' + basic_template_date(issue)+ '</a>'}
-            function index_title_template(i){let issue = ISSUE_LIST[i]; return '<a class="issue-title" href=' + issue.url + '>' + basic_template(issue) + '</a>'}
+            function index_title_template(i){let issue = ISSUE_LIST[i]; return '<a class="issue-title center" href=' + issue.url + '><span lang="de">' + issue.title_de + '</span><span lang="en">' + issue.title_en + '</span></a>'}
             function index_template(slide, i){let issue = ISSUE_LIST[i]; return '<span onclick="display_combined(' + i + ')" id="index' + i + '" class="indexitem issue-title">' + basic_template(issue) + '</span><hr>'}
 
             // LOADING
@@ -430,12 +430,12 @@
                 width: 45px !important;
             }
 
-            #slide-title .issue-title {
+            /* #slide-title .issue-title {
                 display: flex;
                 width: 450px;
                 max-width: 100%;
                 padding: 0px 20px;
-            }
+            } */
 
 
             /*/////////////////////// REACTIVE ///////////////////////*/
