@@ -130,11 +130,6 @@ article {
 		max-width: 500px;
 	}
 
-	/* .issue-button-group {
-		flex-direction: column;
-		align-items: flex-start;
-	} */
-
 	.issue-button {
 		width: 140px;
 		font-size: 9pt;
@@ -156,5 +151,10 @@ article {
 	.issue-button-group {
 		flex-direction: column;
 		align-items: flex-start;
+	}
+
+	.issue-button {
+		font-size: var(--font-regular);
+		width:180px;
 	}
 }
