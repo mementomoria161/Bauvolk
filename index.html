@@ -127,9 +127,9 @@
 
             function cover_template(i){let issue = ISSUE_LIST[i]; return '<a class="cover" href=' + issue.url + '><img class="cover-image" loading="lazy" lang="de" src=' + issue.cover_de + ' alt=' + issue.no_de + ' COVER/><img class="cover-image" loading="lazy" lang="en" src=' + issue.cover_en + ' alt=' + issue.no_en + 'COVER/></a>'}
             function basic_template(issue) {return '<span lang="de">' + issue.no_de + '</span><span lang="en">' + issue.no_en + '</span><span lang="de">' + issue.title_de + '</span><span lang="en">' + issue.title_en + '</span>'}
-            function basic_template_date(issue) {return '<span lang="de">' + issue.no_de + '&#x2005;&#x2005;&#x2005;&#x2005;</span><span lang="en">' + issue.no_en + '&#x2005;&#x2005;&#x2005;&#x2005;</span><span lang="de">' + issue.title_de + '</span><span lang="en">' + issue.title_en + '</span>'}
+            function basic_template_date(issue) {return '<span lang="de" class="left">' + issue.no_de + '<br>' + issue.date_de + '</span><span lang="en" class="left">' + issue.no_en +  '<br>' + issue.date_en + '</span><span lang="de">' + issue.title_de + '</span><span lang="en">' + issue.title_en + '</span>'}
             function title_template(i){let issue = ISSUE_LIST[i]; return  cover_template(i) + '<a onmouseover="display_combined(' + i + ')" class="issue-title vertical" href=' + issue.url + '>' + basic_template_date(issue)+ '</a>'}
-            function index_title_template(i){let issue = ISSUE_LIST[i]; return '<a class="issue-title center" href=' + issue.url + '>' + basic_template(issue) + '</a>'}
+            function index_title_template(i){let issue = ISSUE_LIST[i]; return '<a class="issue-title" href=' + issue.url + '>' + basic_template(issue) + '</a>'}
             function index_template(slide, i){let issue = ISSUE_LIST[i]; return '<span onclick="display_combined(' + i + ')" id="index' + i + '" class="indexitem issue-title">' + basic_template(issue) + '</span><hr>'}
 
             // LOADING
@@ -428,6 +428,13 @@
                 padding:0px!important;
                 font-size: 35pt!important;
                 width: 45px !important;
+            }
+
+            #slide-title .issue-title {
+                display: flex;
+                width: 450px;
+                max-width: 100%;
+                padding: 0px 20px;
             }
 
 

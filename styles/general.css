@@ -277,9 +277,10 @@ button[disabled]{
 	gap:15px;
 	width:100%;
 	-webkit-tap-highlight-color: transparent;
+	line-height: 1.1;
 }
 
-.issue-title br {
+/* .issue-title br {
 	display: none;
 }
 
@@ -287,7 +288,7 @@ button[disabled]{
 	.issue-title br {
 		display:inline;
 	}
-}
+} */
 
 
 /* FORM */

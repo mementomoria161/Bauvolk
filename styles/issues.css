@@ -6,7 +6,10 @@ body {
 }
 
 #content {
-	padding: 20px 60px;
+	padding: 40px 60px;
+	display: flex;
+	flex-direction: column;
+	gap:150px;
 }
 
 section, article {
@@ -37,7 +40,6 @@ section, article {
 }
 
 #abstract {
-	margin-bottom: 150px;
 	min-width: 500px;
 	width: 100%;
 }
@@ -75,18 +77,10 @@ section, article {
 	user-select: none;
 }
 
-@media screen and (max-width: 1400px) {
-	.issue-button-group {
-		flex-direction: column;
-		align-items: flex-start;
-	}
-}
-
 
 /* INHALT */
 
 article {
-	margin-bottom: 150px;
 	text-align: justify;
 	line-height: 2;
 }
@@ -131,15 +125,20 @@ article {
 		max-width: 700px;
 	}
 
-	#abstract, .abstract-title {
+	#abstract {
 		min-width: unset;
 		max-width: 500px;
+	}
+
+	.issue-button-group {
+		flex-direction: column;
+		align-items: flex-start;
 	}
 }
 
 @media screen and (max-width: 800px) {
 	#content {
-		padding: 0px 12px;
+		padding: 20px 12px;
 	}
 	
 	article, section {

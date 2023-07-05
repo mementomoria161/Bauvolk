@@ -6,6 +6,7 @@ index übersicht spacing not centered
 PDF download tap highlight
 HEFTE not highlicghted in heft-i
 PAGE TITLE?
+Large font too large at certain sizes
 
 -------------- IMPROVEMENTS --------------
 
