@@ -62,19 +62,19 @@
 
             const ISSUE_LIST = [
                 {
-                    no_de: "ISSUE I",
+                    no_de: "HEFT I",
                     no_en: "ISSUE I",
                     title_no: "title-i",
                     date_de: "MAI 2023",
                     date_en: "MAI 2023",
-                    title_de: "ALTERNATIVE <br>UTOPIEN",
-                    title_en: "ALTERNATIVE <br>UTOPIAS",
+                    title_de: "DIE VERGESELLSCHAFTUNG <br>DES KAPITALISMUS",
+                    title_en: "THE COLLECTIVISATION <br>OF CAPITALISM",
                     cover_de: "images/issues/de/issue-i-cover.WebP",
                     cover_en: "images/issues/en/issue-i-cover.WebP",
-                    url: "issue-i"
+                    url: "heft-i"
                 },
                 {
-                    no_de: "ISSUE II",
+                    no_de: "HEFT II",
                     no_en: "ISSUE II",
                     title_no: "title-ii",
                     date_de: "ENDE 2023",
@@ -83,10 +83,10 @@
                     title_en: "REFORM OR <br>REVOLUTION",
                     cover_de: "images/issues/de/issue-ii-cover.WebP",
                     cover_en: "images/issues/en/issue-ii-cover.WebP",
-                    url: "issue-ii"
+                    url: "issue-i"
                 },
                 {
-                    no_de: "ISSUE III",
+                    no_de: "HEFT III",
                     no_en: "ISSUE III",
                     title_no: "title-ii",
                     date_de: "ANFANG 2024",
@@ -98,7 +98,7 @@
                     url: "issue-ii"
                 },
                 {
-                    no_de: "ISSUE IV",
+                    no_de: "HEFT IV",
                     no_en: "ISSUE IV",
                     title_no: "title-ii",
                     date_de: "ENDE 2024",
@@ -110,7 +110,7 @@
                     url: "issue-ii"
                 },
                 {
-                    no_de: "ISSUE V",
+                    no_de: "HEFT V",
                     no_en: "ISSUE V",
                     title_no: "title-ii",
                     date_de: "ANFANG 2025",
@@ -127,7 +127,7 @@
 
             function cover_template(i){let issue = ISSUE_LIST[i]; return '<a class="cover" href=' + issue.url + '><img class="cover-image" loading="lazy" lang="de" src=' + issue.cover_de + ' alt=' + issue.no_de + ' COVER/><img class="cover-image" loading="lazy" lang="en" src=' + issue.cover_en + ' alt=' + issue.no_en + 'COVER/></a>'}
             function basic_template(issue) {return '<span lang="de">' + issue.no_de + '</span><span lang="en">' + issue.no_en + '</span><span lang="de">' + issue.title_de + '</span><span lang="en">' + issue.title_en + '</span>'}
-            function basic_template_date(issue) {return '<span lang="de">' + issue.no_de + '&#x2005;&#x2005;&#x2005;&#x2005;' + issue.date_de +  '</span><span lang="en">' + issue.no_en + '&#x2005;&#x2005;&#x2005;&#x2005;' +  issue.date_en + '</span><span lang="de">' + issue.title_de + '</span><span lang="en">' + issue.title_en + '</span>'}
+            function basic_template_date(issue) {return '<span lang="de">' + issue.no_de + '&#x2005;&#x2005;&#x2005;&#x2005;</span><span lang="en">' + issue.no_en + '&#x2005;&#x2005;&#x2005;&#x2005;</span><span lang="de">' + issue.title_de + '</span><span lang="en">' + issue.title_en + '</span>'}
             function title_template(i){let issue = ISSUE_LIST[i]; return  cover_template(i) + '<a onmouseover="display_combined(' + i + ')" class="issue-title vertical" href=' + issue.url + '>' + basic_template_date(issue)+ '</a>'}
             function index_title_template(i){let issue = ISSUE_LIST[i]; return '<a class="issue-title center" href=' + issue.url + '>' + basic_template(issue) + '</a>'}
             function index_template(slide, i){let issue = ISSUE_LIST[i]; return '<span onclick="display_combined(' + i + ')" id="index' + i + '" class="indexitem issue-title">' + basic_template(issue) + '</span><hr>'}
@@ -309,7 +309,7 @@
                 justify-content: flex-end;
                 align-items: center;
                 gap: 20px;
-                height: 500px;
+                height: 550px;
                 grid-area: issue-library;
             }
 
@@ -318,7 +318,7 @@
                 background-color: white;
                 box-shadow: 10px 10px 10px 0px rgba(0,0,0,0.35);
                 padding: 25px 10px;
-                height: 500px;
+                height: 100%;
                 writing-mode: vertical-rl;
                 text-orientation: mixed;
                 width: fit-content;
@@ -383,7 +383,7 @@
             #issue-library .cover {
                 display: none;
                 justify-content: flex-start;
-                height: 500px;
+                height: 100%;
             }
 
             #issue-library .cover-image {
