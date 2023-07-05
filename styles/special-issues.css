@@ -6,7 +6,7 @@ body {
 }
 
 #content {
-	padding: 20px 60px;
+	padding: 0px 60px 20px 60px;
 }
 
 section, article {
@@ -21,6 +21,36 @@ section, article {
 
 /* COVER */
 
+#info-wrapper {
+	display:flex;
+	align-items: flex-end;
+	justify-content: space-between;
+	gap:250px 100px;
+	margin-bottom: 350px;
+	margin-top:20px;
+	max-width: unset;
+	width: unset;
+}
+
+#cover-wrap {
+	display:flex;
+	flex-direction: column;
+}
+
+#coverimagewrap {
+	display:flex;
+	align-items: center;
+	justify-content: center;
+}
+
+#coverimage {
+	display: block;
+	width:100%;
+	max-width:900px;
+}
+
+:root { --illustration-height: 0px;}
+
 #title {
 	display: flex;
 	flex-wrap: wrap;
@@ -28,22 +58,29 @@ section, article {
 	column-gap:50px;
 	width: 100%;
 	max-width:900px;
-	/* margin-top: 60px; */
-	margin-bottom: 20px;
+	margin-top: 60px;
 	font-weight: 700;
 	line-height: 2;
 	font-size: 1.25rem;
 	font-size: var(--font-medium);
 }
 
-#abstract {
-	margin-bottom: 150px;
+@media screen and (max-width: 500px) {
+	#title { 
+		margin-top: 30px;
+	}
+}
+
+#inhaltsverzeichnis {
+	display: flex;
+	flex-direction: column;
+	gap:65px;
 }
 
 .abstract, .abstract-title {
 	min-width: 500px;
 	width: 100%;
-	/* max-width: 500px; */
+	max-width: 500px;
 }
 
 .abstract-title {
@@ -69,41 +106,6 @@ section, article {
 	user-select: none;
 	line-height: 0.5;
 	margin-bottom: 0;
-}
-
-.issue-button-group {
-	margin-top: 60px;
-	display: flex;
-	gap:4px;
-	flex-wrap: wrap;
-	justify-content: space-between;
-	align-items: center;
-}
-
-.issue-button {
-	text-align: center;
-	font-size: var(--font-regular);
-	width:180px;
-	height:fit-content;
-	padding: 0px;
-	cursor: pointer;
-	background: lightgrey;
-
-	
-	-webkit-tap-highlight-color: transparent;
-	-webkit-touch-callout: none;
-	-webkit-user-select: none;
-	-khtml-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
-}
-
-@media screen and (max-width: 1400px) {
-	.issue-button-group {
-		flex-direction: column;
-		align-items: flex-start;
-	}
 }
 
 
@@ -206,7 +208,7 @@ article {
 		max-width: 700px;
 	}
 
-	#abstract, .abstract-title {
+	.abstract, .abstract-title {
 		min-width: unset;
 		max-width: 500px;
 	}
