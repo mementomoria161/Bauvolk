@@ -990,6 +990,7 @@ const highlights = {
     "": ["highlight-issues", "highlight-issues-expanded"],
     "/": ["highlight-issues", "highlight-issues-expanded"],
     "/issue-i": ["highlight-issues", "highlight-issues-expanded", "info-issue-i"],
+    "/heft-i": ["highlight-issues", "highlight-issues-expanded", "info-issue-i"],
     "/kanon": ["highlight-kanon", "highlight-kanon-expanded"],
     "/deabonnieren": ["etc"],
     "/impressum": ["etc", "highlight-impressum"],

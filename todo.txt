@@ -1,15 +1,23 @@
 -------------- BUGS --------------
 
 check safari preload
-check widescreen compatability
+cant exit übersicht with currently selected item
+index übersicht spacing not centered
+PDF download tap highlight
+HEFTE not highlicghted in heft-i
+PAGE TITLE?
 
 -------------- IMPROVEMENTS --------------
 
-change up og image color
-improve sharing small screen
-    maybe reset to center
-    auto hide when clicking away
+check widescreen compatability
 
 -------------- ADDITIONS --------------
 
 add elionor
+
+-------------- THINGS TO CHECK WHEN ADDING NEW ISSUE  --------------
+
+INDEX
+SHARING
+OPEN GRAPH
+HIGHLIGHT FOR HEADER

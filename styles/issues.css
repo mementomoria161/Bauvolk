@@ -177,10 +177,6 @@ article {
 		grid-template-areas: "header" "main" "footer";
 	}
 
-	.abstract, .abstract-title {
-		max-width: unset;
-	}
-
 	#coverimagewrap {
 		height:unset !important;
 	}

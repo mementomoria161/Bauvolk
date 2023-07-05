@@ -109,81 +109,34 @@
         <header id="header"></header>
 
         <main id="content">
-            <section id="info-wrapper">
-                <!-- <div id="cover-wrap">
-                    <div id="coverimagewrap" style="height:var(--illustration-height)"><img id="coverimage" src="images/issues/issue-i-illustration.WebP" alt="HEFT I ILLUSTRATION"></div>
-                    <cite id="title">
-                        <span lang="de">ISSUE I&#x2005;&#x2005;&#x2005;&#x2005;</span>
-                        <span lang="en">ISSUE I&#x2005;&#x2005;&#x2005;&#x2005;MARCH 2022</span>
-                        <span lang="de">MÄRZ 2022</span>
-                        <span lang="en">ALTERNATIVE UTOPIAS</span>
-                    </cite>
-                </div> -->
-
-                <div id="inhaltsverzeichnis">
-                    <div class="abstract">
-                        <cite id="title">
-                            <span lang="de">HEFT I</span>
-                            <span lang="en">ISSUE I</span>
-                            <span lang="de">OKTOBER 2023</span>
-                            <span lang="en">OCTOBER 2023</span>
-                        </cite>
-                        <!-- <a class="abstract-title option" onclick="smooth_scroll('die-vergesellschaftung-des-kapitalismus')">
-                            <h2 lang="de">DIE VERGESELLSCHAFTUNG<br>DES KAPITALISMUS</h2>
-                            <h2 lang="en">THE SOCIALIZATION<br>OF CAPITALISM</h2>
-                            <h2 class="artikelarrow">›</h2>
-                        </a> -->
-                        <p lang="de" class="abstract-text">
-                            Eine nachvollziehbare Vorstellung der ökonomischen Dimension des Sozialismus muss formuliert werden. Es soll gezeigt werden, dass die demokratische Kontrolle von Kapital umsetzbar ist, und dem scheinbar alternativlosen System des Kapitalismus nicht nachsteht. Wie könnte sich der Kapitalismus selbst restrukturieren, um seinen eigenen Krisen zu entkommen? Wenn der Liberalismus in gewisse Rahmenbedingungen eingebettet wird, kann so soziale und ökologische Nachhaltigkeit sichergestellt werden. Gleichzeitig profitiert ein solches System von der schnellen Anpassungsfähigkeit eines freien, anreizorientierten Marktes. Durch diese Geschwindigkeit kann die Sicherung der Bedürfnisse der Menschen am besten sichergestellt werden. 
-                        </p>
-                        <p lang="en" class="abstract-text">
-                            Capitalism is neither without alternative, nor can it be
-                            can be corrected by simple reforms towards social and ecological
-                            sustainability. It is a system of ruling classes
-                            for these ruling classes.
-                            But what kind of counter-design is still possible, after the attempt
-                            society has degenerated into totalitarian state capitalism?
-                            has degenerated into totalitarian state capitalism?
-                        </p>
-                        <br><br>
-                        <div>
-                            <button lang="de" onclick="share(this, 0, 'de')" class="footerelement">HEFT teilen</button>
-                            <button lang="en" onclick="share(this, 0, 'en')" class="footerelement">Share ISSUE</button>
-                            <a lang="en" href="files/en/ISSUE I – ALTERNATIVE UTOPIAS.pdf" download><button class="footerelement">Download PDF</button></a>
-                            <a lang="de" href="files/de/ISSUE I – ALTERNATIVE UTOPIEN.pdf" download><button class="footerelement">PDF herunterladen</button></a>
-                        </div>
-                    </div>
+            <section id="abstract">
+                <span id="title">
+                    <span lang="de">HEFT I</span>
+                    <span lang="en">ISSUE I</span>
+                    <span lang="de">OKTOBER 2023</span>
+                    <span lang="en">OCTOBER 2023</span>
+                </span>
+                <p lang="de" class="abstract-text">
+                    Eine nachvollziehbare Vorstellung der ökonomischen Dimension des Sozialismus muss formuliert werden. Es soll gezeigt werden, dass die demokratische Kontrolle von Kapital umsetzbar ist, und dem scheinbar alternativlosen System des Kapitalismus nicht nachsteht. Wie könnte sich der Kapitalismus selbst restrukturieren, um seinen eigenen Krisen zu entkommen? Wenn der Liberalismus in gewisse Rahmenbedingungen eingebettet wird, kann so soziale und ökologische Nachhaltigkeit sichergestellt werden. Gleichzeitig profitiert ein solches System von der schnellen Anpassungsfähigkeit eines freien, anreizorientierten Marktes. Durch diese Geschwindigkeit kann die Sicherung der Bedürfnisse der Menschen am besten sichergestellt werden. 
+                </p>
+                <p lang="en" class="abstract-text">
+                    Capitalism is neither without alternative, nor can it be
+                    can be corrected by simple reforms towards social and ecological
+                    sustainability. It is a system of ruling classes
+                    for these ruling classes.
+                    But what kind of counter-design is still possible, after the attempt
+                    society has degenerated into totalitarian state capitalism?
+                    has degenerated into totalitarian state capitalism?
+                </p>
+                <div class="issue-button-group">
+                    <button lang="de" onclick="share(this, 0, 'de')" class="issue-button">HEFT teilen</button>
+                    <button lang="en" onclick="share(this, 0, 'en')" class="issue-button">Share ISSUE</button>
+                    <a lang="de" href="files/de/ISSUE I – ALTERNATIVE UTOPIEN.pdf" download><button class="issue-button">PDF herunterladen</button></a>
+                    <a lang="en" href="files/en/ISSUE I – ALTERNATIVE UTOPIAS.pdf" download><button class="issue-button">Download PDF</button></a>
+                    <a lang="de" href="bestellen" targert="_blank"><button class="issue-button">KOPIE bestellen</button></a>
+                    <a lang="en" href="bestellen" targert="_blank"><button class="issue-button">Order COPY</button></a>
                 </div>
             </section>
-
-
-            <!-- <section id="interaction-top" class="interaction">
-                <div>
-                    <p lang="de">Wenn über neue ISSUES benachrichtigt werden möchtest, kannst du per <span class="option" id="email-opt" onclick="setabo('email')">Email</span> oder über <span class="option" id="telegram-opt" onclick="setabo('telegram')">Telegram</span> abonnieren.</p>
-                    <p lang="en">Wenn über neue ISSUES benachrichtigt werden möchtest, kannst du abonnieren.</p>      
-                    <form id="email-form">
-                        <span class="abo"><button class="footerelement" type="submit" id="email-btn"><span lang="de">Abonnieren</span><span lang="en">Subscribe</span></button>
-                        <span><input type="email" name="Email" id="email-input" placeholder="Email" required></span></span>
-                        <input type="hidden" name="_subject" value="Abonnement">
-                        <input type="hidden" name="_captcha" value="true">
-                        <label id="email-info" for="email-checkbox"><input type="checkbox" id="email-checkbox" required>   <span lang="de">Ich möchte über neue ISSUES benachrichtigt werden. <br><br>Hinweise zum Widerruf und der Verarbeitung deiner Daten geben wir in unserer <a href="https://www.GEFAENGNISHEFTE.org/datenschutz">Datenschutzerklärung</a>. Einen Link zum <a href="https://www.GEFAENGNISHEFTE.org/deabonnieren">Deabonnieren</a> findest du in jeder Mail.</span><span lang="en">I want to be notified about new ISSUES. <br><br>We provide information on revocation and the processing of your data in our <a href="https://www.GEFAENGNISHEFTE.org/datenschutz">data protection section</a>. A link to <a href="https://www.GEFAENGNISHEFTE.org/deabonnieren">unsubscribe</a> is included in every mail.</span></label>
-                    </form>
-                    
-                    <a id="telegram-form" class="abo" href="https://t.me/GEFAENGNISHEFTE" target="_blank"><button id="telegram-btn">t.me/GEFAENGNISHEFTE</button></a>
-                </div>
-
-                <div>
-                    <p lang="de">Wenn du eine physische Kopie dieses ISSUE möchtest, kannst du es hier zum Produktionspreis an deine Adresse bestellen.</p>
-                    <p lang="en">All content created by us may be used non-commercially and with our attribution as authors <a href="https://creativecommons.org/licenses/ by-nc/4.0/" style="text-decoration: underline;">(CC BY-NC 4.0)</a>. Commercial use is possible without any problems in almost all cases on request.</p>
-                    <a href="https://www.paypal.com/paypalme/GEFAENGNISHEFTE/EUR" target="_blank"><button class="footerelement">Bestellen</button></a>
-                </div>
-
-                <div>
-                    <p lang="de">Wir haben viel Arbeit und ein wenig Geld in die Produktion der GEFÄNGNISHEFTE gesteckt. Wir freuen uns sehr über finanzielle Unterstützung.</p>
-                    <p lang="en">Wir haben viel Arbeit und ein wenig Geld in die Produktion der GEFÄNGNISHEFTE gesteckt. Wir freuen uns sehr über finanzielle Unterstützung.</p>
-                    <a id="donation-button" href="https://www.paypal.com/paypalme/GEFAENGNISHEFTE/EUR" target="_blank"><button class="footerelement">PayPal</button></a>
-                </div>
-            </section> -->
 
 
             <article id="die-vergesellschaftung-des-kapitalismus">
@@ -196,66 +149,15 @@
                 <p lang="en">
                     Since the collapse of the Soviet Union, capitalism has seemed to have no alternative. The great experiment of a social and solidary society had failed. Much more, real socialism turned out to be just as productivist and exploitative as the West, which it emulated in this. Thus utopia became a dirty word, realpolitik a slogan. Under this zeitgeist, neoliberalism celebrated its global triumph at the end of the last century. It is true that capitalism is brutal, but it is the best system of social and economic order that we have found. Some go even further. Capitalism, they say, is not only the best system we have found so far, but also the best we can ever find. The failure of socialism, they say, heralds an era in which there will be no more great social upheavals or even revolutions. The inspired hope for a better society of past centuries has thus given way to an indolent submission to the existing conditions. In order to break with their apparent lack of alternatives, however, it is not enough to criticize the given. What is needed is a comprehensible blueprint for a better society. This issue contains three of these alternative utopias.<span data-footnote="1"></span>
                 </p>
-                <button lang="de" class="footerelement inline-link" onclick="share(this, 1, 'de')">Artikel teilen</button>
-                <button lang="en" class="footerelement inline-link" onclick="share(this, 1, 'en')">Share article</button>
-            </article>
-
-
-            <article id="der-neue-rahmen">
-                <h1 lang="de" class="artikel-title">DER NEUE<br/>RAHMEN</h1>
-                <h1 lang="en" class="artikel-title">THE NEW<br/>FRAME</h1>
-                <p>
-                    Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
-                    <br/><br/>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
-                    <br/><br/>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
-                    <br/><br/>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
-                </p>
-                <button lang="de" class="footerelement inline-link" onclick="share(this, 2, 'de')">Artikel teilen</button>
-                <button lang="en" class="footerelement inline-link" onclick="share(this, 2, 'en')">Share article</button>
-            </article>
-
-
-            <article id="agieren-und-agitieren">
-                <h1 lang="de" class="artikel-title">AGIEREN UND<br/>AGITIEREN</h1>
-                <h1 lang="en" class="artikel-title">ACT AND<br/>AGIT</h1>
-                <p>
-                    Contrary to popular belief, Lorem Ipsum is not simply random text.<span data-footnote="2"></span> It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
-                    <br/><br/>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
-                    <br/><br/>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
-                    <br/><br/>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
-                </p>
-                <button lang="de" class="footerelement inline-link" onclick="share(this, 3, 'de')">Artikel teilen</button>
-                <button lang="en" class="footerelement inline-link" onclick="share(this, 3, 'en')">Share article</button>
-            </article>
-
-
-            <!-- <section id="interaction-bottom" class="interaction">
-                <div>
-                    <p lang="de">Wenn über neue ISSUES benachrichtigt werden möchtest, kannst du hier per <span class="option" id="email-opt" onclick="setabo('email')">Email</span> oder über <span class="option" id="telegram-opt" onclick="setabo('telegram')">Telegram</span> abonnieren.</p>
-                    <p lang="en">Wenn über neue ISSUES benachrichtigt werden möchtest, kannst du hier abonnieren.</p>      
-                    <form id="email-form">
-                        <span class="abo"><button class="footerelement" type="submit" id="email-btn"><span lang="de">Abonnieren</span><span lang="en">Subscribe</span></button>
-                        <span><input type="email" name="Email" id="email-input" placeholder="Email" required></span></span>
-                        <input type="hidden" name="_subject" value="Abonnement">
-                        <input type="hidden" name="_captcha" value="true">
-                        <label id="email-info" for="email-checkbox"><input type="checkbox" id="email-checkbox" required>   <span lang="de">Ich möchte über neue ISSUES benachrichtigt werden. <br><br>Hinweise zum Widerruf und der Verarbeitung deiner Daten geben wir in unserer <a href="https://www.GEFAENGNISHEFTE.org/datenschutz">Datenschutzerklärung</a>. Einen Link zum <a href="https://www.GEFAENGNISHEFTE.org/deabonnieren">Deabonnieren</a> findest du in jeder Mail.</span><span lang="en">I want to be notified about new ISSUES. <br><br>We provide information on revocation and the processing of your data in our <a href="https://www.GEFAENGNISHEFTE.org/datenschutz">data protection section</a>. A link to <a href="https://www.GEFAENGNISHEFTE.org/deabonnieren">unsubscribe</a> is included in every mail.</span></label>
-                    </form>
-                    
-                    <a id="telegram-form" class="abo" href="https://t.me/GEFAENGNISHEFTE" target="_blank"><button id="telegram-btn">t.me/GEFAENGNISHEFTE</button></a>
+                <div class="issue-button-group">
+                    <button lang="de" onclick="share(this, 0, 'de')" class="issue-button">HEFT teilen</button>
+                    <button lang="en" onclick="share(this, 0, 'en')" class="issue-button">Share ISSUE</button>
+                    <a lang="de" href="files/de/ISSUE I – ALTERNATIVE UTOPIEN.pdf" download><button class="issue-button">PDF herunterladen</button></a>
+                    <a lang="en" href="files/en/ISSUE I – ALTERNATIVE UTOPIAS.pdf" download><button class="issue-button">Download PDF</button></a>
+                    <a lang="de" href="bestellen" targert="_blank"><button class="issue-button">KOPIE bestellen</button></a>
+                    <a lang="en" href="bestellen" targert="_blank"><button class="issue-button">Order COPY</button></a>
                 </div>
-
-                <div>
-                    <p lang="de">Wenn du eine physische Kopie dieses ISSUE möchtest, kannst du es hier zum Produktionspreis an deine Adresse bestellen.</p>
-                    <p lang="en">All content created by us may be used non-commercially and with our attribution as authors <a href="https://creativecommons.org/licenses/ by-nc/4.0/" style="text-decoration: underline;">(CC BY-NC 4.0)</a>. Commercial use is possible without any problems in almost all cases on request.</p>
-                    <a href="https://www.paypal.com/paypalme/GEFAENGNISHEFTE/EUR" target="_blank"><button class="footerelement">Bestellen</button></a>
-                </div>
-
-                <div>
-                    <p lang="de">Wir haben viel Arbeit und ein wenig Geld in die Produktion der GEFÄNGNISHEFTE gesteckt. Wir freuen uns sehr über finanzielle Unterstützung.</p>
-                    <p lang="en">Wir haben viel Arbeit und ein wenig Geld in die Produktion der GEFÄNGNISHEFTE gesteckt. Wir freuen uns sehr über finanzielle Unterstützung.</p>
-                    <a id="donation-button" href="https://www.paypal.com/paypalme/GEFAENGNISHEFTE/EUR" target="_blank"><button class="footerelement">PayPal</button></a>
-                </div>
-            </section> -->
+            </article>
 
 
             <section id="creative-commons">
