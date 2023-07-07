@@ -45,6 +45,46 @@
             
             load_components(["header", "databanner"])
 
+            function suf_init() {
+                document.getElementById("issue-selection").querySelectorAll("input[type=checkbox]").forEach((item) => {item.addEventListener('change', calculate_cost)})
+                
+            }
+
+        
+        </script>
+
+        <script>
+
+            
+            function calculate_cost() {
+                let selection = document.getElementById("issue-selection").getElementsByTagName("input")
+                let costs_display = document.getElementById("costs")
+                let costs_string = "<p lang='de'>Wir verschicken die Hefte auf Spendenbases. Bitte übernehme die Produktionkosten und das Porto deiner Bestellung zu übernehmen, wenn es dir möglich ist.</p><br>"
+                let costs = 0
+
+                costs_display.style.display = "none"
+                costs_display.style.display = "none"
+
+                for (let i = 0; i < selection.length; i++)
+                {
+                    
+                    console.log("test")
+                    if(selection[i].checked) {
+                        costs = costs + 4
+                        costs_string = costs_string + "4€ [Produktionskosten]<br>+ "
+                        console.log(costs_string)
+                    }
+                }
+
+                if(costs != 0) {
+                    costs = costs + 1.60
+                    costs_string = costs_string + "1,60€ [Porto]<br>------<br>" + costs + "€"
+                    costs_display.innerHTML = costs_string
+                    costs_display.style.display = "block"
+                }
+
+                reset_language()
+            }
         
         </script>
 
@@ -104,6 +144,16 @@
                 font-size: 15pt;
             }
 
+            #costs {
+                display: none;
+
+            }
+
+            #order {
+                display: flex;
+                justify-content: space-between;
+            }
+
 
 
         </style>
@@ -115,7 +165,7 @@
 
         <main id="content">
             <form id="bestellen-form" class="abo">
-                <p lang="de">Wenn du eine physische Kopie dieses ISSUE möchtest, kannst du es hier zum Produktionspreis an deine Adresse bestellen.</p>
+                
 
                 <fieldset id="issue-selection">
                     <legend>Heftauswahl</legend>
@@ -145,7 +195,14 @@
                     <input name="PLZ" placeholder="Postleitzahl" required>
                 </fieldset>
 
-                <button id="order-btn" type="submit"><span lang="de">Bestellen</span><span lang="en">Order</span></button>
+                <p id="costs"></p>
+
+
+                <div id="order">
+                    <button id="order-btn" type="submit"><span lang="de">Bestellen</span><span lang="en">Order</span></button>
+                    <a href="https://www.paypal.com/paypalme/GEFAENGNISHEFTE/EUR" target="_blank"><button id="pay-btn"><span lang="de">Bezahlen</span><span lang="en">Pay</span></button></a>
+                </div>
+
                 
                 <input type="hidden" name="_subject" value="Désabonnement">
                 <input type="hidden" name="_captcha" value="true">
