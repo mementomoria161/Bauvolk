@@ -17,14 +17,9 @@
                 width: 45px;
                 height: 45px;
                 font-size: 35pt;
-                -webkit-tap-highlight-color: transparent;
-                -webkit-touch-callout: none;
-                -webkit-user-select: none;
-                -khtml-user-select: none;
-                -moz-user-select: none;
-                -ms-user-select: none;
-                user-select: none;
             }
+
+            #to-top span, #to-bottom
 
             #to-top {bottom:80px;}
             #to-bottom {bottom:30px;}
@@ -206,8 +201,8 @@
             <a lang="de" href="files/de/ISSUE I – ALTERNATIVE UTOPIEN.pdf" download><button class="footerelement">PDF herunterladen</button></a>
         </div> -->
 
-        <button id="to-top" onclick="hoch()"><div id="to-top-label">‹</div></button>
-        <button id="to-bottom" onclick="runter()"><div id="to-top-label">›</div></button>
+        <button id="to-top" class="passive" onclick="hoch()"><div id="to-top-label">‹</div></button>
+        <button id="to-bottom" class="passive" onclick="runter()"><div id="to-top-label">›</div></button>
 
     </body>
 </html>

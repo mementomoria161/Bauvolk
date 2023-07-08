@@ -47,13 +47,6 @@
                 color:white;
                 width: 45px;
                 height: 45px;
-                -webkit-tap-highlight-color: transparent;
-                -webkit-touch-callout: none;
-                -webkit-user-select: none;
-                -khtml-user-select: none;
-                -moz-user-select: none;
-                -ms-user-select: none;
-                user-select: none;
             }
 
             #letztes, #nächstes {
@@ -122,6 +115,7 @@
                 position:relative;
                 bottom:17px;
                 display: none;
+                pointer-events: none;
             }
 
             @media screen and (max-width: 520px) {
@@ -169,13 +163,13 @@
         <div id="slide-index"></div>
 
         <div id="control-btns">
-            <button id="letztes" onclick="letztes()">
+            <button id="letztes" class="passive" onclick="letztes()">
                 <span class="control_l" lang="de">VORHERIGES</span>
                 <span class="control_l" lang="en">PREVIOUS</span>
                 <span class="control_s">‹</span>
             </button>
-            <button id="slide-current" onclick="toggle_slide_index()"></button>
-            <button id="nächstes" onclick="nächstes()">
+            <button id="slide-current" class="passive" onclick="toggle_slide_index()"></button>
+            <button id="nächstes" class="passive" onclick="nächstes()">
                 <span class="control_l" lang="de">NÄCHSTES</span>
                 <span class="control_l" lang="en">NEXT</span>
                 <span class="control_s">›</span>
