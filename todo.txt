@@ -1,19 +1,13 @@
 -------------- BUGS --------------
 
 check safari preload
-cant exit übersicht with currently selected item
-index übersicht spacing not centered
-PDF download tap highlight
-HEFTE not highlicghted in heft-i
-PAGE TITLE?
 Large font too large at certain sizes
+light bleed on nav buttons -> line height?
 
 -------------- IMPROVEMENTS --------------
 
+PAGE TITLE change on language change?
 check widescreen compatability
-
--------------- ADDITIONS --------------
-
 add elionor
 
 -------------- THINGS TO CHECK WHEN ADDING NEW ISSUE  --------------

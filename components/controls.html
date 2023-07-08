@@ -66,7 +66,7 @@
             #slide-current {
                 width:80px;
                 font-size: 20pt;
-                cursor: default;
+                cursor: pointer;
             }
 
             #slide-title {
@@ -166,15 +166,15 @@
 
         <div id="slide-title"></div>
 
-        <div id="slide-index" onmouseenter="display_slide_index()" onmouseleave="hide_slide_index()"></div>
+        <div id="slide-index"></div>
 
-        <div id="control-btns" onmouseleave="hide_slide_index()">
+        <div id="control-btns">
             <button id="letztes" onclick="letztes()">
                 <span class="control_l" lang="de">VORHERIGES</span>
                 <span class="control_l" lang="en">PREVIOUS</span>
                 <span class="control_s">‹</span>
             </button>
-            <button id="slide-current" onmouseenter="display_slide_index()"></button>
+            <button id="slide-current" onclick="toggle_slide_index()"></button>
             <button id="nächstes" onclick="nächstes()">
                 <span class="control_l" lang="de">NÄCHSTES</span>
                 <span class="control_l" lang="en">NEXT</span>

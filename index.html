@@ -163,39 +163,44 @@
             
             // DISPLAY COMBINED
 
-            var protected_hover = false
+            var library_cooldown = false
+
 
             function display_combined(index) {
 
-                if(slide_current == index || protected_hover) {return}
+                if(library_cooldown) {return}
 
+                display_issue(index)
                 display_slide(index)
-                title_display(index)
             }
 
-            function title_display(index) {
+
+
+            function display_issue(index) {
 
                 let issue_list = document.getElementById("issue-library")
 
                 let titles = issue_list.querySelectorAll('.issue-title')
                 titles.forEach((title) => {title.style.display = "flex"})
+                titles.item(index).style.display = "none";
 
                 let title_covers = issue_list.querySelectorAll('.cover')
                 title_covers.forEach((title_cover) => {title_cover.style.display = "none"})
+                title_covers.item(index).style.display = "flex"
 
 
                 let cover_animation = [
                     { width: "0", opacity: 0},
                     { width: GROWTH_WIDTH},
                     { opacity: 1},
-                ];
+                ]
 
-                titles.item(index).style.display = "none";
-                title_covers.item(index).style.display = "flex"
-                title_covers.item(index).animate(cover_animation, {duration: 1000, iterations: 1})
+                if(index != slide_current) {
+                    title_covers.item(index).animate(cover_animation, {duration: 1000, iterations: 1})
+                }
 
-                protected_hover = true
-                setTimeout(() => {protected_hover = false}, 400)
+                library_cooldown = true
+                setTimeout(() => {library_cooldown = false}, 400)
             }
 
             // SIZE COMPUTING

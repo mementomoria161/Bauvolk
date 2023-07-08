@@ -1205,18 +1205,31 @@ function display_slide(slide_index) {
 
 // SLIDE INDEX
 
+var INDEX_OPEN = false
+
+function toggle_slide_index() {
+    if(INDEX_OPEN) {
+        hide_slide_index()
+    } 
+    else {
+        display_slide_index()
+    }
+}
+
 function display_slide_index() {
     var indexitems = document.getElementsByClassName("indexitem")
     for (let i = 0; i < indexitems.length; i++) {
         indexitems[i].style.fontWeight = "400"
     }
 
-    document.getElementById("slide-current").disabled = true;
+    // document.getElementById("slide-current").disabled = true;
     document.getElementById("index"+slide_current).style.fontWeight = "700"
     document.getElementById("timeline-btns").style.display = "none";
     document.getElementById("slide-title").style.display = "none";
     document.getElementById(SLIDE_LIST[slide_current]).style.display = "none";
     document.getElementById("slide-index").style.display = "block";
+
+    INDEX_OPEN = true
 }
 
 function hide_slide_index() {
@@ -1224,10 +1237,12 @@ function hide_slide_index() {
         document.getElementById("timeline-btns").style.display = "flex";
     }
 
-    document.getElementById("slide-current").disabled = false;
+    // document.getElementById("slide-current").disabled = false;
     document.getElementById("slide-title").style.display = "block";
     document.getElementById("slide-index").style.display = "none";
     document.getElementById(SLIDE_LIST[slide_current]).style.display = "flex";
+    
+    INDEX_OPEN = false
 }
 
 
