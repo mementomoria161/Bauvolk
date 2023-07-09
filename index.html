@@ -157,7 +157,7 @@
                 let default_cover = issue_list.getElementsByClassName("cover")[slide_current].style.display = "flex"
                 let default_vertical = issue_list.getElementsByClassName("issue-title")[slide_current].style.display = "none"
 
-                compute_sizes()
+                // compute_sizes()
                 seteagerload()
                 init_prevent_touch_response()
             }
@@ -170,7 +170,7 @@
 
             function display_combined(index) {
 
-                if(library_cooldown) {return}
+                // if(library_cooldown) {return}
 
                 display_issue(index)
                 display_slide(index)
@@ -191,15 +191,15 @@
                 title_covers.item(index).style.display = "flex"
 
 
-                let cover_animation = [
-                    { width: "0", opacity: 0},
-                    { width: GROWTH_WIDTH},
-                    { opacity: 1},
-                ]
+                // let cover_animation = [
+                //     { width: "0", opacity: 0},
+                //     { width: GROWTH_WIDTH},
+                //     { opacity: 1},
+                // ]
 
-                if(index != slide_current) {
-                    title_covers.item(index).animate(cover_animation, {duration: 1000, iterations: 1})
-                }
+                // if(index != slide_current) {
+                //     title_covers.item(index).animate(cover_animation, {duration: 1000, iterations: 1})
+                // }
 
                 library_cooldown = true
                 setTimeout(() => {library_cooldown = false}, 400)
