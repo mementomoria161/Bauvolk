@@ -153,10 +153,11 @@
                     document.getElementById("issue-library").insertAdjacentHTML('beforeend', title_template(i));
                 }
 
-                let issue_list = document.getElementById("issue-library")
-                let default_cover = issue_list.getElementsByClassName("cover")[slide_current].style.display = "flex"
-                let default_vertical = issue_list.getElementsByClassName("issue-title")[slide_current].style.display = "none"
+                // let issue_list = document.getElementById("issue-library")
+                // let default_cover = issue_list.getElementsByClassName("cover")[slide_current].style.display = "flex"
+                // let default_vertical = issue_list.getElementsByClassName("issue-title")[slide_current].style.display = "none"
 
+                display_issue(slide_current)
                 // compute_sizes()
                 seteagerload()
                 init_prevent_touch_response()
@@ -201,59 +202,59 @@
                 //     title_covers.item(index).animate(cover_animation, {duration: 1000, iterations: 1})
                 // }
 
-                library_cooldown = true
-                setTimeout(() => {library_cooldown = false}, 400)
+                // library_cooldown = true
+                // setTimeout(() => {library_cooldown = false}, 400)
             }
 
             // SIZE COMPUTING
 
-            var GROWTH_WIDTH = 0
+            // var GROWTH_WIDTH = 0
 
-            function compute_sizes() {
-                let images = document.getElementById("issue-library").getElementsByClassName("cover")[slide_current].getElementsByClassName("cover-image")
-                let lang = localStorage.getItem("gefaengnishefte_language")
-                let image 
+            // function compute_sizes() {
+            //     let images = document.getElementById("issue-library").getElementsByClassName("cover")[slide_current].getElementsByClassName("cover-image")
+            //     let lang = localStorage.getItem("gefaengnishefte_language")
+            //     let image 
 
-                for (let i = 0; i < images.length; i++) {
-                    if(images[i].lang == lang) {
-                        image = images[i]
-                    }
-                }
+            //     for (let i = 0; i < images.length; i++) {
+            //         if(images[i].lang == lang) {
+            //             image = images[i]
+            //         }
+            //     }
 
-                if(image == null) {
-                    return
-                }
-                else if (image.complete) {
-                    if(image.offsetWidth == 0) {
-                        window.addEventListener("resize", compute_sizes)
-                        console.log("IMAGE NOT MORE THAN 0")
-                        return
-                    }
+            //     if(image == null) {
+            //         return
+            //     }
+            //     else if (image.complete) {
+            //         if(image.offsetWidth == 0) {
+            //             window.addEventListener("resize", compute_sizes)
+            //             console.log("IMAGE NOT MORE THAN 0")
+            //             return
+            //         }
 
-                    GROWTH_WIDTH = image.offsetWidth + "px"
-                    console.log(GROWTH_WIDTH)
-                    window.removeEventListener("resize", compute_sizes)
-                    compute_issue_list_width()
-                }
-                else {
-                    console.log("IMAGE NOT YET LOADED")
-                    setTimeout(compute_sizes, 10)
-                }
-            }
+            //         GROWTH_WIDTH = image.offsetWidth + "px"
+            //         console.log(GROWTH_WIDTH)
+            //         window.removeEventListener("resize", compute_sizes)
+            //         compute_issue_list_width()
+            //     }
+            //     else {
+            //         console.log("IMAGE NOT YET LOADED")
+            //         setTimeout(compute_sizes, 10)
+            //     }
+            // }
 
-            function compute_issue_list_width() {
+            // function compute_issue_list_width() {
 
-                let issue_list = document.getElementById("issue-library")
+            //     let issue_list = document.getElementById("issue-library")
 
-                if (issue_list.offsetWidth == 0) {
-                    window.addEventListener("resize", compute_issue_list_width)
-                    return
-                }
+            //     if (issue_list.offsetWidth == 0) {
+            //         window.addEventListener("resize", compute_issue_list_width)
+            //         return
+            //     }
 
-                issue_list.style.width = issue_list.offsetWidth + "px"
-                console.log(issue_list.offsetWidth + "px")
-                window.removeEventListener("resize", compute_issue_list_width)
-            }
+            //     issue_list.style.width = issue_list.offsetWidth + "px"
+            //     console.log(issue_list.offsetWidth + "px")
+            //     window.removeEventListener("resize", compute_issue_list_width)
+            // }
 
 
             // EAGER LOAD ACCORDING TO LANGUAGE
