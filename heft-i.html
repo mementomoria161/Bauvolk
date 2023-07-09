@@ -82,43 +82,49 @@
         <style>
 
             #cover-section {
-                /* display:flex;
-                align-items: flex-end;
-                justify-content: space-between; */
-                /* gap:250px 100px; */
                 margin-bottom: 350px;
                 margin-top:20px;
                 max-width: unset;
                 width: unset;
 
                 display: grid;
-                grid-template-rows: 1fr auto;
-                grid-template-columns: auto auto;
+                grid-template-rows: auto;
+                grid-template-columns: auto 1fr auto;
                 grid-template-areas: 
-                "illustration abstract" 
-                "title abstract";
+                "title illustration abstract";
                 place-items: center;
                 position: relative;
-                gap: 60px 30px;
+                gap: 0px 30px;
             }
 
             #illustration-large-screen {
                 position: absolute;
                 grid-area: illustration;
                 display: block;
-                object-fit: cover;
+                object-fit: contain;
+                justify-self: start;
                 max-width: 100%;
+                height: 100%;
+                width: 100%;
                 max-height: 100%;
             }
 
-            #illustration-small-screen {
-                display: none;
-            }
-
             #title-illustration {
-                grid-area: title;
+                display: none;
                 width: 100%;
                 max-width:100%;
+            }
+
+            #title-vertical {
+                grid-area: title;
+                color: black !important;
+                background-color: white;
+                padding: 25px 10px;
+                height: 100%;
+                writing-mode: vertical-rl;
+                text-orientation: mixed;
+                width: fit-content;
+                font-weight: 700;
             }
 
             #title {
@@ -139,18 +145,10 @@
                 flex-direction: column;
                 justify-content: space-between;
                 justify-self: end;
+                height: 100%;
                 min-width: 550px;
                 max-width: 550px;
             }
-
- 
-
-            /* @media screen and (max-width: 500px) {
-                #title { 
-                    margin-top: 30px;
-                }
-            } */
-
             
             @media screen and (max-width: 1400px) {
 
@@ -165,11 +163,11 @@
                     justify-content: center;
                 }
 
-                #illustration-large-screen {
+                #illustration-large-screen, #title-vertical {
                     display: none;
                 }
 
-                #illustration-small-screen {
+                #title-illustration {
                     display: block;
                 }
 
@@ -220,6 +218,14 @@
 
         <main id="content">
             <section id="cover-section">
+                <div id="title-vertical">
+                    <cite id="title">
+                        <span lang="de">HEFT I<br/>SEPTEMBER 2023</span>
+                        <span lang="en">ISSUE I<br/>SEPTEMBER 2023</span>
+                        <span lang="de" class="right">DIE VERGESELLSCHAFTUNG <br/>DES KAPITALISMUS</span>
+                        <span lang="en" class="right">THE SOCIALIZATIONOF <br/>CAPITALISM</span>
+                    </cite>
+                </div>
                 <img id="illustration-large-screen" src='images/issues/issue-i-illustration.WebP' alt='COVER ILLUSTRATION'/>
 
                 <div id="title-illustration">
