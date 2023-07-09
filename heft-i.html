@@ -78,138 +78,6 @@
             load_components(["header", "footer", "databanner"])
 
         </script>
-
-        <style>
-
-            #cover-section {
-                margin-bottom: 350px;
-                margin-top:20px;
-                max-width: unset;
-                width: unset;
-
-                display: grid;
-                grid-template-rows: auto;
-                grid-template-columns: auto 1fr auto;
-                grid-template-areas: 
-                "title illustration abstract";
-                place-items: center;
-                position: relative;
-                gap: 20px 30px;
-            }
-
-            #illustration-large-screen {
-                position: absolute;
-                grid-area: illustration;
-                display: block;
-                object-fit: contain;
-                justify-self: start;
-                max-width: 100%;
-                height: 100%;
-                width: 100%;
-                max-height: 100%;
-            }
-
-            #title-illustration {
-                display: none;
-                width: 100%;
-                max-width:100%;
-            }
-
-            #title-vertical {
-                grid-area: title;
-                color: black !important;
-                background-color: white;
-                padding: 25px 10px;
-                height: 100%;
-                writing-mode: vertical-rl;
-                text-orientation: mixed;
-                width: fit-content;
-                font-weight: 700;
-            }
-
-            #title {
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: space-between;
-                column-gap:50px;
-                width: 100%;
-                max-width:100%;
-                font-weight: 700;
-                font-size: 1.25rem;
-                font-size: var(--font-medium);
-            }
-            
-            #abstract {
-                grid-area: abstract;
-                display: flex;
-                flex-direction: column;
-                justify-content: space-between;
-                justify-self: end;
-                height: 100%;
-                min-width: 550px;
-                max-width: 550px;
-            }
-            
-            @media screen and (max-width: 1400px) {
-
-                #cover-section {
-                    background-color: #750000;
-                    border: unset;
-                    padding:0px;
-                    gap: 200px;
-                    display:flex;
-                    flex-direction: column;
-                    align-items: center;
-                    justify-content: center;
-                }
-
-                #illustration-large-screen, #title-vertical {
-                    display: none;
-                }
-
-                #title-illustration {
-                    display: block;
-                }
-
-                #title-illustration, #abstract {
-                    background-color: white;
-                    border: solid 2px black;
-                    padding:20px;
-                }
-
-                #title-illustration {
-                    display: flex;
-                    flex-direction: column;
-                    gap:30px;
-                    max-width: 700px;
-                }
-
-                #abstract {
-                    justify-self: unset;
-                }
-            }
-
-            @media screen and (max-width: 800px) {
-                #content {
-                    padding: 0px 12px;
-                }
-                
-                #cover-section>*, article, #creative-commons {
-                    padding:10px;
-                }
-
-
-                /* GUTTER FIX */
-
-                #cover-section {
-                    flex-direction: row;
-                    flex-wrap: wrap;
-                }
-            }
-            
-
-            
-        </style>
     </head>
 
     <body>
@@ -218,19 +86,17 @@
 
         <main id="content">
             <section id="cover-section">
-                <div id="title-vertical">
-                    <cite id="title">
-                        <span lang="de">HEFT I<br/>SEPTEMBER 2023</span>
-                        <span lang="en">ISSUE I<br/>SEPTEMBER 2023</span>
-                        <span lang="de" class="right">DIE VERGESELLSCHAFTUNG <br/>DES KAPITALISMUS</span>
-                        <span lang="en" class="right">THE SOCIALIZATIONOF <br/>CAPITALISM</span>
-                    </cite>
-                </div>
+                <cite id="title-vertical" class="title">
+                    <span lang="de">HEFT I<br/>SEPTEMBER 2023</span>
+                    <span lang="en">ISSUE I<br/>SEPTEMBER 2023</span>
+                    <span lang="de" class="right">DIE VERGESELLSCHAFTUNG <br/>DES KAPITALISMUS</span>
+                    <span lang="en" class="right">THE SOCIALIZATIONOF <br/>CAPITALISM</span>
+                </cite>
                 <img id="illustration-large-screen" src='images/issues/issue-i-illustration.WebP' alt='COVER ILLUSTRATION'/>
 
                 <div id="title-illustration">
                     <img id="illustration-small-screen" src='images/issues/issue-i-illustration.WebP' alt='COVER ILLUSTRATION'/>
-                    <cite id="title">
+                    <cite id="title-horizontal" class="title">
                         <span lang="de">HEFT I<br/>SEPTEMBER 2023</span>
                         <span lang="en">ISSUE I<br/>SEPTEMBER 2023</span>
                         <span lang="de" class="right">DIE VERGESELLSCHAFTUNG <br/>DES KAPITALISMUS</span>
