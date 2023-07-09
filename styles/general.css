@@ -66,42 +66,17 @@ body {
 
 /* SELECTION */
 
-
-#header>* ::selection {
-	color: var(--header-color);
-	background: var(--header-color-contrast);
-}
-#header>* ::-webkit-selection {
-	color: var(--header-color);
-	background: var(--header-color-contrast);
-}
-#header>* ::-moz-selection {
+#header *::selection, *::-webkit-selection, *::-moz-selection {
 	color: var(--header-color);
 	background: var(--header-color-contrast);
 }
 
-#content>* ::-moz-selection {
-	color: var(--content-color-contrast-text);
-	background: var(--content-color-contrast);
-}
-#content>* ::-webkit-selection {
-	color: var(--content-color-contrast-text);
-	background: var(--content-color-contrast);
-}
-#content>* ::selection {
+#content *::selection, *::-webkit-selection, *::-moz-selection {
 	color: var(--content-color-contrast-text);
 	background: var(--content-color-contrast);
 }
 
-#footer>* ::selection {
-	color: var(--header-color);
-	background: var(--header-color-contrast);
-}
-#footer>* ::-webkit-selection {
-	color: var(--header-color);
-	background: var(--header-color-contrast);
-}
-#footer>* ::-moz-selection {
+#footer *::selection, *::-webkit-selection, *::-moz-selection {
 	color: var(--header-color);
 	background: var(--header-color-contrast);
 }
