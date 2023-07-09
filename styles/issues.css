@@ -7,9 +7,6 @@ body {
 
 #content {
 	padding: 40px 60px;
-	display: flex;
-	flex-direction: column;
-	gap:150px;
 }
 
 section, article {
@@ -24,24 +21,24 @@ section, article {
 
 /* COVER */
 
-#title {
+/* #title {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-between;
 	column-gap:50px;
 	width: 100%;
 	max-width:900px;
-	/* margin-top: 60px; */
+	margin-top: 60px;
 	margin-bottom: 20px;
 	font-weight: 700;
 	line-height: 2;
 	font-size: 1.25rem;
 	font-size: var(--font-medium);
-}
+} */
 
 #abstract {
-	min-width: 500px;
-	width: 100%;
+	/* min-width: 500px; */
+	/* width: 100%; */
 }
 
 .abstract-text {
@@ -83,6 +80,7 @@ section, article {
 article {
 	text-align: justify;
 	line-height: 2;
+	margin-bottom: 150px;
 }
 
 .artikel-title {
@@ -121,9 +119,9 @@ article {
 		margin-right: auto;
 	}
 
-	#title {
+	/* #title {
 		max-width: 700px;
-	}
+	} */
 
 	#abstract {
 		min-width: unset;

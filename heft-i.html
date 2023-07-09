@@ -2,13 +2,13 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>ISSUE I</title>
+        <title>HEFT I</title>
         <meta name="viewport" content="width=device-width, height=device-height, user-scalable=no">
-        <meta name="description" content="ALTERNATIVE UTOPIEN">
+        <meta name="description" content="DIE VERGESELLSCHAFTUNG DES KAPITALISMUS">
         <meta property="og:type" content="article"/>
         <meta property="og:site_name" content="GEFÄNGNISHEFTE"/>
-        <meta property="og:title" content="ISSUE I"/>
-        <meta property="og:description" content="ALTERNATIVE UTOPIEN"/>
+        <meta property="og:title" content="HEFT I"/>
+        <meta property="og:description" content="DIE VERGESELLSCHAFTUNG DES KAPITALISMUS"/>
         <meta property="og:image" itemprop="image" content="https://www.gefaengnishefte.org/images/opengraph/issuei_2x1.jpg"/>
         <meta property="og:image:type" content="image/jpeg"/>
         <meta property="og:image:width" content="1200"/>
@@ -47,6 +47,8 @@
 
             // VARIABLES
 
+            const META = {de: "HEFT I", en: "ISSUE I"}
+
             const SHARE_DATA = [
                 {
                     title_de: "HEFT I – DIE VERGESELLSCHAFTUNG DES KAPITALISMUS",
@@ -78,7 +80,137 @@
         </script>
 
         <style>
-            :root { --illustration-height: 683px !important; }
+
+            #cover-section {
+                /* display:flex;
+                align-items: flex-end;
+                justify-content: space-between; */
+                /* gap:250px 100px; */
+                margin-bottom: 350px;
+                margin-top:20px;
+                max-width: unset;
+                width: unset;
+
+                display: grid;
+                grid-template-rows: 1fr auto;
+                grid-template-columns: auto auto;
+                grid-template-areas: 
+                "illustration abstract" 
+                "title abstract";
+                place-items: center;
+                position: relative;
+                gap: 60px 30px;
+            }
+
+            #illustration-large-screen {
+                position: absolute;
+                grid-area: illustration;
+                display: block;
+                object-fit: cover;
+                max-width: 100%;
+                max-height: 100%;
+            }
+
+            #illustration-small-screen {
+                display: none;
+            }
+
+            #title-illustration {
+                grid-area: title;
+                width: 100%;
+                max-width:100%;
+            }
+
+            #title {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                column-gap:50px;
+                width: 100%;
+                max-width:100%;
+                font-weight: 700;
+                font-size: 1.25rem;
+                font-size: var(--font-medium);
+            }
+            
+            #abstract {
+                grid-area: abstract;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                justify-self: end;
+                min-width: 550px;
+                max-width: 550px;
+            }
+
+ 
+
+            /* @media screen and (max-width: 500px) {
+                #title { 
+                    margin-top: 30px;
+                }
+            } */
+
+            
+            @media screen and (max-width: 1400px) {
+
+                #cover-section {
+                    background-color: #750000;
+                    border: unset;
+                    padding:0px;
+                    gap: 200px;
+                    display:flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                }
+
+                #illustration-large-screen {
+                    display: none;
+                }
+
+                #illustration-small-screen {
+                    display: block;
+                }
+
+                #title-illustration, #abstract {
+                    background-color: white;
+                    border: solid 2px black;
+                    padding:20px;
+                }
+
+                #title-illustration {
+                    display: flex;
+                    flex-direction: column;
+                    gap:30px;
+                    max-width: 700px;
+                }
+
+                #abstract {
+                    justify-self: unset;
+                }
+            }
+
+            @media screen and (max-width: 800px) {
+                #content {
+                    padding: 0px 12px;
+                }
+                
+                #cover-section>*, article, #creative-commons {
+                    padding:10px;
+                }
+
+
+                /* GUTTER FIX */
+
+                #cover-section {
+                    flex-direction: row;
+                    flex-wrap: wrap;
+                }
+            }
+            
+
+            
         </style>
     </head>
 
@@ -87,22 +219,30 @@
         <header id="header"></header>
 
         <main id="content">
-            <section id="abstract">
-                <span id="title">
-                    <span lang="de">HEFT I</span>
-                    <span lang="en">ISSUE I</span>
-                    <span lang="de">OKTOBER 2023</span>
-                    <span lang="en">OCTOBER 2023</span>
-                </span>
-                <p lang="de" class="abstract-text">Der Kapitalismus scheint als ökonomisches System alternativlos. Eine nachvollziehbare sozialistische Wirtschaftsordnung muss daher formuliert werden. Dabei muss für alle verständlich gezeigt werden, dass die demokratische Kontrolle von Kapitalflüssen und die ausbeutungsfreie Gestaltung von Arbeit umsetzbar und realistisch ist und dabei einer kapitalistischen Wirtschaftsordnung nach deren eigenen Maßstäben ebenbürtig ist. Der Aufbau dieser sozialistischen Ökonomie kann unmittelbar beginnen, durch das Zusammenführen von privatem Kapital, dessen demokratischer Kontrolle und Investition in sozialistische Arbeitsgemeinschaften. Ein Teil des in diesen Arbeitsgemeinschaften geschaffenen Wertes kann verwendet werden, um das kollektiv verwaltete Kapital wachsen zu lassen und die sozialistische Ökonomie weiter zu fördern. Auf diese Weise werden die Mechanismen der Kapitalanhäufung, die durch den Kapitalismus entwickelt wurden, gegen ihn selbst gewendet und genutzt, um ihn letztendlich zu überwinden.</p>
-                <p lang="en" class="abstract-text">Capitalism seems to have no alternative as an economic system. A comprehensible socialist economic order must therefore be formulated. In doing so, it must be shown in a way that is comprehensible to all that the democratic control of capital flows and the exploitation-free organization of labor is feasible and realistic, while being equal to a capitalist economic order according to its own standards. The construction of this socialist economy can begin immediately, through the pooling of private capital, its democratic control and investment in socialist labor communities. Some of the value created in these labor communities can be used to grow collectively managed capital and further promote the socialist economy. In this way, the mechanisms of capital accumulation developed by capitalism are turned against it and used to ultimately overcome it.</p>
-                <div class="issue-button-group">
-                    <button lang="de" onclick="share(this, 0, 'de')" class="issue-button">HEFT teilen</button>
-                    <button lang="en" onclick="share(this, 0, 'en')" class="issue-button">Share ISSUE</button>
-                    <a lang="de" href="files/de/ISSUE I – ALTERNATIVE UTOPIEN.pdf" download><button class="issue-button">PDF herunterladen</button></a>
-                    <a lang="en" href="files/en/ISSUE I – ALTERNATIVE UTOPIAS.pdf" download><button class="issue-button">Download PDF</button></a>
-                    <a lang="de" href="bestellen" targert="_blank"><button class="issue-button">KOPIE bestellen</button></a>
-                    <a lang="en" href="bestellen" targert="_blank"><button class="issue-button">Order COPY</button></a>
+            <section id="cover-section">
+                <img id="illustration-large-screen" src='images/issues/issue-i-illustration.WebP' alt='COVER ILLUSTRATION'/>
+
+                <div id="title-illustration">
+                    <img id="illustration-small-screen" src='images/issues/issue-i-illustration.WebP' alt='COVER ILLUSTRATION'/>
+                    <cite id="title">
+                        <span lang="de">HEFT I<br/>SEPTEMBER 2023</span>
+                        <span lang="en">ISSUE I<br/>SEPTEMBER 2023</span>
+                        <span lang="de" class="right">DIE VERGESELLSCHAFTUNG <br/>DES KAPITALISMUS</span>
+                        <span lang="en" class="right">THE SOCIALIZATIONOF <br/>CAPITALISM</span>
+                    </cite>
+                </div>
+
+                <div id="abstract">
+                    <p lang="de" class="abstract-text">Der Kapitalismus scheint als ökonomisches System alternativlos. Eine nachvollziehbare sozialistische Wirtschaftsordnung muss daher formuliert werden. Dabei muss für alle verständlich gezeigt werden, dass die demokratische Kontrolle von Kapitalflüssen und die ausbeutungsfreie Gestaltung von Arbeit umsetzbar und realistisch ist und dabei einer kapitalistischen Wirtschaftsordnung nach deren eigenen Maßstäben ebenbürtig ist. Der Aufbau dieser sozialistischen Ökonomie kann unmittelbar beginnen, durch das Zusammenführen von privatem Kapital, dessen demokratischer Kontrolle und Investition in sozialistische Arbeitsgemeinschaften. Ein Teil des in diesen Arbeitsgemeinschaften geschaffenen Wertes kann verwendet werden, um das kollektiv verwaltete Kapital wachsen zu lassen und die sozialistische Ökonomie weiter zu fördern. Auf diese Weise werden die Mechanismen der Kapitalanhäufung, die durch den Kapitalismus entwickelt wurden, gegen ihn selbst gewendet und genutzt, um ihn letztendlich zu überwinden.</p>
+                    <p lang="en" class="abstract-text">Capitalism seems to have no alternative as an economic system. A comprehensible socialist economic order must therefore be formulated. In doing so, it must be shown in a way that is comprehensible to all that the democratic control of capital flows and the exploitation-free organization of labor is feasible and realistic, while being equal to a capitalist economic order according to its own standards. The construction of this socialist economy can begin immediately, through the pooling of private capital, its democratic control and investment in socialist labor communities. Some of the value created in these labor communities can be used to grow collectively managed capital and further promote the socialist economy. In this way, the mechanisms of capital accumulation developed by capitalism are turned against it and used to ultimately overcome it.</p>
+                    <div class="issue-button-group">
+                        <button lang="de" onclick="share(this, 0, 'de')" class="issue-button">HEFT teilen</button>
+                        <button lang="en" onclick="share(this, 0, 'en')" class="issue-button">Share ISSUE</button>
+                        <a lang="de" href="files/de/ISSUE I – ALTERNATIVE UTOPIEN.pdf" download><button class="issue-button">PDF herunterladen</button></a>
+                        <a lang="en" href="files/en/ISSUE I – ALTERNATIVE UTOPIAS.pdf" download><button class="issue-button">Download PDF</button></a>
+                        <a lang="de" href="bestellen" targert="_blank"><button class="issue-button">KOPIE bestellen</button></a>
+                        <a lang="en" href="bestellen" targert="_blank"><button class="issue-button">Order COPY</button></a>
+                    </div>
                 </div>
             </section>
 
