@@ -991,6 +991,7 @@ function hidedropmenus() {
 }
 
 window.onpopstate = function(event){
+   alert("test")
 
     if (fullscreen_menu) {
         event.preventDefault()
