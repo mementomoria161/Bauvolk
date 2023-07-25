@@ -920,7 +920,7 @@ function openmenu(origin) {
 	}
 	else {
 		menu.style.width = "100vw";
-        console.log('calc(100vh - ' + document.getElementById("navigation").offsetHeight + 'px)')
+        // console.log('calc(100vh - ' + document.getElementById("navigation").offsetHeight + 'px)')
         menu.style.height = 'calc(100vh - ' + document.getElementById("navigation").offsetHeight + 'px)';
         menu.style.display = "grid"
         
@@ -993,11 +993,10 @@ function hidedropmenus() {
 window.onpopstate = function(event){
    alert("test")
 
-    if (fullscreen_menu) {
+    if(fullscreen_menu) {
         event.preventDefault()
         closemenu()
     }
-
 }
 
 // NAVIGATION HIGHLIGHT
