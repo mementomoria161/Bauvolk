@@ -870,7 +870,8 @@ function setabo(type) {
 
 // DROPMENU
 
-var menuopen = false;
+var menu_open = false;
+var fullscreen_menu = true
 var windowwidth = window.innerWidth;
 
 
@@ -881,7 +882,7 @@ function openmenufix() {
 
 		closemenu()
 
-		if (window.innerWidth <= 800 && !menuopen) {
+		if (window.innerWidth <= 800 && !menu_open) {
 			document.getElementById("openmenu").style.display = "inline";
 		}
 		else {
@@ -939,9 +940,11 @@ function openmenu(origin) {
         //     console.log("test")
         //     alert("test")
         //   });
+        
+        fullscreen_menu = true
 	}
 
-	menuopen = true
+	menu_open = true
 }
 
 
@@ -973,7 +976,8 @@ function closemenu() {
         // menu.animate([{ opacity: 1},{ opacity: 0},], {duration: 500, iterations: 1})
 	}
 
-	menuopen = false
+    fullscreen_menu = false
+	menu_open = false
 }
 
 
@@ -986,7 +990,14 @@ function hidedropmenus() {
 	}
 }
 
+window.onpopstate = function(event){
 
+    if (fullscreen_menu) {
+        event.preventDefault()
+        closemenu()
+    }
+
+}
 
 // NAVIGATION HIGHLIGHT
 
