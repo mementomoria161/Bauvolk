@@ -871,7 +871,7 @@ function setabo(type) {
 // DROPMENU
 
 var menu_open = false;
-var fullscreen_menu = true
+var fullscreen_menu = false
 var windowwidth = window.innerWidth;
 
 
