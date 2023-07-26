@@ -994,7 +994,7 @@ function hidedropmenus() {
 
 window.onpopstate = function(event){
 
-    if(fullscreen_menu) {
+    if(window.innerWidth < 800) {
         event.preventDefault()
         closemenu()
     }
@@ -1248,6 +1248,7 @@ function display_slide_index() {
     document.getElementById(SLIDE_LIST[slide_current]).style.display = "none";
     document.getElementById("slide-index").style.display = "block";
 
+    history.pushState({}, '', '/');
     INDEX_OPEN = true
 }
 
@@ -1262,6 +1263,18 @@ function hide_slide_index() {
     document.getElementById(SLIDE_LIST[slide_current]).style.display = "flex";
     
     INDEX_OPEN = false
+}
+
+
+window.onpopstate = function(event){
+
+    if(INDEX_OPEN) {
+        event.preventDefault()
+        hide_slide_index()
+    }
+    else {
+        history.back()
+    }
 }
 
 
