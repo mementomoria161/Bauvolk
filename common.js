@@ -930,6 +930,8 @@ function openmenu(origin) {
 		document.getElementById("openmenu").style.display = "none";
 		document.getElementById("closemenu").style.display = "inline";
 
+        history.pushState({}, '', '/');
+
         // let animation = [
         //     { opacity: 0},
         //     { opacity: 1},
