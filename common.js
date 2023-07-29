@@ -994,7 +994,7 @@ function hidedropmenus() {
 
 window.onpopstate = function(event){
 
-    if(window.innerWidth < 800) {
+    if(fullscreen_menu) {
         event.preventDefault()
         closemenu()
     }
