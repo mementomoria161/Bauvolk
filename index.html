@@ -153,16 +153,12 @@
                     document.getElementById("issue-library").insertAdjacentHTML('beforeend', title_template(i));
                 }
 
-                // let issue_list = document.getElementById("issue-library")
-                // let default_cover = issue_list.getElementsByClassName("cover")[slide_current].style.display = "flex"
-                // let default_vertical = issue_list.getElementsByClassName("issue-title")[slide_current].style.display = "none"
-
                 display_issue(slide_current)
-                // compute_sizes()
                 show_library()
                 seteagerload()
                 init_prevent_touch_response()
             }
+
 
             function show_library() {
                 let library = document.getElementById("issue-library")
@@ -187,6 +183,7 @@
                 }
             }
 
+
             
             // DISPLAY COMBINED
 
@@ -199,7 +196,6 @@
                     event.stopPropagation()
                     event.preventDefault()
                 }
-                // if(library_cooldown) {return}
 
                 display_issue(index)
                 display_slide(index)
@@ -218,71 +214,8 @@
                 let title_covers = issue_list.querySelectorAll('.cover')
                 title_covers.forEach((title_cover) => {title_cover.style.display = "none"})
                 title_covers.item(index).style.display = "flex"
-
-
-                // let cover_animation = [
-                //     { width: "0", opacity: 0},
-                //     { width: GROWTH_WIDTH},
-                //     { opacity: 1},
-                // ]
-
-                // if(index != slide_current) {
-                //     title_covers.item(index).animate(cover_animation, {duration: 1000, iterations: 1})
-                // }
-
-                // library_cooldown = true
-                // setTimeout(() => {library_cooldown = false}, 400)
             }
 
-            // SIZE COMPUTING
-
-            // var GROWTH_WIDTH = 0
-
-            // function compute_sizes() {
-            //     let images = document.getElementById("issue-library").getElementsByClassName("cover")[slide_current].getElementsByClassName("cover-image")
-            //     let lang = localStorage.getItem("gefaengnishefte_language")
-            //     let image 
-
-            //     for (let i = 0; i < images.length; i++) {
-            //         if(images[i].lang == lang) {
-            //             image = images[i]
-            //         }
-            //     }
-
-            //     if(image == null) {
-            //         return
-            //     }
-            //     else if (image.complete) {
-            //         if(image.offsetWidth == 0) {
-            //             window.addEventListener("resize", compute_sizes)
-            //             console.log("IMAGE NOT MORE THAN 0")
-            //             return
-            //         }
-
-            //         GROWTH_WIDTH = image.offsetWidth + "px"
-            //         console.log(GROWTH_WIDTH)
-            //         window.removeEventListener("resize", compute_sizes)
-            //         compute_issue_list_width()
-            //     }
-            //     else {
-            //         console.log("IMAGE NOT YET LOADED")
-            //         setTimeout(compute_sizes, 10)
-            //     }
-            // }
-
-            // function compute_issue_list_width() {
-
-            //     let issue_list = document.getElementById("issue-library")
-
-            //     if (issue_list.offsetWidth == 0) {
-            //         window.addEventListener("resize", compute_issue_list_width)
-            //         return
-            //     }
-
-            //     issue_list.style.width = issue_list.offsetWidth + "px"
-            //     console.log(issue_list.offsetWidth + "px")
-            //     window.removeEventListener("resize", compute_issue_list_width)
-            // }
 
 
             // EAGER LOAD ACCORDING TO LANGUAGE
@@ -303,31 +236,31 @@
             // PREVENT TOUCHING RESPONSE
             // DOES THIS EVEN CONNECT TO ANYTHING?
 
-            function init_prevent_touch_response() {
-                let titles = document.getElementById("issue-library").getElementsByClassName("issue-title")
+            // function init_prevent_touch_response() {
+            //     let titles = document.getElementById("issue-library").getElementsByClassName("issue-title")
 
-                for (let i = 0; i < titles.length; i++) {
-                    titles[i].addEventListener("pointerdown", (event) => {
-                        if (event.pointerType === "touch" || event.pointerType === "pen") {
-                            event.currentTarget.addEventListener("click", prevent_link_events)
-                        }
-                    })
+            //     for (let i = 0; i < titles.length; i++) {
+            //         titles[i].addEventListener("pointerdown", (event) => {
+            //             if (event.pointerType === "touch" || event.pointerType === "pen") {
+            //                 event.currentTarget.addEventListener("click", prevent_link_events)
+            //             }
+            //         })
 
-                    titles[i].addEventListener("mouseenter", ()=>{titles[i].style.color = ""})
-                }
-            }
+            //         titles[i].addEventListener("mouseenter", ()=>{titles[i].style.color = ""})
+            //     }
+            // }
 
-            function prevent_link_events(event) {
-                event.preventDefault()
-                // event.currentTarget.style.color = "white"
-                event.currentTarget.removeEventListener("click", prevent_link_events)
-            }
+            // function prevent_link_events(event) {
+            //     event.preventDefault()
+            //     // event.currentTarget.style.color = "white"
+            //     event.currentTarget.removeEventListener("click", prevent_link_events)
+            // }
 
         </script>
 
         <style>
-/* 
-            input[type="checkbox"] {
+            
+            /* input[type="checkbox"] {
                 content: "";
                 -webkit-appearance: none;
                 appearance: none;
