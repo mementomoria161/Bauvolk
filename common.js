@@ -121,9 +121,13 @@ function init_footer() {
 
 window.onpopstate = function(event){
 
-    if(fullscreen_menu || INDEX_OPEN) {
+    if(fullscreen_menu && window.innerWidth < 800) {
         event.preventDefault()
         closemenu()
+    }
+    else if(INDEX_OPEN){
+        event.preventDefault()
+        hide_slide_index()
     }
     else {
         history.back()
