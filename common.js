@@ -130,7 +130,7 @@ window.onpopstate = function(event){
     }
     else if(INDEX_OPEN){
         event.preventDefault()
-        history.pushState({}, '', '/')
+        history.pushState({}, '', window.location.href)
         history.forward()
         hide_slide_index()
     }
