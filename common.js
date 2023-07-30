@@ -103,8 +103,9 @@ function init() {
 
 
     let url = window.location.href
-    window.location.href = url + "/"
+    window.location.hash = "#s"
     console.log(window.location.href)
+    window.location.hash = ""
     // let url = window.location.href
     // console.log(url)
     // window.history.pushState({}, "", url);
