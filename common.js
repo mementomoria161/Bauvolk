@@ -102,7 +102,7 @@ function init() {
     }
 
 
-    history.pushState({}, '', '')
+    history.replaceState({}, '', '')
 }
 
 
