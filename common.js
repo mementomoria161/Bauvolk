@@ -102,6 +102,8 @@ function init() {
     }
 
     history.pushState({}, '', '/')
+    
+    alert("test2")
 }
 
 
@@ -124,14 +126,16 @@ window.onpopstate = function(event){
 
     if(fullscreen_menu && window.innerWidth < 800) {
         event.preventDefault()
-	history.pushState({}, '', '/')
-	history.forward()
+        history.pushState({}, '', '/')
+        history.forward()
+        alert("test")
         closemenu()
     }
     else if(INDEX_OPEN){
         event.preventDefault()
-	history.pushState({}, '', '/')
-	history.forward()
+        history.pushState({}, '', '/')
+        history.forward()
+        alert("test")
         hide_slide_index()
     }
     else {
