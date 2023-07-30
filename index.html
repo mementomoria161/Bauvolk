@@ -159,8 +159,33 @@
 
                 display_issue(slide_current)
                 // compute_sizes()
+                show_library()
                 seteagerload()
                 init_prevent_touch_response()
+            }
+
+            function show_library() {
+                let library = document.getElementById("issue-library")
+                let images = library.getElementsByClassName("cover")[slide_current].getElementsByClassName("cover-image")
+                let lang = localStorage.getItem("gefaengnishefte_language")
+                let image 
+
+                for (let i = 0; i < images.length; i++) {
+                    if(images[i].lang == lang) {
+                        image = images[i]
+                    }
+                }
+
+                if(image == null) {
+                    return
+                }
+                else if (image.complete) {
+                    library.style.visibility = "visibile"
+                }
+                else {
+                    console.log("IMAGE NOT YET LOADED")
+                    setTimeout(show_library, 10)
+                }
             }
 
             
@@ -326,6 +351,7 @@
             /* WRAPS */                
 
             #issue-library {
+                visibility: hidden;
                 display: flex;
                 flex-direction: row-reverse;
                 justify-content: flex-end;
