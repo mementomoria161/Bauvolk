@@ -102,7 +102,7 @@ function init() {
     }
 
 
-    history.replaceState({}, '', window.location.href)
+    history.replaceState({}, '', '/')
 }
 
 
