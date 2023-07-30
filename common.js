@@ -126,14 +126,12 @@ window.onpopstate = function(event){
         event.preventDefault()
         history.pushState({}, '', window.location.href)
         history.forward()
-        alert("test")
         closemenu()
     }
     else if(INDEX_OPEN){
         event.preventDefault()
         history.pushState({}, '', '/')
         history.forward()
-        alert("test")
         hide_slide_index()
     }
     else {
