@@ -102,8 +102,6 @@ function init() {
     }
 
     history.pushState({}, '', window.location.href)
-    
-    alert("test2")
 }
 
 
