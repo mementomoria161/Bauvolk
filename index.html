@@ -236,30 +236,30 @@
             // PREVENT TOUCHING RESPONSE
             // DOES THIS EVEN CONNECT TO ANYTHING?
 
-            // function init_prevent_touch_response() {
-            //     let titles = document.getElementById("issue-library").getElementsByClassName("issue-title")
+            function init_prevent_touch_response() {
+                let covers = document.getElementById("issue-library").getElementsByClassName("cover")
 
-            //     for (let i = 0; i < titles.length; i++) {
-            //         titles[i].addEventListener("pointerdown", (event) => {
-            //             if (event.pointerType === "touch" || event.pointerType === "pen") {
-            //                 event.currentTarget.addEventListener("click", prevent_link_events)
-            //             }
-            //         })
+                for (let i = 0; i < covers.length; i++) {
+                    covers[i].addEventListener("pointerdown", (event) => {
+                        if (event.pointerType === "touch" || event.pointerType === "pen") {
+                            event.currentTarget.addEventListener("click", prevent_link_events)
+                        }
+                    })
 
-            //         titles[i].addEventListener("mouseenter", ()=>{titles[i].style.color = ""})
-            //     }
-            // }
+                    // covers[i].addEventListener("mouseenter", ()=>{covers[i].style.color = ""})
+                }
+            }
 
-            // function prevent_link_events(event) {
-            //     event.preventDefault()
-            //     // event.currentTarget.style.color = "white"
-            //     event.currentTarget.removeEventListener("click", prevent_link_events)
-            // }
+            function prevent_link_events(event) {
+                event.preventDefault()
+                // event.currentTarget.style.color = "white"
+                event.currentTarget.removeEventListener("click", prevent_link_events)
+            }
 
         </script>
 
         <style>
-            
+
             /* input[type="checkbox"] {
                 content: "";
                 -webkit-appearance: none;
