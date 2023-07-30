@@ -7,7 +7,6 @@ fix touch response
 
 -------------- IMPROVEMENTS --------------
 
-redo issue widescreen
 add elionor
 
 -------------- THINGS TO CHECK WHEN ADDING NEW ISSUE  --------------
