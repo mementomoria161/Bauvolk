@@ -102,6 +102,9 @@ function init() {
     }
 
 
+    let url = window.location.href
+    window.location.href = url + "/"
+    console.log(window.location.href)
     // let url = window.location.href
     // console.log(url)
     // window.history.pushState({}, "", url);
