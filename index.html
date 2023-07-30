@@ -195,7 +195,10 @@
 
             function display_combined(event, index) {
 
-                if(event) {event.stopPropagation()}
+                if(event) {
+                    event.stopPropagation()
+                    event.preventDefault()
+                }
                 // if(library_cooldown) {return}
 
                 display_issue(index)
