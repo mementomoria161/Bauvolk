@@ -101,7 +101,9 @@ function init() {
         suf_init()
     }
 
-    history.replaceState({ page: 1 }, "title 1", "/")
+    window.history.pushState({}, "", window.location.href);
+    window.history.pushState({}, "", window.location.href); // yes twice
+    window.history.back();
 }
 
 
