@@ -101,7 +101,7 @@ function init() {
         suf_init()
     }
 
-    history.pushState({}, '', '/')
+    history.pushState({}, '', window.location.href)
     
     alert("test2")
 }
@@ -126,7 +126,7 @@ window.onpopstate = function(event){
 
     if(fullscreen_menu && window.innerWidth < 800) {
         event.preventDefault()
-        history.pushState({}, '', '/')
+        history.pushState({}, '', window.location.href)
         history.forward()
         alert("test")
         closemenu()
