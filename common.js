@@ -101,8 +101,11 @@ function init() {
         suf_init()
     }
 
-    window.history.pushState({}, "", window.location.href);
-    window.history.pushState({}, "", window.location.href); // yes twice
+
+    let url = window.location.href
+    console.log(url)
+    window.history.pushState({}, "", url);
+    window.history.pushState({}, "", url); // yes twice
     window.history.back();
 }
 
