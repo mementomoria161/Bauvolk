@@ -101,6 +101,7 @@ function init() {
         suf_init()
     }
 
+    history.replaceState({ page: 1 }, "title 1", "/")
 }
 
 
@@ -946,8 +947,6 @@ function openmenu(origin) {
 		document.getElementById("openmenu").style.display = "none";
 		document.getElementById("closemenu").style.display = "inline";
 
-        history.replaceState(null, null, window.location.pathname)
-
         // let animation = [
         //     { opacity: 0},
         //     { opacity: 1},
@@ -1253,7 +1252,6 @@ function display_slide_index() {
     document.getElementById(SLIDE_LIST[slide_current]).style.display = "none";
     document.getElementById("slide-index").style.display = "block";
 
-    history.replaceState(null, null, window.location.pathname)
     INDEX_OPEN = true
 }
 
