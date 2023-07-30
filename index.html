@@ -241,6 +241,7 @@
 
                 for (let i = 0; i < covers.length; i++) {
                     covers[i].addEventListener("pointerdown", (event) => {
+		alert("tesz")
                         if (event.pointerType === "touch" || event.pointerType === "pen") {
                             event.currentTarget.addEventListener("click", prevent_link_events)
                         }
