@@ -101,8 +101,7 @@ function init() {
         suf_init()
     }
 
-
-    history.replaceState({}, '', '/')
+    history.pushState({}, '', '/')
 }
 
 
@@ -125,12 +124,10 @@ window.onpopstate = function(event){
 
     if(fullscreen_menu && window.innerWidth < 800) {
         event.preventDefault()
-        history.pushState({}, '', '')
         closemenu()
     }
     else if(INDEX_OPEN){
         event.preventDefault()
-        history.pushState({}, '', '')
         hide_slide_index()
     }
     else {
