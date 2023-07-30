@@ -300,7 +300,7 @@
             // DOES THIS EVEN CONNECT TO ANYTHING?
 
             function init_prevent_touch_response() {
-                let titles = document.getElementsByClassName("title")
+                let titles = document.getElementById("issue-library").querySelectorAll('.issue-title')
 
                 for (let i = 0; i < titles.length; i++) {
                     titles[i].addEventListener("pointerdown", (event) => {
@@ -315,7 +315,7 @@
 
             function prevent_link_events(event) {
                 event.preventDefault()
-                event.currentTarget.style.color = "white"
+                // event.currentTarget.style.color = "white"
                 event.currentTarget.removeEventListener("click", prevent_link_events)
             }
 
