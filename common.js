@@ -124,10 +124,14 @@ window.onpopstate = function(event){
 
     if(fullscreen_menu && window.innerWidth < 800) {
         event.preventDefault()
+	history.pushState({}, '', '/')
+	history.forward()
         closemenu()
     }
     else if(INDEX_OPEN){
         event.preventDefault()
+	history.pushState({}, '', '/')
+	history.forward()
         hide_slide_index()
     }
     else {
