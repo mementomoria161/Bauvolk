@@ -130,9 +130,9 @@
             function cover_template(i){let issue = ISSUE_LIST[i]; return '<a class="cover" href=' + issue.url + '><img class="cover-image" loading="lazy" lang="de" src=' + issue.cover_de + ' alt=' + issue.no_de + ' COVER/><img class="cover-image" loading="lazy" lang="en" src=' + issue.cover_en + ' alt=' + issue.no_en + 'COVER/></a>'}
             function basic_template(issue) {return '<span lang="de">' + issue.no_de + '</span><span lang="en">' + issue.no_en + '</span><span lang="de">' + issue.title_de + '</span><span lang="en">' + issue.title_en + '</span>'}
             function basic_template_date(issue) {return '<span lang="de" class="left">' + issue.no_de + '<br>' + issue.date_de + '</span><span lang="en" class="left">' + issue.no_en +  '<br>' + issue.date_en + '</span><span lang="de">' + issue.title_de + '</span><span lang="en">' + issue.title_en + '</span>'}
-            function title_template(i){let issue = ISSUE_LIST[i]; return  cover_template(i) + '<div onmouseover="display_combined(' + i + ')" onclick="display_combined(' + i + ')" class="issue-title vertical">' + basic_template_date(issue)+ '</div>'}
+            function title_template(i){let issue = ISSUE_LIST[i]; return  cover_template(i) + '<div onmouseover="display_combined(' + this  + ", " + i + ')" class="issue-title vertical">' + basic_template_date(issue)+ '</div>'}
             function index_title_template(i){let issue = ISSUE_LIST[i]; return '<a class="issue-title center" href=' + issue.url + '><span lang="de">' + issue.title_de + '</span><span lang="en">' + issue.title_en + '</span></a>'}
-            function index_template(slide, i){let issue = ISSUE_LIST[i]; return '<span onclick="display_combined(' + i + ')" id="index' + i + '" class="indexitem issue-title">' + basic_template(issue) + '</span><hr>'}
+            function index_template(slide, i){let issue = ISSUE_LIST[i]; return '<span onclick="display_combined(' + null  + ", " + i + ')" id="index' + i + '" class="indexitem issue-title">' + basic_template(issue) + '</span><hr>'}
 
             // LOADING
 
@@ -193,8 +193,9 @@
             var library_cooldown = false
 
 
-            function display_combined(index) {
+            function display_combined(event, index) {
 
+                if(event) {event.stopPropagation()}
                 // if(library_cooldown) {return}
 
                 display_issue(index)
@@ -299,25 +300,25 @@
             // PREVENT TOUCHING RESPONSE
             // DOES THIS EVEN CONNECT TO ANYTHING?
 
-            // function init_prevent_touch_response() {
-            //     let titles = document.getElementById("issue-library").getElementsByClassName("issue-title")
+            function init_prevent_touch_response() {
+                let titles = document.getElementById("issue-library").getElementsByClassName("issue-title")
 
-            //     for (let i = 0; i < titles.length; i++) {
-            //         titles[i].addEventListener("pointerdown", (event) => {
-            //             if (event.pointerType === "touch" || event.pointerType === "pen") {
-            //                 event.currentTarget.addEventListener("click", prevent_link_events)
-            //             }
-            //         })
+                for (let i = 0; i < titles.length; i++) {
+                    titles[i].addEventListener("pointerdown", (event) => {
+                        if (event.pointerType === "touch" || event.pointerType === "pen") {
+                            event.currentTarget.addEventListener("click", prevent_link_events)
+                        }
+                    })
 
-            //         titles[i].addEventListener("mouseenter", ()=>{titles[i].style.color = ""})
-            //     }
-            // }
+                    titles[i].addEventListener("mouseenter", ()=>{titles[i].style.color = ""})
+                }
+            }
 
-            // function prevent_link_events(event) {
-            //     event.preventDefault()
-            //     // event.currentTarget.style.color = "white"
-            //     event.currentTarget.removeEventListener("click", prevent_link_events)
-            // }
+            function prevent_link_events(event) {
+                event.preventDefault()
+                // event.currentTarget.style.color = "white"
+                event.currentTarget.removeEventListener("click", prevent_link_events)
+            }
 
         </script>
 

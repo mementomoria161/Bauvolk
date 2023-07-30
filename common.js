@@ -1155,7 +1155,7 @@ function init_controls() {
 function letztes() {
     if(slide_current>=0) {
         if(typeof display_combined === "function") {
-            display_combined(slide_current - 1)
+            display_combined(null, slide_current - 1)
         }
         else {
             display_slide(slide_current - 1)
@@ -1167,7 +1167,7 @@ function letztes() {
 function nächstes() {
     if(slide_current<=SLIDE_LIST.length-1) {
         if(typeof display_combined === "function") {
-            display_combined(slide_current + 1)
+            display_combined(null, slide_current + 1)
         }
         else {
             display_slide(slide_current + 1)
