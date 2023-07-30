@@ -3,6 +3,8 @@
 check safari preload
 check widescreen compatability
 large font too large at certain sizes
+fix touch response
+fix back nav
 
 -------------- IMPROVEMENTS --------------
 
@@ -11,6 +13,7 @@ add elionor
 
 -------------- THINGS TO CHECK WHEN ADDING NEW ISSUE  --------------
 
+ISSUE PAGE (OBVIO)
 INDEX
 SHARING
 OPEN GRAPH

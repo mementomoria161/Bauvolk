@@ -102,11 +102,11 @@ function init() {
     }
 
 
-    let url = window.location.href
-    console.log(url)
-    window.history.pushState({}, "", url);
-    window.history.pushState({}, "", url); // yes twice
-    window.history.back();
+    // let url = window.location.href
+    // console.log(url)
+    // window.history.pushState({}, "", url);
+    // window.history.pushState({}, "", url); // yes twice
+    // window.history.back();
 }
 
 
