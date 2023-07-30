@@ -946,7 +946,7 @@ function openmenu(origin) {
 		document.getElementById("openmenu").style.display = "none";
 		document.getElementById("closemenu").style.display = "inline";
 
-        history.pushState(null, null, window.location.pathname)
+        history.replaceState(null, null, window.location.pathname)
 
         // let animation = [
         //     { opacity: 0},
@@ -1253,7 +1253,7 @@ function display_slide_index() {
     document.getElementById(SLIDE_LIST[slide_current]).style.display = "none";
     document.getElementById("slide-index").style.display = "block";
 
-    history.pushState(null, null, window.location.pathname)
+    history.replaceState(null, null, window.location.pathname)
     INDEX_OPEN = true
 }
 
