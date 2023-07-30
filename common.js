@@ -119,6 +119,18 @@ function init_footer() {
 }
 
 
+window.onpopstate = function(event){
+
+    if(fullscreen_menu || INDEX_OPEN) {
+        event.preventDefault()
+        closemenu()
+    }
+    else {
+        history.back()
+    }
+}
+
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////// PWA ///////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -992,17 +1004,6 @@ function hidedropmenus() {
 	}
 }
 
-window.onpopstate = function(event){
-
-    if(fullscreen_menu) {
-        event.preventDefault()
-        closemenu()
-    }
-    else {
-        history.back()
-    }
-}
-
 // NAVIGATION HIGHLIGHT
 
 const highlights = {
@@ -1263,18 +1264,6 @@ function hide_slide_index() {
     document.getElementById(SLIDE_LIST[slide_current]).style.display = "flex";
     
     INDEX_OPEN = false
-}
-
-
-window.onpopstate = function(event){
-
-    if(INDEX_OPEN) {
-        event.preventDefault()
-        hide_slide_index()
-    }
-    else {
-        history.back()
-    }
 }
 
 
