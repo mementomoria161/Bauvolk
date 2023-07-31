@@ -924,8 +924,8 @@ function check_menu_origin(origin) {
 }
 
 
-function openmenu(origin) {
-    origin = check_menu_origin(origin)
+function openmenu(event) {
+    origin = check_menu_origin(event.currentTarget)
     
     let anchor = origin.getElementsByClassName("dropanchor")[0]
     let menu = origin.getElementsByClassName("dropmenu")[0]
@@ -935,6 +935,12 @@ function openmenu(origin) {
 	anchor.style.visibility = "visible";
 
 	if (window.innerWidth >= 800) {
+
+        if (origin.classList.contains("menu-horizontal") && (event.pointerType === "touch" || event.pointerType === "pen")) {
+            hidedropmenus();
+            return
+        }
+
 		menu.style.width = document.getElementById("navigation").offsetWidth + 201 + 'px'; // og value 30
         // menu.style.width = "491px";
         menu.style.height = "initial";

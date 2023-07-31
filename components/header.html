@@ -257,6 +257,7 @@
 				}
 			}
 
+
 			@media screen and (max-width: 450px) {
 				.long {
 					display:none;
@@ -280,7 +281,7 @@
 
 			<!-- ISSUES -->
 
-			<div class="menu-horizontal" onmouseenter="openmenu(this)">
+			<div class="menu-horizontal" onpointerenter="openmenu(event)">
 				<a class="dropanchor nav-selectable" id="highlight-issues" href="https://www.GEFAENGNISHEFTE.org"><span lang="de">HEFTE</span><span lang="en">ISSUES</span></a>
 
 				<div class="dropmenu menu-content">
@@ -291,7 +292,7 @@
 
 			<!-- KANON -->
 
-			<div class="menu-horizontal" onmouseenter="openmenu(this)">
+			<div class="menu-horizontal" onpointerenter="openmenu(event)">
 				<a class="dropanchor nav-selectable" id="highlight-kanon" href="https://www.GEFAENGNISHEFTE.org/kanon">KANON</a>
 
 				<div class="dropmenu menu-content">
@@ -302,7 +303,7 @@
 			<!-- MENU/ETC -->
 
 			<div>
-				<span class="dropanchor nav-selectable" id="etc" onmouseenter="openmenu(this)">ETC</span>
+				<span class="dropanchor nav-selectable" id="etc" onpointerenter="openmenu(event)">ETC</span>
 				<span class="dropanchor" id="openmenu" onclick="openmenu(this)"><span lang="de">MENÜ</span><span lang="en">MENU</span></span>
 				<span class="dropanchor" id="closemenu" onclick="safeclosemenu()"><span lang="de">SCHLIESSEN</span><span lang="en">CLOSE</span></span>
 

@@ -236,26 +236,26 @@
             // PREVENT TOUCHING RESPONSE
             // DOES THIS EVEN CONNECT TO ANYTHING?
 
-            function init_prevent_touch_response() {
-                let covers = document.getElementById("issue-library").getElementsByClassName("cover")
+            // function init_prevent_touch_response() {
+            //     let covers = document.getElementById("issue-library").getElementsByClassName("cover")
 
-                for (let i = 0; i < covers.length; i++) {
-                    covers[i].addEventListener("pointerdown", (event) => {
-		alert("tesz")
-                        if (event.pointerType === "touch" || event.pointerType === "pen") {
-                            event.currentTarget.addEventListener("click", prevent_link_events)
-                        }
-                    })
+            //     for (let i = 0; i < covers.length; i++) {
+            //         covers[i].addEventListener("pointerdown", (event) => {
+		    //             alert("tesz")
+            //             if (event.pointerType === "touch" || event.pointerType === "pen") {
+            //                 event.currentTarget.addEventListener("click", prevent_link_events)
+            //             }
+            //         })
 
-                    // covers[i].addEventListener("mouseenter", ()=>{covers[i].style.color = ""})
-                }
-            }
+            //         // covers[i].addEventListener("mouseenter", ()=>{covers[i].style.color = ""})
+            //     }
+            // }
 
-            function prevent_link_events(event) {
-                event.preventDefault()
-                // event.currentTarget.style.color = "white"
-                event.currentTarget.removeEventListener("click", prevent_link_events)
-            }
+            // function prevent_link_events(event) {
+            //     event.preventDefault()
+            //     // event.currentTarget.style.color = "white"
+            //     event.currentTarget.removeEventListener("click", prevent_link_events)
+            // }
 
         </script>
 
@@ -426,7 +426,7 @@
             /*/////////////////////// REACTIVE ///////////////////////*/
 
 
-            @media screen and (max-width: 800px) {
+            @media screen and (max-width: 800px), (hover: none) {
                 body {
                     grid-template-rows: auto minmax(0, 1fr) auto;
                     grid-template-areas: "header" "main" "controls";
