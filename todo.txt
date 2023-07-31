@@ -3,7 +3,6 @@
 check safari preload
 check widescreen compatability
 large font too large at certain sizes
-fix touch response
 
 -------------- IMPROVEMENTS --------------
 
