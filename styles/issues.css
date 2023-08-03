@@ -175,6 +175,7 @@ article {
 	.issue-button {
 		width: 140px;
 		font-size: var(--font-small);
+		color: black !important;
 	}
 
 	/* COVER */

@@ -1150,7 +1150,20 @@ function init_controls() {
 
     document.querySelectorAll("#slide-index, #slide-current, #letztes, #nächstes").forEach((item) => {item.addEventListener("mouseenter", entercontrols)})
     document.querySelectorAll("#slide-index, #slide-current, #letztes, #nächstes").forEach((item) => {item.addEventListener("mouseleave", leavecontrols)})
+
+    update_slide_height()
+    window.addEventListener("resize", update_slide_height)
 }
+
+
+
+function update_slide_height() {
+    let interface_height = document.getElementById("navigation").offsetHeight + document.getElementById("controls").offsetHeight + 30
+    console.log(interface_height)
+    document.documentElement.style.setProperty('--max-slide-height', 'min(55vh, calc(100vh - ' + interface_height + 'px))'); ;
+}
+
+
 
 
 

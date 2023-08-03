@@ -81,7 +81,8 @@
 
 			.dropmenu {
 				display: none;
-				overflow: hidden;
+				overflow-y: auto;
+				scrollbar-gutter: stable both-edges;
 				white-space: nowrap;
 				position: absolute;
 				right:0;
@@ -115,6 +116,7 @@
 
 			#menu-expanded {
 				padding-top: 0px;
+				margin-bottom: 40px;
 			}
 
 			.menu-divider {
@@ -215,8 +217,7 @@
 				#menu {
 					justify-content: center;
 					align-content: start;
-					gap: 40px;
-					grid-template-rows: 1fr auto auto  1fr 1fr 1fr 1fr;
+					grid-template-rows: 1fr auto auto 1fr 1fr 1fr 1fr;
 					grid-template-columns: auto;
 					grid-template-areas: "." "menu-expanded" "menu-etc" "." "." "." ".";
 				}
@@ -265,7 +266,12 @@
 			}
 
 			@media screen and (max-height: 600px) {
-				#menu, #menu-etc {
+
+				#menu-expanded {
+					margin-bottom: 15px;;
+				}
+				
+				#menu-etc {
 					gap:15px;
 				}
 			}

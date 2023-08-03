@@ -3,6 +3,10 @@
 check safari preload
 check widescreen compatability
 large font too large at certain sizes
+cover alt text
+ipad kanon current number
+safari link color
+kanon/issue sometimes scrolls
 
 -------------- IMPROVEMENTS --------------
 
