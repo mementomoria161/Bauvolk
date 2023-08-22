@@ -102,6 +102,7 @@ function init() {
     }
 
     history.pushState({}, '', window.location.href)
+    show_body()
 }
 
 
@@ -327,6 +328,19 @@ function pause_videos() {
             frames[i].contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*')
         }
 	}
+}
+
+
+
+// DISPLAY BODY
+
+function show_body() {
+    let bodyelements = document.body.children
+    
+    for (let i = 0; i < bodyelements.length; i++) {
+        bodyelements[i].style.visibility = "visible"
+        console.log(bodyelements[i])
+    }
 }
 
 

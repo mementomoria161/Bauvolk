@@ -176,7 +176,7 @@
                     return
                 }
                 else if (image.complete) {
-                    library.style.visibility = "visible"
+                    library.style.display = "flex"
                 }
                 else {
                     setTimeout(show_library, 10)
@@ -288,8 +288,8 @@
             /* WRAPS */                
 
             #issue-library {
-                visibility: hidden;
-                display: flex;
+                /* visibility: hidden; */
+                display: none;
                 flex-direction: row-reverse;
                 justify-content: flex-end;
                 align-items: center;
@@ -370,7 +370,7 @@
             #issue-library .cover {
                 display: none;
                 justify-content: flex-start;
-                height: var(--max-slide-height);
+                height: 550px;
             }
 
             #issue-library .cover-image {
@@ -448,7 +448,7 @@
                 }
 
                 #issue-library {
-                    display:none;
+                    display:none !important;
                 }
 
                 #slides {
