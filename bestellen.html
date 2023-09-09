@@ -83,6 +83,8 @@
                     let costs_formated = new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(costs);
                     costs_string = costs_string + "<tr><td>1,60 €</th><td>Porto</td></tr><tr><th>" + costs_formated + "</th><th>Summe</th></tr>"
                     costs_display.innerHTML = costs_string
+                    
+                    costs = new Intl.NumberFormat("de-DE", { style: "decimal"}).format(costs)
                 }
 
                 reset_language()
