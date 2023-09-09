@@ -51,7 +51,7 @@
 
             function suf_init() {
                 document.getElementById("issue-selection").querySelectorAll("input[type=checkbox]").forEach((item) => {item.addEventListener('change', calculate_cost)})
-                
+                document.getElementById("bestellen-form").addEventListener('submit', function(event){pay(event)})
             }
 
         
@@ -60,34 +60,42 @@
         <script>
 
             
+            var costs = 0
+
             function calculate_cost() {
                 let selection = document.getElementById("issue-selection").getElementsByTagName("input")
                 let costs_display = document.getElementById("costs")
-                let costs_string = "<p lang='de'>Wir verschicken die Hefte auf Spendenbases. Bitte übernehme die Produktionkosten und das Porto deiner Bestellung zu übernehmen, wenn es dir möglich ist.</p><br>"
-                let costs = 0
+                let costs_string = ""
+                costs = 0
 
-                costs_display.style.display = "none"
-                costs_display.style.display = "none"
+                costs_display.innerHTML = "<tr><th>" + costs + " €</th><th>Summe</th></tr>"
 
                 for (let i = 0; i < selection.length; i++)
                 {
-                    
-                    console.log("test")
                     if(selection[i].checked) {
                         costs = costs + 4
-                        costs_string = costs_string + "4€ [Produktionskosten]<br>+ "
-                        console.log(costs_string)
+                        costs_string = costs_string + "<tr><td>4 €</td><td>Produktionskosten</td></tr>"
                     }
                 }
 
                 if(costs != 0) {
                     costs = costs + 1.60
-                    costs_string = costs_string + "1,60€ [Porto]<br>------<br>" + costs + "€"
+                    let costs_formated = new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(costs);
+                    costs_string = costs_string + "<tr><td>1,60 €</th><td>Porto</td></tr><tr><th>" + costs_formated + "</th><th>Summe</th></tr>"
                     costs_display.innerHTML = costs_string
-                    costs_display.style.display = "block"
                 }
 
                 reset_language()
+            }
+
+            function pay(event) {
+                event.preventDefault()
+    
+                let data = new FormData(event.target)    
+                data.append('Costs', costs);
+                fetch_mail(make_table(data), "order")
+
+                window.open('https://www.paypal.com/paypalme/GEFAENGNISHEFTE/EUR' + costs, '_blank');
             }
         
         </script>
@@ -95,27 +103,30 @@
         <style>
 
             #content {
-                display: grid;
-                place-content: center;
-                grid-template-rows: 1fr auto 1fr 1fr 1fr 1fr;
-                grid-template-columns: 100%;
-                grid-template-areas: "." "main-content" "."  "."  "."  ".";
+                padding-top: 80px;
             }
 
             #bestellen-form {
-                margin-left: auto;
-                margin-right: auto;
-                height: fit-content;
-                width: 400px;
-                max-width: 100%;
-                grid-area: main-content;
-                display: flex;
-                flex-direction: column;
+                display: grid;
+                justify-content: center;
                 gap:50px;
                 padding-bottom: 60px;
+
+
+                grid-template-columns: auto auto;
+                grid-template-rows: auto auto auto;
+                grid-template-areas: 
+                    "issue-selection issue-selection" 
+                    "delivery-adress costs-outer" 
+                    "order order";
+            }
+
+            #bestellen-form > * {
+                width: 400px;
             }
 
             #delivery-adress {
+                grid-area: delivery-adress;
                 display: flex;
                 flex-direction: column;
                 gap:10px;
@@ -128,6 +139,8 @@
             }
 
             #issue-selection {
+                grid-area: issue-selection;
+                width: 800px;
                 display: flex;
                 flex-direction: column;
                 gap:10px;
@@ -137,6 +150,10 @@
                 width: fit-content;
             }
 
+            #costs-outer {
+                grid-area: costs-outer;
+            }
+
             fieldset {
                 border: 0px none transparent;
                 margin: 0px;
@@ -144,20 +161,59 @@
                 padding-top: 15px;
             }
 
-            #bestellen-form label {
-                font-size: 15pt;
-            }
-
-            #costs {
-                display: none;
-
-            }
-
             #order {
-                display: flex;
-                justify-content: space-between;
+                margin-top: 30px;
+                width: fit-content;
+                grid-area: order;
+                margin-left: auto;
+                margin-right: auto;
             }
 
+            table {
+                font-family: arial, sans-serif;
+                border-collapse: collapse;
+                width: 100%;
+                border: 2px inset grey;
+                margin-bottom: 30px;
+            }
+
+            td, th {
+                border: 1px solid grey;
+                background-color: white;
+                color: black;
+                text-align: left;
+            }
+
+            
+            @media screen and (max-width: 1000px) {
+                #bestellen-form {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                }
+                
+                #issue-selection {
+                    width: 400px !important;
+                }
+            }
+
+            #bestellen-form label {
+                font-size: 13pt;
+            }
+
+
+            @media screen and (max-width: 450px) {
+
+                #bestellen-form label  {
+                    font-size: 12pt;
+                }
+            }
+
+            @media screen and (max-width: 350px) {
+                #bestellen-form label  {
+                    font-size: 11pt;
+                }
+            }
 
 
         </style>
@@ -173,21 +229,21 @@
 
                 <fieldset id="issue-selection">
                     <legend>Heftauswahl</legend>
-                    <div class= "input">
-                        <input type="checkbox" name="issue-i-checkbox" value="Bike">
-                        <label for="issue-i-checkbox">ISSUE I - ALTERNATIVE UTOPIEN</label><br>    
+                    <div>
+                        <input type="checkbox" name="issue-i-checkbox" value="Checked">
+                        <label for="issue-i-checkbox">HEFT I – DIE VERGESELLSCHAFTUNG DES KAPITALISMUS</label><br>    
                     </div>
                     <div>
-                        <input type="checkbox" name="issue-ii-checkbox" value="Bike">
-                        <label for="issue-ii-checkbox">ISSUE I - ALTERNATIVE UTOPIEN</label><br>  
+                        <input type="checkbox" name="issue-ii-checkbox" value="Checked">
+                        <label for="issue-ii-checkbox">HEFT II – REFORM ODER REVOLUTION</label><br>  
                     </div>
                     <div>
-                        <input type="checkbox" name="issue-iii-checkbox" value="Bike">
-                        <label for="issue-iii-checkbox">ISSUE I - ALTERNATIVE UTOPIEN</label><br>  
+                        <input type="checkbox" name="issue-iii-checkbox" value="Checked">
+                        <label for="issue-iii-checkbox">HEFT III – ALTERNATIVE UTOPIEN</label><br>  
                     </div>
                     <div>
-                        <input type="checkbox" name="issue-iv-checkbox" value="Bike">
-                        <label for="issue-iv-checkbox">ISSUE I - ALTERNATIVE UTOPIEN</label><br>
+                        <input type="checkbox" name="issue-iv-checkbox" value="Checked">
+                        <label for="issue-iv-checkbox">HEFT IV – IST POPULISMUS GUT?</label><br>
                     </div>
                 </fieldset>
 
@@ -195,20 +251,20 @@
                     <legend>Lieferadresse</legend>
                     <input name="Name" placeholder="Name" required>
                     <input name="Adresse" placeholder="Straße und Hausnummer" required>
-                    <input name="Stadt" placeholder="Stadt" required>
                     <input name="PLZ" placeholder="Postleitzahl" required>
+                    <input name="Stadt" placeholder="Stadt" required>
                 </fieldset>
 
-                <p id="costs"></p>
+                <fieldset id="costs-outer">
+                    <legend>Kostenaufschlüsselung</legend>
+                    <table id="costs"><tr><th>0 €</th><th>Summe</th></tr></table>
+                    <!-- <p lang='de'>Wir verschicken die Hefte auf Spendenbases. Bitte übernehme die Produktionkosten und das Porto deiner Bestellung, wenn es dir möglich ist.</p>
+                    <p lang='en'>We send the issues on a basis of donation. Please pay for the costs of production and delivery, if possibile for you.</p> -->
+                </fieldset>
 
-
-                <div id="order">
-                    <button id="order-btn" type="submit"><span lang="de">Bestellen</span><span lang="en">Order</span></button>
-                    <a href="https://www.paypal.com/paypalme/GEFAENGNISHEFTE/EUR" target="_blank"><button id="pay-btn"><span lang="de">Bezahlen</span><span lang="en">Pay</span></button></a>
-                </div>
-
+                <button id="order" type="submit" onclick="pay()"><span lang="de">Bestellen & Bezahlen</span><span lang="en">Order & Pay</span></button>
                 
-                <input type="hidden" name="_subject" value="Désabonnement">
+                <input type="hidden" name="_subject" value="Bestellung">
                 <input type="hidden" name="_captcha" value="true">
             </form>
         </main>

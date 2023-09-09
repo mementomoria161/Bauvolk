@@ -340,7 +340,7 @@ button[disabled]{
 	cursor: pointer;
 }
 
-.abo input, .abo button {
+.abo input, .abo button, td, th {
 	height: fit-content;
 	font-size:15pt;
 	padding: 5px 20px;
@@ -354,7 +354,7 @@ button[disabled]{
 		gap:5px;
 	}
 
-	.abo button, .abo input  {
+	.abo button, .abo input, td, th  {
 		font-size: 13pt;
 		text-align:left;
 		padding-left: 10px;
@@ -366,7 +366,7 @@ button[disabled]{
 }
 
 @media screen and (max-width: 350px) {
-	.abo button, .abo input  {
+	.abo button, .abo input, td, th  {
 		font-size: 11pt;
 	}
 }

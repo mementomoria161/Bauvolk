@@ -721,6 +721,11 @@ const MAIL_MSG = {
         initial: {msg: '', disabled: false, func: null},
         success: {msg: '<span lang="de">Deine E-mail wurde erfolgreich bestätigt!</span><span lang="en">Your E-Mail has been confirmed successfully!</span>', disabled: true, func: null},
         error: {msg: '<span lang="de">Etwas ist bei der Bestätigung schiefgelaufen.<br>Bitte versuche es noch einmal, oder schreibe Nachricht an <a href="mailto:GEFAENGNISHEFTE@riseup.net">GEFAENGNISHEFTE@riseup.net</a></span><span lang="en">Something went wrong during the confirmation process.<br>Please try again, or message us at <a href="mailto:GEFAENGNISHEFTE@riseup.net">GEFAENGNISHEFTE@riseup.net</a></span>', disabled: false, func: null}
+    },
+    "order": {
+        initial: {msg: '<span lang="de">Bestellen & Bezahlen</span><span lang="en">Order & Pay</span>', disabled: false, func: null},
+        success: {msg: '<span lang="de">Bestellen & Bezahlen</span><span lang="en">Order & Pay</span>', disabled: false, func: null},
+        error: {msg: '<span lang="de">FEHLER!</span><span lang="en">ERROR!</span>', disabled: false, func: null}
     }
 }
 
