@@ -88,13 +88,13 @@
 
             function pay(event) {
                 event.preventDefault()
-                alert(new Intl.NumberFormat("de-DE", { style: "decimal", minimumFractionDigits: 2}).format(costs))
+                alert(new Intl.NumberFormat("en-US", { style: "decimal", minimumFractionDigits: 2}).format(costs))
     
                 let data = new FormData(event.target)    
                 data.append('Costs', new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(costs));
                 fetch_mail(make_table(data), "order")
 
-                window.open('https://www.paypal.com/paypalme/GEFAENGNISHEFTE/EUR' + new Intl.NumberFormat("de-DE", { style: "decimal", minimumFractionDigits: 2}).format(costs), '_blank');
+                window.open('https://www.paypal.com/paypalme/GEFAENGNISHEFTE/EUR' + new Intl.NumberFormat("en-US", { style: "decimal", minimumFractionDigits: 2}).format(costs), '_blank');
             }
         
         </script>
