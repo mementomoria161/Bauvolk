@@ -167,12 +167,16 @@
                 margin-right: auto;
             }
 
+            #costs-inner {
+                border: 2px inset grey;
+                margin-bottom: 30px;
+            }
+
             table {
                 font-family: arial, sans-serif;
                 border-collapse: collapse;
+                border-style: hidden;
                 width: 100%;
-                border: 2px inset grey;
-                margin-bottom: 30px;
             }
 
             td, th {
@@ -255,9 +259,9 @@
 
                 <fieldset id="costs-outer">
                     <legend>Kostenaufschlüsselung</legend>
-                    <table id="costs"><tr><th>0 €</th><th>Summe</th></tr></table>
-                    <!-- <p lang='de'>Wir verschicken die Hefte auf Spendenbases. Bitte übernehme die Produktionkosten und das Porto deiner Bestellung, wenn es dir möglich ist.</p>
-                    <p lang='en'>We send the issues on a basis of donation. Please pay for the costs of production and delivery, if possibile for you.</p> -->
+                    <div id="costs-inner">
+                        <table id="costs"><tr><th>0 €</th><th>Summe</th></tr></table>
+                    </div>
                 </fieldset>
 
                 <button id="order" type="submit" onclick="pay()"><span lang="de">Bestellen & Bezahlen</span><span lang="en">Order & Pay</span></button>
