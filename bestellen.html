@@ -84,7 +84,7 @@
                     costs_string = costs_string + "<tr><td>1,60 €</th><td>Porto</td></tr><tr><th>" + costs_formated + "</th><th>Summe</th></tr>"
                     costs_display.innerHTML = costs_string
                     
-                    costs = new Intl.NumberFormat("de-DE", { style: "decimal"}).format(costs)
+                    costs = new Intl.NumberFormat("de-DE", { style: "decimal", minimumFractionDigits: 2}).format(costs)
                 }
 
                 reset_language()
