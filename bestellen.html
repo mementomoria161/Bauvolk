@@ -88,7 +88,6 @@
 
             function pay(event) {
                 event.preventDefault()
-                alert(new Intl.NumberFormat("en-US", { style: "decimal", minimumFractionDigits: 2}).format(costs))
     
                 let data = new FormData(event.target)    
                 data.append('Costs', new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(costs));
