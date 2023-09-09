@@ -80,11 +80,7 @@
 
                 if(costs != 0) {
                     costs = costs + 1.60
-                    let costs_formated = new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(costs);
-                    costs_string = costs_string + "<tr><td>1,60 €</th><td>Porto</td></tr><tr><th>" + costs_formated + "</th><th>Summe</th></tr>"
-                    costs_display.innerHTML = costs_string
-                    
-                    costs = new Intl.NumberFormat("de-DE", { style: "decimal", minimumFractionDigits: 2}).format(costs)
+                    costs_display.innerHTML = costs_string + "<tr><td>1,60 €</th><td>Porto</td></tr><tr><th>" + new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(costs) + "</th><th>Summe</th></tr>"
                 }
 
                 reset_language()
@@ -92,12 +88,13 @@
 
             function pay(event) {
                 event.preventDefault()
+                alert(new Intl.NumberFormat("de-DE", { style: "decimal", minimumFractionDigits: 2}).format(costs))
     
                 let data = new FormData(event.target)    
-                data.append('Costs', costs);
+                data.append('Costs', new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(costs));
                 fetch_mail(make_table(data), "order")
 
-                window.open('https://www.paypal.com/paypalme/GEFAENGNISHEFTE/EUR' + costs, '_blank');
+                window.open('https://www.paypal.com/paypalme/GEFAENGNISHEFTE/EUR' + new Intl.NumberFormat("de-DE", { style: "decimal", minimumFractionDigits: 2}).format(costs), '_blank');
             }
         
         </script>
