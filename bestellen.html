@@ -138,10 +138,10 @@
 
             #issue-selection {
                 grid-area: issue-selection;
-                width: 800px;
                 display: flex;
                 flex-direction: column;
                 gap:10px;
+                width: 100%;
             }
 
             #issue-selection input {
@@ -186,6 +186,10 @@
                 text-align: left;
             }
 
+            .small-break {
+                display: none;
+            }
+
             
             @media screen and (max-width: 1000px) {
                 #bestellen-form {
@@ -196,6 +200,10 @@
                 
                 #issue-selection {
                     width: 400px !important;
+                }
+
+                .small-break {
+                    display: block;
                 }
             }
 
@@ -217,6 +225,19 @@
                 }
             }
 
+            fieldset div {
+                display: flex;
+                width: 100%;
+            }
+
+            fieldset .issue-title {
+                width: max-content !important;
+                display: inline-flex !important;
+                flex-grow: 100;
+                margin-left: 10px;
+            }
+
+
 
         </style>
     </head>
@@ -233,19 +254,42 @@
                     <legend>Heftauswahl</legend>
                     <div>
                         <input type="checkbox" name="issue-i-checkbox" value="Checked">
-                        <label for="issue-i-checkbox">HEFT I – DIE VERGESELLSCHAFTUNG DES KAPITALISMUS</label><br>    
+                        <label for="issue-i-checkbox" class="issue-title">
+                            <span lang="de" class="left">HEFT I</span>
+                            <span lang="en" class="left">ISSUE I</span> 
+                            <span lang="de">DIE VERGESELLSCHAFTUNG <br class="small-break">DES KAPITALISMUS</span>
+                            <span lang="en">THE COLLECTIVISATION <br class="small-break">OF CAPITALISM</span>
+                        </label><br>
                     </div>
+                    <hr>
                     <div>
                         <input type="checkbox" name="issue-ii-checkbox" value="Checked">
-                        <label for="issue-ii-checkbox">HEFT II – REFORM ODER REVOLUTION</label><br>  
+                        <label for="issue-ii-checkbox" class="issue-title">
+                            <span lang="de" class="left">HEFT II</span>
+                            <span lang="en" class="left">ISSUE I</span> 
+                            <span lang="de">REFORM ODER <br class="small-break">REVOLUTION</span>
+                            <span lang="en">THE COLLECTIVISATION <br class="small-break">OF CAPITALISM</span>
+                        </label><br>  
                     </div>
+                    <hr>
                     <div>
                         <input type="checkbox" name="issue-iii-checkbox" value="Checked">
-                        <label for="issue-iii-checkbox">HEFT III – ALTERNATIVE UTOPIEN</label><br>  
+                        <label for="issue-iii-checkbox" class="issue-title">
+                            <span lang="de" class="left">HEFT III</span>
+                            <span lang="en" class="left">ISSUE I</span> 
+                            <span lang="de">MATERIELLE <br class="small-break">SYMBOLPOLITIK</span>
+                            <span lang="en">THE COLLECTIVISATION <br class="small-break">OF CAPITALISM</span>
+                        </label><br>  
                     </div>
+                    <hr>
                     <div>
                         <input type="checkbox" name="issue-iv-checkbox" value="Checked">
-                        <label for="issue-iv-checkbox">HEFT IV – IST POPULISMUS GUT?</label><br>
+                        <label for="issue-iv-checkbox" class="issue-title">
+                            <span lang="de" class="left">HEFT IV</span>
+                            <span lang="en" class="left">ISSUE I</span> 
+                            <span lang="de">IST POPULISMUS <br class="small-break">GUT?</span>
+                            <span lang="en">THE COLLECTIVISATION <br class="small-break">OF CAPITALISM</span>
+                        </label><br>
                     </div>
                 </fieldset>
 
