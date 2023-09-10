@@ -148,3 +148,12 @@
 * {
 	font-family: "Spectral";
 }
+
+.artikel-title *, #title-horizontal *, .vertical * {
+	font-family: "Affigere";
+	font-weight: 400 !important;
+}
+
+.vertical * {
+	font-size: 15pt;
+}
