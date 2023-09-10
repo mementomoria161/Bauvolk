@@ -810,6 +810,7 @@ function confirm_email() {
     table["Code"] = params.code;
     table["_subject"] = "Bestätigungsmail"
     table["_captcha"] = true
+    table["_template"] = "box"
     
     fetch_mail(table, "email-confirm-info")
 }
