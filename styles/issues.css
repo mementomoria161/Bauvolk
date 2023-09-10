@@ -132,7 +132,10 @@ article {
 }
 
 .artikel-title {
+	font-family: "Affigere" !important;
+	font-weight: 400;
 	margin-bottom: 65px;
+	font-family: "";
 }
 
 
@@ -269,7 +272,7 @@ article {
 
 /* 1 */
 @supports (animation-range: entry-crossing) {
-	.artikel-title {
+	.fit-to-width {
 	  font-size: 8rem;
 	  overflow: hidden;
 	  scroll-snap-type: both mandatory;
