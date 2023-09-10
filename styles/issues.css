@@ -132,10 +132,12 @@ article {
 }
 
 .artikel-title {
-	font-family: "Affigere" !important;
-	font-weight: 400;
 	margin-bottom: 65px;
-	font-family: "";
+}
+
+.artikel-title {
+	font-family: "Affigere";
+	font-weight: 400;
 }
 
 
