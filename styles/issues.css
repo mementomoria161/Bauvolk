@@ -135,7 +135,7 @@ article {
 	margin-bottom: 65px;
 }
 
-.artikel-title {
+.artikel-title *, #title-horizontal *  {
 	font-family: "Affigere";
 	font-weight: 400;
 }
