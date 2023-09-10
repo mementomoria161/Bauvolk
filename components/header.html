@@ -105,11 +105,18 @@
 				line-height: 1.7;
 			}
 
+			#menu {
+				border: 2px outset grey;
+			}
+
+			#menu .menu-content {
+				border: 0px none transparent;
+			}
+
 
 			/* EXPANDED */
 
 			#menu-expanded, #menu-etc {
-				/* max-width: 480px; */
 				margin-left: auto;
 				margin-right: auto;
 			}
@@ -126,6 +133,12 @@
 
 			#menu-etc {
 				padding-bottom:40px;
+			}
+
+
+
+			#info-general {
+				width: 100%;
 			}
 
 
@@ -220,6 +233,7 @@
 					grid-template-rows: 1fr auto auto 1fr 1fr 1fr 1fr;
 					grid-template-columns: auto;
 					grid-template-areas: "." "menu-expanded" "menu-etc" "." "." "." ".";
+					border: 0px none transparent;
 				}
 
 				#menu-expanded {grid-area: menu-expanded;}
@@ -231,6 +245,10 @@
 
 				#openmenu, #menu-expanded {
 					display: block;
+				}
+
+				#menu-expanded {
+					border: 2px outset grey !important;
 				}
 
 				.menu-content {
@@ -302,7 +320,7 @@
 				<a class="dropanchor nav-selectable" id="highlight-kanon" href="https://www.GEFAENGNISHEFTE.org/kanon">KANON</a>
 
 				<div class="dropmenu menu-content">
-					<a href="https://www.GEFAENGNISHEFTE.org/kanon"><span lang="de">Eine Zusammenstellung sehenswerter Inhalte</span><span lang="en">A collection of content worth watching</span></a>
+					<a href="https://www.GEFAENGNISHEFTE.org/kanon"><span lang="de">Eine Zusammenstellung sehenswerter Inhalte</span><span lang="en">A collection of content worth seeing</span></a>
 				</div>
 			</div>
 
