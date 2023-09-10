@@ -153,6 +153,7 @@ a:hover {
 /* TEXT */
 
 h1 {
+	font-family: "Affigere";
 	white-space:nowrap;
 	font-size: 3rem;
 	font-size: var(--font-large);

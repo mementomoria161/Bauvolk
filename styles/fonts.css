@@ -134,6 +134,15 @@
 	font-display: block;
 } */
 
+@font-face {
+	font-family: "Affigere";
+	src:	url('https://www.GEFAENGNISHEFTE.org/fonts/Affigere/Affigere-Regular.woff2') format('woff2'),
+			url('https://www.GEFAENGNISHEFTE.org/fonts/Affigere/Affigere-Regular.woff') format('woff');
+	font-weight: 400;
+	font-style: normal;
+	font-display: block;
+}
+
 
 * {
 	font-family: "Spectral";
