@@ -159,6 +159,10 @@ article {
 	height: 48px;
 }
 
+#title-horizontal {
+	font-size: 22pt;
+}
+
 
 /* REACTIVE */
 
@@ -254,6 +258,10 @@ article {
 	.title {
 		font-size: var(--font-small);
 	}
+
+	#title-horizontal {
+		font-size: 18pt;
+	}
 }
 
 @media screen and (max-width: 400px) {
@@ -261,16 +269,20 @@ article {
 		font-size: var(--font-regular);
 	}
 
-	.title .right {
-		text-align: left !important;
+	#title-horizontal {
+		font-size: 14pt;
 	}
+
+	/* .title .right {
+		text-align: left !important;
+	} */
 }
 
 
 /* 1 */
 @supports (animation-range: entry-crossing) {
 	.fit-to-width {
-	  font-size: 8rem;
+	  font-size: 12rem;
 	  overflow: hidden;
 	  scroll-snap-type: both mandatory;
 
