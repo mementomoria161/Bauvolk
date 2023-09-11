@@ -247,6 +247,11 @@ article {
 		align-items: flex-start;
 	}
 
+	.issue-button {
+		width: 180px;
+		font-size: var(--font-regular);
+	}
+
 	/* .issue-button {
 		width:180px;
 	} */
