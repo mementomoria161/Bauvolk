@@ -149,12 +149,17 @@
 	font-family: "Spectral";
 }
 
-.artikel-title *, #title-horizontal *, .vertical *, #title-vertical * {
+.artikel-title *, #title-horizontal *, .vertical *, #title-vertical *, #logo {
 	font-family: "Affigere";
 	font-weight: 400 !important;
 }
 
-.vertical *, #title-vertical * {
+.vertical *, #title-vertical *, #title-horizontal {
 	font-size: 22pt;
 	line-height: 0.9;
+}
+
+#logo {
+	font-size: 20pt !important;
+	padding: 4px 12px 0px 12px !important;
 }
