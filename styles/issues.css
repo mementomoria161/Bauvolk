@@ -147,6 +147,7 @@ article {
 	margin-bottom: 120px;
 	flex-wrap: wrap;
 	justify-content: flex-start;
+	text-align: justify;
 }
 
 #creative-commons-icons {
