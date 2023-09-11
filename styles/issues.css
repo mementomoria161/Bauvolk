@@ -91,7 +91,6 @@ section, article {
 
 .abstract-text {
 	line-height: 1.5;
-	text-align: justify;
 }
 
 
@@ -147,7 +146,6 @@ article {
 	margin-bottom: 120px;
 	flex-wrap: wrap;
 	justify-content: flex-start;
-	text-align: justify;
 }
 
 #creative-commons-icons {

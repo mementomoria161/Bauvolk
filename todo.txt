@@ -2,10 +2,10 @@
 
 check safari preload
 check widescreen compatability
-large font too large at certain sizes
 ipad kanon current number
 safari link color
 kanon sometimes scrolls
+decide if abstract text & cc should be justified
 
 -------------- IMPROVEMENTS --------------
 
