@@ -168,7 +168,7 @@
 	font-weight: 400 !important;
 }
 
-.vertical *, #title-vertical *, #title-horizontal {
+.vertical *, #title-vertical *, #title-horizontal * {
 	font-size: 22pt;
 	line-height: 0.9;
 }
@@ -179,8 +179,8 @@
 }
 
 @media screen and (max-width: 800px) {
-#logo {
-	font-size: 22pt !important;
-	padding: 5px 12px 0px 12px !important;
-}
+	#logo {
+		font-size: 22pt !important;
+		padding: 5px 12px 0px 12px !important;
+	}
 }
