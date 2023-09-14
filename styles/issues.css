@@ -303,7 +303,7 @@ article {
 }
 
 
-/* @supports (animation-range: entry-crossing) {
+@supports (animation-range: entry-crossing) {
 	.fit-to-width {
 	  font-size: 12rem;
 	  overflow: hidden;
@@ -340,4 +340,4 @@ article {
 	  transform: scale(0);
 	  margin-block-end: -1lh;
 	}
-} */
+}
