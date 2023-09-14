@@ -76,6 +76,7 @@ section, article {
 	text-orientation: mixed;
 	width: fit-content;
 	font-weight: 700;
+	place-self:start;
 }
 
 #abstract {
