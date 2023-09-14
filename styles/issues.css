@@ -271,26 +271,38 @@ article {
 }
 
 @media screen and (max-width: 500px) {
-	.title-br-large {
-		display: none;
+
+	#title-horizontal * {
+		font-size: 16pt;
 	}
+
+
+
+	@supports (animation-range: entry-crossing) {
+		#title-horizontal-fit-to-width {
+			display: block;
+		}
 	
-
-	#title-horizontal-fit-to-width {
-		display: block;
+		#title-horizontal {
+			display: none;
+		}
 	}
 
-	#title-horizontal {
-		display: none;
+}
+
+@media screen and (max-width: 400px) {
+	#title-horizontal .right {
+		text-align: left !important;
 	}
 
 	#title-horizontal {
 		flex-direction: column;
 	}
+}
 
-	.title .right {
-		text-align: left !important;
-	}
+.artikel-title {
+	font-size: 30pt;
+	line-height: 1;
 }
 
 
@@ -319,6 +331,10 @@ article {
 		scroll-snap-align: start;
 		contain: layout;
 	  }
+	}
+
+	.artikel-title br {
+		display: none;
 	}
   }
 
