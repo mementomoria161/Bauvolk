@@ -163,7 +163,7 @@
 	font-display: block;
 }
 
-.artikel-title *, #title-horizontal *, .vertical *, #title-vertical *, #logo {
+.artikel-title *, #title-horizontal *, .vertical *, #title-vertical *, #logo, #title-horizontal-fit-to-width * {
 	font-family: "Anzeigen";
 	font-weight: 400 !important;
 }
