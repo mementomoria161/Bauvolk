@@ -5,6 +5,7 @@
 	--font-regular: clamp(0.75rem, -1.45rem + 11.7vw, 1.085rem); /* 13pt- */
 	--font-medium: clamp(0.9rem, 0.2rem + 3.73333333333333vw, 1.25rem);  /* 15pt-11pt | 450px-300px*/
 	--font-large: clamp(0.9rem, -0.0444444444444445rem + 6.04444444444445vw, 2.6rem); /* 43.75-21.875 vw */
+	--font-extreme: clamp(2rem, 0.444444444444444rem + 7.11111111111111vw, 4rem); /* 25pt-50pt | 35px-800px*/
 }
 
 html {
