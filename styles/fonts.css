@@ -154,17 +154,17 @@
 }
 
 @font-face {
-	font-family: "Anzeigen";
-	src:	url('https://www.GEFAENGNISHEFTE.org/fonts/Anzeigen/Anzeigen-Regular.woff2') format('woff2'),
-			url('https://www.GEFAENGNISHEFTE.org/fonts/Anzeigen/Anzeigen-Regular.woff') format('woff'),
-			url('https://www.GEFAENGNISHEFTE.org/fonts/Anzeigen/Anzeigen-Regular.ttf') format('truetype');
+	font-family: "Quaderni";
+	src:	url('https://www.GEFAENGNISHEFTE.org/fonts/Quaderni/Quaderni-Regular.woff2') format('woff2'),
+			url('https://www.GEFAENGNISHEFTE.org/fonts/Quaderni/Quaderni-Regular.woff') format('woff'),
+			url('https://www.GEFAENGNISHEFTE.org/fonts/Quaderni/Quaderni-Regular.ttf') format('truetype');
 	font-weight: 400;
 	font-style: normal;
 	font-display: block;
 }
 
 .artikel-title *, #title-horizontal *, .vertical *, #title-vertical *, #logo, #title-horizontal-fit-to-width * {
-	font-family: "Anzeigen";
+	font-family: "Quaderni";
 	font-weight: 400 !important;
 }
 
