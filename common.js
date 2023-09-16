@@ -868,11 +868,13 @@ function setabo(type) {
 
 	document.getElementById('email-form').style.display = "none";
 	document.getElementById('telegram-form').style.display = "none"
+	document.getElementById('instagram-form').style.display = "none"
 
 	document.getElementById("email-opt").style.textDecoration = "none"
 	document.getElementById("telegram-opt").style.textDecoration = "none"
+	document.getElementById("instagram-opt").style.textDecoration = "none"
 
-	if(type == "telegram") {
+	if(type == "telegram" || type == "instagram") {
 		hide_emailinfo()
 	}
 

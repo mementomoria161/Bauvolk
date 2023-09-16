@@ -198,7 +198,7 @@
 				order:-1;
 			}
 
-			#telegram-form {
+			#telegram-form, #instagram-form {
 				display: none;
 			}
 
@@ -209,12 +209,12 @@
 				order:-1;
 			} */
 
-			#telegram-btn {
+			#telegram-btn, #instagram-btn {
 				width: 100%;
 				text-align:center !important;
 			}
 
-			#telegram-btn * {
+			#telegram-btn *, #instagram-btn * {
 				padding: 0 !important;
 			}
 
@@ -359,7 +359,8 @@
 							<span id="abo-selection">
 								<span class="long"><span lang="de">Abonnieren mit:</span><span lang="en">Subscribe via:</span></span>
 								<span class="option" id="email-opt" onclick="setabo('email')">Email</span> / 
-								<span class="option" id="telegram-opt" onclick="setabo('telegram')">Telegram</span><br>
+								<span class="option" id="telegram-opt" onclick="setabo('telegram')">Telegram</span> / 
+								<span class="option" id="instagram-opt" onclick="setabo('instagram')">Instagram</span><br>
 							</span>
 
 							<form id="email-form">
@@ -372,7 +373,7 @@
 							</form>
 							
 							<a id="telegram-form" class="abo" href="https://t.me/GEFAENGNISHEFTE" target="_blank"><button type="submit" id="telegram-btn">t.me/GEFAENGNISHEFTE</button></a>
-
+							<a id="instagram-form" class="abo" href="https://www.instagr.am/GEFAENGNISHEFTE" target="_blank"><button type="submit" id="instagram-btn">instagr.am/GEFAENGNISHEFTE</button></a>
 							<!-- <button id="notifications"><span lang="de">Benachrichtigungen aktivieren</span><span lang="en">Enable notifications</span></button> -->
 						</div>
 					</div>
