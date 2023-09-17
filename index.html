@@ -291,6 +291,8 @@
                 align-items: center;
                 gap: 20px;
                 height: 550px;
+                max-height: 50vh;
+                min-height: 400px;
                 grid-area: issue-library;
             }
 
@@ -361,6 +363,9 @@
                 display: none;
                 justify-content: flex-start;
                 height: 550px;
+                
+                max-height: 50vh;
+                min-height: 400px;
             }
 
             #issue-library .cover-image {
@@ -416,7 +421,11 @@
 
 
             /*/////////////////////// REACTIVE ///////////////////////*/
-
+            @media screen and (max-height: 1000px) {
+                .vertical * {
+                    font-size: 18pt;
+                }
+            }
 
             @media screen and (max-width: 800px), (hover: none) {
                 body {

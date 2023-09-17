@@ -1,21 +1,35 @@
 -------------- BUGS --------------
 
-check safari preload
-check widescreen compatability
-ipad kanon current number
-safari link color
-kanon sometimes scrolls
-decide if abstract text & cc should be justified
+safari 
+- check preload
+
+kanon 
+- current number on ipad
+- height because sometimes scrolls
+
+issues
+- check widescreen compatability
+- decide if abstract text & cc should be justified
 
 -------------- IMPROVEMENTS --------------
 
-add elionor
 
--------------- THINGS TO CHECK WHEN ADDING NEW ISSUE  --------------
 
-ISSUE PAGE (OBVIO)
-INDEX
+-------------- THINGS TO DO WHEN ADDING NEW ISSUE  --------------
+
+WEBSITE
+- ISSUE PAGE (OBVIO)
+- INDEX
+- SHARING
+- OPEN GRAPH
+- HIGHLIGHT FOR HEADER
+- BESTELLEN
+
 SHARING
-OPEN GRAPH
-HIGHLIGHT FOR HEADER
-BESTELLEN
+- INSTAGRAM
+- TELEGRAM
+- MAIL
+
+THINGS TO CREATE IN AFDESIGN
+- SHAREPICS
+- OPEN GRAPH
