@@ -11,16 +11,10 @@
 	color: black;
 	border: solid 2px black;
 	padding:10px;
+	margin-left: auto;
+	margin-right: auto;
 	
 	margin-bottom: 150px;
-}
-
-@media screen and (max-width: 1400px) {
-
-	#abo-content {
-		margin-left: auto;
-		margin-right: auto;
-	}	
 }
 
 #abo-selection-content {
