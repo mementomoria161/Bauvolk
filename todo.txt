@@ -18,6 +18,7 @@ issues
 -------------- THINGS TO DO WHEN ADDING NEW ISSUE  --------------
 
 WEBSITE
+- HEADER LINKS
 - ISSUE PAGE (OBVIO)
 - INDEX
 - SHARING

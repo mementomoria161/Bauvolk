@@ -712,6 +712,11 @@ const MAIL_MSG = {
         success: {msg: '<span lang="de">Abonniert!</span><span lang="en">Subscribed!</span>', disabled: true, func: reset_emailinfo},
         error: {msg: '<span lang="de">FEHLER!</span><span lang="en">ERROR!</span>', disabled: false, func: null}
     },
+    "email-btn-content": {
+        initial: {msg: '<span lang="de">Abonnieren</span><span lang="en">Subscribe</span>', disabled: false, func: null},
+        success: {msg: '<span lang="de">Abonniert!</span><span lang="en">Subscribed!</span>', disabled: true, func: reset_emailinfo},
+        error: {msg: '<span lang="de">FEHLER!</span><span lang="en">ERROR!</span>', disabled: false, func: null}
+    },
     "email-deabo-btn": {
         initial: {msg: '<span lang="de">Deabonnieren</span><span lang="en">Unsubscribe</span>', disabled: false, func: null},
         success: {msg: '<span lang="de">Deabonniert.</span><span lang="en">Unsubscribed.</span>', disabled: true, func: null},
@@ -784,12 +789,12 @@ function fetch_mail(content, ID) {
 
 // ABO
 
-function submit_email(event) {
+function submit_email(event, ID) {
 	event.preventDefault()
     
     let data = new FormData(event.target)
     data.append('Code', makeid(40));
-    fetch_mail(make_table(data), "email-btn")
+    fetch_mail(make_table(data), ID)
 }
 
 
@@ -821,9 +826,15 @@ function input_remove_email() {
 }
 
 
-function input_email() {
-    change_text("email-btn", "initial")
-	show_emailinfo()
+function input_email(is_content) {
+    if(is_content) {
+        change_text("email-btn-content", "initial")
+        show_emailinfo_content()
+    }
+    else {
+        change_text("email-btn", "initial")
+        show_emailinfo()
+    }
 }
 
 
@@ -832,20 +843,26 @@ function input_email() {
 function reset_emailinfo() {
 	document.getElementById("email-info").style.display = "none";
 	document.getElementById("email-checkbox").checked = false;
+    if(document.getElementById("email-info-content")) {
+        document.getElementById("email-info-content").style.display = "none";
+        document.getElementById("email-checkbox-content").checked = false;
+    }
 }
 
 function hide_emailinfo() {
 	document.getElementById("email-info").style.display = "none"
+    if(document.getElementById('abo-content')) {
+        document.getElementById("email-info-content").style.display = "none"
+    }
 }
 
 function show_emailinfo() {
 	document.getElementById("email-info").style.display = "block"
 }
 
-
-// FOCUS
-
-// document.getElementById("email-input").addEventListener('focus', (event) => {show_emailinfo()});
+function show_emailinfo_content() {
+    document.getElementById("email-info-content").style.display = "block"
+}
 
 
 
@@ -856,8 +873,14 @@ function init_abo() {
 	setabo(localStorage.getItem("gefaengnishefte_abo"))
 
     // LISTENERS
-	document.getElementById("email-form").addEventListener('submit', function(event){submit_email(event)})
-    document.getElementById("email-form").addEventListener('input', input_email)
+	document.getElementById("email-form").addEventListener('submit', function(event){submit_email(event, "email-btn")})
+    document.getElementById("email-form").addEventListener('input',  function(event){input_email(false)})
+    
+    if(document.getElementById('abo-content')) {
+        document.getElementById("email-form-content").addEventListener('submit', function(event){submit_email(event, "email-btn-content")})
+        document.getElementById("email-form-content").addEventListener('input',  function(event){input_email(true)})
+        }
+    
     if(document.getElementById("email-deabo-form")) {
         document.getElementById("email-deabo-form").addEventListener('submit', function(event){remove_email(event)})
         document.getElementById("email-deabo-form").addEventListener('input', input_remove_email);
@@ -874,12 +897,27 @@ function setabo(type) {
 	document.getElementById("telegram-opt").style.textDecoration = "none"
 	document.getElementById("instagram-opt").style.textDecoration = "none"
 
+    if(document.getElementById('abo-content')) {
+        document.getElementById('email-form-content').style.display = "none";
+        document.getElementById('telegram-form-content').style.display = "none"
+        document.getElementById('instagram-form-content').style.display = "none"
+    
+        document.getElementById("email-opt-content").style.textDecoration = "none"
+        document.getElementById("telegram-opt-content").style.textDecoration = "none"
+        document.getElementById("instagram-opt-content").style.textDecoration = "none"
+    }
+
 	if(type == "telegram" || type == "instagram") {
 		hide_emailinfo()
 	}
 
 	document.getElementById(type + '-opt').style.textDecoration = "underline"
 	document.getElementById(type + '-form').style.display = "flex";
+
+    if(document.getElementById('abo-content')) {
+        document.getElementById(type + '-opt-content').style.textDecoration = "underline"
+        document.getElementById(type + '-form-content').style.display = "flex";
+    }
 
 	localStorage.setItem("gefaengnishefte_abo", type);	
 }

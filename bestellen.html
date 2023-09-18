@@ -69,19 +69,19 @@
                 let costs_string = ""
                 costs = 0
 
-                costs_display.innerHTML = "<tr><th>" + costs + " €</th><th>Summe</th></tr>"
+                costs_display.innerHTML = "<tr><th>" + costs + " €</th><th><span lang='de'>Summe</span><span lang='en'>Total</span></th></tr>"
 
                 for (let i = 0; i < selection.length; i++)
                 {
                     if(selection[i].checked) {
                         costs = costs + 4
-                        costs_string = costs_string + "<tr><td>4 €</td><td>Produktionskosten</td></tr>"
+                        costs_string = costs_string + "<tr><td>4 €</td><td><span lang='de'>Produktionskosten</span><span lang='en'>Production costs</span></td></tr>"
                     }
                 }
 
                 if(costs != 0) {
                     costs = costs + 1.60
-                    costs_display.innerHTML = costs_string + "<tr><td>1,60 €</th><td>Porto</td></tr><tr><th>" + new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(costs) + "</th><th>Summe</th></tr>"
+                    costs_display.innerHTML = costs_string + "<tr><td>1,60 €</th><td><span lang='de'>Porto</span><span lang='en'>Postage</span></td></tr><tr><th>" + new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(costs) + "</th><th>Summe</th></tr>"
                 }
 
                 reset_language()
@@ -252,7 +252,8 @@
                 
 
                 <fieldset id="issue-selection">
-                    <legend>Heftauswahl</legend>
+                    <legend lang="de">Heftauswahl</legend>
+                    <legend lang="en">ISSUE selection</legend>
                     <div>
                         <input type="checkbox" name="issue-i-checkbox" value="Checked">
                         <label for="issue-i-checkbox" class="issue-title">
@@ -263,39 +264,11 @@
                         </label><br>
                     </div>
                     <hr>
-                    <div>
-                        <input type="checkbox" name="issue-ii-checkbox" value="Checked">
-                        <label for="issue-ii-checkbox" class="issue-title">
-                            <span lang="de" class="left">HEFT II</span>
-                            <span lang="en" class="left">ISSUE I</span> 
-                            <span lang="de">REFORM ODER <br class="small-break">REVOLUTION</span>
-                            <span lang="en">THE COLLECTIVISATION <br class="small-break">OF CAPITALISM</span>
-                        </label><br>  
-                    </div>
-                    <hr>
-                    <div>
-                        <input type="checkbox" name="issue-iii-checkbox" value="Checked">
-                        <label for="issue-iii-checkbox" class="issue-title">
-                            <span lang="de" class="left">HEFT III</span>
-                            <span lang="en" class="left">ISSUE I</span> 
-                            <span lang="de">MATERIELLE <br class="small-break">SYMBOLPOLITIK</span>
-                            <span lang="en">THE COLLECTIVISATION <br class="small-break">OF CAPITALISM</span>
-                        </label><br>  
-                    </div>
-                    <hr>
-                    <div>
-                        <input type="checkbox" name="issue-iv-checkbox" value="Checked">
-                        <label for="issue-iv-checkbox" class="issue-title">
-                            <span lang="de" class="left">HEFT IV</span>
-                            <span lang="en" class="left">ISSUE I</span> 
-                            <span lang="de">IST POPULISMUS <br class="small-break">GUT?</span>
-                            <span lang="en">THE COLLECTIVISATION <br class="small-break">OF CAPITALISM</span>
-                        </label><br>
-                    </div>
                 </fieldset>
 
                 <fieldset id="delivery-adress">
-                    <legend>Lieferadresse</legend>
+                    <legend lang="de">Lieferadresse</legend>
+                    <legend lang="en">Delivery address</legend>
                     <input name="Name" placeholder="Name" required>
                     <input name="Adresse" placeholder="Straße und Hausnummer" required>
                     <input name="PLZ" placeholder="Postleitzahl" required>
@@ -303,9 +276,10 @@
                 </fieldset>
 
                 <fieldset id="costs-outer">
-                    <legend>Kostenaufschlüsselung</legend>
+                    <legend lang="de">Kostenaufschlüsselung</legend>
+                    <legend lang="en">Cost breakdown</legend>
                     <div id="costs-inner">
-                        <table id="costs"><tr><th>0 €</th><th>Summe</th></tr></table>
+                        <table id="costs"><tr><th>0 €</th><th><span lang="de">Summe</span><span lang="en">Total</span></th></tr></table>
                     </div>
                 </fieldset>
 

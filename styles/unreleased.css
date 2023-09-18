@@ -1,0 +1,61 @@
+/* PRERELEASE */
+
+#cover-section-content, #cover-section {
+	margin-bottom: 100px;
+}
+
+#abo-content {
+	max-width: 500px;
+	height: fit-content;
+	background-color: white;
+	color: black;
+	border: solid 2px black;
+	padding:10px;
+	margin-left: auto;
+	margin-right: auto;
+	
+	margin-bottom: 150px;
+}
+
+
+
+#abo-selection-content {
+	font-size: 11pt;
+	line-height: 1.3 !important;
+}
+
+#email-form-content {
+	flex-direction: column-reverse;
+}
+
+#email-checkbox-content {
+	display:inline;
+	position:relative;
+	top: 3px;
+	width: 15px;
+	height:15px;
+	margin:0;
+	margin-top:20px;
+}
+
+#email-info-content {
+	display:none;
+	font-size: 9pt;
+	line-height: 1.3 !important;
+	text-align: justify;
+	white-space: pre-wrap;
+	order:-1;
+}
+
+#telegram-form-content, #instagram-form-content {
+	display: none;
+}
+
+#telegram-btn-content, #instagram-btn-content {
+	width: 100%;
+	text-align:center !important;
+}
+
+#telegram-btn-content *, #instagram-btn-content * {
+	padding: 0 !important;
+}
