@@ -601,6 +601,17 @@ function showcookiecontent() {
             frame.src = "https://open.spotify.com/embed/episode/" + frame.getAttribute('data-id') + "?utm_source=generator&theme=0"
             frame.style.display = "block"
         }
+        else if(frame.getAttribute('data-source') == "spotify-playlist") {
+            frame.removeAttribute("sandbox")
+            frame.width = "700"
+            frame.height = "100%"
+            frame.style.borderRadius = "12px"
+            frame.frameborder = "0"
+            frame.allow = "autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            frame.setAttribute('allowfullScreen', '')
+            frame.src = "https://open.spotify.com/embed/playlist/" + frame.getAttribute('data-id') + "?utm_source=generator&theme=1"
+            frame.style.display = "block"
+        }
         else {
             frame.removeAttribute("sandbox")
             frame.frameborder = "0"
