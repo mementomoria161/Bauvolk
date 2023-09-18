@@ -604,7 +604,7 @@ function showcookiecontent() {
         else if(frame.getAttribute('data-source') == "spotify-playlist") {
             frame.removeAttribute("sandbox")
             frame.width = "700"
-            frame.height = "100%"
+            frame.height = "700"
             frame.style.borderRadius = "12px"
             frame.frameborder = "0"
             frame.allow = "autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
