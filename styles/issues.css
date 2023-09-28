@@ -70,7 +70,7 @@ section, article {
 
 #title-vertical {
 	grid-area: title;
-	padding: 25px 10px;
+	padding-right: 10px;
 	height: 100%;
 	writing-mode: vertical-rl;
 	text-orientation: mixed;
