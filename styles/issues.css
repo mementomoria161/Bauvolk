@@ -341,3 +341,14 @@ article {
 	  margin-block-end: -1lh;
 	}
 }
+
+audio {
+	width: 100%;
+	margin-top: 20px;
+}
+
+audio::-webkit-media-controls-enclosure {
+    border-radius: 0px;
+    background-color: lightgray;
+	border: 2px inset grey;
+}
