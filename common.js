@@ -96,6 +96,7 @@ function init() {
     init_language()
     init_pwa()
     init_options()
+    set_audio_positions()
 
     if(typeof suf_init  === "function") {
         suf_init()
@@ -704,9 +705,29 @@ function load_frame(frames, current, slide) {
 }
 
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////// AUDIO //////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 
+
+function set_audio_positions() {
+    let audios = document.getElementsByTagName("audio");
+    for (let i = 0; i < audios.length; i++ ) {
+        audios[i].currentTime = localStorage.getItem("gefaengnishefte_audio_" + audios[i].src);
+    }
+}
+
+
+window.addEventListener("beforeunload", save_audio_positions);
+
+function save_audio_positions() {
+    let audios = document.getElementsByTagName("audio");
+    for (let i = 0; i < audios.length; i++ ) {
+        localStorage.setItem("gefaengnishefte_audio_" + audios[i].src, audios[i].currentTime);
+    }
+}
 
 
 
