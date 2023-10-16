@@ -488,6 +488,7 @@ function set_language(language) {
         document.title = META[language]
     }
     
+    stop_audio()
 	localStorage.setItem("gefaengnishefte_language", language);
 }
 
@@ -726,6 +727,14 @@ function save_audio_positions() {
     let audios = document.getElementsByTagName("audio");
     for (let i = 0; i < audios.length; i++ ) {
         localStorage.setItem("gefaengnishefte_audio_" + audios[i].src, audios[i].currentTime);
+    }
+}
+
+
+function stop_audio() {
+    let audios = document.getElementsByTagName("audio");
+    for (let i = 0; i < audios.length; i++ ) {
+        audios[i].pause();
     }
 }
 
