@@ -371,3 +371,7 @@ button[disabled]{
 		font-size: 11pt;
 	}
 }
+
+#seo {
+	display: none;
+}
