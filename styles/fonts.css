@@ -134,9 +134,7 @@
 	font-display: block;
 } */
 
-* {
-	font-family: "Spectral";
-}
+v
 
 
 /* COMPAGNON */
@@ -193,7 +191,9 @@
 }
 
 
-
+* {
+	font-family: "Compagnon Roman";
+}
 
 
 /* QUADERNI */
