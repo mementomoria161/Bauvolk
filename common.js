@@ -1149,7 +1149,7 @@ function init_highlights() {
                 //     element.classList.add("nav-selected");
                 // }
                 // else {
-                    element.style.fontWeight = "700"
+                    element.style.fontStyle = "italic"
                 // }
                 
             }

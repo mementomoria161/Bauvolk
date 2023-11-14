@@ -136,7 +136,7 @@
 
 
 /* COMPAGNON */
-
+/* 
 
 @font-face {
     font-family: 'Compagnon';
@@ -146,14 +146,14 @@
     font-weight: bold;
     font-style: normal;
     font-display: swap;
-}
+} */
 
 @font-face {
-    font-family: 'Compagnon Roman';
+    font-family: 'Compagnon';
     src: url('https://www.GEFAENGNISHEFTE.org/fonts/Compagnon/Compagnon-Roman.woff2') format('woff2'),
         url('https://www.GEFAENGNISHEFTE.org/fonts/Compagnon/Compagnon-Roman.woff') format('woff'),
         url('https://www.GEFAENGNISHEFTE.org/fonts/Compagnon/Compagnon-Roman.ttf') format('truetype');
-    font-weight: normal;
+    font-weight: 400;
     font-style: normal;
     font-display: swap;
 }
@@ -190,7 +190,10 @@
 
 
 * {
-	font-family: "Compagnon Roman";
+	font-family: "Compagnon";
+	/* font-weight: 300; */
+	/* font-weight: 500; */
+	/* font-style: italic; */
 }
 
 
