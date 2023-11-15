@@ -170,12 +170,15 @@
                 }
 
                 if(image == null) {
+                    console.log("lib is null")
                     return
                 }
                 else if (image.complete) {
+                    console.log("image complete")
                     library.style.display = "flex"
                 }
                 else {
+                    console.log("show_library")
                     setTimeout(show_library, 10)
                 }
             }
