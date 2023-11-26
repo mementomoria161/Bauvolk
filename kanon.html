@@ -86,9 +86,9 @@
                 justify-content: center;
             }
             
-            #slides > * > * {
+            /* #slides > * > * {
                 max-height: var(--max-slide-height);
-            }
+            } */
 
             .slideGrid, .slideColumn, .slideRow, .slideFlex, .slideGrow {
                 place-content:center;
@@ -177,7 +177,7 @@
             }
 
             .slideBody {
-                font-size: 20pt;
+                font-size: var(--font-large);
             }
 
             .date {
@@ -185,6 +185,15 @@
                 margin-top: 60px;
                 text-align: left;
                 font-size: var(--font-large);
+            }
+
+            .kanon-text-serif-large {
+                font-size: var(--font-large);
+            }
+
+            .kanon-text-sans-small {
+                font-size: var(--font-medium);
+                font-family: "Geist" !important;
             }
 
         </style>
@@ -210,8 +219,12 @@
 
                 <div data-title-de="Oeconomia" data-title-en="Oeconomia">
                     <div class="slideFlex">
-                        <a class="large" href="https://www.3sat.de/film/dokumentarfilm/oeconomia-100.html" target="_blank">OECONOMIA<br>Aufklärungsfilm über den Zusammenhang zwischen Wirtschaftswachstum, Verschuldung und Vermögenskonzentration.</a><!--"OECONOMIA"-->
+                        <a class="large" href="https://www.3sat.de/film/dokumentarfilm/oeconomia-100.html" target="_blank"><p class="kanon-text-serif-large">OECONOMIA</p><br><p class="kanon-text-sans-small">Aufklärungsfilm über den Zusammenhang zwischen Wirtschaftswachstum, Verschuldung und Vermögenskonzentration.</p></a><!--"OECONOMIA"-->
                     </div>
+                </div>
+
+                <div data-title-de="Marx und Engels – Stationen ihres Lebens" data-title-en="Marx and Engels – stages of their life">
+                    <iframe class="large" src="about:blank" sandbox loading="lazy" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen>https://archive.org/embed/marx-und-engels-stationen-ihres-lebens.-folge-1-zwei-vom-rhein_202206</iframe>
                 </div>
 
                 <div data-title-de="Musikgeschichte" data-title-en="Music-History">
@@ -251,7 +264,7 @@
                 </div>
 
                 <div data-title-de="Podcasts" data-title-en="Podcasts">
-                    <div class="slideFlex">
+                    <div class="slideGrid">
                         <iframe class="medium" src="about:blank" data-source="spotify" data-id="0a4wAoteCuEqSeyXznc0PN" sandbox></iframe><!--Revoulutions-->
                         <iframe class="medium" src="about:blank" data-source="spotify" data-id="6BGLCHADDW7AmhJOWLLcRN" sandbox></iframe><!--Philosophize This!-->
                         <iframe class="medium" src="about:blank" data-source="spotify" data-id="06fcDbL4KFfILiOYoKJg9z" sandbox></iframe><!--tl;dr-->
@@ -262,79 +275,7 @@
                 <div data-title-de="Videokarte" data-title-en="Video map">
                     <iframe class="large" src="about:blank" sandbox loading="lazy">https://www.google.com/maps/d/u/0/embed?mid=1AJO2WUYnUIA-Om_vcBTun6624hzfhX1i&ehbc=2E312F</iframe>
                 </div>
-                
-
-                <div data-title-de="Musik/Video" data-title-en="Music/Video">
-                    <div class="slideFlex">
-                        <iframe class="extreme" src="about:blank" data-source="youtube" data-id="qbbQb9bEcDQ" data-list="PLnmTFbDYfiCBh7lDCnNVkE4OXHQrxMHYu" sandbox></iframe><!--KANON // MUSIK-->
-                    </div>
             
-                    <div class="slideGrow extreme">
-                        <iframe class="small" src="about:blank" data-source="youtube" data-id="RM7lw0Ovzq0" sandbox></iframe>
-                        <iframe class="small" src="about:blank" data-source="youtube" data-id="FUQI-o02JYU" sandbox></iframe>
-                        <iframe class="small" src="about:blank" data-source="youtube" data-id="VYOjWnS4cMY" sandbox></iframe>
-                        <iframe class="small" src="about:blank" data-source="youtube" data-id="FJt7gNi3Nr4" sandbox></iframe>
-                        <iframe class="small" src="about:blank" data-source="youtube" data-id="tvTRZJ-4EyI" sandbox></iframe>
-                        <iframe class="small" src="about:blank" data-source="youtube" data-id="NLZRYQMLDW4" sandbox></iframe>
-                        <iframe class="small" src="about:blank" data-source="youtube" data-id="qlN1LK3PyH8" sandbox></iframe>
-                        <iframe class="small" src="about:blank" data-source="youtube" data-id="BikQtUzx1Ts" sandbox></iframe>
-                        <iframe class="small" src="about:blank" data-source="youtube" data-id="ufHZWt3xSZk" sandbox></iframe>
-                    </div>
-
-                    <div class="slideFlex">
-                        <iframe class="extreme" src="about:blank" data-source="youtube" data-id="BNzc6hG3yN4" sandbox></iframe>
-                        <iframe class="extreme" src="about:blank" data-source="youtube" data-id="4VQkk3sDLac" sandbox></iframe><!--yung lean live @ the back of the truck-->
-                    </div>
-
-                    
-            
-                    <div class="slideFlex">
-                        <div class="small slideText">
-                            <!-- <span class="slideTitle"><span lang="de">MUSIK/VIDEO</span><span lang="en">MUSIC/VIDEO</span></span> -->
-                            <span class="slideBody"><a href="https://www.grammy.com/videos/watch-kendrick-lamar-u2-dave-chappelle-open-2018-grammys-grammy-rewind">KENDRICK LAMARS GRAMMY PERFORMANCE 2018<br>XXX, DNA, NEW FREEZER, KING'S DEAD MASHUP</a></span><!--KENDRICK LAMAR - XXX, DNA, NEW FREEZER, KING'S DEAD-->
-                        </div>
-                    </div>
-                </div>
-
-                <div data-title-de="Unsortiert" data-title-en="Unsorted">
-                    <div class="slideGrow extreme">
-                        <iframe class="small" src="about:blank" data-source="youtube" data-id="_g8JVK4Fppw" sandbox></iframe><!--Sartre on Intellectualism-->
-                        <iframe class="small" src="about:blank" data-source="youtube" data-id="H3AxGp5k-Qo" sandbox></iframe><!--Talkshow: Der zerstörte Tisch-->
-                        <iframe class="small" src="about:blank" data-source="youtube" data-id="6TK9c-caEcw" sandbox></iframe><!--Bertrand Russell on his meeting with Vladimir Lenin in 1920-->
-                        <iframe class="small" src="about:blank" data-source="youtube" data-id="ihaB8AFOhZo" sandbox></iframe><!--Bertrand Russell - Botschaft an zukünftige Generationen (1959)-->
-                        <iframe class="small" src="about:blank" data-source="youtube" data-id="XruYsAmKLyU" sandbox></iframe><!--German WWI veteran describes killing a French soldier in a bayonet charge-->
-                        <iframe class="small" src="about:blank" data-source="youtube" data-id="lb13ynu3Iac" sandbox></iframe><!--I am become death-->
-                        <iframe class="small" src="about:blank" data-source="youtube" data-id="67tHtpac5ws" sandbox></iframe><!--Milton Friedman - I, Pencil-->
-                        <iframe class="small" src="about:blank" data-source="youtube" data-id="IaD1DcWfaGA" sandbox></iframe><!--Bernie Sanders interviews Punks [1988]-->
-                        <iframe class="small" src="about:blank" data-source="youtube" data-id="SYxZfksAyco" sandbox></iframe><!--30 Years of Speeches-->
-                        <iframe class="small" src="about:blank" data-source="youtube" data-id="oe65t5m3cAU" sandbox></iframe><!--Jalava Lied-->
-                        <iframe class="small" src="about:blank" data-source="youtube" data-id="UvEzFW_pH1g" sandbox></iframe><!--IFA Wartburg - Freie Deutsche Jugend (FDJ)-->
-                        <iframe class="small" src="about:blank" data-source="youtube" data-id="fgm14D1jHUw" sandbox></iframe><!--Pizza hut ad-->
-                        <iframe class="small" src="about:blank" data-source="youtube" data-id="pm6qy_9E0rY" sandbox></iframe><!--Bernie Sanders 8 1/2 hour Filibuster but it's Lofi-->
-                        <iframe class="small" src="about:blank" data-source="youtube" data-id="doaQC-S8de8" sandbox></iframe><!--Akira Kurosawa - Composing Movement-->
-                        <iframe class="small" src="about:blank" data-source="youtube" data-id="_ArVh3Cj9rw" sandbox></iframe><!--The Future Of Reasoning-->
-                        <iframe class="small" src="about:blank" data-source="youtube" data-id="YQ_xWvX1n9g" sandbox></iframe><!--Line Goes Up – The Problem With NFTs-->
-                        <iframe class="small" src="about:blank" data-source="youtube" data-id="3LopI4YeC4I" sandbox></iframe><!--Is Success Luck or Hard Work?-->
-                        <iframe class="small" src="about:blank" data-source="youtube" data-id="AhRBsJYWR8Q" sandbox></iframe><!--The Problem With Human Rights-->
-                        <iframe class="small" src="about:blank" data-source="youtube" data-id="TDcwIZzaf-k" sandbox></iframe><!--Capital Punishment (& Prison Abolition) | Philosophy Tube-->
-                        <iframe class="small" src="about:blank" data-source="youtube" data-id="lDaNU7yDnsc" data-list="PL4CGYNsoW2iAZt9-UzPyPZOH-AlRMxcIE" sandbox></iframe><!--Visual Investigations-->
-                        <iframe class="small" src="about:blank" data-source="youtube" data-id="B9v6q5YzbGA" sandbox></iframe><!--Hollywood Antivax Rally-->
-                        <iframe class="small" src="about:blank" data-source="youtube" data-id="2B-EWxPyIf4" data-list="PL7y0zyKXzhwzrZ0raG4HpT8ZdXx9USoW3" sandbox></iframe><!--The German Revoulution-->
-                        <iframe class="small" src="about:blank" data-source="youtube" data-id="JlhANslhnNI" sandbox></iframe><!--Goethe Faust 3sat-->
-                        <iframe class="small" src="about:blank" data-source="youtube" data-id="AdGhGX6z8BA" sandbox></iframe><!--Why did the French Commune Fail?-->
-                        <iframe class="small" src="about:blank" data-source="youtube" data-id="vn2vSQvk2nc" sandbox></iframe><!--Loredana Nemes - Angst-->
-                        <iframe class="small" src="about:blank" sandbox loading="lazy" title="vimeo-player" allowfullscreen>https://player.vimeo.com/video/279828346</iframe><!--The Big Flat Now – 032c issue #34 (2018)-->
-                    </div>
-                    
-                    <!-- <div>
-                        <iframe class="small" src="about:blank" data-source="youtube" data-id="xVISzFmBiPU" sandbox></iframe>
-                        <a class="slideBody" href="https://032c.com/the-big-flat-now-power-flatness-and-nowness-in-the-third-millennium">THE BIG FLAT NOW: Power, Flatness, and Nowness in the Third Millennium</a><br>
-                        <a class="slideBody" href="https://www.marxists.org/archive/marx/works/1871/civil-war-france/ch05.html">Karl Marx: The Civil War in France – The Paris Commune</a><br>
-                        <a class="slideBody" href="https://plato.stanford.edu/">Stanford Encyclopedia of Philosophy</a><br>
-                        <a class="slideBody" href="https://99percentinvisible.org/episode/bijlmer-city-future-part-1/">Bijlmer (City of the Future, Part 1)</a><br>
-                        <a class="slideBody" href="https://99percentinvisible.org/episode/blood-sweat-tears-city-future-part-2/">Blood, Sweat & Tears (City of the Future, Part 2)</a>
-                    </div> -->
-                </div>
             </div>
         </main>
 
