@@ -153,6 +153,20 @@
 	font-display: block;
 }
 
+
+/* GEIST */
+
+@font-face {
+    font-family: 'Geist';
+    src: url('https://www.GEFAENGNISHEFTE.org/fonts/Geist/Geist-Bold.woff2') format('woff2'),
+        url('https://www.GEFAENGNISHEFTE.org/fonts/Geist/Geist-Bold.woff') format('woff'),
+        url('https://www.GEFAENGNISHEFTE.org/fonts/Geist/Geist-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+
 .artikel-title *, #title-horizontal *, .vertical *, #title-vertical *, #logo, #title-horizontal-fit-to-width * {
 	font-family: "Quaderni";
 	font-weight: 400 !important;
