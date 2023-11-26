@@ -167,6 +167,7 @@
 }
 
 .abstract-text {
+	font-family: unset !important;	
 	font-family: "Geist" !important;	
 }
 
