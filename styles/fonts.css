@@ -161,9 +161,13 @@
     src: url('https://www.GEFAENGNISHEFTE.org/fonts/Geist/Geist-Bold.woff2') format('woff2'),
         url('https://www.GEFAENGNISHEFTE.org/fonts/Geist/Geist-Bold.woff') format('woff'),
         url('https://www.GEFAENGNISHEFTE.org/fonts/Geist/Geist-Bold.ttf') format('truetype');
-    font-weight: bold;
+    font-weight: 400;
     font-style: normal;
     font-display: swap;
+}
+
+.abstract {
+	font-family: "Geist";	
 }
 
 
