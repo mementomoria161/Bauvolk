@@ -166,10 +166,10 @@
     font-display: swap;
 }
 
-.abstract-text {
+/* .abstract-text {
 	font-family: unset !important;	
 	font-family: "Geist" !important;	
-}
+} */
 
 
 .artikel-title *, #title-horizontal *, .vertical *, #title-vertical *, #logo, #title-horizontal-fit-to-width * {
