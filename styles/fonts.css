@@ -81,9 +81,14 @@
 	font-family: "Geist";	
 }
 
-.artikel-title *, #title *, #logo {
-	font-family: "Quaderni";
+.artikel-title *, #title *, #logo, .issue-title.vertical * {
+	font-family: "Quaderni" !important;
 	font-weight: 400 !important;
+}
+
+.issue-title.vertical * {
+	font-size: 22pt;
+	line-height: 0.9;
 }
 
 #logo {
