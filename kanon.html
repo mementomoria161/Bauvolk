@@ -75,6 +75,8 @@
                 grid-template-areas: "header" "main" "controls";
             }
 
+
+
             #slide-title {
                 display: none !important;
             }
@@ -86,14 +88,19 @@
                 justify-content: center;
             }
             
-            /* #slides > * > * {
+            #slides > * > * {
                 max-height: var(--max-slide-height);
-            } */
+            }
+            
+            .thumbnail {
+                object-fit: cover;     
+                max-height: var(--max-slide-height);
+            }
 
             .slideGrid, .slideColumn, .slideRow, .slideFlex, .slideGrow {
                 place-content:center;
                 place-items:center;
-                max-width: 95vw;
+                max-width: 90vw;
             }
 
             .slideGrid {

@@ -7,9 +7,6 @@ kanon
 - current number on ipad
 - height because sometimes scrolls
 
-index
-- first time load in ingocnito no image load
-
 issues
 - check widescreen compatability
 - decide if abstract text & cc should be justified
