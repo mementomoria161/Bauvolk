@@ -1606,22 +1606,17 @@ function renderer_setup() {
     // Event listeners for mouse move, mouse enter/leave
     container.addEventListener('mousemove', (event) => {
         if (isHovering) {
-            const newMouseX = (event.clientX / window.innerWidth) * 2 - 1;
-            const newMouseY = (event.clientY / window.innerHeight) * 2 - 1;
-    
-            // Set the target rotation based on mouse movement
-            targetRotation.y = newMouseX * Math.PI; // Adjust this value to control sensitivity
-            targetRotation.x = newMouseY * Math.PI; // Inverted this value to control sensitivity
+            targetRotation.y = model.rotation.y + event.movementX * 0.1;
+            targetRotation.x = model.rotation.x + event.movementY * 0.1;
         }
     });
     
     container.addEventListener('mouseenter', () => {
         isHovering = true;
         autoRotate = false;
-        if (model) {
-            targetRotation.x = model.rotation.x;
-            targetRotation.y = model.rotation.y;
-        }
+        
+        targetRotation.x = model.rotation.x;
+        targetRotation.y = model.rotation.y;
     });
     
     container.addEventListener('mouseleave', () => {
