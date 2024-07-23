@@ -1639,8 +1639,8 @@ function renderer_setup() {
         if (event.touches.length === 1) {
             touchMoveX = event.touches[0].clientX;
             touchMoveY = event.touches[0].clientY;
-            targetRotation.y = model.rotation.y + (touchMoveX - touchStartX) * 0.01;
-            targetRotation.x = model.rotation.x + (touchMoveY - touchStartY) * 0.01;
+            targetRotation.y = model.rotation.y + (touchMoveX - touchStartX) * 0.1;
+            targetRotation.x = model.rotation.x + (touchMoveY - touchStartY) * 0.1;
             touchStartX = touchMoveX;
             touchStartY = touchMoveY;
         }
