@@ -1579,10 +1579,6 @@ function footnote_horizontal_bounds() {
 
 
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////// RENDER ISSUE ////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
 var container;
 var scene;
 var camera;
@@ -1590,6 +1586,9 @@ var renderer;
 var model;
 let isHovering = false;
 let autoRotate = true;
+const ROTATION_SPEED_AUTO = 0.003;
+const ROTATION_SPEED_AUTO_ADJUSTMENT = 0.005;
+const ROTATION_SPEED_MULTIPLIER = 0.1;
 let targetRotation = { x: 0, y: 0 };
 let currentRotation = { x: 0, y: Math.PI };
 let touchStartX = 0;
@@ -1623,7 +1622,7 @@ function renderer_setup() {
 
     container.addEventListener('mouseleave', () => {
         isHovering = false;
-        autoRotate = true;
+        autoRotate = false;
     });
 
     container.addEventListener('touchstart', (event) => {
@@ -1649,7 +1648,7 @@ function renderer_setup() {
     container.addEventListener('touchend', (event) => {
         if (event.touches.length === 0) {
             isHovering = false;
-            autoRotate = true;
+            autoRotate = false;
         }
     });
 
@@ -1671,31 +1670,22 @@ function smoothRotation(current, target, lerpFactor) {
     return current + (target - current) * lerpFactor;
 }
 
-function calculateDistanceToCenter(x, y) {
-    const centerX = window.innerWidth / 2;
-    const centerY = window.innerHeight / 2;
-    return Math.sqrt(Math.pow(x - centerX, 2) + Math.pow(y - centerY, 2));
-}
-
-function getRotationSpeed(distance) {
-    const maxDistance = Math.sqrt(Math.pow(window.innerWidth / 2, 2) + Math.pow(window.innerHeight / 2, 2));
-    const minSpeed = 0.001;
-    const maxSpeed = 0.01;
-    return minSpeed + (maxSpeed - minSpeed) * (distance / maxDistance);
-}
-
 function animate() {
     requestAnimationFrame(animate);
     let container = document.getElementById('canvas-container');
-    const distance = calculateDistanceToCenter(container.offsetLeft + container.clientWidth / 2, container.offsetTop + container.clientHeight / 2);
-    const rotationSpeed = getRotationSpeed(distance);
 
     if (model) {
         if (autoRotate) {
-            model.rotation.y += rotationSpeed;
+            model.rotation.y += ROTATION_SPEED_AUTO;
         } else {
-            model.rotation.x = smoothRotation(model.rotation.x, targetRotation.x, 0.1);
-            model.rotation.y = smoothRotation(model.rotation.y, targetRotation.y, 0.1);
+            model.rotation.x = smoothRotation(model.rotation.x, targetRotation.x, ROTATION_SPEED_MULTIPLIER);
+            model.rotation.y = smoothRotation(model.rotation.y, targetRotation.y, ROTATION_SPEED_MULTIPLIER);
+        }
+
+        if (!isHovering) {
+            autoRotate = true;
+            targetRotation.x = 0;
+            model.rotation.x = smoothRotation(model.rotation.x, targetRotation.x, ROTATION_SPEED_AUTO_ADJUSTMENT);
         }
     }
 

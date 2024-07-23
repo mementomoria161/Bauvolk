@@ -88,6 +88,21 @@ section, article {
 	line-height: 1.2;
 }
 
+#abstract *::-moz-selection {
+	color: var(--header-color);
+	background: var(--header-color-contrast);
+}
+
+#abstract *::-webkit-selection {
+	color: var(--header-color);
+	background: var(--header-color-contrast);
+}
+
+#abstract *::selection {
+	color: var(--header-color);
+	background: var(--header-color-contrast);
+}
+
 
 /* ARTIKEL */
 
