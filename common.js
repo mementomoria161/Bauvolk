@@ -1578,19 +1578,27 @@ function footnote_horizontal_bounds() {
 }
 
 
-var container
-var scene
-var camera
-var renderer
-var model
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////// RENDER ISSUE ////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+var container;
+var scene;
+var camera;
+var renderer;
+var model;
 let isHovering = false;
 let autoRotate = true;
-let targetRotation = { x: 0, y: 0 }; // Start mit neutraler Rotation
+let targetRotation = { x: 0, y: 0 };
 let currentRotation = { x: 0, y: Math.PI };
+let touchStartX = 0;
+let touchStartY = 0;
+let touchMoveX = 0;
+let touchMoveY = 0;
 
 function renderer_setup() {
-    console.log("testses")
-    // Set up the scene, camera, and renderer
+    console.log("testses");
     container = document.getElementById('canvas-container');
     scene = new THREE.Scene();
     camera = new THREE.PerspectiveCamera(45, 1, 0.1, 1000);
@@ -1598,85 +1606,93 @@ function renderer_setup() {
     renderer.setSize(container.clientWidth, container.clientWidth);
     window.addEventListener("resize", () => { renderer.setSize(container.clientWidth, container.clientWidth); });
     container.appendChild(renderer.domElement);
-    
-    // Variables for mouse movement and smooth rotation
 
-
-    
-    // Event listeners for mouse move, mouse enter/leave
     container.addEventListener('mousemove', (event) => {
         if (isHovering) {
             targetRotation.y = model.rotation.y + event.movementX * 0.1;
             targetRotation.x = model.rotation.x + event.movementY * 0.1;
         }
     });
-    
+
     container.addEventListener('mouseenter', () => {
         isHovering = true;
         autoRotate = false;
-        
         targetRotation.x = model.rotation.x;
         targetRotation.y = model.rotation.y;
     });
-    
+
     container.addEventListener('mouseleave', () => {
         isHovering = false;
         autoRotate = true;
     });
-    
-    // Load the 3D model
+
+    container.addEventListener('touchstart', (event) => {
+        if (event.touches.length === 1) {
+            touchStartX = event.touches[0].clientX;
+            touchStartY = event.touches[0].clientY;
+            isHovering = true;
+            autoRotate = false;
+        }
+    });
+
+    container.addEventListener('touchmove', (event) => {
+        if (event.touches.length === 1) {
+            touchMoveX = event.touches[0].clientX;
+            touchMoveY = event.touches[0].clientY;
+            targetRotation.y = model.rotation.y + (touchMoveX - touchStartX) * 0.01;
+            targetRotation.x = model.rotation.x + (touchMoveY - touchStartY) * 0.01;
+            touchStartX = touchMoveX;
+            touchStartY = touchMoveY;
+        }
+    });
+
+    container.addEventListener('touchend', (event) => {
+        if (event.touches.length === 0) {
+            isHovering = false;
+            autoRotate = true;
+        }
+    });
+
     const loader = new GLTFLoader();
     loader.load(MODEL[localStorage.getItem("gefaengnishefte_language")], (gltf) => {
         model = gltf.scene;
         model.scale.set(0.65, 0.65, 0.65);
-    
-        // Initial rotation of the model
-        model.rotation.y = Math.PI; // 180 degrees in radians
-    
+        model.rotation.y = Math.PI;
         scene.add(model);
     });
-    
-    // Environmental variables
-    camera.position.z = 3; // Move the camera closer to the model
+
+    camera.position.z = 3;
     const ambientLight = new THREE.AmbientLight(0x404040, 50);
     scene.add(ambientLight);
-    animate()
+    animate();
 }
 
-
-// Function to smoothly interpolate between current and target rotation
 function smoothRotation(current, target, lerpFactor) {
     return current + (target - current) * lerpFactor;
 }
 
-// Funktion zur Berechnung der Entfernung zum Zentrum der Leinwand
 function calculateDistanceToCenter(x, y) {
     const centerX = window.innerWidth / 2;
     const centerY = window.innerHeight / 2;
     return Math.sqrt(Math.pow(x - centerX, 2) + Math.pow(y - centerY, 2));
 }
 
-// Funktion zur Berechnung der Rotationsgeschwindigkeit basierend auf der Entfernung zum Zentrum
 function getRotationSpeed(distance) {
     const maxDistance = Math.sqrt(Math.pow(window.innerWidth / 2, 2) + Math.pow(window.innerHeight / 2, 2));
-    const minSpeed = 0.001; // Mindestgeschwindigkeit der Rotation
-    const maxSpeed = 0.01; // Maximalgeschwindigkeit der Rotation
+    const minSpeed = 0.001;
+    const maxSpeed = 0.01;
     return minSpeed + (maxSpeed - minSpeed) * (distance / maxDistance);
 }
 
-// Renderfunktion, die die Rotationsgeschwindigkeit anpasst
 function animate() {
     requestAnimationFrame(animate);
-
-    // Berechnen der Entfernung des Mittelpunkts des Containers zum Zentrum der Leinwand
     let container = document.getElementById('canvas-container');
     const distance = calculateDistanceToCenter(container.offsetLeft + container.clientWidth / 2, container.offsetTop + container.clientHeight / 2);
     const rotationSpeed = getRotationSpeed(distance);
 
-    // Smoothly interpolate model rotation if the model is loaded
     if (model) {
         if (autoRotate) {
-            model.rotation.y += rotationSpeed; // Rotationsgeschwindigkeit anpassen
+            model.rotation.y += rotationSpeed;
         } else {
             model.rotation.x = smoothRotation(model.rotation.x, targetRotation.x, 0.1);
             model.rotation.y = smoothRotation(model.rotation.y, targetRotation.y, 0.1);
@@ -1684,4 +1700,4 @@ function animate() {
     }
 
     renderer.render(scene, camera);
-};
+}
