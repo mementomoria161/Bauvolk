@@ -21,6 +21,16 @@ section, article {
 
 #cover-section section {
 	margin-bottom: unset;
+	background-color: transparent;
+	color: white;
+	border: none;
+}
+
+#canvas-container {
+	overflow: visible;
+	/* border: 5px solid white; */
+	background: transparent;
+	color: transparent;
 }
 
 

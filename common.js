@@ -1576,3 +1576,117 @@ function footnote_horizontal_bounds() {
         // console.log("left")
     }
 }
+
+
+var container
+var scene
+var camera
+var renderer
+var model
+let isHovering = false;
+let autoRotate = true;
+let targetRotation = { x: 0, y: 0 }; // Start mit neutraler Rotation
+let currentRotation = { x: 0, y: Math.PI };
+
+function renderer_setup() {
+    console.log("testses")
+    // Set up the scene, camera, and renderer
+    container = document.getElementById('canvas-container');
+    scene = new THREE.Scene();
+    camera = new THREE.PerspectiveCamera(45, 1, 0.1, 1000);
+    renderer = new THREE.WebGLRenderer({ alpha: true });
+    renderer.setSize(container.clientWidth, container.clientWidth);
+    window.addEventListener("resize", () => { renderer.setSize(container.clientWidth, container.clientWidth); });
+    container.appendChild(renderer.domElement);
+    
+    // Variables for mouse movement and smooth rotation
+
+
+    
+    // Event listeners for mouse move, mouse enter/leave
+    container.addEventListener('mousemove', (event) => {
+        if (isHovering) {
+            const newMouseX = (event.clientX / window.innerWidth) * 2 - 1;
+            const newMouseY = (event.clientY / window.innerHeight) * 2 - 1;
+    
+            // Set the target rotation based on mouse movement
+            targetRotation.y = newMouseX * Math.PI; // Adjust this value to control sensitivity
+            targetRotation.x = newMouseY * Math.PI; // Inverted this value to control sensitivity
+        }
+    });
+    
+    container.addEventListener('mouseenter', () => {
+        isHovering = true;
+        autoRotate = false;
+        if (model) {
+            targetRotation.x = model.rotation.x;
+            targetRotation.y = model.rotation.y;
+        }
+    });
+    
+    container.addEventListener('mouseleave', () => {
+        isHovering = false;
+        autoRotate = true;
+    });
+    
+    // Load the 3D model
+    const loader = new GLTFLoader();
+    loader.load('files/de/heft-i.glb', (gltf) => {
+        model = gltf.scene;
+        model.scale.set(0.65, 0.65, 0.65);
+    
+        // Initial rotation of the model
+        model.rotation.y = Math.PI; // 180 degrees in radians
+    
+        scene.add(model);
+    });
+    
+    // Environmental variables
+    camera.position.z = 3; // Move the camera closer to the model
+    const ambientLight = new THREE.AmbientLight(0x404040, 50);
+    scene.add(ambientLight);
+    animate()
+}
+
+
+// Function to smoothly interpolate between current and target rotation
+function smoothRotation(current, target, lerpFactor) {
+    return current + (target - current) * lerpFactor;
+}
+
+// Funktion zur Berechnung der Entfernung zum Zentrum der Leinwand
+function calculateDistanceToCenter(x, y) {
+    const centerX = window.innerWidth / 2;
+    const centerY = window.innerHeight / 2;
+    return Math.sqrt(Math.pow(x - centerX, 2) + Math.pow(y - centerY, 2));
+}
+
+// Funktion zur Berechnung der Rotationsgeschwindigkeit basierend auf der Entfernung zum Zentrum
+function getRotationSpeed(distance) {
+    const maxDistance = Math.sqrt(Math.pow(window.innerWidth / 2, 2) + Math.pow(window.innerHeight / 2, 2));
+    const minSpeed = 0.001; // Mindestgeschwindigkeit der Rotation
+    const maxSpeed = 0.01; // Maximalgeschwindigkeit der Rotation
+    return minSpeed + (maxSpeed - minSpeed) * (distance / maxDistance);
+}
+
+// Renderfunktion, die die Rotationsgeschwindigkeit anpasst
+function animate() {
+    requestAnimationFrame(animate);
+
+    // Berechnen der Entfernung des Mittelpunkts des Containers zum Zentrum der Leinwand
+    let container = document.getElementById('canvas-container');
+    const distance = calculateDistanceToCenter(container.offsetLeft + container.clientWidth / 2, container.offsetTop + container.clientHeight / 2);
+    const rotationSpeed = getRotationSpeed(distance);
+
+    // Smoothly interpolate model rotation if the model is loaded
+    if (model) {
+        if (autoRotate) {
+            model.rotation.y += rotationSpeed; // Rotationsgeschwindigkeit anpassen
+        } else {
+            model.rotation.x = smoothRotation(model.rotation.x, targetRotation.x, 0.1);
+            model.rotation.y = smoothRotation(model.rotation.y, targetRotation.y, 0.1);
+        }
+    }
+
+    renderer.render(scene, camera);
+};
