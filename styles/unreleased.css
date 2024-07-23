@@ -1,9 +1,17 @@
 /* PRERELEASE */
 
 #cover-section {
-	margin-bottom: 100px;
+	margin-bottom: 150px;
 }
 
 .issue-button-group, article, #creative-commons, footer {
 	display: none;
+}
+
+#abo-content {
+	background-color: transparent;
+	border: none;
+	color: white;
+	margin-left: auto;
+	margin-right: auto
 }

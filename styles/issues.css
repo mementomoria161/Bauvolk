@@ -43,7 +43,7 @@ section, article {
 
 	display: flex;
 	justify-content: space-between;
-	gap: 200px;
+	gap: 20px;
 }
 
 #cover {
@@ -67,7 +67,7 @@ section, article {
 	justify-self: end;
 	/* height: 100%; */
 	min-width: 550px;
-	max-width: 800px;
+	max-width: 900px;
 	min-height: 100%;
 
 	display: flex;
@@ -121,7 +121,7 @@ audio::-webkit-media-controls-enclosure {
 
 .issue-button-group {
 	display: flex;
-	gap:4px;
+	gap:10px;
 	flex-wrap: wrap;
 	justify-content: space-between;
 	align-items: center;

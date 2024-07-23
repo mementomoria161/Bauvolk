@@ -1631,7 +1631,7 @@ function renderer_setup() {
     
     // Load the 3D model
     const loader = new GLTFLoader();
-    loader.load('files/de/heft-i.glb', (gltf) => {
+    loader.load(MODEL[localStorage.getItem("gefaengnishefte_language")], (gltf) => {
         model = gltf.scene;
         model.scale.set(0.65, 0.65, 0.65);
     
