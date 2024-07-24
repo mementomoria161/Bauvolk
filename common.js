@@ -1069,7 +1069,7 @@ function close_menu() {
 		// document.getElementById("logo").style.display = "inline";
 		document.getElementById("closemenu").style.display = "none";
 		document.getElementById("openmenu").style.display = "inline";
-	    document.getElementById("headerbox").style.maxWidth = "initial";
+	    document.getElementById("headerbox").style.maxWidth = "310px";
 
         // menu.animate([{ opacity: 1},{ opacity: 0},], {duration: 500, iterations: 1})
 	}
