@@ -62,7 +62,7 @@ body {
 #controls {grid-area: controls;}
 #footer {grid-area: footer;}
 
-#header, #content, #controls {
+#content, #controls {
 	width:100vw;
 }
 

@@ -74,6 +74,7 @@ section, article {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+	gap:40px;
 
 	/* border: unset;
 	background-color: unset;
@@ -170,6 +171,7 @@ audio::-webkit-media-controls-enclosure {
 	-moz-user-select: none;
 	-ms-user-select: none;
 	user-select: none;
+	min-width: 260px;
 }
 
 .issue-button-group * {
@@ -297,13 +299,11 @@ audio::-webkit-media-controls-enclosure {
 @media screen and (max-width: 600px) {
 	.issue-button-group {
 		flex-direction: column;
-		align-items: flex-start;
 	}
 
 	.issue-button {
-		padding: 0px !important;
-		font-size: var(--font-small) !important;
-		width:180px !important;
+		/* padding: 0px !important; */
+		/* font-size: var(--font-small) !important; */
 	}
 
 }

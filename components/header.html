@@ -15,6 +15,8 @@
 				font-size: 13pt;
 				gap: 10px;
 				
+				z-index:20;
+				
 				color: var(--header-color-text);
 				background-color: transparent;
 			}
@@ -253,8 +255,16 @@
 			
 
 			@media screen and (max-width: 800px) {
+
+				#header {
+					/* width: 100vw; */
+					/* height: 100vh; */
+					/* background-color: var(--header-color);; */
+				}
 				#headerbox {
-					width: 310px;
+					min-width: 310px;
+					width: fit-content;
+					transition: width 1s ease-in-out;
 				}
 
 				#menu {
@@ -345,7 +355,7 @@
 			
 			<a id="logo" href="https://www.GEFAENGNISHEFTE.org">GEFÄNGNISHEFTE</a>
 			
-			<nav id="navigation" onmouseleave="safeclosemenu()" >
+			<nav id="navigation">
 
 				<!-- ISSUES -->
 
@@ -361,9 +371,9 @@
 
 				<!-- MENU/ETC -->
 
-				<div onpointerenter="open_menu('menu-etc')">
-					<span class="dropanchor nav-selectable" id="etc"><span lang="de">ETC</span><span lang="en">ETC</span></span>
-					<span class="dropanchor" id="openmenu" onclick="open_menu('menu-area')"><span lang="de">MENÜ</span><span lang="en">MENU</span></span>
+				<div>
+					<span class="dropanchor nav-selectable" id="etc" onpointerenter="open_menu('menu-etc')"><span lang="de">ETC</span><span lang="en">ETC</span></span>
+					<span class="dropanchor" id="openmenu" onclick="open_menu('expanded')"><span lang="de">MENÜ</span><span lang="en">MENU</span></span>
 					<span class="dropanchor" id="closemenu" onclick="safe_close_menu()"><span lang="de">SCHLIESSEN</span><span lang="en">CLOSE</span></span>
 				</div>
 			</nav>

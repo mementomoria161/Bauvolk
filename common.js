@@ -111,7 +111,7 @@ function init_header() {
     init_abo()
     init_highlights()
     window.addEventListener("resize", openmenufix)
-    document.getElementById("header").addEventListener("pointerleave", safe_close_menu)
+    document.getElementById("header").addEventListener("pointerleave", auto_close_menu)
 }
 
 
@@ -1030,13 +1030,28 @@ function open_menu(ID) {
     
     
     document.getElementById("menu-area").style.display = "block";
+    document.getElementById("menu-expanded").style.display = "none";
     document.getElementById("menu-issues").style.display = "none";
     document.getElementById("menu-kanon").style.display = "none";
     document.getElementById("menu-etc").style.display = "none";
-    document.getElementById("menu-area").style.width = document.getElementById("headerbox").offsetWidth
-    document.getElementById(ID).style.display = "block";
 
-    
+    document.getElementById("menu-area").style.width = document.getElementById("headerbox").offsetWidth
+
+    if(ID == "expanded") {
+        document.getElementById("menu-expanded").style.display = "block";
+        document.getElementById("menu-etc").style.display = "block";
+    }
+    else {
+        document.getElementById(ID).style.display = "block";
+    }
+
+    if (window.innerWidth <= 800) {
+        document.getElementById("content").style.display = "none";
+        document.getElementById("footer").style.display = "none";
+		// document.getElementById("logo").style.display = "none";
+        document.getElementById("openmenu").style.display = "none";
+		document.getElementById("closemenu").style.display = "inline";
+    }
 }
 
 function close_menu() {
@@ -1044,10 +1059,21 @@ function close_menu() {
     document.getElementById("menu-issues").style.display = "none";
     document.getElementById("menu-kanon").style.display = "none";
     document.getElementById("menu-etc").style.display = "none";
+
+
+    document.getElementById("content").style.display = "block";
+    document.getElementById("footer").style.display = "block";
+
+    if (window.innerWidth <= 800) {
+		// document.getElementById("logo").style.display = "inline";
+		document.getElementById("closemenu").style.display = "none";
+		document.getElementById("openmenu").style.display = "inline";
+
+        // menu.animate([{ opacity: 1},{ opacity: 0},], {duration: 500, iterations: 1})
+	}
 }
 
 function safe_close_menu() {
-
     for (let value of ["email-input", "email-checkbox", "email-btn"]) {
         if(document.getElementById(value) === document.activeElement) {return}
     }
@@ -1057,6 +1083,12 @@ function safe_close_menu() {
     }
 
     close_menu()
+}
+
+function auto_close_menu() {
+    if (window.innerWidth > 800) {
+        safe_close_menu()
+    }
 }
 
 function openmenu(event) {
@@ -1086,11 +1118,11 @@ function openmenu(event) {
         menu.style.height = 'calc(100vh - ' + document.getElementById("navigation").offsetHeight + 'px)';
         menu.style.display = "grid"
         
-		document.getElementById("logo").style.display = "none";
-        document.getElementById("navigation").style.width = "100vw";
-        document.getElementById("navigation").style.justifyContent = "flex-end";
-		document.getElementById("openmenu").style.display = "none";
-		document.getElementById("closemenu").style.display = "inline";
+		// document.getElementById("logo").style.display = "none";
+        // document.getElementById("navigation").style.width = "100vw";
+        // document.getElementById("navigation").style.justifyContent = "flex-end";
+		// document.getElementById("openmenu").style.display = "none";
+		// document.getElementById("closemenu").style.display = "inline";
 
         // let animation = [
         //     { opacity: 0},
@@ -1129,11 +1161,11 @@ function closemenu() {
 	hidedropmenus();
 
 	if (window.innerWidth < 800) {
-		document.getElementById("logo").style.display = "inline";
-		document.getElementById("closemenu").style.display = "none";
-		document.getElementById("openmenu").style.display = "inline";
-        document.getElementById("navigation").style.width = "fit-content";
-        document.getElementById("navigation").style.justifyContent = "space-between";
+		// document.getElementById("logo").style.display = "inline";
+		// document.getElementById("closemenu").style.display = "none";
+		// document.getElementById("openmenu").style.display = "inline";
+        // document.getElementById("navigation").style.width = "fit-content";
+        // document.getElementById("navigation").style.justifyContent = "space-between";
 
         // menu.animate([{ opacity: 1},{ opacity: 0},], {duration: 500, iterations: 1})
 	}
