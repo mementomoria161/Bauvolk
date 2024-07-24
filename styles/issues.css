@@ -6,7 +6,8 @@ body {
 }
 
 #content {
-	padding: 40px 60px;
+	padding-left: 60px;
+	padding-right: 60px;
 }
 
 section, article {
@@ -72,7 +73,7 @@ section, article {
 
 	display: flex;
 	flex-direction: column;
-	justify-content: space-between;
+	justify-content: center;
 
 	/* border: unset;
 	background-color: unset;
@@ -275,7 +276,9 @@ audio::-webkit-media-controls-enclosure {
 
 @media screen and (max-width: 800px) {
 	#content {
-		padding: 20px 12px;
+		padding-left: 12px;
+		padding-right: 12px;
+		padding-top: 80px;
 	}
 	
 	#cover-section>*, article, #creative-commons {

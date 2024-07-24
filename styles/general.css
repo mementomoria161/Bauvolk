@@ -40,9 +40,9 @@ body {
 	background-color: var(--content-color);
 
 	display: grid;
-	grid-template-rows: auto 1fr;
+	grid-template-rows: 1fr;
 	grid-template-columns: auto;
-	grid-template-areas: "header" "main";
+	grid-template-areas: "main";
 	place-items: center;
 }
 
@@ -52,6 +52,7 @@ body {
 	overflow-y: auto;
 	height:100%;
 	padding:20px;
+	padding-top: 100px;
 	scrollbar-gutter: stable both-edges;
 }
 

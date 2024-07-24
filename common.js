@@ -111,6 +111,7 @@ function init_header() {
     init_abo()
     init_highlights()
     window.addEventListener("resize", openmenufix)
+    document.getElementById("header").addEventListener("pointerleave", safe_close_menu)
 }
 
 
@@ -1024,6 +1025,39 @@ function check_menu_origin(origin) {
     }
 }
 
+
+function open_menu(ID) {
+    
+    
+    document.getElementById("menu-area").style.display = "block";
+    document.getElementById("menu-issues").style.display = "none";
+    document.getElementById("menu-kanon").style.display = "none";
+    document.getElementById("menu-etc").style.display = "none";
+    document.getElementById("menu-area").style.width = document.getElementById("headerbox").offsetWidth
+    document.getElementById(ID).style.display = "block";
+
+    
+}
+
+function close_menu() {
+    document.getElementById("menu-area").style.display = "none";
+    document.getElementById("menu-issues").style.display = "none";
+    document.getElementById("menu-kanon").style.display = "none";
+    document.getElementById("menu-etc").style.display = "none";
+}
+
+function safe_close_menu() {
+
+    for (let value of ["email-input", "email-checkbox", "email-btn"]) {
+        if(document.getElementById(value) === document.activeElement) {return}
+    }
+
+    if(document.getElementById("email-input").value == "") {
+        reset_emailinfo()
+    }
+
+    close_menu()
+}
 
 function openmenu(event) {
     origin = check_menu_origin(event.currentTarget)
