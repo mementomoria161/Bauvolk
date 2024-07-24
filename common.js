@@ -1040,6 +1040,7 @@ function open_menu(ID) {
     if(ID == "expanded") {
         document.getElementById("menu-expanded").style.display = "block";
         document.getElementById("menu-etc").style.display = "block";
+	document.getElementById("headerbox").style.maxWidth = "500px";
     }
     else {
         document.getElementById(ID).style.display = "block";
@@ -1068,6 +1069,7 @@ function close_menu() {
 		// document.getElementById("logo").style.display = "inline";
 		document.getElementById("closemenu").style.display = "none";
 		document.getElementById("openmenu").style.display = "inline";
+	    document.getElementById("headerbox").style.maxWidth = "initial";
 
         // menu.animate([{ opacity: 1},{ opacity: 0},], {duration: 500, iterations: 1})
 	}
