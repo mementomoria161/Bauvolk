@@ -255,12 +255,6 @@
 			
 
 			@media screen and (max-width: 800px) {
-
-				#header {
-					/* width: 100vw; */
-					/* height: 100vh; */
-					/* background-color: var(--header-color);; */
-				}
 				
 				#headerbox {
 					width: fit-content;
@@ -290,10 +284,10 @@
 					border: 2px outset grey !important;
 				}
 
-				#header {
-					
-				gap: 40px;
+				#header {	
+					gap: 60px;
 				}
+
 				#menu-area {
 					position: relative;
 					display: none;
@@ -373,7 +367,7 @@
 				<div>
 					<span class="dropanchor nav-selectable" id="etc" onpointerenter="open_menu('menu-etc')"><span lang="de">ETC</span><span lang="en">ETC</span></span>
 					<span class="dropanchor" id="openmenu" onclick="open_menu('expanded')"><span lang="de">MENÜ</span><span lang="en">MENU</span></span>
-					<span class="dropanchor" id="closemenu" onclick="safe_close_menu()"><span lang="de">SCHLIESSEN</span><span lang="en">CLOSE</span></span>
+					<span class="dropanchor" id="closemenu" onclick="safe_close_menu()"><span lang="de">X</span><span lang="en">X</span></span>
 				</div>
 			</nav>
 		</div>
