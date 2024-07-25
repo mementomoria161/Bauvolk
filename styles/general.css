@@ -306,9 +306,14 @@ button[disabled]{
 	line-height: 1.1;
 }
 
-/* .issue-title br {
-	display: none;
+#slide-index .issue-title {
+	font-size: 15pt;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	width: 100%;
 }
+
 
 @media screen and (max-width: 400px) {
 	.issue-title br {
