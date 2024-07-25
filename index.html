@@ -70,7 +70,7 @@
                     no_en: "ISSUE I",
                     date_de: "03/2024",
                     date_en: "03/2024",
-                    title_de: "GRUNDRISSE DES <br>KONSTRUKTIVEN SOZIALISMUS",
+                    title_de: "GRUNDRISSE DES <br>KONSTRUKTIVEN <br>SOZIALISMUS",
                     title_en: "OUTLINES OF <br>CONSTRUCTIVE SOCIALISM",
                     cover_de: "images/issues/de/issue-i-cover.webp",
                     cover_en: "images/issues/en/issue-i-cover.webp",
@@ -81,7 +81,7 @@
                     no_en: "ISSUE II",
                     date_de: "12/2024",
                     date_en: "12/2024",
-                    title_de: "<br>IN ARBEIT",
+                    title_de: "IN ARBEIT",
                     title_en: "<br>WORK IN PROGRESS",
                     cover_de: "images/issues/de/issue-ii-cover.webp",
                     cover_en: "images/issues/en/issue-ii-cover.webp",
@@ -96,7 +96,7 @@
             function basic_template_date(issue) {return '<span lang="de" class="left">' + issue.no_de + '<br>' + issue.date_de + '</span><span lang="en" class="left">' + issue.no_en +  '<br>' + issue.date_en + '</span><span lang="de">' + issue.title_de + '</span><span lang="en">' + issue.title_en + '</span>'}
             function title_template(i){let issue = ISSUE_LIST[i]; return  cover_template(i) + '<div onmouseover="display_combined(event, ' + i + ')" class="issue-title vertical">' + basic_template_date(issue)+ '</div>'}
             function index_title_template(i){let issue = ISSUE_LIST[i]; return '<a class="issue-title center" href=' + issue.url + '><span lang="de">' + issue.title_de + '</span><span lang="en">' + issue.title_en + '</span></a>'}
-            function index_template(slide, i){let issue = ISSUE_LIST[i]; return '<span onclick="display_combined(null, ' + i + ')" id="index' + i + '" class="indexitem issue-title">' + basic_template(issue) + '</span><hr>'}
+            function index_template(slide, i){let issue = ISSUE_LIST[i]; return '<span onclick="display_combined(null, ' + i + ')" id="index' + i + '" class="indexitem issue-title">' + basic_template(issue) + '</span>'}
 
             // LOADING
 

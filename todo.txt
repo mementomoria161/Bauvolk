@@ -8,8 +8,7 @@ kanon
 - height because sometimes scrolls
 
 issues
-- check widescreen compatability
-- decide if abstract text & cc should be justified
+- share double click issues
 
 -------------- IMPROVEMENTS --------------
 

@@ -306,6 +306,11 @@ button[disabled]{
 	line-height: 1.1;
 }
 
+#slide-index .issue-title {
+	border: 2px outset grey;
+	padding: 10px;
+}
+
 /* .issue-title br {
 	display: none;
 }
