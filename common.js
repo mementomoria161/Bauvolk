@@ -1003,7 +1003,7 @@ function openmenufix() {
 
 		windowwidth = window.innerWidth;
 
-		closemenu()
+		close_menu()
 
 		if (window.innerWidth <= 800 && !menu_open) {
 			document.getElementById("openmenu").style.display = "inline";
@@ -1040,7 +1040,6 @@ function open_menu(ID) {
     if(ID == "expanded") {
         document.getElementById("menu-expanded").style.display = "block";
         document.getElementById("menu-etc").style.display = "block";
-	document.getElementById("headerbox").style.maxWidth = "500px";
     }
     else {
         document.getElementById(ID).style.display = "block";
@@ -1052,7 +1051,10 @@ function open_menu(ID) {
 		// document.getElementById("logo").style.display = "none";
         document.getElementById("openmenu").style.display = "none";
 		document.getElementById("closemenu").style.display = "inline";
+        fullscreen_menu = true
     }
+
+    menu_open = true
 }
 
 function close_menu() {
@@ -1069,10 +1071,12 @@ function close_menu() {
 		// document.getElementById("logo").style.display = "inline";
 		document.getElementById("closemenu").style.display = "none";
 		document.getElementById("openmenu").style.display = "inline";
-	    document.getElementById("headerbox").style.maxWidth = "310px";
 
         // menu.animate([{ opacity: 1},{ opacity: 0},], {duration: 500, iterations: 1})
 	}
+
+    fullscreen_menu = false
+	menu_open = false
 }
 
 function safe_close_menu() {
@@ -1137,7 +1141,7 @@ function openmenu(event) {
         //     alert("test")
         //   });
         
-        fullscreen_menu = true
+        
 	}
 
 	menu_open = true
@@ -1657,6 +1661,8 @@ let autoRotate = true;
 const ROTATION_SPEED_AUTO = 0.003;
 const ROTATION_SPEED_AUTO_ADJUSTMENT = 0.005;
 const ROTATION_SPEED_MULTIPLIER = 0.1;
+const ROTATION_SPEED_MULTIPLIER_MOUSE = 0.1
+const ROTATION_SPEED_MULTIPLIER_TOUCH = 0.01
 let targetRotation = { x: 0, y: 0 };
 let currentRotation = { x: 0, y: Math.PI };
 let touchStartX = 0;
@@ -1676,8 +1682,8 @@ function renderer_setup() {
 
     container.addEventListener('mousemove', (event) => {
         if (isHovering) {
-            targetRotation.y = model.rotation.y + event.movementX * 0.1;
-            targetRotation.x = model.rotation.x + event.movementY * 0.1;
+            targetRotation.y = model.rotation.y + event.movementX * ROTATION_SPEED_MULTIPLIER_MOUSE;
+            targetRotation.x = model.rotation.x + event.movementY * ROTATION_SPEED_MULTIPLIER_MOUSE;
         }
     });
 
@@ -1706,8 +1712,8 @@ function renderer_setup() {
         if (event.touches.length === 1) {
             touchMoveX = event.touches[0].clientX;
             touchMoveY = event.touches[0].clientY;
-            targetRotation.y = model.rotation.y + (touchMoveX - touchStartX) * 0.1;
-            targetRotation.x = model.rotation.x + (touchMoveY - touchStartY) * 0.1;
+            targetRotation.y = model.rotation.y + (touchMoveX - touchStartX) * ROTATION_SPEED_MULTIPLIER_TOUCH;
+            targetRotation.x = model.rotation.x + (touchMoveY - touchStartY) * ROTATION_SPEED_MULTIPLIER_TOUCH;
             touchStartX = touchMoveX;
             touchStartY = touchMoveY;
         }
