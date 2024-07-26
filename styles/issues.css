@@ -300,12 +300,6 @@ audio::-webkit-media-controls-enclosure {
 	.issue-button-group {
 		flex-direction: column;
 	}
-
-	.issue-button {
-		/* padding: 0px !important; */
-		/* font-size: var(--font-small) !important; */
-	}
-
 }
 
 
