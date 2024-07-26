@@ -331,6 +331,7 @@ button[disabled]{
 .abo input {
 	width:100%;
 	background-color:white;
+	flex: 1;
 }
 
 .abo span {
