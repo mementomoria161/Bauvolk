@@ -1680,7 +1680,7 @@ function renderer_setup() {
     container = document.getElementById('canvas-container');
     scene = new THREE.Scene();
     camera = new THREE.PerspectiveCamera(45, 1, 0.1, 1000);
-    renderer = new THREE.WebGLRenderer({ alpha: true });
+    renderer = new THREE.WebGLRenderer({ alpha: true, antialias:true});
     renderer.setSize(container.clientWidth, container.clientWidth);
     window.addEventListener("resize", () => { renderer.setSize(container.clientWidth, container.clientWidth); });
     container.appendChild(renderer.domElement);
