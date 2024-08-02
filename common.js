@@ -1663,7 +1663,7 @@ var renderer;
 var model;
 let isHovering = false;
 let autoRotate = true;
-const ROTATION_SPEED_AUTO = 0.003;
+const ROTATION_SPEED_AUTO = 0.0035;
 const ROTATION_SPEED_AUTO_ADJUSTMENT = 0.005;
 const ROTATION_SPEED_MULTIPLIER = 0.1;
 const ROTATION_SPEED_MULTIPLIER_MOUSE = 0.1
@@ -1676,7 +1676,7 @@ let touchMoveX = 0;
 let touchMoveY = 0;
 
 function renderer_setup() {
-    console.log("testses");
+    
     container = document.getElementById('canvas-container');
     scene = new THREE.Scene();
     camera = new THREE.PerspectiveCamera(45, 1, 0.1, 1000);
@@ -1734,6 +1734,18 @@ function renderer_setup() {
     const loader = new GLTFLoader();
     loader.load(MODEL[localStorage.getItem("gefaengnishefte_language")], (gltf) => {
         model = gltf.scene;
+
+        model.traverse((child) => {
+            if (child.isMesh) {
+                let material = child.material;
+                if (material.map) {
+                    material.map.generateMipmaps = false;
+                    material.map.magFilter = THREE.LinearFilter;
+                    material.map.minFilter = THREE.LinearFilter;
+                }
+            }
+        })
+        
         model.scale.set(0.65, 0.65, 0.65);
         model.rotation.y = Math.PI;
         scene.add(model);
@@ -1751,7 +1763,6 @@ function smoothRotation(current, target, lerpFactor) {
 
 function animate() {
     requestAnimationFrame(animate);
-    let container = document.getElementById('canvas-container');
 
     if (model) {
         if (autoRotate) {

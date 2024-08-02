@@ -32,6 +32,12 @@ section, article {
 	/* border: 5px solid white; */
 	background: transparent;
 	color: transparent;
+	width: 1200px;
+	max-width: 100%;
+	padding: 0px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 
@@ -45,10 +51,6 @@ section, article {
 	display: flex;
 	justify-content: space-between;
 	gap: 20px;
-}
-
-#cover {
-	height: 100%;
 }
 
 #title {
@@ -301,6 +303,15 @@ audio::-webkit-media-controls-enclosure {
 		flex-direction: column;
 	}
 }
+
+@media screen and (min-width: 2000px) {
+	#cover-section {
+		justify-content: center;
+		gap:300px;
+	}
+}
+
+
 
 
 @supports (animation-range: entry-crossing) {
