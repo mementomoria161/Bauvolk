@@ -1681,6 +1681,7 @@ function renderer_setup() {
     scene = new THREE.Scene();
     camera = new THREE.PerspectiveCamera(45, 1, 0.1, 1000);
     renderer = new THREE.WebGLRenderer({ alpha: true, antialias:true});
+    renderer.setPixelRatio(window.devicePixelRatio);
     renderer.setSize(container.clientWidth, container.clientWidth);
     window.addEventListener("resize", () => { renderer.setSize(container.clientWidth, container.clientWidth); });
     container.appendChild(renderer.domElement);
