@@ -1656,128 +1656,128 @@ function footnote_horizontal_bounds() {
 
 
 
-var container;
-var scene;
-var camera;
-var renderer;
-var model;
-let isHovering = false;
-let autoRotate = true;
-const ROTATION_SPEED_AUTO = 0.0035;
-const ROTATION_SPEED_AUTO_ADJUSTMENT = 0.005;
-const ROTATION_SPEED_MULTIPLIER = 0.1;
-const ROTATION_SPEED_MULTIPLIER_MOUSE = 0.1
-const ROTATION_SPEED_MULTIPLIER_TOUCH = 0.01
-let targetRotation = { x: 0, y: 0 };
-let currentRotation = { x: 0, y: Math.PI };
-let touchStartX = 0;
-let touchStartY = 0;
-let touchMoveX = 0;
-let touchMoveY = 0;
+// var container;
+// var scene;
+// var camera;
+// var renderer;
+// var model;
+// let isHovering = false;
+// let autoRotate = true;
+// const ROTATION_SPEED_AUTO = 0.0035;
+// const ROTATION_SPEED_AUTO_ADJUSTMENT = 0.005;
+// const ROTATION_SPEED_MULTIPLIER = 0.1;
+// const ROTATION_SPEED_MULTIPLIER_MOUSE = 0.1
+// const ROTATION_SPEED_MULTIPLIER_TOUCH = 0.01
+// let targetRotation = { x: 0, y: 0 };
+// let currentRotation = { x: 0, y: Math.PI };
+// let touchStartX = 0;
+// let touchStartY = 0;
+// let touchMoveX = 0;
+// let touchMoveY = 0;
 
-function renderer_setup() {
+// function renderer_setup() {
     
-    container = document.getElementById('canvas-container');
-    scene = new THREE.Scene();
-    camera = new THREE.PerspectiveCamera(45, 1, 0.1, 1000);
-    renderer = new THREE.WebGLRenderer({ alpha: true, antialias:true});
-    renderer.setSize(container.clientWidth, container.clientWidth);
-    window.addEventListener("resize", () => { renderer.setSize(container.clientWidth, container.clientWidth); });
-    container.appendChild(renderer.domElement);
+//     container = document.getElementById('canvas-container');
+//     scene = new THREE.Scene();
+//     camera = new THREE.PerspectiveCamera(45, 1, 0.1, 1000);
+//     renderer = new THREE.WebGLRenderer({ alpha: true, antialias:true});
+//     renderer.setSize(container.clientWidth, container.clientWidth);
+//     window.addEventListener("resize", () => { renderer.setSize(container.clientWidth, container.clientWidth); });
+//     container.appendChild(renderer.domElement);
 
-    container.addEventListener('mousemove', (event) => {
-        if (isHovering) {
-            targetRotation.y = model.rotation.y + event.movementX * ROTATION_SPEED_MULTIPLIER_MOUSE;
-            targetRotation.x = model.rotation.x + event.movementY * ROTATION_SPEED_MULTIPLIER_MOUSE;
-        }
-    });
+//     container.addEventListener('mousemove', (event) => {
+//         if (isHovering) {
+//             targetRotation.y = model.rotation.y + event.movementX * ROTATION_SPEED_MULTIPLIER_MOUSE;
+//             targetRotation.x = model.rotation.x + event.movementY * ROTATION_SPEED_MULTIPLIER_MOUSE;
+//         }
+//     });
 
-    container.addEventListener('mouseenter', () => {
-        isHovering = true;
-        autoRotate = false;
-        targetRotation.x = model.rotation.x;
-        targetRotation.y = model.rotation.y;
-    });
+//     container.addEventListener('mouseenter', () => {
+//         isHovering = true;
+//         autoRotate = false;
+//         targetRotation.x = model.rotation.x;
+//         targetRotation.y = model.rotation.y;
+//     });
 
-    container.addEventListener('mouseleave', () => {
-        isHovering = false;
-        autoRotate = false;
-    });
+//     container.addEventListener('mouseleave', () => {
+//         isHovering = false;
+//         autoRotate = false;
+//     });
 
-    container.addEventListener('touchstart', (event) => {
-        if (event.touches.length === 1) {
-            touchStartX = event.touches[0].clientX;
-            touchStartY = event.touches[0].clientY;
-            isHovering = true;
-            autoRotate = false;
-        }
-    });
+//     container.addEventListener('touchstart', (event) => {
+//         if (event.touches.length === 1) {
+//             touchStartX = event.touches[0].clientX;
+//             touchStartY = event.touches[0].clientY;
+//             isHovering = true;
+//             autoRotate = false;
+//         }
+//     });
 
-    container.addEventListener('touchmove', (event) => {
-        if (event.touches.length === 1) {
-            touchMoveX = event.touches[0].clientX;
-            touchMoveY = event.touches[0].clientY;
-            targetRotation.y = model.rotation.y + (touchMoveX - touchStartX) * ROTATION_SPEED_MULTIPLIER_TOUCH;
-            targetRotation.x = model.rotation.x + (touchMoveY - touchStartY) * ROTATION_SPEED_MULTIPLIER_TOUCH;
-            touchStartX = touchMoveX;
-            touchStartY = touchMoveY;
-        }
-    });
+//     container.addEventListener('touchmove', (event) => {
+//         if (event.touches.length === 1) {
+//             touchMoveX = event.touches[0].clientX;
+//             touchMoveY = event.touches[0].clientY;
+//             targetRotation.y = model.rotation.y + (touchMoveX - touchStartX) * ROTATION_SPEED_MULTIPLIER_TOUCH;
+//             targetRotation.x = model.rotation.x + (touchMoveY - touchStartY) * ROTATION_SPEED_MULTIPLIER_TOUCH;
+//             touchStartX = touchMoveX;
+//             touchStartY = touchMoveY;
+//         }
+//     });
 
-    container.addEventListener('touchend', (event) => {
-        if (event.touches.length === 0) {
-            isHovering = false;
-            autoRotate = false;
-        }
-    });
+//     container.addEventListener('touchend', (event) => {
+//         if (event.touches.length === 0) {
+//             isHovering = false;
+//             autoRotate = false;
+//         }
+//     });
 
-    const loader = new GLTFLoader();
-    loader.load(MODEL[localStorage.getItem("gefaengnishefte_language")], (gltf) => {
-        model = gltf.scene;
+//     const loader = new GLTFLoader();
+//     loader.load(MODEL[localStorage.getItem("gefaengnishefte_language")], (gltf) => {
+//         model = gltf.scene;
 
-        model.traverse((child) => {
-            if (child.isMesh) {
-                let material = child.material;
-                if (material.map) {
-                    material.map.generateMipmaps = false;
-                    material.map.magFilter = THREE.LinearFilter;
-                    material.map.minFilter = THREE.LinearFilter;
-                }
-            }
-        })
+//         model.traverse((child) => {
+//             if (child.isMesh) {
+//                 let material = child.material;
+//                 if (material.map) {
+//                     material.map.generateMipmaps = false;
+//                     material.map.magFilter = THREE.LinearFilter;
+//                     material.map.minFilter = THREE.LinearFilter;
+//                 }
+//             }
+//         })
         
-        model.scale.set(0.65, 0.65, 0.65);
-        model.rotation.y = Math.PI;
-        scene.add(model);
-    });
+//         model.scale.set(0.65, 0.65, 0.65);
+//         model.rotation.y = Math.PI;
+//         scene.add(model);
+//     });
 
-    camera.position.z = 3;
-    const ambientLight = new THREE.AmbientLight(0x404040, 50);
-    scene.add(ambientLight);
-    animate();
-}
+//     camera.position.z = 3;
+//     const ambientLight = new THREE.AmbientLight(0x404040, 50);
+//     scene.add(ambientLight);
+//     animate();
+// }
 
-function smoothRotation(current, target, lerpFactor) {
-    return current + (target - current) * lerpFactor;
-}
+// function smoothRotation(current, target, lerpFactor) {
+//     return current + (target - current) * lerpFactor;
+// }
 
-function animate() {
-    requestAnimationFrame(animate);
+// function animate() {
+//     requestAnimationFrame(animate);
 
-    if (model) {
-        if (autoRotate) {
-            model.rotation.y += ROTATION_SPEED_AUTO;
-        } else {
-            model.rotation.x = smoothRotation(model.rotation.x, targetRotation.x, ROTATION_SPEED_MULTIPLIER);
-            model.rotation.y = smoothRotation(model.rotation.y, targetRotation.y, ROTATION_SPEED_MULTIPLIER);
-        }
+//     if (model) {
+//         if (autoRotate) {
+//             model.rotation.y += ROTATION_SPEED_AUTO;
+//         } else {
+//             model.rotation.x = smoothRotation(model.rotation.x, targetRotation.x, ROTATION_SPEED_MULTIPLIER);
+//             model.rotation.y = smoothRotation(model.rotation.y, targetRotation.y, ROTATION_SPEED_MULTIPLIER);
+//         }
 
-        if (!isHovering) {
-            autoRotate = true;
-            targetRotation.x = 0;
-            model.rotation.x = smoothRotation(model.rotation.x, targetRotation.x, ROTATION_SPEED_AUTO_ADJUSTMENT);
-        }
-    }
+//         if (!isHovering) {
+//             autoRotate = true;
+//             targetRotation.x = 0;
+//             model.rotation.x = smoothRotation(model.rotation.x, targetRotation.x, ROTATION_SPEED_AUTO_ADJUSTMENT);
+//         }
+//     }
 
-    renderer.render(scene, camera);
-}
+//     renderer.render(scene, camera);
+// }
