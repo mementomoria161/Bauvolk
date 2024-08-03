@@ -119,6 +119,14 @@
 
 @font-face {
 	font-family: "Cormorant";
+	src:	url('https://www.GEFAENGNISHEFTE.org/fonts/Cormorant/Cormorant-Medium.ttf') format('truetype');
+	font-weight: 500;
+	font-style: normal;
+	font-display: block;
+}
+
+@font-face {
+	font-family: "Cormorant";
 	src:	url('https://www.GEFAENGNISHEFTE.org/fonts/Cormorant/Cormorant-Italic.ttf') format('truetype');
 	font-weight: 400;
 	font-style: italic;
@@ -130,7 +138,7 @@
 /* SETTINGS */
 
 * {
-	font-family: "Redaction";
+	font-family: "Cormorant";
 }
 
 .abstract-text {
