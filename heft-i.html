@@ -106,10 +106,11 @@ let auto_rotate = true;
 let defaultRotation = 0;
 
 function lerp(start, end, factor) {
-    return start * (1 - factor) + end * factor;
+    // return start * (1 - factor) + end * factor;
+    return start + (end - start) * factor;
 }
 
-document.addEventListener('mousemove', (e) => {
+document.addEventListener('pointermove', (e) => {
     const perspective = document.getElementById('perspective');
     if (perspective.contains(e.target)) {
         const box = document.getElementById('box');
@@ -124,7 +125,7 @@ document.addEventListener('mousemove', (e) => {
     }
 });
 
-document.addEventListener('mouseout', (e) => {
+document.addEventListener('pointerout', (e) => {
     if (!document.getElementById('perspective').contains(e.target)) {
         is_hovering = false;
         auto_rotate = true;
@@ -157,92 +158,6 @@ function animate() {
 }
 
 </script>
-        <style>
-            :root {
-                --model-width: 500px;
-                --model-height: calc(var(--model-width) * 1.414);
-                --model-depth: calc(var(--model-width) * 0.04);
-            }
-
-            .perspective {
-                perspective: 3000px;
-                perspective-origin: 50% -500px;
-                display: flex;
-                justify-content: center;
-            }
-
-            .box {
-                position: relative;
-                width: var(--model-width);
-                height: var(--model-height);
-                transform-style: preserve-3d;
-                transform-origin: center center;
-            }
-
-            .face {
-                position: absolute;
-                background-color: white;
-            }
-
-
-            /* COVER */
-
-            .face.front, .face.back {
-                background-size: cover;
-                width: var(--model-width);
-                height: var(--model-height);
-            }
-
-            .face.front {
-                background-image: url("images/issues/de/issue-i-cover.webp");
-            }
-
-            .face.back {
-                background-image: url("images/issues/de/issue-i-back.webp");
-                transform: translateZ(calc(-1 * var(--model-depth))) scaleX(-1);
-            }
-
-
-            /* TOP + BOTTOM */
-
-            .face.bottom, .face.top {
-                width: var(--model-width);
-                height: var(--model-depth);
-            }
-
-            .face.top {
-                top: 0%;
-                transform-origin: top;
-                transform: rotateX(-90deg);
-            }
-
-            .face.bottom {
-                bottom: 0%;
-                transform-origin: bottom;
-                transform: rotateX(90deg);
-            }
-
-
-            /* SIDES */
-
-            .face.right, .face.left {
-                height: var(--model-height);
-                width: var(--model-depth);
-            }
-
-            .face.right {
-                right: 0%;
-                transform-origin: right;
-                transform: rotateY(-90deg);
-            }
-
-            .face.left {
-                left: 0%;
-                transform-origin: left;
-                transform: rotateY(90deg);
-            }
-
-        </style>
     </head>
 
     <body>
@@ -277,8 +192,8 @@ function animate() {
                         <button lang="en" onclick="share(this, 0, 'en')" class="issue-button">Share ISSUE</button>
                         <a lang="de" href="files/de/ISSUE I – ALTERNATIVE UTOPIEN.pdf" download><button class="issue-button">PDF herunterladen</button></a>
                         <a lang="en" href="files/en/ISSUE I – ALTERNATIVE UTOPIAS.pdf" download><button class="issue-button">Download PDF</button></a>
-                        <a lang="de" href="bestellen" targert="_blank"><button class="issue-button">Kopie bestellen</button></a>
-                        <a lang="en" href="bestellen" targert="_blank"><button class="issue-button">Order copy</button></a>
+                        <a lang="de" href="bestellen.html" targert="_blank"><button class="issue-button">Kopie bestellen</button></a>
+                        <a lang="en" href="bestellen.html" targert="_blank"><button class="issue-button">Order copy</button></a>
                     </div>
                 </section>
             </div> 
@@ -301,8 +216,8 @@ function animate() {
                     <button lang="en" onclick="share(this, 0, 'en')" class="issue-button">Share ISSUE</button>
                     <a lang="de" href="files/de/ISSUE I – ALTERNATIVE UTOPIEN.pdf" download><button class="issue-button">PDF herunterladen</button></a>
                     <a lang="en" href="files/en/ISSUE I – ALTERNATIVE UTOPIAS.pdf" download><button class="issue-button">Download PDF</button></a>
-                    <a lang="de" href="bestellen" targert="_blank"><button class="issue-button">Kopie bestellen</button></a>
-                    <a lang="en" href="bestellen" targert="_blank"><button class="issue-button">Order copy</button></a>
+                    <a lang="de" href="bestellen.html" targert="_blank"><button class="issue-button">Kopie bestellen</button></a>
+                    <a lang="en" href="bestellen.html" targert="_blank"><button class="issue-button">Order copy</button></a>
                 </div>
             </article>
 

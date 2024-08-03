@@ -176,8 +176,7 @@ h2, h3 {
 p {
 	font-size: 1.085rem;
 	font-size: var(--font-regular);
-	font-size: 16pt;
-	font-weight: 700;
+	font-size: 18pt;
 	line-height: 1.9;
 	margin:0px;
 }
@@ -393,3 +392,89 @@ button[disabled]{
 
 
 
+/* 3D */
+
+:root {
+	--model-width: 500px;
+	--model-height: calc(var(--model-width) * 1.414);
+	--model-depth: calc(var(--model-width) * 0.04);
+}
+
+.perspective {
+	max-width: 1000px;
+	perspective: 3000px;
+	perspective-origin: 50% -500px;
+	display: flex;
+	justify-content: center;
+}
+
+.box {
+	position: relative;
+	width: var(--model-width);
+	height: var(--model-height);
+	transform-style: preserve-3d;
+	transform-origin: center center;
+}
+
+.face {
+	position: absolute;
+	background-color: white;
+}
+
+
+/* COVER */
+
+.face.front, .face.back {
+	background-size: cover;
+	width: var(--model-width);
+	height: var(--model-height);
+}
+
+.face.front {
+	background-image: url("../images/issues/de/issue-i-cover.webp");
+}
+
+.face.back {
+	background-image: url("../images/issues/de/issue-i-back.webp");
+	transform: translateZ(calc(-1 * var(--model-depth))) scaleX(-1);
+}
+
+
+/* TOP + BOTTOM */
+
+.face.bottom, .face.top {
+	width: var(--model-width);
+	height: var(--model-depth);
+}
+
+.face.top {
+	top: 0%;
+	transform-origin: top;
+	transform: rotateX(-90deg);
+}
+
+.face.bottom {
+	bottom: 0%;
+	transform-origin: bottom;
+	transform: rotateX(90deg);
+}
+
+
+/* SIDES */
+
+.face.right, .face.left {
+	height: var(--model-height);
+	width: var(--model-depth);
+}
+
+.face.right {
+	right: 0%;
+	transform-origin: right;
+	transform: rotateY(-90deg);
+}
+
+.face.left {
+	left: 0%;
+	transform-origin: left;
+	transform: rotateY(90deg);
+}
