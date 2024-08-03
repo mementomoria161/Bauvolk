@@ -8,65 +8,32 @@
             #to-top, #to-bottom {
                 z-index: 20;
                 cursor: pointer;
-                font-size:13pt;
                 position: fixed;
                 right:30px;
                 background-color: var(--header-color);
                 color: var(--header-color-text);
-                padding:0px;
+                padding: 0px;
                 width: 45px;
                 height: 45px;
                 font-size: 35pt;
+                display: flex;
+                justify-content: center;
+                align-items: center;
             }
 
             #to-top {bottom:80px;}
             #to-bottom {bottom:30px;}
-            
 
-            #to-top-label {
-                position:relative;
-                bottom:16px;
-                left:2px;
-                transform: rotate(90deg);
-                -webkit-transform: rotate(90deg);
-                -moz-transform: rotate(90deg);
-                -ms-transform: rotate(90deg);
-                -o-transform: rotate(90deg);
-                -o-transform: rotate(90deg);
+            .nav-label {
+                padding: 10px;
             }
-
+            
 
             /* FOOTER */
 
-             #footer {
-                /* width:100vw;
-                color:white;
-                background-color: #750000; */
+            #footer {
                 z-index:8;
             }
-
-            /*#footer-content {
-                position: fixed;
-                right: 0;
-                bottom: 5px;
-                white-space: nowrap;
-                display: flex;
-                justify-content: flex-end;
-                align-items: center;
-                gap:10px;
-                padding: 10px 20px;
-            }
-
-            .footerelement {
-                text-align: center;
-                font-size: 12pt;
-                width:180px;
-                height:fit-content !important;
-                padding: 0px;
-                cursor: pointer;
-                color:black !important;
-                background: lightgrey;
-            } */
 
 
             /* FOOTNOTES */
@@ -139,18 +106,6 @@
             
             /* REACTIVE */
 
-            /* @media screen and (max-width: 1400px) {
-
-                #footer-content {
-                    position: static;
-                    right: unset;
-                    bottom: unset;
-                    justify-content: center;
-                    gap:10px 15px;
-                    padding: 10px 30px;
-                }
-            } */
-
 
             @media screen and (width < 800px), screen and (max-width: 800px) {
 
@@ -165,42 +120,16 @@
             }
 
 
-            @media screen and (max-width: 450px) {
-
-                /* #footer-content {
-                    gap:5px 10px;
-                    padding: 5px 0px;
-                }
-
-                .footerelement {
-                    font-size: 9pt;
-                    width:120px;
-                } */
-
-                /* #to-top {
-                    bottom:95px;
-                } */
-                
-                /* #to-bottom, .note {
-                    bottom:45px;
-                } */
-            }
-
-
         </style>
     </head>
 
     <body>
-
-        <!-- <div id="footer-content">
-            <button lang="de" onclick="share(this, 0, 'de')" class="footerelement">HEFT teilen</button>
-            <button lang="en" onclick="share(this, 0, 'en')" class="footerelement">Share ISSUE</button>
-            <a lang="en" href="files/en/ISSUE I – ALTERNATIVE UTOPIAS.pdf" download><button class="footerelement">Download PDF</button></a>
-            <a lang="de" href="files/de/ISSUE I – ALTERNATIVE UTOPIEN.pdf" download><button class="footerelement">PDF herunterladen</button></a>
-        </div> -->
-
-        <button id="to-top" class="passive" onclick="hoch()"><div id="to-top-label">‹</div></button>
-        <button id="to-bottom" class="passive" onclick="runter()"><div id="to-top-label">›</div></button>
+        <button id="to-top" class="passive" onclick="hoch()">
+            <img class="nav-label" src="images/internal/up.svg" alt="Nach oben">
+        </button>
+        <button id="to-bottom" class="passive" onclick="runter()">
+            <img class="nav-label" src="images/internal/down.svg" alt="Nach unten">
+        </button>
 
     </body>
 </html>

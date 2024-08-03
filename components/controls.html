@@ -51,6 +51,9 @@
                 color:white;
                 width: 45px;
                 height: 45px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
             }
 
             #letztes, #nächstes {
@@ -117,10 +120,10 @@
             /* SIZING */
 
             .control_s {
-                position:relative;
-                bottom:17px;
                 display: none;
                 pointer-events: none;
+                max-height: 100%;
+                padding: 10px;
             }
             
 
@@ -146,7 +149,7 @@
                 }
 
                 .control_s {
-                    display: inline;
+                    display: block;
                 }
 
                 #letztes, #nächstes {
@@ -170,15 +173,13 @@
 
         <div id="control-btns">
             <button id="letztes" class="passive" onclick="letztes()">
-                <span class="control_l" lang="de">VORHERIGES</span>
-                <span class="control_l" lang="en">PREVIOUS</span>
-                <span class="control_s">‹</span>
+                <span class="control_l"><span lang="de">VORHERIGES</span><span lang="en">PREVIOUS</span></span>
+                <img class="control_s" src="images/internal/left.svg" alt="Nach rechts">
             </button>
             <button id="slide-current" class="passive" onclick="toggle_slide_index()"></button>
             <button id="nächstes" class="passive" onclick="nächstes()">
-                <span class="control_l" lang="de">NÄCHSTES</span>
-                <span class="control_l" lang="en">NEXT</span>
-                <span class="control_s">›</span>
+                <span class="control_l"><span lang="de">NÄCHSTES</span><span lang="en">NEXT</span></span>
+                <img class="control_s" src="images/internal/right.svg" alt="Nach rechts">
             </button>
         </div>
     </body>

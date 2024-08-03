@@ -177,8 +177,7 @@ p {
 	font-size: 1.085rem;
 	font-size: var(--font-regular);
 	font-size: 26px;
-	font-weight: 500;
-	line-height: 1.9;
+	line-height: 1.8;
 	margin:0px;
 	hyphens: auto;
 }
