@@ -66,7 +66,7 @@
         url('https://www.GEFAENGNISHEFTE.org/fonts/Geist/Geist-Bold.ttf') format('truetype');
     font-weight: 400;
     font-style: normal;
-    font-display: swap;
+     font-display: block;
 }
 
 /* REDACTION */
@@ -102,9 +102,9 @@
 /* Cormorant */
 @font-face {
     font-family: 'Cormorant';
-    src: url('https/www.GEFAENGNISHEFTE.org/fonts/Cormorant/Cormorant-BoldItalic.woff2') format('woff2'),
-        url('https/www.GEFAENGNISHEFTE.org/fonts/Cormorant/Cormorant-BoldItalic.woff') format('woff'),
-        url('https/www.GEFAENGNISHEFTE.org/fonts/Cormorant/Cormorant-BoldItalic.ttf') format('truetype');
+    src: url('https://www.GEFAENGNISHEFTE.org/fonts/Cormorant/Cormorant-BoldItalic.woff2') format('woff2'),
+        url('https://www.GEFAENGNISHEFTE.org/fonts/Cormorant/Cormorant-BoldItalic.woff') format('woff'),
+        url('https://www.GEFAENGNISHEFTE.org/fonts/Cormorant/Cormorant-BoldItalic.ttf') format('truetype');
     font-weight: bold;
     font-style: italic;
     font-display: block;
@@ -112,9 +112,9 @@
 
 @font-face {
     font-family: 'Cormorant';
-    src: url('https/www.GEFAENGNISHEFTE.org/fonts/Cormorant/Cormorant-Italic.woff2') format('woff2'),
-        url('https/www.GEFAENGNISHEFTE.org/fonts/Cormorant/Cormorant-Italic.woff') format('woff'),
-        url('https/www.GEFAENGNISHEFTE.org/fonts/Cormorant/Cormorant-Italic.ttf') format('truetype');
+    src: url('https://www.GEFAENGNISHEFTE.org/fonts/Cormorant/Cormorant-Italic.woff2') format('woff2'),
+        url('https://www.GEFAENGNISHEFTE.org/fonts/Cormorant/Cormorant-Italic.woff') format('woff'),
+        url('https://www.GEFAENGNISHEFTE.org/fonts/Cormorant/Cormorant-Italic.ttf') format('truetype');
     font-weight: normal;
     font-style: italic;
     font-display: block;
@@ -122,9 +122,9 @@
 
 @font-face {
     font-family: 'Cormorant';
-    src: url('https/www.GEFAENGNISHEFTE.org/fonts/Cormorant/Cormorant-Bold.woff2') format('woff2'),
-        url('https/www.GEFAENGNISHEFTE.org/fonts/Cormorant/Cormorant-Bold.woff') format('woff'),
-        url('https/www.GEFAENGNISHEFTE.org/fonts/Cormorant/Cormorant-Bold.ttf') format('truetype');
+    src: url('https://www.GEFAENGNISHEFTE.org/fonts/Cormorant/Cormorant-Bold.woff2') format('woff2'),
+        url('https://www.GEFAENGNISHEFTE.org/fonts/Cormorant/Cormorant-Bold.woff') format('woff'),
+        url('https://www.GEFAENGNISHEFTE.org/fonts/Cormorant/Cormorant-Bold.ttf') format('truetype');
     font-weight: bold;
     font-style: normal;
     font-display: block;
@@ -132,9 +132,9 @@
 
 @font-face {
     font-family: 'Cormorant';
-    src: url('https/www.GEFAENGNISHEFTE.org/fonts/Cormorant/Cormorant-LightItalic.woff2') format('woff2'),
-        url('https/www.GEFAENGNISHEFTE.org/fonts/Cormorant/Cormorant-LightItalic.woff') format('woff'),
-        url('https/www.GEFAENGNISHEFTE.org/fonts/Cormorant/Cormorant-LightItalic.ttf') format('truetype');
+    src: url('https://www.GEFAENGNISHEFTE.org/fonts/Cormorant/Cormorant-LightItalic.woff2') format('woff2'),
+        url('https://www.GEFAENGNISHEFTE.org/fonts/Cormorant/Cormorant-LightItalic.woff') format('woff'),
+        url('https://www.GEFAENGNISHEFTE.org/fonts/Cormorant/Cormorant-LightItalic.ttf') format('truetype');
     font-weight: 300;
     font-style: italic;
     font-display: block;
@@ -142,9 +142,9 @@
 
 @font-face {
     font-family: 'Cormorant';
-    src: url('https/www.GEFAENGNISHEFTE.org/fonts/Cormorant/Cormorant-Light.woff2') format('woff2'),
-        url('https/www.GEFAENGNISHEFTE.org/fonts/Cormorant/Cormorant-Light.woff') format('woff'),
-        url('https/www.GEFAENGNISHEFTE.org/fonts/Cormorant/Cormorant-Light.ttf') format('truetype');
+    src: url('https://www.GEFAENGNISHEFTE.org/fonts/Cormorant/Cormorant-Light.woff2') format('woff2'),
+        url('https://www.GEFAENGNISHEFTE.org/fonts/Cormorant/Cormorant-Light.woff') format('woff'),
+        url('https://www.GEFAENGNISHEFTE.org/fonts/Cormorant/Cormorant-Light.ttf') format('truetype');
     font-weight: 300;
     font-style: normal;
     font-display: block;
@@ -152,9 +152,9 @@
 
 @font-face {
     font-family: 'Cormorant';
-    src: url('https/www.GEFAENGNISHEFTE.org/fonts/Cormorant/Cormorant-Medium.woff2') format('woff2'),
-        url('https/www.GEFAENGNISHEFTE.org/fonts/Cormorant/Cormorant-Medium.woff') format('woff'),
-        url('https/www.GEFAENGNISHEFTE.org/fonts/Cormorant/Cormorant-Medium.ttf') format('truetype');
+    src: url('https://www.GEFAENGNISHEFTE.org/fonts/Cormorant/Cormorant-Medium.woff2') format('woff2'),
+        url('https://www.GEFAENGNISHEFTE.org/fonts/Cormorant/Cormorant-Medium.woff') format('woff'),
+        url('https://www.GEFAENGNISHEFTE.org/fonts/Cormorant/Cormorant-Medium.ttf') format('truetype');
     font-weight: 500;
     font-style: normal;
     font-display: block;
@@ -162,9 +162,9 @@
 
 @font-face {
     font-family: 'Cormorant';
-    src: url('https/www.GEFAENGNISHEFTE.org/fonts/Cormorant/Cormorant-MediumItalic.woff2') format('woff2'),
-        url('https/www.GEFAENGNISHEFTE.org/fonts/Cormorant/Cormorant-MediumItalic.woff') format('woff'),
-        url('https/www.GEFAENGNISHEFTE.org/fonts/Cormorant/Cormorant-MediumItalic.ttf') format('truetype');
+    src: url('https://www.GEFAENGNISHEFTE.org/fonts/Cormorant/Cormorant-MediumItalic.woff2') format('woff2'),
+        url('https://www.GEFAENGNISHEFTE.org/fonts/Cormorant/Cormorant-MediumItalic.woff') format('woff'),
+        url('https://www.GEFAENGNISHEFTE.org/fonts/Cormorant/Cormorant-MediumItalic.ttf') format('truetype');
     font-weight: 500;
     font-style: italic;
     font-display: block;
@@ -172,9 +172,9 @@
 
 @font-face {
     font-family: 'Cormorant';
-    src: url('https/www.GEFAENGNISHEFTE.org/fonts/Cormorant/Cormorant-Regular.woff2') format('woff2'),
-        url('https/www.GEFAENGNISHEFTE.org/fonts/Cormorant/Cormorant-Regular.woff') format('woff'),
-        url('https/www.GEFAENGNISHEFTE.org/fonts/Cormorant/Cormorant-Regular.ttf') format('truetype');
+    src: url('https://www.GEFAENGNISHEFTE.org/fonts/Cormorant/Cormorant-Regular.woff2') format('woff2'),
+        url('https://www.GEFAENGNISHEFTE.org/fonts/Cormorant/Cormorant-Regular.woff') format('woff'),
+        url('https://www.GEFAENGNISHEFTE.org/fonts/Cormorant/Cormorant-Regular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
     font-display: block;
@@ -182,9 +182,9 @@
 
 @font-face {
     font-family: 'Cormorant';
-    src: url('https/www.GEFAENGNISHEFTE.org/fonts/Cormorant/Cormorant-SemiBold.woff2') format('woff2'),
-        url('https/www.GEFAENGNISHEFTE.org/fonts/Cormorant/Cormorant-SemiBold.woff') format('woff'),
-        url('https/www.GEFAENGNISHEFTE.org/fonts/Cormorant/Cormorant-SemiBold.ttf') format('truetype');
+    src: url('https://www.GEFAENGNISHEFTE.org/fonts/Cormorant/Cormorant-SemiBold.woff2') format('woff2'),
+        url('https://www.GEFAENGNISHEFTE.org/fonts/Cormorant/Cormorant-SemiBold.woff') format('woff'),
+        url('https://www.GEFAENGNISHEFTE.org/fonts/Cormorant/Cormorant-SemiBold.ttf') format('truetype');
     font-weight: 600;
     font-style: normal;
     font-display: block;
@@ -192,13 +192,116 @@
 
 @font-face {
     font-family: 'Cormorant';
-    src: url('https/www.GEFAENGNISHEFTE.org/fonts/Cormorant/Cormorant-SemiBoldItalic.woff2') format('woff2'),
-        url('https/www.GEFAENGNISHEFTE.org/fonts/Cormorant/Cormorant-SemiBoldItalic.woff') format('woff'),
-        url('https/www.GEFAENGNISHEFTE.org/fonts/Cormorant/Cormorant-SemiBoldItalic.ttf') format('truetype');
+    src: url('https://www.GEFAENGNISHEFTE.org/fonts/Cormorant/Cormorant-SemiBoldItalic.woff2') format('woff2'),
+        url('https://www.GEFAENGNISHEFTE.org/fonts/Cormorant/Cormorant-SemiBoldItalic.woff') format('woff'),
+        url('https://www.GEFAENGNISHEFTE.org/fonts/Cormorant/Cormorant-SemiBoldItalic.ttf') format('truetype');
     font-weight: 600;
     font-style: italic;
     font-display: block;
 }
+
+
+
+@font-face {
+    font-family: 'EB Garamond';
+    src: url('https/www.GEFAENGNISHEFTE.org/fonts/Garamond/EBGaramond-BoldItalic.woff2') format('woff2'),
+        url('https/www.GEFAENGNISHEFTE.org/fonts/Garamond/EBGaramond-BoldItalic.woff') format('woff'),
+        url('https/www.GEFAENGNISHEFTE.org/fonts/Garamond/EBGaramond-BoldItalic.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+     font-display: block;
+}
+
+@font-face {
+    font-family: 'EB Garamond';
+    src: url('https/www.GEFAENGNISHEFTE.org/fonts/Garamond/EBGaramond-Bold.woff2') format('woff2'),
+        url('https/www.GEFAENGNISHEFTE.org/fonts/Garamond/EBGaramond-Bold.woff') format('woff'),
+        url('https/www.GEFAENGNISHEFTE.org/fonts/Garamond/EBGaramond-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+     font-display: block;
+}
+
+@font-face {
+    font-family: 'EB Garamond';
+    src: url('https/www.GEFAENGNISHEFTE.org/fonts/Garamond/EBGaramond-ExtraBold.woff2') format('woff2'),
+        url('https/www.GEFAENGNISHEFTE.org/fonts/Garamond/EBGaramond-ExtraBold.woff') format('woff'),
+        url('https/www.GEFAENGNISHEFTE.org/fonts/Garamond/EBGaramond-ExtraBold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+     font-display: block;
+}
+
+@font-face {
+    font-family: 'EB Garamond';
+    src: url('https/www.GEFAENGNISHEFTE.org/fonts/Garamond/EBGaramond-ExtraBoldItalic.woff2') format('woff2'),
+        url('https/www.GEFAENGNISHEFTE.org/fonts/Garamond/EBGaramond-ExtraBoldItalic.woff') format('woff'),
+        url('https/www.GEFAENGNISHEFTE.org/fonts/Garamond/EBGaramond-ExtraBoldItalic.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+     font-display: block;
+}
+
+@font-face {
+    font-family: 'EB Garamond';
+    src: url('https/www.GEFAENGNISHEFTE.org/fonts/Garamond/EBGaramond-Italic.woff2') format('woff2'),
+        url('https/www.GEFAENGNISHEFTE.org/fonts/Garamond/EBGaramond-Italic.woff') format('woff'),
+        url('https/www.GEFAENGNISHEFTE.org/fonts/Garamond/EBGaramond-Italic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+     font-display: block;
+}
+
+@font-face {
+    font-family: 'EB Garamond';
+    src: url('https/www.GEFAENGNISHEFTE.org/fonts/Garamond/EBGaramond-Medium.woff2') format('woff2'),
+        url('https/www.GEFAENGNISHEFTE.org/fonts/Garamond/EBGaramond-Medium.woff') format('woff'),
+        url('https/www.GEFAENGNISHEFTE.org/fonts/Garamond/EBGaramond-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+     font-display: block;
+}
+
+@font-face {
+    font-family: 'EB Garamond';
+    src: url('https/www.GEFAENGNISHEFTE.org/fonts/Garamond/EBGaramond-MediumItalic.woff2') format('woff2'),
+        url('https/www.GEFAENGNISHEFTE.org/fonts/Garamond/EBGaramond-MediumItalic.woff') format('woff'),
+        url('https/www.GEFAENGNISHEFTE.org/fonts/Garamond/EBGaramond-MediumItalic.ttf') format('truetype');
+    font-weight: 500;
+    font-style: italic;
+     font-display: block;
+}
+
+@font-face {
+    font-family: 'EB Garamond';
+    src: url('https/www.GEFAENGNISHEFTE.org/fonts/Garamond/EBGaramond-Regular.woff2') format('woff2'),
+        url('https/www.GEFAENGNISHEFTE.org/fonts/Garamond/EBGaramond-Regular.woff') format('woff'),
+        url('https/www.GEFAENGNISHEFTE.org/fonts/Garamond/EBGaramond-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+     font-display: block;
+}
+
+@font-face {
+    font-family: 'EB Garamond';
+    src: url('https/www.GEFAENGNISHEFTE.org/fonts/Garamond/EBGaramond-SemiBold.woff2') format('woff2'),
+        url('https/www.GEFAENGNISHEFTE.org/fonts/Garamond/EBGaramond-SemiBold.woff') format('woff'),
+        url('https/www.GEFAENGNISHEFTE.org/fonts/Garamond/EBGaramond-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+     font-display: block;
+}
+
+@font-face {
+    font-family: 'EB Garamond';
+    src: url('https/www.GEFAENGNISHEFTE.org/fonts/Garamond/EBGaramond-SemiBoldItalic.woff2') format('woff2'),
+        url('https/www.GEFAENGNISHEFTE.org/fonts/Garamond/EBGaramond-SemiBoldItalic.woff') format('woff'),
+        url('https/www.GEFAENGNISHEFTE.org/fonts/Garamond/EBGaramond-SemiBoldItalic.ttf') format('truetype');
+    font-weight: 600;
+    font-style: italic;
+     font-display: block;
+}
+
 
 
 
@@ -206,7 +309,7 @@
 /* SETTINGS */
 
 * {
-	font-family: "Cormorant";
+	font-family: "EB Garamond";
 }
 
 .abstract-text {
