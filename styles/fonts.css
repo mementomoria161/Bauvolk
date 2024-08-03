@@ -99,11 +99,38 @@
 }
 
 
+/* Cormorant */
+
+@font-face {
+	font-family: "Cormorant";
+	src:	url('https://www.GEFAENGNISHEFTE.org/fonts/Cormorant/Cormorant-Regular.ttf') format('truetype');
+	font-weight: 400;
+	font-style: normal;
+	font-display: block;
+}
+
+@font-face {
+	font-family: "Cormorant";
+	src:	url('https://www.GEFAENGNISHEFTE.org/fonts/Cormorant/Cormorant-Bold.ttf') format('truetype');
+	font-weight: 700;
+	font-style: normal;
+	font-display: block;
+}
+
+@font-face {
+	font-family: "Cormorant";
+	src:	url('https://www.GEFAENGNISHEFTE.org/fonts/Cormorant/Cormorant-Italic.ttf') format('truetype');
+	font-weight: 400;
+	font-style: italic;
+	font-display: block;
+}
+
+
 
 /* SETTINGS */
 
 * {
-	font-family: "Spectral";
+	font-family: "Redaction";
 }
 
 .abstract-text {
