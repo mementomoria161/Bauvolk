@@ -156,14 +156,10 @@ function animate() {
             }
 
             .perspective {
-                position: relative;
-                transform-style: preserve-3d;
-                transition: transform 0.1s;
                 perspective: 3000px;
                 perspective-origin: 50% -500px;
                 display: flex;
                 justify-content: center;
-                align-items: center;
             }
 
             .box {
@@ -176,10 +172,11 @@ function animate() {
 
             .face {
                 position: absolute;
-                width: var(--size);
                 background-color: white;
-                transform-style: preserve-3d;
             }
+
+
+            /* COVER */
 
             .face.front, .face.back {
                 background-size: cover;
@@ -187,33 +184,37 @@ function animate() {
                 height: var(--front-height);
             }
 
-            .face.bottom, .face.top, .face.right, .face.left {
-                width: var(--size);
-                height: 20px;
-            }
-
             .face.front {
                 background-image: url("images/issues/de/issue-i-cover.webp");
             }
 
-            .face.bottom {
-                bottom: 100%;
-                transform-origin: bottom;
-                transform: rotateX(90deg);
+            .face.back {
+                background-image: url("images/issues/de/issue-i-back.webp");
+                transform: translateZ(-20px) scaleX(-1);
+            }
+
+
+            /* TOP + BOTTOM */
+
+            .face.bottom, .face.top {
+                width: var(--size);
+                height: 20px;
             }
 
             .face.top {
-                top: 100%;
+                top: 0%;
                 transform-origin: top;
                 transform: rotateX(-90deg);
             }
 
-            .face.back {
-                background-image: url("images/issues/de/issue-i-back.webp");
-                top: 0;
-                transform: translateZ(-20px) scaleX(-1);
-                transform-origin: center 150px -50px;
+            .face.bottom {
+                bottom: 0%;
+                transform-origin: bottom;
+                transform: rotateX(90deg);
             }
+
+
+            /* SIDES */
 
             .face.right, .face.left {
                 height: var(--front-height);
@@ -221,15 +222,15 @@ function animate() {
             }
 
             .face.right {
-                left: 100%;
-                transform-origin: left;
-                transform: rotateY(90deg);
+                right: 0%;
+                transform-origin: right;
+                transform: rotateY(-90deg);
             }
 
             .face.left {
-                right: 100%;
-                transform-origin: right;
-                transform: rotateY(-90deg);
+                left: 0%;
+                transform-origin: left;
+                transform: rotateY(90deg);
             }
 
         </style>
