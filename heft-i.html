@@ -135,7 +135,7 @@ window.addEventListener("resize", scale_model)
 
 function scale_model() {
     let p_width = document.getElementById('perspective').clientWidth * 0.6
-    document.querySelector(':root').style.setProperty('--size', p_width + "px");
+    document.querySelector(':root').style.setProperty('--model-width', p_width + "px");
 }
 
 function animate() {
@@ -159,8 +159,9 @@ function animate() {
 </script>
         <style>
             :root {
-                --size: 500px;
-                --front-height: calc(var(--size) * 1.414);
+                --model-width: 500px;
+                --model-height: calc(var(--model-width) * 1.414);
+                --model-depth: calc(var(--model-width) * 0.04);
             }
 
             .perspective {
@@ -172,8 +173,8 @@ function animate() {
 
             .box {
                 position: relative;
-                width: var(--size);
-                height: var(--front-height);
+                width: var(--model-width);
+                height: var(--model-height);
                 transform-style: preserve-3d;
                 transform-origin: center center;
             }
@@ -188,8 +189,8 @@ function animate() {
 
             .face.front, .face.back {
                 background-size: cover;
-                width: var(--size);
-                height: var(--front-height);
+                width: var(--model-width);
+                height: var(--model-height);
             }
 
             .face.front {
@@ -198,15 +199,15 @@ function animate() {
 
             .face.back {
                 background-image: url("images/issues/de/issue-i-back.webp");
-                transform: translateZ(-20px) scaleX(-1);
+                transform: translateZ(calc(-1 * var(--model-depth))) scaleX(-1);
             }
 
 
             /* TOP + BOTTOM */
 
             .face.bottom, .face.top {
-                width: var(--size);
-                height: 20px;
+                width: var(--model-width);
+                height: var(--model-depth);
             }
 
             .face.top {
@@ -225,8 +226,8 @@ function animate() {
             /* SIDES */
 
             .face.right, .face.left {
-                height: var(--front-height);
-                width: 20px;
+                height: var(--model-height);
+                width: var(--model-depth);
             }
 
             .face.right {
