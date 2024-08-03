@@ -316,7 +316,7 @@ audio::-webkit-media-controls-enclosure {
 
 @supports (animation-range: entry-crossing) {
 	.fit-to-width {
-	  font-size: 12rem;
+	  font-size: 15rem;
 	  overflow: hidden;
 	  scroll-snap-type: both mandatory;
 

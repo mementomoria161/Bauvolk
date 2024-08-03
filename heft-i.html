@@ -118,8 +118,8 @@ document.addEventListener('pointermove', (e) => {
         const centerX = boxRect.left + boxRect.width / 2;
         const centerY = boxRect.top + boxRect.height / 2;
 
-        targetX = ((e.pageX - centerX) / boxRect.width) * 360;
-        targetY = ((e.pageY - centerY) / boxRect.height) * 360;
+        targetX = targetX + ((e.pageX - centerX) / boxRect.width) * 5;
+        targetY = targetY + ((e.pageY - centerY) / boxRect.height) * 5;
         is_hovering = true;
         auto_rotate = false;
     }
@@ -142,12 +142,12 @@ function scale_model() {
 function animate() {
     let lerpFactor = 0.01;
     if (auto_rotate) {
-        defaultRotation += 0.4;
-        targetX = defaultRotation;
+        targetX = currentX + 80;
         targetY = 0;
         lerpFactor = 0.003;
     }
 
+    console.log("currentX: " + currentX + " targetX: " + targetX + " currentY: " + currentY + " targetY: " + targetY)
     currentX = lerp(currentX, targetX, lerpFactor);
     currentY = lerp(currentY, targetY, lerpFactor);
 

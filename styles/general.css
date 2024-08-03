@@ -176,9 +176,11 @@ h2, h3 {
 p {
 	font-size: 1.085rem;
 	font-size: var(--font-regular);
-	font-size: 18pt;
+	font-size: 26px;
+	font-weight: 500;
 	line-height: 1.9;
 	margin:0px;
+	hyphens: auto;
 }
 
 
