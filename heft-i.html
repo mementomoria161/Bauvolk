@@ -133,7 +133,7 @@ document.addEventListener('mouseout', (e) => {
 function animate() {
     let lerpFactor = 0.01;
     if (auto_rotate) {
-        defaultRotation += 0.2;
+        defaultRotation += 0.4;
         targetX = defaultRotation;
         targetY = 0;
         lerpFactor = 0.003;
@@ -150,14 +150,6 @@ function animate() {
 
 </script>
         <style>
-            body {
-                margin: 0;
-                display: flex;
-                height: 100vh;
-                justify-content: center;
-                align-items: center;
-            }
-
             :root {
                 --size: 500px;
                 --front-height: calc(var(--size) * 1.414);
@@ -169,83 +161,77 @@ function animate() {
                 transition: transform 0.1s;
                 perspective: 3000px;
                 perspective-origin: 50% -500px;
-
-            display: flex;
-            justify-content: center;
-            align-items: center;
+                display: flex;
+                justify-content: center;
+                align-items: center;
             }
 
-            .box { 
+            .box {
                 position: relative;
                 width: var(--size);
-                height: var(--front-height);;
-
+                height: var(--front-height);
                 transform-style: preserve-3d;
-                
                 transform-origin: center center;
-                animation: rotate 10s linear infinite;
             }
 
             .face {
                 position: absolute;
                 width: var(--size);
-                
                 background-color: white;
-                
                 transform-style: preserve-3d;
+            }
+
+            .face.front, .face.back {
+                background-size: cover;
+                width: var(--size);
+                height: var(--front-height);
+            }
+
+            .face.bottom, .face.top, .face.right, .face.left {
+                width: var(--size);
+                height: 20px;
             }
 
             .face.front {
                 background-image: url("images/issues/de/issue-i-cover.webp");
-                background-size: cover;
-                aspect-ratio: 0.707;
             }
 
             .face.bottom {
                 bottom: 100%;
                 transform-origin: bottom;
                 transform: rotateX(90deg);
-                height: 20px;
-                width: var(--size);
             }
 
             .face.top {
-                /* bottom: var(--front-height); */
-                
                 top: 100%;
                 transform-origin: top;
                 transform: rotateX(-90deg);
-                height: 20px;
-                width: var(--size);
             }
 
             .face.back {
                 background-image: url("images/issues/de/issue-i-back.webp");
-                background-size: cover;
-                aspect-ratio: 0.707;
                 top: 0;
                 transform: translateZ(-20px) scaleX(-1);
                 transform-origin: center 150px -50px;
-                /* transform: rotateX(180deg); */
+            }
+
+            .face.right, .face.left {
+                height: var(--front-height);
+                width: 20px;
             }
 
             .face.right {
                 left: 100%;
                 transform-origin: left;
                 transform: rotateY(90deg);
-                height: var(--size);
-                height: var(--front-height);
-                width: 20px;
             }
 
             .face.left {
                 right: 100%;
                 transform-origin: right;
                 transform: rotateY(-90deg);
-                height: var(--size);
-                height: var(--front-height);
-                width: 20px;
             }
+
         </style>
     </head>
 
