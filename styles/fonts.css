@@ -69,6 +69,35 @@
     font-display: swap;
 }
 
+/* REDACTION */
+
+@font-face {
+	font-family: "Redaction";
+	src:	url('https://www.GEFAENGNISHEFTE.org/fonts/Redaction/Redaction-Regular.woff2') format('woff2'),
+			url('https://www.GEFAENGNISHEFTE.org/fonts/Redaction/Redaction-Regular.otf') format('truetype');
+	font-weight: 400;
+	font-style: normal;
+	font-display: block;
+}
+
+@font-face {
+	font-family: "Redaction";
+	src:	url('https://www.GEFAENGNISHEFTE.org/fonts/Redaction/Redaction-Bold.woff2') format('woff2'),
+			url('https://www.GEFAENGNISHEFTE.org/fonts/Redaction/Redaction-Bold.otf') format('truetype');
+	font-weight: 700;
+	font-style: normal;
+	font-display: block;
+}
+
+@font-face {
+	font-family: "Redaction";
+	src:	url('https://www.GEFAENGNISHEFTE.org/fonts/Redaction/Redaction-Italic.woff2') format('woff2'),
+			url('https://www.GEFAENGNISHEFTE.org/fonts/Redaction/Redaction-Italic.otf') format('truetype');
+	font-weight: 400;
+	font-style: italic;
+	font-display: block;
+}
+
 
 
 /* SETTINGS */
