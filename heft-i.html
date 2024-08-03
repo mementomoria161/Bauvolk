@@ -91,6 +91,7 @@
                 // else {
                 //     setTimeout(suf_init, 20);
                 // }
+                scale_model();
                 animate();
             }
 
@@ -129,6 +130,13 @@ document.addEventListener('mouseout', (e) => {
         auto_rotate = true;
     }
 });
+
+window.addEventListener("resize", scale_model)
+
+function scale_model() {
+    let p_width = document.getElementById('perspective').clientWidth * 0.6
+    document.querySelector(':root').style.setProperty('--size', p_width + "px");
+}
 
 function animate() {
     let lerpFactor = 0.01;
