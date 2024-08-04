@@ -141,11 +141,10 @@ audio::-webkit-media-controls-enclosure {
 /* ISSUE BUTTONS */
 
 .issue-button-group {
-	display: flex;
+	display: grid;
+	grid-auto-flow: column;
+	grid-auto-columns: 1fr;
 	gap:10px;
-	flex-wrap: wrap;
-	justify-content: space-between;
-	align-items: center;
 	line-height: 1;
 	margin-top: 60px;
 }
@@ -156,22 +155,6 @@ audio::-webkit-media-controls-enclosure {
 
 .issue-button-group a .issue-button {
 	width:100%;
-}
-
-.issue-button-group * {
-	font-size: var(--font-regular);
-	font-size: 15pt;
-}
-
-.issue-button-group > * {
-	
-	flex: 1;
-}
-
-.issue-button-group a {
-	padding: 0;
-	width: fit-content;
-
 }
 
 .issue-button {
@@ -190,6 +173,8 @@ audio::-webkit-media-controls-enclosure {
 	user-select: none;
 	min-width: auto;
 	padding: 5px 20px;
+	font-size: var(--font-regular);
+	font-size: 15pt;
 }
 
 
@@ -276,6 +261,7 @@ audio::-webkit-media-controls-enclosure {
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
+		gap:60px;
 	}
 
 	article, section {
@@ -285,7 +271,7 @@ audio::-webkit-media-controls-enclosure {
 
 	#abstract {
 		min-width: unset;
-		max-width: 700px;
+		max-width: 800px;
 	}
 
 	/* COVER */
