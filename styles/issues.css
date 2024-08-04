@@ -158,8 +158,20 @@ audio::-webkit-media-controls-enclosure {
 	width:100%;
 }
 
+.issue-button-group * {
+	font-size: var(--font-regular);
+	font-size: 15pt;
+}
+
 .issue-button-group > * {
+	
 	flex: 1;
+}
+
+.issue-button-group a {
+	padding: 0;
+	width: fit-content;
+
 }
 
 .issue-button {
@@ -176,16 +188,11 @@ audio::-webkit-media-controls-enclosure {
 	-moz-user-select: none;
 	-ms-user-select: none;
 	user-select: none;
-	width: 270px;
-	padding: 5px 10px;
+	min-width: auto;
+	padding: 5px 20px;
 }
 
-.issue-button-group * {
-	font-size: var(--font-regular);
-	font-size: 14pt;
-	font-family: "Gespenst";
-	font-weight: 800;
-}
+
 
 
 /* ABO */
