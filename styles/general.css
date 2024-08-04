@@ -237,12 +237,6 @@ cite {
 
 /* ELEMENTS */
 
-hr {
-	margin:0px;
-	padding:0px;
-	border-width:1px;
-	background-color: lightgray;
-}
 
 iframe {
 	border: 0;
@@ -257,11 +251,12 @@ input, button {
 	-moz-user-select: none;
 	-ms-user-select: none;
 	user-select: none;
+	border-radius: 0;
+	border: 2px inset grey;
 }
 
 input {
-	border-radius: 0;
-	border-style:inset;
+	border-style: inset;
 }
 
 input:focus {
@@ -272,11 +267,6 @@ input:active {
 	outline-width: 0;
 }
 
-button {
-	appearance: none;
-	border-radius: 0;
-	border: 2px outset grey;
-}
 
 button:active {
 	border-style:inset;	

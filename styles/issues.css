@@ -86,8 +86,10 @@ section, article {
 .abstract-text {
 	line-height: 1.5;
 	text-align: left;
-	font-weight: 700;
+	font-weight: 900;
 
+	font-size: var(--font-medium-large);
+	font-size: 22pt;
 	font-size: 24pt;
 	line-height: 1.2;
 }
@@ -132,7 +134,7 @@ audio {
 audio::-webkit-media-controls-enclosure {
     border-radius: 0px;
     background-color: lightgray;
-	border: 2px inset grey;
+	border: 4px inset grey;
 }
 
 
@@ -161,6 +163,7 @@ audio::-webkit-media-controls-enclosure {
 }
 
 .issue-button {
+	border-width: 2px;
 	text-align: center;
 	cursor: pointer;
 	background: lightgrey;
@@ -173,12 +176,15 @@ audio::-webkit-media-controls-enclosure {
 	-moz-user-select: none;
 	-ms-user-select: none;
 	user-select: none;
-	min-width: 260px;
+	width: 270px;
+	padding: 5px 10px;
 }
 
 .issue-button-group * {
 	font-size: var(--font-regular);
-	padding: 2px 0px;
+	font-size: 14pt;
+	font-family: "Gespenst";
+	font-weight: 800;
 }
 
 
