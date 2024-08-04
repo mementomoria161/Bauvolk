@@ -85,10 +85,9 @@ section, article {
 
 .abstract-text {
 	line-height: 1.5;
-	letter-spacing: -0.05em;
 	text-align: left;
-	font-size: 19pt;
-	font-size: var(--font-medium-large);
+
+	font-size: 24pt;
 	line-height: 1.2;
 }
 
