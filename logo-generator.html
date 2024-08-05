@@ -6,22 +6,117 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.8/FileSaver.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.5.0/jszip.min.js" type="text/javascript"> </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/opentype.js/1.3.3/opentype.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip-utils/0.0.2/jszip-utils.min.js"></script>
     <style>
 
-      @font-face {
-          font-family: 'Gespenst';
-          src: url('https://www.gefaengnishefte.org/fonts/Gespenst/Gespenst-UltraBlack.ttf') format('truetype');
-          font-weight: 900;
-          font-style: normal;
-          font-display: swap;
-      }
+    /* GESPENST */
+
+    @font-face {
+        font-family: 'Gespenst';
+        src: url('https://www.GEFAENGNISHEFTE.org/fonts/Gespenst/Gespenst-Bold.woff2') format('woff2'),
+            url('https://www.GEFAENGNISHEFTE.org/fonts/Gespenst/Gespenst-Bold.woff') format('woff'),
+            url('https://www.GEFAENGNISHEFTE.org/fonts/Gespenst/Gespenst-Bold.ttf') format('truetype');
+        font-weight: bold;
+        font-style: normal;
+        font-display: block;
+    }
+
+    @font-face {
+        font-family: 'Gespenst';
+        src: url('https://www.GEFAENGNISHEFTE.org/fonts/Gespenst/Gespenst-Black.woff2') format('woff2'),
+            url('https://www.GEFAENGNISHEFTE.org/fonts/Gespenst/Gespenst-Black.woff') format('woff'),
+            url('https://www.GEFAENGNISHEFTE.org/fonts/Gespenst/Gespenst-Black.ttf') format('truetype');
+        font-weight: 900;
+        font-style: normal;
+        font-display: block;
+    }
+
+    @font-face {
+        font-family: 'Gespenst';
+        src: url('https://www.GEFAENGNISHEFTE.org/fonts/Gespenst/Gespenst-Medium.woff2') format('woff2'),
+            url('https://www.GEFAENGNISHEFTE.org/fonts/Gespenst/Gespenst-Medium.woff') format('woff'),
+            url('https://www.GEFAENGNISHEFTE.org/fonts/Gespenst/Gespenst-Medium.ttf') format('truetype');
+        font-weight: 500;
+        font-style: normal;
+        font-display: block;
+    }
+
+    @font-face {
+        font-family: 'Gespenst';
+        src: url('https://www.GEFAENGNISHEFTE.org/fonts/Gespenst/Gespenst-Light.woff2') format('woff2'),
+            url('https://www.GEFAENGNISHEFTE.org/fonts/Gespenst/Gespenst-Light.woff') format('woff'),
+            url('https://www.GEFAENGNISHEFTE.org/fonts/Gespenst/Gespenst-Light.ttf') format('truetype');
+        font-weight: 300;
+        font-style: normal;
+        font-display: block;
+    }
+
+    @font-face {
+        font-family: 'Gespenst';
+        src: url('https://www.GEFAENGNISHEFTE.org/fonts/Gespenst/Gespenst-UltraLight.woff2') format('woff2'),
+            url('https://www.GEFAENGNISHEFTE.org/fonts/Gespenst/Gespenst-UltraLight.woff') format('woff'),
+            url('https://www.GEFAENGNISHEFTE.org/fonts/Gespenst/Gespenst-UltraLight.ttf') format('truetype');
+        font-weight: 200;
+        font-style: normal;
+        font-display: block;
+    }
+
+    @font-face {
+        font-family: 'Gespenst';
+        src: url('https://www.GEFAENGNISHEFTE.org/fonts/Gespenst/Gespenst-Regular.woff2') format('woff2'),
+            url('https://www.GEFAENGNISHEFTE.org/fonts/Gespenst/Gespenst-Regular.woff') format('woff'),
+            url('https://www.GEFAENGNISHEFTE.org/fonts/Gespenst/Gespenst-Regular.ttf') format('truetype');
+        font-weight: normal;
+        font-style: normal;
+        font-display: block;
+    }
+
+    @font-face {
+        font-family: 'Gespenst';
+        src: url('https://www.GEFAENGNISHEFTE.org/fonts/Gespenst/Gespenst-Thin.woff2') format('woff2'),
+            url('https://www.GEFAENGNISHEFTE.org/fonts/Gespenst/Gespenst-Thin.woff') format('woff'),
+            url('https://www.GEFAENGNISHEFTE.org/fonts/Gespenst/Gespenst-Thin.ttf') format('truetype');
+        font-weight: 100;
+        font-style: normal;
+        font-display: block;
+    }
+
+    @font-face {
+        font-family: 'Gespenst UltraBlack';
+        src: url('https://www.GEFAENGNISHEFTE.org/fonts/Gespenst/Gespenst-UltraBlack.woff2') format('woff2'),
+            url('https://www.GEFAENGNISHEFTE.org/fonts/Gespenst/Gespenst-UltraBlack.woff') format('woff'),
+            url('https://www.GEFAENGNISHEFTE.org/fonts/Gespenst/Gespenst-UltraBlack.ttf') format('truetype');
+        font-weight: 900;
+        font-style: normal;
+        font-display: block;
+    }
+
+    @font-face {
+        font-family: 'Gespenst';
+        src: url('https://www.GEFAENGNISHEFTE.org/fonts/Gespenst/Gespenst-SemiBold.woff2') format('woff2'),
+            url('https://www.GEFAENGNISHEFTE.org/fonts/Gespenst/Gespenst-SemiBold.woff') format('woff'),
+            url('https://www.GEFAENGNISHEFTE.org/fonts/Gespenst/Gespenst-SemiBold.ttf') format('truetype');
+        font-weight: 600;
+        font-style: normal;
+        font-display: block;
+    }
+
+    @font-face {
+        font-family: 'Ginoz';
+        src: url('https://www.GEFAENGNISHEFTE.org/fonts/Ginoz/Ginoz-Regular.woff2') format('woff2'),
+            url('https://www.GEFAENGNISHEFTE.org/fonts/Ginoz/Ginoz-Regular.woff') format('woff'),
+            url('https://www.GEFAENGNISHEFTE.org/fonts/Ginoz/Ginoz-Regular.ttf') format('truetype');
+        font-weight: normal;
+        font-style: italic;
+        font-display: block;
+    }
 
 
       body {
           background-color: #3D1382;          
-          font-family: "Geist";
+          font-family: "Gespenst";
           font-size: 20pt;
-          letter-spacing: -0.05em;
+          /* font-weight: 600; */
       }
 
       .logo_lg {
@@ -78,9 +173,9 @@
         border-radius: 25px;
         border: solid;
         font-weight: 900;          
-        font-family: "Geist";
+        font-family: "Gespenst";
         font-size: 20pt;
-        letter-spacing: -0.05em;
+        width:250px;
       }
 
       button {
@@ -90,7 +185,6 @@
 
       input {
         background-color: #FFF2F4;;
-        width: 250px;
       }
 
       label {
@@ -100,12 +194,13 @@
       #input_section {
         display: flex;
         gap: 10px;
-        margin-left: auto;
-        margin-right: auto;
         justify-content: center;
         align-items: center;
         flex-wrap: wrap;
         margin: 60px;
+        width: fit-content;
+        margin-left: auto;
+        margin-right: auto;
       }
 
       p {
@@ -119,11 +214,21 @@
         display: flex;
         justify-content: center;
         flex-direction: row;
+        align-items: center;
+        gap: 10px;
+        margin: 60px;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 100%;
       }
 
 
       #loading_percentage, #loading_bar {
         visibility: hidden;
+      }
+
+      #loading_bar {
+        width:500px;
       }
 
       #loading_percentage {
@@ -161,6 +266,30 @@
         ["Schwarz", "000000"]
       ]
 
+      let fontFiles = [
+        'fonts/Gespenst/Gespenst-Thin.ttf',
+        'fonts/Gespenst/Gespenst-UltraLight.ttf',
+        'fonts/Gespenst/Gespenst-Light.ttf',
+        'fonts/Gespenst/Gespenst-Regular.ttf',
+        'fonts/Gespenst/Gespenst-Medium.ttf',
+        'fonts/Gespenst/Gespenst-SemiBold.ttf',
+        'fonts/Gespenst/Gespenst-Bold.ttf',
+        'fonts/Gespenst/Gespenst-Black.ttf',
+        'fonts/Gespenst/Gespenst-UltraBlack.ttf',
+      ]
+
+      let fontFilesNames = [
+        'Gespenst-Thin',
+        'Gespenst-UltraLight',
+        'Gespenst-Light',
+        'Gespenst-Regular',
+        'Gespenst-Medium',
+        'Gespenst-SemiBold',
+        'Gespenst-Bold',
+        'Gespenst-Black',
+        'Gespenst-UltraBlack',
+      ]
+
       window.onload = (event) => {      
         document.getElementById("ortsgruppe").addEventListener('input', change_ortsgruppe)
         adjustSVGSizeAll()
@@ -180,7 +309,6 @@
       var loaded = 0
 
       function increase_loading_bar(amount) {
-        
         document.getElementById('loading_bar').style.visibility = "visible"
         
         document.getElementById('loading_percentage').style.visibility = "visible"
@@ -340,7 +468,7 @@
             const url = URL.createObjectURL(svg);
             let img = new Image();
 
-            img.onload = () => {
+            img.onload = async () => {
                 URL.revokeObjectURL(img.src);
                 canvas.width = img.width;
                 canvas.height = img.height;
@@ -360,9 +488,10 @@
                 zip.file(`${directory}.png`, pngBlob, {binary: true});
 
                 if (--file_counter === 0) {
+                    await addFontFilesToZip(); 
                     export_zip();
                 }
-            };
+            }
 
             img.src = url;
             img.style.visibility = "hidden";
@@ -372,7 +501,28 @@
         });
       }
 
+
+      async function addFontFilesToZip() {
+          const fontFilesPromises = fontFiles.map((fontFile, i) => {
+              return new Promise((resolve, reject) => {
+                  JSZipUtils.getBinaryContent(fontFile, (error, data) => {
+                      if (error) {
+                          return reject(error);
+                      }
+
+                      let fileName = 'Schriftarten/' + fontFilesNames[i] + '.ttf'
+                      zip.file(fileName, data, { binary: true });
+                      resolve();
+                  });
+              });
+          });
+
+          await Promise.all(fontFilesPromises);
+      }
+
       function export_zip() {
+        
+
         zip.generateAsync({
             type: 'blob'
         }).then(function(content) {
@@ -406,7 +556,6 @@
         <path d="M775.972 335.568C724.45 335.568 691.617 326.917 677.473 309.617C663.33 292.19 658.595 270.344 663.267 244.078H749.832C746.927 260.494 749.327 270.218 757.03 273.248C764.733 276.153 774.267 277.605 785.632 277.605C796.871 277.605 806.784 276.469 815.371 274.196C823.958 271.796 828.883 267.061 830.146 259.989C831.535 252.033 826.168 246.793 814.045 244.267C802.048 241.742 785.632 238.837 764.796 235.554C726.281 228.103 701.719 218.759 691.112 207.52C680.504 196.155 676.084 180.875 677.852 161.68C679.241 138.445 690.796 118.366 712.516 101.445C734.362 84.5233 770.226 76.0625 820.106 76.0625C869.861 76.0625 901.873 85.0284 916.142 102.96C930.538 120.892 935.589 142.233 931.296 166.984H844.731C847.509 150.946 844.92 141.602 836.965 138.95C829.135 136.172 819.98 134.783 809.499 134.783C797.629 134.783 787.211 135.856 778.245 138.003C769.405 140.15 764.417 144.506 763.281 151.073C761.765 160.291 766.753 166.1 778.245 168.499C789.862 170.772 806.784 173.866 829.009 177.781C869.04 185.358 894.422 193.818 905.156 203.163C915.89 212.508 919.994 227.346 917.468 247.677C914.816 271.923 903.135 292.632 882.426 309.806C861.716 326.981 826.231 335.568 775.972 335.568Z" fill="#FFF2F4"/>
         <path d="M389.29 334.052L434.371 78.3356H584.202C622.465 78.3356 646.964 88.1854 657.697 107.885C668.557 127.585 670.515 160.291 663.569 206.004C656.624 252.475 644.312 285.434 626.632 304.882C609.08 324.329 581.172 334.052 542.909 334.052H389.29ZM486.083 275.711H527.755C540.888 275.711 550.928 272.68 557.873 266.619C564.818 260.431 571.259 240.226 577.194 206.004C583.255 172.035 583.887 152.02 579.088 145.958C574.289 139.771 565.324 136.677 552.191 136.677H510.518L486.083 275.711Z" fill="#FFF2F4"/>
         <path d="M251.836 335.568C200.314 335.568 167.481 326.917 153.337 309.617C139.194 292.19 134.459 270.344 139.131 244.078H225.696C222.791 260.494 225.191 270.218 232.894 273.249C240.597 276.153 250.131 277.605 261.496 277.605C272.735 277.605 282.648 276.469 291.235 274.196C299.822 271.796 304.747 267.061 306.01 259.989C307.399 252.033 302.032 246.793 289.909 244.267C277.913 241.742 261.496 238.837 240.66 235.554C202.145 228.103 177.583 218.759 166.976 207.52C156.368 196.155 151.948 180.875 153.716 161.68C155.105 138.445 166.66 118.366 188.38 101.445C210.227 84.5233 246.09 76.0625 295.971 76.0625C345.725 76.0625 377.737 85.0284 392.006 102.96C406.402 120.892 411.453 142.233 407.16 166.984H320.595C323.373 150.946 320.785 141.602 312.829 138.95C305 136.172 295.844 134.783 285.363 134.783C273.493 134.783 263.075 135.856 254.109 138.003C245.269 140.15 240.281 144.506 239.145 151.073C237.629 160.291 242.617 166.1 254.109 168.499C265.727 170.772 282.648 173.866 304.873 177.781C344.904 185.358 370.286 193.818 381.02 203.163C391.754 212.508 395.858 227.346 393.332 247.677C390.68 271.923 379 292.632 358.29 309.807C337.58 326.981 302.095 335.568 251.836 335.568Z" fill="#FFF2F4"/>
-        <!-- <path d="M276.345 365.27H271.798L271.034 369.752L248.978 499.094L247.905 505.387H254.289H1064.06H1068.6L1069.37 500.905L1091.42 371.563L1092.5 365.27H1086.11H276.345Z" fill="#FFF2F4" stroke="#FF203B" stroke-width="10.7749"/> -->
         <path d="M276.343 370.658H1086.11L1064.06 500H254.287L276.343 370.658Z" fill="#FFF2F4"/>
 
         <path fill-rule="evenodd" clip-rule="evenodd" d="M267.25 359.883H1098.88L1073.15 510.775H241.52L267.25 359.883ZM276.343 370.658H1086.11L1064.06 500H254.287L276.343 370.658Z" fill="#FF203B"/>
@@ -415,12 +564,15 @@
       </svg>
 
       <svg class="logo_lg" data-directory="Bundesverband/Logo" width="1099" height="511" viewBox="0 0 1099 511" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M997.08 411.592H-0.000244141L74.3467 0.000610352H1070.35L997.08 411.592Z" fill="#FF203B"/>
-        <path d="M775.883 335.505C724.361 335.505 691.528 326.855 677.385 309.555C663.242 292.128 658.506 270.282 663.179 244.015H749.743C746.839 260.432 749.238 270.155 756.941 273.186C764.644 276.09 774.179 277.543 785.544 277.543C796.783 277.543 806.696 276.406 815.283 274.133C823.87 271.734 828.795 266.998 830.057 259.927C831.446 251.971 826.08 246.73 813.957 244.205C801.96 241.679 785.544 238.775 764.708 235.491C726.192 228.041 701.631 218.696 691.023 207.457C680.416 196.092 675.996 180.812 677.764 161.618C679.153 138.382 690.708 118.304 712.428 101.382C734.274 84.4608 770.138 76 820.018 76C869.772 76 901.784 84.9659 916.054 102.898C930.45 120.829 935.501 142.171 931.208 166.922H844.643C847.421 150.884 844.832 141.539 836.877 138.887C829.047 136.109 819.892 134.72 809.411 134.72C797.54 134.72 787.122 135.794 778.156 137.94C769.317 140.087 764.329 144.444 763.192 151.01C761.677 160.229 766.665 166.038 778.156 168.437C789.774 170.71 806.696 173.804 828.921 177.718C868.952 185.295 894.334 193.756 905.068 203.101C915.801 212.445 919.905 227.283 917.38 247.614C914.728 271.86 903.047 292.57 882.337 309.744C861.627 326.918 826.143 335.505 775.883 335.505Z" fill="#FFF2F4"/>
-        <path d="M388.899 334.053L433.981 78.3361H583.812C622.075 78.3361 646.573 88.1859 657.307 107.886C668.167 127.585 670.124 160.292 663.179 206.005C656.233 252.476 643.921 285.435 626.242 304.882C608.689 324.329 580.781 334.053 542.518 334.053H388.899ZM485.692 275.711H527.365C540.498 275.711 550.537 272.681 557.482 266.619C564.428 260.432 570.868 240.227 576.803 206.005C582.865 172.036 583.496 152.02 578.697 145.959C573.899 139.771 564.933 136.677 551.8 136.677H510.128L485.692 275.711Z" fill="#FFF2F4"/>
-        <path d="M251.445 335.568C199.923 335.568 167.09 326.918 152.947 309.618C138.804 292.191 134.068 270.345 138.74 244.078H225.305C222.401 260.495 224.8 270.218 232.503 273.249C240.206 276.153 249.74 277.606 261.106 277.606C272.344 277.606 282.257 276.469 290.844 274.196C299.431 271.797 304.356 267.061 305.619 259.99C307.008 252.034 301.641 246.793 289.518 244.268C277.522 241.742 261.105 238.838 240.269 235.554C201.754 228.104 177.193 218.759 166.585 207.52C155.978 196.155 151.558 180.875 153.326 161.681C154.715 138.445 166.269 118.367 187.989 101.445C209.836 84.5238 245.699 76.063 295.58 76.063C345.334 76.063 377.346 85.0289 391.616 102.961C406.012 120.892 411.063 142.234 406.769 166.985H320.204C322.983 150.947 320.394 141.602 312.438 138.95C304.609 136.172 295.454 134.783 284.972 134.783C273.102 134.783 262.684 135.857 253.718 138.003C244.879 140.15 239.89 144.507 238.754 151.073C237.239 160.292 242.227 166.101 253.718 168.5C265.336 170.773 282.257 173.867 304.483 177.781C344.513 185.358 369.896 193.819 380.629 203.164C391.363 212.508 395.467 227.346 392.942 247.677C390.29 271.923 378.609 292.633 357.899 309.807C337.189 326.981 301.704 335.568 251.445 335.568Z" fill="#FFF2F4"/>
-        <path d="M276.341 365.27H271.795L271.03 369.752L248.974 499.094L247.901 505.387H254.285H1064.05H1068.6L1069.36 500.905L1091.42 371.563L1092.49 365.27H1086.11H276.341Z" fill="#FFF2F4" stroke="#FF203B" stroke-width="10.7749"/>
-        <text fill="#FF203B" xml:space="preserve" style="white-space: pre" font-family="Gespenst" font-size="85.3664" font-weight="900"><tspan x="499.262" y="465.782">Die Linke</tspan></text>
+        <path d="M997.084 411.592H0.00366706L74.3506 0.000131234H1070.35L997.084 411.592Z" fill="#FF203B"/>
+        <path d="M775.972 335.568C724.45 335.568 691.617 326.917 677.473 309.617C663.33 292.19 658.595 270.344 663.267 244.078H749.832C746.927 260.494 749.327 270.218 757.03 273.248C764.733 276.153 774.267 277.605 785.632 277.605C796.871 277.605 806.784 276.469 815.371 274.196C823.958 271.796 828.883 267.061 830.146 259.989C831.535 252.033 826.168 246.793 814.045 244.267C802.048 241.742 785.632 238.837 764.796 235.554C726.281 228.103 701.719 218.759 691.112 207.52C680.504 196.155 676.084 180.875 677.852 161.68C679.241 138.445 690.796 118.366 712.516 101.445C734.362 84.5233 770.226 76.0625 820.106 76.0625C869.861 76.0625 901.873 85.0284 916.142 102.96C930.538 120.892 935.589 142.233 931.296 166.984H844.731C847.509 150.946 844.92 141.602 836.965 138.95C829.135 136.172 819.98 134.783 809.499 134.783C797.629 134.783 787.211 135.856 778.245 138.003C769.405 140.15 764.417 144.506 763.281 151.073C761.765 160.291 766.753 166.1 778.245 168.499C789.862 170.772 806.784 173.866 829.009 177.781C869.04 185.358 894.422 193.818 905.156 203.163C915.89 212.508 919.994 227.346 917.468 247.677C914.816 271.923 903.135 292.632 882.426 309.806C861.716 326.981 826.231 335.568 775.972 335.568Z" fill="#FFF2F4"/>
+        <path d="M389.29 334.052L434.371 78.3356H584.202C622.465 78.3356 646.964 88.1854 657.697 107.885C668.557 127.585 670.515 160.291 663.569 206.004C656.624 252.475 644.312 285.434 626.632 304.882C609.08 324.329 581.172 334.052 542.909 334.052H389.29ZM486.083 275.711H527.755C540.888 275.711 550.928 272.68 557.873 266.619C564.818 260.431 571.259 240.226 577.194 206.004C583.255 172.035 583.887 152.02 579.088 145.958C574.289 139.771 565.324 136.677 552.191 136.677H510.518L486.083 275.711Z" fill="#FFF2F4"/>
+        <path d="M251.836 335.568C200.314 335.568 167.481 326.917 153.337 309.617C139.194 292.19 134.459 270.344 139.131 244.078H225.696C222.791 260.494 225.191 270.218 232.894 273.249C240.597 276.153 250.131 277.605 261.496 277.605C272.735 277.605 282.648 276.469 291.235 274.196C299.822 271.796 304.747 267.061 306.01 259.989C307.399 252.033 302.032 246.793 289.909 244.267C277.913 241.742 261.496 238.837 240.66 235.554C202.145 228.103 177.583 218.759 166.976 207.52C156.368 196.155 151.948 180.875 153.716 161.68C155.105 138.445 166.66 118.366 188.38 101.445C210.227 84.5233 246.09 76.0625 295.971 76.0625C345.725 76.0625 377.737 85.0284 392.006 102.96C406.402 120.892 411.453 142.233 407.16 166.984H320.595C323.373 150.946 320.785 141.602 312.829 138.95C305 136.172 295.844 134.783 285.363 134.783C273.493 134.783 263.075 135.856 254.109 138.003C245.269 140.15 240.281 144.506 239.145 151.073C237.629 160.291 242.617 166.1 254.109 168.499C265.727 170.772 282.648 173.866 304.873 177.781C344.904 185.358 370.286 193.818 381.02 203.163C391.754 212.508 395.858 227.346 393.332 247.677C390.68 271.923 379 292.632 358.29 309.807C337.58 326.981 302.095 335.568 251.836 335.568Z" fill="#FFF2F4"/>
+        <path d="M276.343 370.658H1086.11L1064.06 500H254.287L276.343 370.658Z" fill="#FFF2F4"/>
+
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M267.25 359.883H1098.88L1073.15 510.775H241.52L267.25 359.883ZM276.343 370.658H1086.11L1064.06 500H254.287L276.343 370.658Z" fill="#FF203B"/>
+
+        <text fill="#FF203B" xml:space="preserve" style="white-space: pre" font-family="Gespenst" font-size="85.3664" font-weight="900" text-anchor="middle"><tspan x="679.125" y="465.782">Die Linke</tspan></text>
       </svg>
         
       <svg class="logo_lg" data-directory="Bundesverband/Logo Einfach" width="1071" height="412" viewBox="0 0 1071 412" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -452,7 +604,7 @@
     <p>Wortmarken</p>
     <div class="logo_box wortmarken_box">
       <svg class="logo_lg" data-directory="Ortsgruppe/Wortmarke 1 Zeilen" preserveAspectRatio="xMinYMin meet" width="12910" height="500" viewBox="0 0 12910 500" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <text fill="#FFF2F4" xml:space="preserve" style="white-space: pre" font-family="Gespenst" font-size="322.732" font-weight="900"><tspan x="1400" y="229.14">SOZIALISTISCH-DEMOKRATISCHER STUDIERENDENVERBAND <tspan class="ortsgruppe_input_uppercase tspan-exclude">ORTSGRUPPE</tspan></tspan></text>
+        <text fill="#FFF2F4" xml:space="preserve" style="white-space: pre" font-family="Gespenst" font-size="322.732" font-weight="900"><tspan x="1400" y="359.48">SOZIALISTISCH-DEMOKRATISCHER STUDIERENDENVERBAND <tspan class="ortsgruppe_input_uppercase tspan-exclude">ORTSGRUPPE</tspan></tspan></text>
         <path d="M1211.25 500L0.000732422 500L90.317 0L1300.26 0L1211.25 500Z" fill="#FF203B"/>
         <path d="M942.648 407.645C880.059 407.645 840.174 397.137 822.993 376.12C805.812 354.95 800.059 328.412 805.735 296.503H910.894C907.365 316.446 910.28 328.258 919.638 331.94C928.995 335.468 940.577 337.232 954.384 337.232C968.037 337.232 980.079 335.852 990.51 333.09C1000.94 330.176 1006.92 324.423 1008.46 315.832C1010.15 306.168 1003.63 299.802 988.9 296.734C974.326 293.665 954.384 290.137 929.072 286.149C882.284 277.098 852.447 265.746 839.561 252.093C826.675 238.287 821.305 219.725 823.453 196.407C825.141 168.181 839.177 143.789 865.562 123.233C892.101 102.677 935.668 92.399 996.263 92.399C1056.7 92.399 1095.59 103.291 1112.93 125.074C1130.42 146.858 1136.55 172.783 1131.34 202.85H1026.18C1029.55 183.368 1026.41 172.016 1016.74 168.794C1007.23 165.419 996.11 163.732 983.377 163.732C968.957 163.732 956.301 165.036 945.409 167.644C934.671 170.252 928.612 175.544 927.231 183.521C925.39 194.72 931.45 201.776 945.409 204.691C959.523 207.452 980.079 211.211 1007.08 215.966C1055.71 225.17 1086.54 235.449 1099.58 246.8C1112.62 258.152 1117.61 276.177 1114.54 300.875C1111.32 330.329 1097.13 355.487 1071.97 376.35C1046.81 397.213 1003.7 407.645 942.648 407.645Z" fill="#FFF2F4"/>
         <path d="M472.908 405.804L527.674 95.1604H709.688C756.169 95.1604 785.93 107.126 798.969 131.057C812.162 154.988 814.539 194.72 806.102 250.252C797.665 306.705 782.708 346.743 761.232 370.368C739.908 393.992 706.006 405.804 659.525 405.804H472.908ZM590.493 334.931H641.116C657.07 334.931 669.266 331.25 677.703 323.886C686.14 316.369 693.964 291.825 701.174 250.252C708.537 208.986 709.304 184.672 703.475 177.308C697.645 169.792 686.754 166.033 670.8 166.033H620.176L590.493 334.931Z" fill="#FFF2F4"/>
@@ -480,7 +632,7 @@
       </svg>
 
       <svg class="logo_lg" data-directory="Bundesverband/Wortmarke 1 Zeilen" preserveAspectRatio="xMinYMin meet" width="12910" height="500" viewBox="0 0 12910 500" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <text fill="#FFF2F4" xml:space="preserve" style="white-space: pre" font-family="Gespenst" font-size="322.732" font-weight="900"><tspan x="1400" y="229.14">SOZIALISTISCH-DEMOKRATISCHER STUDIERENDENVERBAND</tspan></text>
+        <text fill="#FFF2F4" xml:space="preserve" style="white-space: pre" font-family="Gespenst" font-size="322.732" font-weight="900"><tspan x="1400" y="359.48">SOZIALISTISCH-DEMOKRATISCHER STUDIERENDENVERBAND</tspan></text>
         <path d="M1211.25 500L0.000732422 500L90.317 0L1300.26 0L1211.25 500Z" fill="#FF203B"/>
         <path d="M942.648 407.645C880.059 407.645 840.174 397.137 822.993 376.12C805.812 354.95 800.059 328.412 805.735 296.503H910.894C907.365 316.446 910.28 328.258 919.638 331.94C928.995 335.468 940.577 337.232 954.384 337.232C968.037 337.232 980.079 335.852 990.51 333.09C1000.94 330.176 1006.92 324.423 1008.46 315.832C1010.15 306.168 1003.63 299.802 988.9 296.734C974.326 293.665 954.384 290.137 929.072 286.149C882.284 277.098 852.447 265.746 839.561 252.093C826.675 238.287 821.305 219.725 823.453 196.407C825.141 168.181 839.177 143.789 865.562 123.233C892.101 102.677 935.668 92.399 996.263 92.399C1056.7 92.399 1095.59 103.291 1112.93 125.074C1130.42 146.858 1136.55 172.783 1131.34 202.85H1026.18C1029.55 183.368 1026.41 172.016 1016.74 168.794C1007.23 165.419 996.11 163.732 983.377 163.732C968.957 163.732 956.301 165.036 945.409 167.644C934.671 170.252 928.612 175.544 927.231 183.521C925.39 194.72 931.45 201.776 945.409 204.691C959.523 207.452 980.079 211.211 1007.08 215.966C1055.71 225.17 1086.54 235.449 1099.58 246.8C1112.62 258.152 1117.61 276.177 1114.54 300.875C1111.32 330.329 1097.13 355.487 1071.97 376.35C1046.81 397.213 1003.7 407.645 942.648 407.645Z" fill="#FFF2F4"/>
         <path d="M472.908 405.804L527.674 95.1604H709.688C756.169 95.1604 785.93 107.126 798.969 131.057C812.162 154.988 814.539 194.72 806.102 250.252C797.665 306.705 782.708 346.743 761.232 370.368C739.908 393.992 706.006 405.804 659.525 405.804H472.908ZM590.493 334.931H641.116C657.07 334.931 669.266 331.25 677.703 323.886C686.14 316.369 693.964 291.825 701.174 250.252C708.537 208.986 709.304 184.672 703.475 177.308C697.645 169.792 686.754 166.033 670.8 166.033H620.176L590.493 334.931Z" fill="#FFF2F4"/>
