@@ -341,7 +341,7 @@ function show_body() {
     
     for (let i = 0; i < bodyelements.length; i++) {
         bodyelements[i].style.visibility = "visible"
-        console.log(bodyelements[i])
+        // console.log(bodyelements[i])
     }
 }
 
@@ -1337,7 +1337,6 @@ function init_controls() {
 
 function update_slide_height() {
     let interface_height = document.getElementById("navigation").offsetHeight + document.getElementById("controls").offsetHeight + 30
-    console.log(interface_height)
     document.documentElement.style.setProperty('--max-slide-height', 'min(55vh, calc(100vh - ' + interface_height + 'px))'); ;
 }
 

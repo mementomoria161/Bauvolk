@@ -87,6 +87,17 @@
                     cover_en: "images/issues/en/issue-ii-cover.webp",
                     url: "heft-ii"
                 },
+                {
+                    no_de: "HEFT II",
+                    no_en: "ISSUE II",
+                    date_de: "12/2024",
+                    date_en: "12/2024",
+                    title_de: "IN ARBEIT",
+                    title_en: "<br>WORK IN PROGRESS",
+                    cover_de: "images/issues/de/issue-ii-cover.webp",
+                    cover_en: "images/issues/en/issue-ii-cover.webp",
+                    url: "heft-ii"
+                },
             ]
 
             // TEMPLATES
@@ -94,10 +105,13 @@
             function cover_template(i){let issue = ISSUE_LIST[i]; return '<a class="cover" href=' + issue.url + '><img class="cover-image" loading="lazy" lang="de" src=' + issue.cover_de + ' alt="' + issue.no_de + ' COVER"/><img class="cover-image" loading="lazy" lang="en" src=' + issue.cover_en + ' alt="' + issue.no_en + ' COVER"/></a>'}
             function basic_template(issue) {return '<span lang="de">' + issue.no_de + '&nbsp;  ⁄  &nbsp;' + issue.title_de + '</span><span lang="en">' + issue.no_en + '&nbsp;  ⁄  &nbsp;' + issue.title_en + '</span>'}
             function basic_template_date(issue) {return '<span lang="de" class="left">' + issue.no_de + '<br>' + issue.date_de + '</span><span lang="en" class="left">' + issue.no_en +  '<br>' + issue.date_en + '</span><span lang="de">' + issue.title_de + '</span><span lang="en">' + issue.title_en + '</span>'}
-            function title_template(i){let issue = ISSUE_LIST[i]; return  cover_template(i) + '<div onmouseover="display_combined(event, ' + i + ')" class="issue-title vertical">' + basic_template_date(issue)+ '</div>'}
+            function title_template(i){let issue = ISSUE_LIST[i]; return  cover_template(i)}
             function index_title_template(i){let issue = ISSUE_LIST[i]; return '<a class="issue-title center" href=' + issue.url + '><span lang="de">' + issue.title_de + '</span><span lang="en">' + issue.title_en + '</span></a>'}
             function index_template(slide, i){let issue = ISSUE_LIST[i]; return '<span onclick="display_combined(null, ' + i + ')" id="index' + i + '" class="indexitem issue-title">' + basic_template(issue) + '</span>'}
+            
+            function cover_template(i){let issue = ISSUE_LIST[i]; return `<a class="cover" href=` + issue.url + `><section class="perspective" id="perspective"><div class="box" id="box"><div class="face top"></div><div class="face bottom"></div><div class="face back"></div><div class="face front" style="background-image: url('` + issue.cover_de + `');"></div><div class="face left"></div><div class="face right"></div></div></section></a>`}
 
+            
             // LOADING
 
             load_components(["header", "controls", "databanner"])
@@ -124,6 +138,7 @@
             }
 
 
+            // NOT WORKING FOR SLIDES?
             function show_library() {
                 let library = document.getElementById("issue-library")
                 let images = library.getElementsByClassName("cover")[slide_current].getElementsByClassName("cover-image")
@@ -135,21 +150,23 @@
                         image = images[i]
                     }
                 }
+                // image.complete = true
+                // console.log(image)
                 
-                console.log(image)
+                library.style.display = "flex"
 
-                if(image == null) {
-                    console.log("lib is null")
-                    setTimeout(show_library, 10)
-                }
-                else if (image.complete) {
-                    console.log("image complete")
-                    library.style.display = "flex"
-                }
-                else {
-                    console.log("show_library")
-                    setTimeout(show_library, 10)
-                }
+                // if(image == null) {
+                //     console.log("lib is null")
+                //     setTimeout(show_library, 10)
+                // }
+                // else if (image.complete) {
+                //     console.log("image complete")
+                //     library.style.display = "flex"
+                // }
+                // else {
+                //     console.log("show_library")
+                //     setTimeout(show_library, 10)
+                // }
             }
 
 
@@ -178,11 +195,13 @@
 
                 let titles = issue_list.querySelectorAll('.issue-title')
                 titles.forEach((title) => {title.style.display = "flex"})
-                titles.item(index).style.display = "none";
+                // titles.item(index).style.display = "none";
 
                 let title_covers = issue_list.querySelectorAll('.cover')
-                title_covers.forEach((title_cover) => {title_cover.style.display = "none"})
-                title_covers.item(index).style.display = "flex"
+                // title_covers.forEach((title_cover) => {title_cover.style.display = "none"})
+                
+                title_covers.item(index).getElementsByClassName('box')[0].style.transform = `rotateY(1000deg) rotateX(1000deg)`;
+                // title_covers.item(index).style.display = "flex"
             }
 
 
@@ -226,7 +245,253 @@
             //     event.currentTarget.removeEventListener("click", prevent_link_events)
             // }
 
+            
         </script>
+
+<script>
+
+function suf_init() {
+
+// if(typeof renderer_setup  === "function" && typeof THREE !== "undefined") {
+//     renderer_setup()
+// }
+// else {
+//     setTimeout(suf_init, 20);
+// }
+init_boxes()
+}
+
+    var BOX_INFO = {}
+    var AUTO_ROTATE_TOGGLE = false
+    var LIBRARY_MODE = true
+    // let currentX = 0;
+    // let currentY = 0;
+    // let targetX = 0;
+    // let targetY = 0;
+    // let is_hovering = false;
+    // let auto_rotate = true;
+    let defaultRotation = 0;
+    
+    function init_boxes() {
+
+        const perspective = document.getElementsByClassName('perspective')
+
+
+        for(i = 0; i < perspective.length; i++) {
+
+            let box_id = "box" + i
+            perspective[i].setAttribute("data-box-id", box_id)
+            BOX_INFO[box_id] = {}
+            BOX_INFO[box_id]["currentX"] = 90
+            BOX_INFO[box_id]["currentY"] = 0
+            BOX_INFO[box_id]["targetX"] = 90
+            BOX_INFO[box_id]["targetY"] = 0
+            BOX_INFO[box_id]["is_hovering"] = false
+            BOX_INFO[box_id]["auto_rotate"] = true
+            BOX_INFO[box_id]["translateX"] = 0
+        }
+
+        scale_model();
+        animate();
+
+        document.querySelectorAll('.face').forEach((item) => {
+            
+            item.addEventListener('mouseenter', () => {
+                show_cover(item);
+            });
+        });
+    }
+
+    function lerp(start, end, factor) {
+        // return start * (1 - factor) + end * factor;
+        return start + (end - start) * factor;
+    }
+    
+    // document.addEventListener('pointermove', (e) => {
+    //     const perspective = document.getElementsByClassName('perspective')
+        
+
+    //     for(i = 0; i < perspective.length; i++) {
+    //         if (perspective[i].contains(e.target)) {
+
+    //             const box = perspective[i].getElementsByClassName('box')[0]
+
+    //             if(LIBRARY_MODE) {
+    //                 show_cover(perspective[i])
+    //             }
+    //             else {
+    //                 console.log(perspective[i])
+    //                 const box = perspective[i].getElementsByClassName('box')[0]
+    //                 const boxRect = box.getBoundingClientRect();
+    //                 const centerX = boxRect.left + boxRect.width / 2;
+    //                 const centerY = boxRect.top + boxRect.height / 2;
+            
+    //                 let box_id = box.parentElement.getAttribute("data-box-id")
+                    
+    //                 let box_info = BOX_INFO[box_id]
+    //                 let targetX = box_info["targetX"]
+    //                 let targetY = box_info["targetY"]
+    //                 let currentX = box_info["currentX"]
+    //                 let currentY = box_info["currentY"]
+    //                 let auto_rotate = box_info["auto_rotate"]
+
+    //                 targetX = targetX + ((e.pageX - centerX) / boxRect.width) * 5
+    //                 targetY = targetY + ((e.pageY - centerY) / boxRect.height) * 5
+    //                 is_hovering = true;
+    //                 auto_rotate = false;
+    //                 targetX = 0
+    //                 targetY = 0
+                    
+    //                 box_info["targetX"] = targetX
+    //                 box_info["targetY"] = targetY
+    //                 box_info["currentX"] = currentX
+    //                 box_info["currentY"] = currentY
+    //                 BOX_INFO[box_id]["auto_rotate"] = false
+    //             }
+    //         }
+    //     }
+    // });
+
+    // document.querySelectorAll("#slide-index, #slide-current, #letztes, #nächstes").forEach((item) => {item.addEventListener("mouseenter", entercontrols)})
+
+
+
+    // function show_cover() {
+    //     const perspective = document.getElementsByClassName('perspective')
+    //     console.log(e.target)
+        
+
+    //     for(i = 0; i < perspective.length; i++) {
+    //         if (perspective[i].contains(document.getElementById(this.id))) {
+
+    //             const box = perspective[i].getElementsByClassName('box')[0]
+
+    //             if(LIBRARY_MODE) {
+    //                 show_cover(perspective[i])
+    //             }
+    //         }
+    //     }
+    // }
+
+    
+    function show_cover(face) {
+        let perspective = face.parentElement.parentElement
+        console.log(perspective)
+
+        if(!LIBRARY_MODE) {return}
+        
+        const perspectives = document.getElementsByClassName('perspective')
+        let box_info
+
+        for(i = 0; i < perspectives.length; i++) {
+            
+            box_info = BOX_INFO[perspectives[i].getAttribute("data-box-id")]
+            
+            box_info["targetX"] = 90
+            box_info["targetY"] = 0
+            // box_info["currentX"] = 0
+            box_info["currentY"] = 0
+            box_info["translateX"] = 0
+
+            let relative_sibling = perspectives[i].parentElement.previousSibling
+            console.log(perspectives[i])
+            console.log(relative_sibling)
+            if(relative_sibling) {
+
+                let sibling_box = perspectives[i].parentElement.previousSibling.getElementsByClassName('front')[0]
+                let own_box = perspectives[i].getElementsByClassName('front')[0]
+                let sibling_box_x = sibling_box.getBoundingClientRect().left
+                let own_box_x = own_box.getBoundingClientRect().left
+
+                console.log(own_box)
+                console.log(own_box.getBoundingClientRect().left)
+                console.log(sibling_box)
+                console.log(sibling_box.getBoundingClientRect().left)
+
+                box_info["translateX"] = sibling_box_x - 50 - own_box_x
+
+            }
+        }
+
+
+        box_info = BOX_INFO[perspective.getAttribute("data-box-id")]
+        
+        box_info["targetX"] = 0
+        box_info["targetY"] = 0
+        // box_info["currentX"] = 0
+        box_info["currentY"] = 0
+        box_info["translateX"] = 0
+        
+    }
+
+
+    document.addEventListener('pointerout', (e) => {
+        const perspective = document.getElementsByClassName('perspective')
+
+        for(i = 0; i < perspective.length; i++) {
+
+        if (!perspective[i].contains(e.target)) {
+                BOX_INFO[perspective[i].getAttribute("data-box-id")]["auto_rotate"] = true
+            }
+        }
+    });
+    
+    window.addEventListener("resize", scale_model)
+    
+    function scale_model() {
+        
+        const perspective = document.getElementsByClassName('perspective')[0]
+        let p_width = perspective.clientWidth * 0.6
+        // document.querySelector(':root').style.setProperty('--model-width', p_width + "px")
+    }
+
+    function animate() {
+        const boxes = document.getElementsByClassName('box')
+
+        for(i = 0; i < boxes.length; i++) {
+            animate_box(boxes[i])
+        }
+
+        
+        requestAnimationFrame(animate);
+    }
+    
+    function animate_box(box) {
+        let box_id = box.parentElement.getAttribute("data-box-id")
+        let box_info = BOX_INFO[box_id]
+        let targetX = box_info["targetX"]
+        let targetY = box_info["targetY"]
+        let currentX = box_info["currentX"]
+        let currentY = box_info["currentY"]
+        let translateX = box_info["translateX"]
+        let auto_rotate = box_info["auto_rotate"]
+
+
+
+        let lerpFactor = 0.01;
+        if (auto_rotate && AUTO_ROTATE_TOGGLE) {
+            targetX = currentX + 80; 
+            targetY = 0;
+            lerpFactor = 0.003;
+        }
+    
+        // console.log("currentX: " + currentX + " targetX: " + targetX + " currentY: " + currentY + " targetY: " + targetY)
+        currentX = lerp(currentX, targetX, lerpFactor);
+        currentY = lerp(currentY, targetY, lerpFactor);
+    
+        box.style.transform = `rotateY(${currentX}deg) rotateX(${-currentY}deg)`;
+        box.parentElement.style.transform = `translateX(${translateX}px)`
+        
+        
+        box_info["targetX"] = targetX
+        box_info["targetY"] = targetY
+        box_info["currentX"] = currentX
+        box_info["currentY"] = currentY
+        box_info["translateX"] = translateX
+    
+    }
+    
+    </script>
 
         <style>
 
@@ -267,6 +532,7 @@
                 max-height: 50vh;
                 min-height: 400px;
                 grid-area: issue-library;
+                display: flex;
             }
 
             .vertical {
@@ -333,7 +599,7 @@
 
 
             #issue-library .cover {
-                display: none;
+                /* display: none; */
                 justify-content: flex-start;
                 height: 550px;
                 
@@ -467,6 +733,16 @@
                 display: none;
             }
 
+            .perspective {
+                
+                transform-style: preserve-3d;
+                transform-origin: center center;
+                -webkit-transition: all 0.4s ease-in-out;
+            }
+
+            .box {
+                transform-origin: center left;
+            }
 
         </style>
     </head>
