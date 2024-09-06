@@ -351,3 +351,53 @@ audio::-webkit-media-controls-enclosure {
 	  margin-block-end: -1lh;
 	}
 }
+
+
+.issue-button {
+	border-radius: 100px;
+	/* height: 80px; */
+	padding: 20px 0px;
+	font-family: "Gespenst";
+	font-weight: 900;
+	width: 250px;
+	text-shadow: 2px 2px 3px rgba(0,0,0,.2);
+	font-size: 18px;
+	box-shadow:
+		-6px -6px 26px rgba(117,0,0,.83),
+		5px 10px 15px rgba(255,255,255,.05),
+		15px 20px 35px rgba(255,255,255,.1),
+		inset -2px -2px 2px rgba(255,255,255,.1),
+		inset -1px -1px 3px rgba(117,0,0,.6),
+		inset 2px 2px 8px rgba(117,0,0,.2),
+		inset 1px 1px 8px rgba(117,0,0,.2),
+		-6px -6px 26px rgba(117,0,0,.8);
+	background-color: #750000;
+	margin: auto;
+	border: 0;
+	transition: 300ms ease-out;
+	cursor: pointer;
+	color: white !important;
+	
+	&:hover {
+		box-shadow: 
+			4px 4px 6px rgba(255,255,255,.2), 
+			5px 10px 35px rgba(255,255,255,.1),
+			8px 10px 25px rgba(255,255,255,.1),
+			inset -1px -1px 9px rgba(255,255,255,.2),
+			inset -1px -1px 3px rgba(117,0,0,.6),
+			inset 1px 1px 8px rgba(117,0,0,1),
+			inset 4px 4px 24px rgba(255,255,255,.15),
+			-5px -5px 15px rgba(117,0,0,.9);
+		transform: scale(.98);
+		
+
+	}
+	
+	&:active, &:focus {
+			box-shadow: inset 2px 2px 16px rgba(117,0,0,.9), inset 8px 8px 9px rgba(255,255,255,.2), 5px 10px 5px rgba(255,255,255,.03), -5px -5px 25px rgba(117,0,0,.1), -2px -2px 9px rgba(117,0,0,.1), inset -2px -2px 9px rgba(117,0,0,1);
+			outline: none;
+			background-color: #750000;
+		text-shadow: -2px -2px 3px rgba(255,255,255,.2), 2px 2px 3px rgba(117,0,0,1);
+		transform: translateY(3px);
+		}
+}
