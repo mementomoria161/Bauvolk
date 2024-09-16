@@ -46,12 +46,6 @@
 			#logo {
 				padding: 10px 20px;
 				width: 200px;
-				/* width:fit-content;
-				padding: 0px 20px;
-				margin-left: 20px;
-				border: 2px solid black;
-				background-color:white;
-				color:black !important; */
 				-webkit-tap-highlight-color: transparent;
 				-webkit-touch-callout: none;
 				-webkit-user-select: none;
@@ -65,120 +59,36 @@
 				padding: 15px 20px;
 				display: flex;
 				justify-content: space-between;
-				/* gap: 10px; */
 				gap: 30px;
 			}
-
-			/* .nav-selectable {
-				border: 2px solid transparent;
-				padding: 0px 15px;
-			} */
-
-			/* .nav-selected, #logo {
-				border: 2px solid black;
-				background-color:white;
-				color:black !important;
-				-webkit-tap-highlight-color: transparent;
-				-webkit-touch-callout: none;
-				-webkit-user-select: none;
-				-khtml-user-select: none;
-				-moz-user-select: none;
-				-ms-user-select: none;
-				user-select: none;
-			} */
-
-
-			/* DROPMENU */
-			
 
 			.dropanchor {
 				position: relative;
 				z-index:12;
 			}
 
-			#menu-issues {
-				display: flex;
-				flex-direction: column;
-				gap: 80px;
-				background-color: alicebluess;
-			}
-
 			#etc {
 				cursor: default;
 			}
 
-			#closemenu, #openmenu {
-				cursor: pointer;
-			}
 
-			#closemenu {
-				display: none;
-				width:100vw;
-			}
-
-			.dropmenu {
-				display: none;
-				overflow-y: auto;
-				scrollbar-gutter: stable both-edges;
-				white-space: nowrap;
-				position: absolute;
-				/* right:0; */
-				margin-top: 15px;
-				background-color: var(--header-color);
-				z-index:11;
-			}
-
-			.dropmenu .issue-title {
-				padding-bottom: 15px;
-			}
-
-			.dropmenu .issue-title:last-child {
-				padding-bottom: 0px;
-			}
 
 			.menu-content {
-				/* border: 2px outset grey; */
 				padding: 25px 40px 25px 40px;
 				line-height: 1.7;
-			}
-
-			#menu {
-				border: 3px outset grey;
-			}
-
-			#menu .menu-content {
-				border: 0px none transparent;
-			}
-
-
-			/* EXPANDED */
-
-			#menu-expanded, #menu-etc {
+				background-color: var(--header-color);
+				display: flex;
+				flex-direction: column;
+				gap: 20px;
+				padding: 40px;
+				
+				width: 100%;
 				margin-left: auto;
 				margin-right: auto;
 			}
 
-			#menu-expanded {
-				padding-top: 0px;
-			}
-
-			.menu-divider {
-				height: 2px;
-				color: lightgrey;
-			}
-
-			#menu-etc {
-				
-				display: flex;
-				flex-direction: column-reverse;
-				gap: 40px;
-				padding:40px;
-			}
-
-
-
 			#info-general {
-				width: 100%;
+				white-space: normal;
 			}
 
 
@@ -197,15 +107,6 @@
 				color: lightgrey;
 			}
 			
-			
-			/* INFO */
-
-			#info-general {
-				font-size: 11pt;
-				line-height: 1.7;
-				white-space: normal;
-			}
-
 
 			/* FORM */
 
@@ -257,9 +158,15 @@
 				padding: 0 !important;
 			}
 
+
+
 			/* REACTIVE */
 
-			#openmenu, #menu-expanded, .menu-divider {
+			#closemenu, #openmenu {
+				cursor: pointer;
+			}
+
+			#closemenu, #openmenu, #menu-expanded, .menu-divider {
 				display: none;
 			}
 			
@@ -270,18 +177,6 @@
 					width: 360px;
 				}
 
-				#menu {
-					justify-content: center;
-					align-content: start;
-					grid-template-rows: 1fr auto auto 1fr 1fr 1fr 1fr;
-					grid-template-columns: auto;
-					grid-template-areas: "." "menu-expanded" "menu-etc" "." "." "." ".";
-					border: 0px none transparent;
-				}
-
-				#menu-expanded {grid-area: menu-expanded;}
-				#menu-etc {grid-area: menu-etc;}
-
 				.menu-horizontal, #etc {
 					display: none;
 				}
@@ -290,23 +185,9 @@
 					display: block;
 				}
 
-				#menu-expanded {
-					/* border: 3px outset grey !important; */
-					width: 100%;
-				}
-
 				#menu-area {
-					position: relative;
-					display: none;
 					border: none;
-					height: 100vh;
 					background-color: transparent;
-				}
-
-				.menu-content {
-					width: 80vw;
-					background-color: var(--header-color);
-					/* border: 0px none transparent; */
 				}
 
 				#navigation {
@@ -314,8 +195,7 @@
 				}
 
 				#menu-etc {
-					display: flex;
-					flex-direction: column;
+					/* flex-direction: column; */
 					border: 3px outset grey;
 					padding: 20px;
 				}

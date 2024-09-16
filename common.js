@@ -1042,7 +1042,7 @@ function open_menu(ID) {
         document.getElementById("menu-etc").style.display = "flex";
     }
     else {
-        document.getElementById(ID).style.display = "block";
+        document.getElementById(ID).style.display = "flex";
     }
 
     if (window.innerWidth <= 800) {
