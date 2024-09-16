@@ -29,8 +29,6 @@
 				font-size: 13pt;
 
 				color: var(--header-color-text);
-				/* background-color: bisque; */
-				width: 450px;
 			}
 
 			#menu-area {
@@ -162,7 +160,6 @@
 
 			#menu-expanded {
 				padding-top: 0px;
-				margin-bottom: 40px;
 			}
 
 			.menu-divider {
@@ -171,7 +168,11 @@
 			}
 
 			#menu-etc {
-				padding-bottom:40px;
+				
+				display: flex;
+				flex-direction: column-reverse;
+				gap: 40px;
+				padding:40px;
 			}
 
 
@@ -202,7 +203,6 @@
 			#info-general {
 				font-size: 11pt;
 				line-height: 1.7;
-				margin-bottom:40px;
 				white-space: normal;
 			}
 
@@ -266,8 +266,8 @@
 
 			@media screen and (max-width: 800px) {
 				
-				#headerbox {
-					width: 310px;
+				#headerbox, #menu-area {
+					width: 360px;
 				}
 
 				#menu {
@@ -291,24 +291,21 @@
 				}
 
 				#menu-expanded {
-					border: 3px outset grey !important;
-				}
-
-				#header {	
-					gap: 60px;
+					/* border: 3px outset grey !important; */
+					width: 100%;
 				}
 
 				#menu-area {
 					position: relative;
 					display: none;
 					border: none;
-					height: 100vh;;
-					background-color: var(--header-color);
+					height: 100vh;
+					background-color: transparent;
 				}
 
 				.menu-content {
 					width: 80vw;
-					padding: 10px !important;
+					background-color: var(--header-color);
 					/* border: 0px none transparent; */
 				}
 
@@ -318,16 +315,9 @@
 
 				#menu-etc {
 					display: flex;
-					flex-direction: column-reverse;
-					border: 0px none transparent;
-					padding: 0px !important;
-					gap:40px;
-				}
-
-				#menu-etc > div {
+					flex-direction: column;
 					border: 3px outset grey;
-					width: 100%;
-					padding: 10px !important;
+					padding: 20px;
 				}
 			}
 
@@ -391,16 +381,12 @@
 				<div>
 					<span class="dropanchor nav-selectable" id="etc" onpointerenter="open_menu('menu-etc')"><span lang="de">ETC</span><span lang="en">ETC</span></span>
 					<span class="dropanchor" id="openmenu" onclick="open_menu('expanded')"><span lang="de">MENÜ</span><span lang="en">MENU</span></span>
-					<span class="dropanchor" id="closemenu" onclick="safe_close_menu()"><span lang="de">X</span><span lang="en">X</span></span>
+					<span class="dropanchor" id="closemenu" onclick="safe_close_menu()"><span lang="de">SCHLIESSEN</span><span lang="en">CLOSE</span></span>
 				</div>
 			</nav>
 		</div>
 
 		<div id="menu-area">
-			<div class="menu-content" id="menu-expanded">
-				<a id="highlight-issues-expanded" href="https://www.GEFAENGNISHEFTE.org"><span lang="de">HEFTE</span><span lang="en">ISSUES</span></a><br>
-				<a id="highlight-kanon-expanded" href="https://www.GEFAENGNISHEFTE.org/kanon">KANON</a>
-			</div>
 
 			<div class="menu-content" id="menu-issues">
 				<a class="issue-title" id="info-issue-i"  href="https://www.GEFAENGNISHEFTE.org/heft-i"><span lang="de">HEFT I</span><span lang="en">ISSUE I</span> <span lang="de">GRUNDRISSE DES <br>KONSTRUKTIVEN <br>SOZIALISMUS</span><span lang="en">OUTLINES OF <br>CONSTRUCTIVE SOCIALISM</span></a>
@@ -413,7 +399,13 @@
 
 
 			<div class="menu-content" id="menu-etc">
-					
+
+				<div id="menu-expanded">
+					<a id="highlight-issues-expanded" href="https://www.GEFAENGNISHEFTE.org"><span lang="de">HEFTE</span><span lang="en">ISSUES</span></a><br>
+					<a id="highlight-kanon-expanded" href="https://www.GEFAENGNISHEFTE.org/kanon">KANON</a>
+				</div>
+
+
 				<div id="info-general">
 					<a href="https://www.paypal.com/paypalme/GEFAENGNISHEFTE/EUR" target="_blank"><span lang="de">Unterstützen</span><span lang="en">Support</span><span class="long">: paypal.me/GEFAENGNISHEFTE</span><br></a>
 					<a href="mailto:GEFAENGNISHEFTE@riseup.net" target="_blank"><span lang="de">Kontaktieren</span><span lang="en">Contact</span><span class="long">: GEFAENGNISHEFTE@riseup.net</span><br></a>
@@ -444,6 +436,7 @@
 					<a id="instagram-form" class="abo" href="https://www.instagram.com/GEFAENGNISHEFTE" target="_blank"><button type="submit" id="instagram-btn">@GEFAENGNISHEFTE</button></a>
 					<!-- <button id="notifications"><span lang="de">Benachrichtigungen aktivieren</span><span lang="en">Enable notifications</span></button> -->
 				</div>
+
 			</div>
 		</div>
 	</body>

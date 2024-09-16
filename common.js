@@ -1046,13 +1046,13 @@ function open_menu(ID) {
     }
 
     if (window.innerWidth <= 800) {
-        document.getElementById("content").style.display = "none"; 
-        if(document.getElementById("footer")) {
-            document.getElementById("footer").style.display = "none";
-        }
-        if(document.getElementById("databanner")) {
-            document.getElementById("databanner").style.display = "none";
-        }
+        // document.getElementById("content").style.display = "none"; 
+        // if(document.getElementById("footer")) {
+        //     document.getElementById("footer").style.display = "none";
+        // }
+        // if(document.getElementById("databanner")) {
+        //     document.getElementById("databanner").style.display = "none";
+        // }
 		// document.getElementById("logo").style.display = "none";
         document.getElementById("openmenu").style.display = "none";
 		document.getElementById("closemenu").style.display = "inline";
@@ -1069,10 +1069,10 @@ function close_menu() {
     document.getElementById("menu-etc").style.display = "none";
 
 
-    document.getElementById("content").style.display = "";
-    if(document.getElementById("footer")) {
-        document.getElementById("footer").style.display = "";
-    }
+    // document.getElementById("content").style.display = "";
+    // if(document.getElementById("footer")) {
+    //     document.getElementById("footer").style.display = "";
+    // }
 
     if (window.innerWidth <= 800) {
 		// document.getElementById("logo").style.display = "inline";
@@ -1102,55 +1102,35 @@ function auto_close_menu() {
     }
 }
 
-function openmenu(event) {
-    origin = check_menu_origin(event.currentTarget)
+// function openmenu(event) {
+//     origin = check_menu_origin(event.currentTarget)
     
-    let anchor = origin.getElementsByClassName("dropanchor")[0]
-    let menu = origin.getElementsByClassName("dropmenu")[0]
+//     let anchor = origin.getElementsByClassName("dropanchor")[0]
+//     let menu = origin.getElementsByClassName("dropmenu")[0]
 
-	hidedropmenus();
-    menu.style.display = "block"
-	anchor.style.visibility = "visible";
+// 	hidedropmenus();
+//     menu.style.display = "block"
+// 	anchor.style.visibility = "visible";
 
-	if (window.innerWidth >= 800) {
+// 	if (window.innerWidth >= 800) {
 
-        if (origin.classList.contains("menu-horizontal") && (event.pointerType === "touch" || event.pointerType === "pen")) {
-            hidedropmenus();
-            return
-        }
+//         if (origin.classList.contains("menu-horizontal") && (event.pointerType === "touch" || event.pointerType === "pen")) {
+//             hidedropmenus();
+//             return
+//         }
 
-		menu.style.width = document.getElementById("navigation").offsetWidth + 201 + 'px'; // og value 30
-        // menu.style.width = "491px";
-        menu.style.height = "initial";
-	}
-	else {
-		menu.style.width = "100vw";
-        // console.log('calc(100vh - ' + document.getElementById("navigation").offsetHeight + 'px)')
-        menu.style.height = 'calc(100vh - ' + document.getElementById("navigation").offsetHeight + 'px)';
-        menu.style.display = "grid"
-        
-		// document.getElementById("logo").style.display = "none";
-        // document.getElementById("navigation").style.width = "100vw";
-        // document.getElementById("navigation").style.justifyContent = "flex-end";
-		// document.getElementById("openmenu").style.display = "none";
-		// document.getElementById("closemenu").style.display = "inline";
+// 		menu.style.width = document.getElementById("navigation").offsetWidth + 201 + 'px'; // og value 30
+//         menu.style.height = "initial";
+// 	}
+// 	else {
+// 		// menu.style.width = "100vw";
+//         // console.log('calc(100vh - ' + document.getElementById("navigation").offsetHeight + 'px)')
+//         menu.style.height = 'calc(100vh - ' + document.getElementById("navigation").offsetHeight + 'px)';
+//         menu.style.display = "grid"
+// 	}
 
-        // let animation = [
-        //     { opacity: 0},
-        //     { opacity: 1},
-        // ];
-
-        // menu.animate(animation, {duration: 500, iterations: 1})
-        // menu.addEventListener("animationstart", function(e) {
-        //     console.log("test")
-        //     alert("test")
-        //   });
-        
-        
-	}
-
-	menu_open = true
-}
+// 	menu_open = true
+// }
 
 
 function safeclosemenu() {
