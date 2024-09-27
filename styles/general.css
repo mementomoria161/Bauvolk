@@ -252,7 +252,7 @@ input, button {
 	-ms-user-select: none;
 	user-select: none;
 	border-radius: 0;
-	border: 2px outset grey;
+	border: 3px outset grey;
 }
 
 input {

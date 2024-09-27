@@ -153,12 +153,11 @@ audio::-webkit-media-controls-enclosure {
 	margin-top: 5px;
 }
 
-.issue-button-group a .issue-button {
+/* .issue-button-group a .issue-button {
 	width:100%;
-}
+} */
 
 .issue-button {
-	border-width: 2px;
 	text-align: center;
 	cursor: pointer;
 	background: lightgrey;
@@ -353,9 +352,25 @@ audio::-webkit-media-controls-enclosure {
 }
 
 
+.issue-button-group {
+	width: 100%;
+	display: flex;
+}
+
 .issue-button {
+	width: 50px;
+	height: 50px;
+	background-color: transparent;
+	padding: 0;
+}
+
+.issue-button img {
+	padding: 12px;
+}
+
+
+/* .issue-button {
 	border-radius: 100px;
-	/* height: 80px; */
 	padding: 20px 0px;
 	font-family: "Gespenst";
 	font-weight: 900;
@@ -400,4 +415,4 @@ audio::-webkit-media-controls-enclosure {
 		text-shadow: -2px -2px 3px rgba(255,255,255,.2), 2px 2px 3px rgba(117,0,0,1);
 		transform: translateY(3px);
 		}
-}
+} */
