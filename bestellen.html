@@ -270,10 +270,10 @@
                 <fieldset id="delivery-adress">
                     <legend lang="de">Lieferadresse</legend>
                     <legend lang="en">Delivery address</legend>
-                    <input name="Name" placeholder="Name" required data-1p-ignore data-lpignore="true">
-                    <input name="Adresse" placeholder="Straße und Hausnummer" required data-1p-ignore data-lpignore="true">
-                    <input name="PLZ" placeholder="Postleitzahl" required data-1p-ignore data-lpignore="true">
-                    <input name="Stadt" placeholder="Stadt" required data-1p-ignore data-lpignore="true">
+                    <input name="Name" placeholder="Name" required autocomplete="shipping name" data-1p-ignore data-lpignore="true">
+                    <input name="Adresse" placeholder="Straße und Hausnummer" autocomplete="shipping street-address" required data-1p-ignore data-lpignore="true">
+                    <input name="PLZ" placeholder="Postleitzahl" required autocomplete="shipping postal-code" data-1p-ignore data-lpignore="true">
+                    <input name="Stadt" placeholder="Stadt" required autocomplete="shipping address-level2" data-1p-ignore data-lpignore="true">
                 </fieldset>
 
                 <fieldset id="costs-outer">
