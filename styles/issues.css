@@ -1,5 +1,12 @@
 /* MAIN */
 
+:root {
+	--theme:white;
+	--content-color-contrast: #750000;
+	--content-color-text: black;
+	--content-color-link-hover: #750000;
+}
+
 body {
 	grid-template-rows: auto 1fr;
 	grid-template-areas: "header" "main";

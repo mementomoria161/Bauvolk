@@ -7,6 +7,17 @@
 	--font-medium-large: clamp(1.5rem, -0.36536rem + 2.13184vw, 1.8331rem); /* 22pt-18pt | 1650px-1400px*/
 	--font-large: clamp(0.9rem, -0.0444444444444445rem + 6.04444444444445vw, 2.6rem); /* 43.75-21.875 vw */
 	--font-extreme: clamp(2rem, 0.444444444444444rem + 7.11111111111111vw, 4rem); /* 25pt-50pt | 35px-800px*/
+	
+	--theme:red;
+	--default-scrollbar-color: white;
+	--header-color: #750000;
+	--header-color-contrast: white;
+	--header-color-text: white;
+	--content-color: #750000;
+	--content-color-contrast-text: #750000;
+	--content-color-contrast: white;
+	--content-color-text: white;
+	--content-color-link-hover: lightgrey;
 }
 
 html {
