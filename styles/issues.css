@@ -14,10 +14,20 @@ section, article {
 	margin-bottom: 150px;
 	padding:20px;
 	scroll-margin-top:50px;
+	max-width: 900px;
+	width: 100%;
+	color: white;
+}
+
+article {
+	margin-bottom: 150px;
+	padding:20px;
+	scroll-margin-top:50px;
 	background-color: white;
 	border: solid 2px black;
 	max-width: 900px;
 	width: 100%;
+	color: black;
 }
 
 #cover-section section {
@@ -187,7 +197,12 @@ audio::-webkit-media-controls-enclosure {
 }
 
 .abo-description {
-	font-size: var(--font-regular) !important;
+	/* font-size: var(--font-regular) !important; */
+	font-size: 26px;
+}
+
+#abo-content input, #abo-content button {
+	height: 50px;
 }
 
 #email-form-content {
@@ -239,6 +254,14 @@ audio::-webkit-media-controls-enclosure {
 	justify-content: flex-start;
 }
 
+#creative-commons a:link {
+	color: white;
+}
+
+#creative-commons a:hover {
+	color: white;
+}
+
 #creative-commons-icons {
 	display: flex;
 	flex-flow: row;
@@ -247,7 +270,7 @@ audio::-webkit-media-controls-enclosure {
 }
 
 #creative-commons-icons * {
-	height: 48px;
+	height: 50px;
 }
 
 

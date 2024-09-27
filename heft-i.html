@@ -220,14 +220,23 @@ function animate() {
                 </p>
             </article>
 
-            <div class="issue-button-group">
-                <button lang="de" onclick="share(this, 0, 'de')" class="issue-button">HEFT teilen</button>
-                <button lang="en" onclick="share(this, 0, 'en')" class="issue-button">Share ISSUE</button>
-                <a lang="de" href="files/de/ISSUE I – ALTERNATIVE UTOPIEN.pdf" download><button class="issue-button">PDF herunterladen</button></a>
-                <a lang="en" href="files/en/ISSUE I – ALTERNATIVE UTOPIAS.pdf" download><button class="issue-button">Download PDF</button></a>
-                <a lang="de" href="bestellen.html" targert="_blank"><button class="issue-button">Kopie bestellen</button></a>
-                <a lang="en" href="bestellen.html" targert="_blank"><button class="issue-button">Order copy</button></a>
-            </div>
+            <section id="issue-button-section">
+                <!-- <div class="issue-button-group">
+                    <button lang="de" onclick="share(this, 0, 'de')" class="issue-button">HEFT teilen</button>
+                    <button lang="en" onclick="share(this, 0, 'en')" class="issue-button">Share ISSUE</button>
+                    <a lang="de" href="files/de/ISSUE I – ALTERNATIVE UTOPIEN.pdf" download><button class="issue-button">PDF herunterladen</button></a>
+                    <a lang="en" href="files/en/ISSUE I – ALTERNATIVE UTOPIAS.pdf" download><button class="issue-button">Download PDF</button></a>
+                    <a lang="de" href="bestellen.html" targert="_blank"><button class="issue-button">Kopie bestellen</button></a>
+                    <a lang="en" href="bestellen.html" targert="_blank"><button class="issue-button">Order copy</button></a>
+                </div> -->
+
+                <div class="issue-button-group">
+                    <button onclick="share(this, 0, 'de')" class="issue-button"><img src="images/internal/share.svg"></button>
+                    <a lang="de" href="files/de/ISSUE I – ALTERNATIVE UTOPIEN.pdf" download><button class="issue-button"><img src="images/internal/download.svg"></button></a>
+                    <a lang="en" href="files/en/ISSUE I – ALTERNATIVE UTOPIAS.pdf" download><button class="issue-button"><img src="images/internal/download.svg"></button></a>
+                    <a href="bestellen.html" targert="_blank"><button class="issue-button"><img src="images/internal/order.svg"></button></a>
+                </div>
+            </section>
 
 
             <section id="abo-content">
@@ -252,8 +261,8 @@ function animate() {
             </section>
 
             <section id="creative-commons">
-                <p lang="de">Alle von uns erschaffenen Inhalte dürfen nicht-kommerziell und unter unserer Nennung als Autor*innen verwendet werden <a href="https://creativecommons.org/licenses/by-nc/4.0/" style="text-decoration: underline;">(CC BY-NC 4.0)</a>. Eine kommerzielle Nutzung ist in fast allen Fällen auf <a href="mailto:GEFAENGNISHEFTE@riseup.net" target="_blank">Rückfrage</a> problemlos möglich.</p>
-                <p lang="en">All content created by us may be used non-commercially and with our attribution as authors <a href="https://creativecommons.org/licenses/ by-nc/4.0/" style="text-decoration: underline;">(CC BY-NC 4.0)</a>. Commercial use is possible without any problems in almost all cases on <a href="mailto:GEFAENGNISHEFTE@riseup.net" target="_blank"></a>request</a>.</p>
+                <p lang="de">Alle von uns erschaffenen Inhalte dürfen nicht-kommerziell und unter unserer Nennung als Autor*innen verwendet werden <a href="https://creativecommons.org/licenses/by-nc/4.0/" style="text-decoration: underline;">(CC BY-NC 4.0)</a>. Eine kommerzielle Nutzung ist in fast allen Fällen auf <a href="mailto:GEFAENGNISHEFTE@riseup.net" target="_blank">Rückfrage</a> möglich.</p>
+                <p lang="en">All content created by us may be used non-commercially and with our attribution as authors <a href="https://creativecommons.org/licenses/ by-nc/4.0/" style="text-decoration: underline;">(CC BY-NC 4.0)</a>. Commercial use is possible in almost all cases on <a href="mailto:GEFAENGNISHEFTE@riseup.net" target="_blank"></a>request</a>.</p>
                 <div id="creative-commons-icons">
                     <img src="images/internal/cc.svg">
                     <img src="images/internal/by.svg">
