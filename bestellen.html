@@ -30,6 +30,7 @@
         
         <link rel="stylesheet" href="styles/fonts.css">
         <link rel="stylesheet" href="styles/general.css">
+        <link rel="stylesheet" href="styles/red.css">
 
         <link rel="preload" as="font" crossorigin type="font/woff2" href="https://www.gefaengnishefte.org/fonts/Spectral/Spectral-Regular.woff2">
         <link rel="preload" as="font" crossorigin type="font/woff2" href="https://www.gefaengnishefte.org/fonts/Spectral/Spectral-Bold.woff2">
@@ -269,10 +270,10 @@
                 <fieldset id="delivery-adress">
                     <legend lang="de">Lieferadresse</legend>
                     <legend lang="en">Delivery address</legend>
-                    <input name="Name" placeholder="Name" required>
-                    <input name="Adresse" placeholder="Straße und Hausnummer" required>
-                    <input name="PLZ" placeholder="Postleitzahl" required>
-                    <input name="Stadt" placeholder="Stadt" required>
+                    <input name="Name" placeholder="Name" required data-1p-ignore data-lpignore="true">
+                    <input name="Adresse" placeholder="Straße und Hausnummer" required data-1p-ignore data-lpignore="true">
+                    <input name="PLZ" placeholder="Postleitzahl" required data-1p-ignore data-lpignore="true">
+                    <input name="Stadt" placeholder="Stadt" required data-1p-ignore data-lpignore="true">
                 </fieldset>
 
                 <fieldset id="costs-outer">
