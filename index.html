@@ -66,30 +66,6 @@
 
             const ISSUE_LIST = [
                 {
-                    no_de: "HEFT II",
-                    no_en: "ISSUE II",
-                    date_de: "12/2024",
-                    date_en: "12/2024",
-                    title_de: "IN ARBEIT",
-                    title_en: "<br>WORK IN PROGRESS",
-                    cover_de: "images/issues/de/issue-ii-cover.webp",
-                    cover_en: "images/issues/en/issue-ii-cover.webp",
-                    url: "heft-ii",
-                    default_hovered: ""
-                },
-                {
-                    no_de: "HEFT II",
-                    no_en: "ISSUE II",
-                    date_de: "12/2024",
-                    date_en: "12/2024",
-                    title_de: "IN ARBEIT",
-                    title_en: "<br>WORK IN PROGRESS",
-                    cover_de: "images/issues/de/issue-ii-cover.webp",
-                    cover_en: "images/issues/de/issue-ii-cover.webp",
-                    url: "heft-ii",
-                    default_hovered: ""
-                },
-                {
                     no_de: "HEFT I",
                     no_en: "ISSUE I",
                     date_de: "03/2024",
@@ -101,6 +77,30 @@
                     url: "heft-i",
                     default_hovered: " box_hovered"
                 },
+                {
+                    no_de: "HEFT II",
+                    no_en: "ISSUE II",
+                    date_de: "12/2024",
+                    date_en: "12/2024",
+                    title_de: "<br>IN ARBEIT",
+                    title_en: "<br>WORK IN PROGRESS",
+                    cover_de: "images/issues/de/issue-ii-cover.webp",
+                    cover_en: "images/issues/en/issue-ii-cover.webp",
+                    url: "heft-ii",
+                    default_hovered: ""
+                },
+                {
+                    no_de: "HEFT II",
+                    no_en: "ISSUE II",
+                    date_de: "12/2024",
+                    date_en: "12/2024",
+                    title_de: "<br>IN ARBEIT",
+                    title_en: "<br>WORK IN PROGRESS",
+                    cover_de: "images/issues/de/issue-ii-cover.webp",
+                    cover_en: "images/issues/de/issue-ii-cover.webp",
+                    url: "heft-ii",
+                    default_hovered: ""
+                }
             ]
 
             // TEMPLATES
@@ -131,7 +131,7 @@
             function initcovers() {
                 for (let i = 0; i < ISSUE_LIST.length; i++) {
                     document.getElementById("slides").insertAdjacentHTML('beforeend', cover_template(i));
-                    document.getElementById("issue-library").insertAdjacentHTML('beforeend', title_template(i));
+                    document.getElementById("issue-library").insertAdjacentHTML('afterbegin', title_template(i));
                 }
 
                 display_issue(slide_current)
@@ -254,12 +254,13 @@
 <script>
 
 function suf_init() {
-    // let boxes = document.getElementById("issue-library").getElementsByClassName('box')
+    let library = document.getElementById("issue-library")
+    // let boxes = library.getElementsByClassName('box')
     // boxes[boxes.length-1].classList.add("box_hovered");
 
-    document.querySelectorAll('.box').forEach((item) => {
+    library.querySelectorAll('.box').forEach((item) => {
         item.addEventListener('mouseenter', () => {
-            document.querySelectorAll('.box').forEach((item) => {
+            library.querySelectorAll('.box').forEach((item) => {
                 item.classList.remove("box_hovered");
             });
 
@@ -532,6 +533,43 @@ function animate_box(box) {
             font-weight: 700;
         }
 
+        /* MISCELLANEOUS */
+        #mastodon_verification {
+            display: none;
+        }
+
+        /* PERSPECTIVE AND 3D BOX STYLES */
+        .perspective {
+            margin-left: -225px;
+            margin-right: -225px;
+            display: flex;
+            overflow: visible;
+            transition: all 0.4s ease-in-out;
+            pointer-events: none;
+        }
+
+        .box {
+            position: relative;
+            width: var(--model-width);
+            height: var(--model-height);
+            transform: rotateY(80deg);
+            transition: all 0.4s ease-in-out;
+            transform-style: preserve-3d;
+            pointer-events: auto !important;
+            transform-origin: center left;
+        }
+
+        .box_hovered {
+            transform: rotateY(0deg) !important;
+            margin-right: 475px;
+        }
+
+        .perspective {
+            max-width: 1000px;
+            perspective: 3000px;
+            perspective-origin: unset
+        }
+
         /* REACTIVE STYLES */
         @media screen and (max-height: 1000px) {
             .vertical * {
@@ -572,6 +610,17 @@ function animate_box(box) {
             #issue-wrap {
                 padding: 0;
             }
+
+            .box {
+                transform-style: preserve-3d;
+                transform: rotateY(0deg) !important;
+                margin: 0px !important;
+                transform-origin: center center;
+            }
+
+            .box:hover {
+                transform: rotateY(20deg) !important;
+            }
         }
 
         /* SMALL SCREEN ADJUSTMENTS */
@@ -601,43 +650,6 @@ function animate_box(box) {
                 width: 45px !important;
                 font-size: 20pt !important;
             }
-        }
-
-        /* MISCELLANEOUS */
-        #mastodon_verification {
-            display: none;
-        }
-
-        /* PERSPECTIVE AND 3D BOX STYLES */
-        .perspective {
-            margin-left: -225px;
-            margin-right: -225px;
-            display: flex;
-            overflow: visible;
-            transition: all 0.4s ease-in-out;
-            pointer-events: none;
-        }
-
-        .box {
-            position: relative;
-            width: var(--model-width);
-            height: var(--model-height);
-            transform: rotateY(80deg);
-            transition: all 0.4s ease-in-out;
-            transform-style: preserve-3d;
-            pointer-events: auto !important;
-            transform-origin: center left;
-        }
-
-        .box_hovered {
-            transform: rotateY(0deg) !important;
-            margin-right: 500px;
-        }
-
-        .perspective {
-            max-width: 1000px;
-            perspective: 3000px;
-            perspective-origin: unset
         }
 
         </style>
