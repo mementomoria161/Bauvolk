@@ -66,17 +66,6 @@
 
             const ISSUE_LIST = [
                 {
-                    no_de: "HEFT I",
-                    no_en: "ISSUE I",
-                    date_de: "03/2024",
-                    date_en: "03/2024",
-                    title_de: "GRUNDRISSE DES <br>KONSTRUKTIVEN SOZIALISMUS",
-                    title_en: "OUTLINES OF <br>CONSTRUCTIVE SOCIALISM",
-                    cover_de: "images/issues/de/issue-i-cover.webp",
-                    cover_en: "images/issues/en/issue-i-cover.webp",
-                    url: "heft-i"
-                },
-                {
                     no_de: "HEFT II",
                     no_en: "ISSUE II",
                     date_de: "12/2024",
@@ -85,7 +74,8 @@
                     title_en: "<br>WORK IN PROGRESS",
                     cover_de: "images/issues/de/issue-ii-cover.webp",
                     cover_en: "images/issues/en/issue-ii-cover.webp",
-                    url: "heft-ii"
+                    url: "heft-ii",
+                    default_hovered: ""
                 },
                 {
                     no_de: "HEFT II",
@@ -96,7 +86,20 @@
                     title_en: "<br>WORK IN PROGRESS",
                     cover_de: "images/issues/de/issue-ii-cover.webp",
                     cover_en: "images/issues/de/issue-ii-cover.webp",
-                    url: "heft-ii"
+                    url: "heft-ii",
+                    default_hovered: ""
+                },
+                {
+                    no_de: "HEFT I",
+                    no_en: "ISSUE I",
+                    date_de: "03/2024",
+                    date_en: "03/2024",
+                    title_de: "GRUNDRISSE DES <br>KONSTRUKTIVEN SOZIALISMUS",
+                    title_en: "OUTLINES OF <br>CONSTRUCTIVE SOCIALISM",
+                    cover_de: "images/issues/de/issue-i-cover.webp",
+                    cover_en: "images/issues/en/issue-i-cover.webp",
+                    url: "heft-i",
+                    default_hovered: " box_hovered"
                 },
             ]
 
@@ -109,7 +112,7 @@
             function index_title_template(i){let issue = ISSUE_LIST[i]; return '<a class="issue-title center" href=' + issue.url + '><span lang="de">' + issue.title_de + '</span><span lang="en">' + issue.title_en + '</span></a>'}
             function index_template(slide, i){let issue = ISSUE_LIST[i]; return '<span onclick="display_combined(null, ' + i + ')" id="index' + i + '" class="indexitem issue-title">' + basic_template(issue) + '</span>'}
             
-            function cover_template(i){let issue = ISSUE_LIST[i]; return `<a class="cover" href=` + issue.url + `><section class="perspective" id="perspective"><div class="box" id="box"><div class="face top"></div><div class="face bottom"></div><div class="face back"></div><div class="face front" style="background-image: url('` + issue.cover_de + `');"></div><div class="face left"></div><div class="face right"></div></div></section></a>`}
+            function cover_template(i){let issue = ISSUE_LIST[i]; return `<a class="cover" href=` + issue.url + `><section class="perspective" id="perspective"><div class="box` + issue.default_hovered + `" id="box"><div class="face top"></div><div class="face bottom"></div><div class="face back"></div><div class="face front" style="background-image: url('` + issue.cover_de + `');"></div><div class="face left"></div><div class="face right"></div></div></section></a>`}
 
             
             // LOADING
@@ -251,8 +254,8 @@
 <script>
 
 function suf_init() {
-    let boxes = document.getElementById("issue-library").getElementsByClassName('box')
-    boxes[boxes.length-1].classList.add("box_hovered");
+    // let boxes = document.getElementById("issue-library").getElementsByClassName('box')
+    // boxes[boxes.length-1].classList.add("box_hovered");
 
     document.querySelectorAll('.box').forEach((item) => {
         item.addEventListener('mouseenter', () => {
@@ -641,6 +644,7 @@ function animate_box(box) {
     </head>
 
     <body>
+        <!-- <div class="paperOverlay"></div> -->
         <p id="seo">Gedanken einer politisch desinteressierten Jugend. Hefte des konstruktiven Sozialismus.</p>
         <header id="header"></header>
         <a id="mastodon_verification" rel="me" href="https://mastodon.social/@GEFAENGNISHEFTE">Mastodon</a>
