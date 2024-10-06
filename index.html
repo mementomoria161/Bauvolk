@@ -94,8 +94,8 @@
                     date_en: "12/2024",
                     title_de: "IN ARBEIT",
                     title_en: "<br>WORK IN PROGRESS",
-                    cover_de: "images/issues/de/issue-ii-cover.webp",
-                    cover_en: "images/issues/en/issue-ii-cover.webp",
+                    cover_de: "images/issues/de/issue-i-cover.webp",
+                    cover_en: "images/issues/de/issue-i-cover.webp",
                     url: "heft-ii"
                 },
             ]
@@ -200,7 +200,7 @@
                 let title_covers = issue_list.querySelectorAll('.cover')
                 // title_covers.forEach((title_cover) => {title_cover.style.display = "none"})
                 
-                title_covers.item(index).getElementsByClassName('box')[0].style.transform = `rotateY(1000deg) rotateX(1000deg)`;
+                // title_covers.item(index).getElementsByClassName('box')[0].style.transform = `rotateY(1000deg) rotateX(1000deg)`;
                 // title_covers.item(index).style.display = "flex"
             }
 
@@ -251,7 +251,7 @@
 <script>
 
 function suf_init() {
-    init_boxes()
+    // init_boxes()
 }
 
     var BOX_INFO = {}
@@ -390,7 +390,7 @@ function animate_box(box) {
     currentX = lerp(currentX, targetX, lerpFactor);
 
     // Apply rotation to the box
-    box.style.transform = `rotateY(${currentX}deg)`;
+    // box.style.transform = `rotateY(${currentX}deg)`;
 
     // Apply translation to the cover
     box.parentElement.parentElement.style.transform = `translateX(calc(-50% + ${translateX}px))`;
@@ -403,279 +403,227 @@ function animate_box(box) {
 
         <style>
 
-            /* input[type="checkbox"] {
-                content: "";
-                -webkit-appearance: none;
-                appearance: none;
-                margin: 0 !important;
-                padding: 10px;
-                background-color: lightgray;
-                border: 2px inset grey;
+        /* HIDDEN CONTROLS */
+        #controls {
+            display: none !important;
+        }
+
+        /* GRID SETUP FOR CONTENT */
+        #content {
+            display: grid;
+            justify-content: center;
+            grid-template-areas: "." "issue-library" "." "." "." ".";
+        }
+
+        /* ISSUE LIBRARY */
+        #issue-library {
+            flex-direction: row;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 20px;
+            height: 550px;
+            max-height: 50vh;
+            min-height: 400px;
+            grid-area: issue-library;
+            display: flex;
+            position: relative;
+            margin: 0 auto; /* Center the container */
+        }
+
+        /* COVER STYLING */
+        .cover {
+            display: flex;
+            -webkit-tap-highlight-color: transparent;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            justify-content: flex-start;
+            height: 550px;
+            max-height: 50vh;
+            min-height: 400px;
+        }
+
+        .cover-image {
+            object-fit: cover;
+            cursor: pointer;
+            box-shadow: 10px 10px 10px 0px rgba(0, 0, 0, 0.35);
+            height: 100%;
+        }
+
+        /* SLIDES */
+        #slides {
+            display: none;
+            grid-area: slides;
+        }
+
+        #slides .cover {
+            min-width: 300px;
+            max-width: 400px;
+            max-height: 100%;
+            height: var(--max-slide-height);
+            justify-content: center;
+        }
+
+        #slides .cover-image {
+            object-fit: contain;
+            max-height: 100%;
+        }
+
+        /* SLIDE INDEX */
+        #slide-index {
+            width: 100% !important;
+            max-width: 390px !important;
+            line-height: 1 !important;
+        }
+
+        #slide-index > * {
+            margin: 15px 0;
+        }
+
+        #slide-current {
+            font-size: 15pt !important;
+            width: 160px !important;
+            padding: 5px 15px !important;
+        }
+
+        /* CONTROLS */
+        .control_l {
+            display: none !important;
+        }
+
+        .control_s {
+            display: inline !important;
+        }
+
+        #letztes, #nächstes {
+            padding: 0 !important;
+            font-size: 35pt !important;
+            width: 45px !important;
+        }
+
+        /* VERTICAL TEXT */
+        .vertical {
+            color: black !important;
+            background-color: white;
+            box-shadow: 10px 10px 10px 0px rgba(0, 0, 0, 0.35);
+            padding: 25px 10px;
+            height: 100%;
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            width: fit-content;
+            font-weight: 700;
+        }
+
+        /* REACTIVE STYLES */
+        @media screen and (max-height: 1000px) {
+            .vertical * {
+                font-size: 18pt;
             }
+        }
 
-            input[type="checkbox"]:focus {
-                background-color: #750000;
-            } */
-
-            #controls {
-                display:none !important;
+        @media screen and (max-width: 800px), (hover: none) {
+            body {
+                grid-template-rows: auto minmax(0, 1fr) auto;
+                grid-template-areas: "header" "main" "controls";
             }
 
             #content {
+                padding-top: 90px;
+                padding-bottom: 0px;
                 display: grid;
                 justify-content: center;
-                grid-template-areas: "." "issue-library" "." "." "." ".";
+                grid-template-areas: "." "slides" "." ".";
             }
 
-            /* WRAPS */                
+            #controls {
+                display: flex !important;
+            }
 
             #issue-library {
-                /* visibility: hidden; */
-                display: none;
-                flex-direction: row-reverse;
-                justify-content: flex-end;
-                align-items: center;
-                gap: 20px;
-                height: 550px;
-                max-height: 50vh;
-                min-height: 400px;
-                grid-area: issue-library;
-                display: flex;
+                display: none !important;
             }
-
-            .vertical {
-                color: black !important;
-                background-color: white;
-                box-shadow: 10px 10px 10px 0px rgba(0,0,0,0.35);
-                padding: 25px 10px;
-                height: 100%;
-                writing-mode: vertical-rl;
-                text-orientation: mixed;
-                width: fit-content;
-                font-weight: 700;
-            }
-
 
             #slides {
+                display: block;
+            }
+
+            .cover {
+                min-width: unset;
+            }
+
+            #issue-wrap {
+                padding: 0;
+            }
+        }
+
+        /* SMALL SCREEN ADJUSTMENTS */
+        #slide-title {
+            font-size: clamp(1rem, -0.54rem + 5.7vw, 1.25rem) !important;
+        }
+
+        #slide-index {
+            font-size: 1rem !important;
+        }
+
+        .title-small {
+            display: none;
+        }
+
+        @media screen and (max-width: 320px) {
+            .title-small {
+                display: inline;
+            }
+
+            .title-large {
                 display: none;
-                grid-area: slides;
             }
-
-            #slide-index {
-                width:100% !important;
-                width:350px !important;
-            }
-            
-            #slide-index > * {
-                margin: 15px 0px;
-            }
-
-
-            /* COVERS */
-
-            .cover {   
-                display: flex;
-                -webkit-tap-highlight-color: transparent;
-                -webkit-touch-callout: none;
-                -webkit-user-select: none;
-                -khtml-user-select: none;
-                -moz-user-select: none;
-                -ms-user-select: none;
-                user-select: none;
-            }
-
-            .cover-image {
-                object-fit: cover;
-                cursor: pointer;
-                box-shadow: 10px 10px 10px 0px rgba(0,0,0,0.35);
-            }
-
-
-
-            #slides .cover { 
-                min-width:300px;
-                max-width:400px;
-                max-height: 100%;
-                height: var(--max-slide-height);
-                justify-content: center;
-            }
-
-            #slides .cover-image {
-                object-fit: contain;
-                max-height:100%;
-            }
-
-
-            #issue-library .cover {
-                /* display: none; */
-                justify-content: flex-start;
-                height: 550px;
-                
-                max-height: 50vh;
-                min-height: 400px;
-            }
-
-            #issue-library .cover-image {
-                height:100%;
-            }
-
-            /* .title {
-                display:flex;
-                justify-content: space-between;
-                white-space:nowrap;
-                flex-wrap: wrap;
-                cursor: pointer;
-                -webkit-tap-highlight-color: transparent;
-            } */
-
-            /* SLIDES */
-
-            #slide-index {
-                line-height: 1 !important;
-                width:100% !important;
-                max-width:390px !important; 
-            }
-            /* TIED TO ISSUE LIST WITH PADDING */
-
-
 
             #slide-current {
-                font-size: 15pt !important;
-                width:160px !important;
-                padding: 5px 15px 5px 15px !important;
-            }
-
-            .control_l {
-                display: none!important;
-            }
-
-            .control_s {
-                display: inline!important;
-            }
-
-            #letztes, #nächstes {
-                padding:0px!important;
-                font-size: 35pt!important;
+                padding: 0 !important;
                 width: 45px !important;
+                font-size: 20pt !important;
             }
+        }
 
+        /* MISCELLANEOUS */
+        #mastodon_verification {
+            display: none;
+        }
 
-            /*/////////////////////// REACTIVE ///////////////////////*/
-            @media screen and (max-height: 1000px) {
-                .vertical * {
-                    font-size: 18pt;
-                }
-            }
+        /* PERSPECTIVE AND 3D BOX STYLES */
+        .perspective {
+            margin-left: -225px;
+            margin-right: -225px;
+            display: flex;
+            overflow: visible;
+            transition: all 0.4s ease-in-out;
+            pointer-events: none;
+        }
 
-            @media screen and (max-width: 800px), (hover: none) {
-                body {
-                    grid-template-rows: auto minmax(0, 1fr) auto;
-                    grid-template-areas: "header" "main" "controls";
-                }
-
-                
-                #content {
-                    padding-top: 90px;
-                    padding-bottom: 0px;
-                    display: grid;
-                    justify-content: center;
-                    grid-template-areas: "." "slides" "." ".";
-                }
-                
-                #controls {
-                    display:flex !important;
-                }
-
-                #issue-library {
-                    display:none !important;
-                }
-
-                #slides {
-                    display: block;
-                }
-
-                .cover {
-                    min-width:unset;
-                }
-
-                #issue-wrap {
-                    padding: 0px;
-                }
-            }
-
-
-            /* SMALL SCREEN ADJUSTMENTS */
+        .face {
             
+            
+            /* box-shadow: 10px 10px 10px 0px rgba(0, 0, 0, 0.35); */
+        }
 
-            #slide-title {
-                font-size: 1.25rem !important;
-	            font-size: clamp(1rem, -0.54rem + 5.7vw, 1.25rem) !important;
-            }
+        .box {
+            position: relative;
+            width: var(--model-width);
+            height: var(--model-height);
+            transform: rotateY(80deg);
+            transition: all 0.4s ease-in-out;
+            transform-style: preserve-3d;
+            pointer-events: auto !important;
+        }
 
-            #slide-index {
-                font-size: 1rem !important;
-            }
-
-            .title-small {
-                display: none;
-            }
-
-            @media screen and (max-width: 320px) {
-
-                .title-small {
-                    display: inline;
-                }
-
-                .title-large {
-                    display: none;
-                }
-
-                #slide-current {
-                    padding:0px !important;
-                    width: 45px !important;
-                    font-size: 20pt !important;
-                }
-            }
-
-            #mastodon_verification {
-                display: none;
-            }
-
-            .perspective {
-                
-                transform-style: preserve-3d;
-                transform-origin: center center;
-                -webkit-transition: all 0.4s ease-in-out;
-            }
-
-            .box {
-                transform-origin: center left;
-            }
-
-            #issue-library {
-    position: relative;
-    height: 550px;
-    max-height: 50vh;
-    min-height: 400px;
-    margin: 0 auto; /* Center the container */
-}
-
-.cover {
-    position: absolute;
-    top: 0;
-    left: 50%; /* Start from the center */
-    transform: translateX(-50%); /* Center the cover */
-}
-
-.perspective {
-    transform-style: preserve-3d;
-    transform-origin: center center;
-}
-
-.box {
-    transform-origin: center left;
-}
-
+        .box:hover {
+            transform: rotateY(0deg) !important;
+            margin-left: 220px;
+            margin-right: 250px;
+        }
 
         </style>
     </head>

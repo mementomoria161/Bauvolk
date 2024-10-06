@@ -439,6 +439,8 @@ button[disabled]{
 .face.back {
 	background-image: url("../images/issues/de/issue-i-back.webp");
 	transform: translateZ(calc(-1 * var(--model-depth))) scaleX(-1);
+	
+	filter: drop-shadow(0 0 30px #333)
 }
 
 
