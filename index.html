@@ -44,6 +44,7 @@
         
         <link rel="stylesheet" href="styles/fonts.css">
         <link rel="stylesheet" href="styles/general.css">
+        <link rel="stylesheet" href="styles/red.css">
 
         <link rel="preload" as="font" crossorigin type="font/woff2" href="https://www.gefaengnishefte.org/fonts/Spectral/Spectral-Regular.woff2">
         <link rel="preload" as="font" crossorigin type="font/woff2" href="https://www.gefaengnishefte.org/fonts/Spectral/Spectral-Bold.woff2">
@@ -250,246 +251,154 @@
 <script>
 
 function suf_init() {
-
-// if(typeof renderer_setup  === "function" && typeof THREE !== "undefined") {
-//     renderer_setup()
-// }
-// else {
-//     setTimeout(suf_init, 20);
-// }
-init_boxes()
+    init_boxes()
 }
 
     var BOX_INFO = {}
     var AUTO_ROTATE_TOGGLE = false
     var LIBRARY_MODE = true
-    // let currentX = 0;
-    // let currentY = 0;
-    // let targetX = 0;
-    // let targetY = 0;
-    // let is_hovering = false;
-    // let auto_rotate = true;
     let defaultRotation = 0;
     
-    function init_boxes() {
-
-        const perspective = document.getElementsByClassName('perspective')
-
-
-        for(i = 0; i < perspective.length; i++) {
-
-            let box_id = "box" + i
-            perspective[i].setAttribute("data-box-id", box_id)
-            BOX_INFO[box_id] = {}
-            BOX_INFO[box_id]["currentX"] = 90
-            BOX_INFO[box_id]["currentY"] = 0
-            BOX_INFO[box_id]["targetX"] = 90
-            BOX_INFO[box_id]["targetY"] = 0
-            BOX_INFO[box_id]["is_hovering"] = false
-            BOX_INFO[box_id]["auto_rotate"] = true
-            BOX_INFO[box_id]["translateX"] = 0
-        }
-
-        scale_model();
-        animate();
-
-        document.querySelectorAll('.face').forEach((item) => {
-            
-            item.addEventListener('mouseenter', () => {
-                show_cover(item);
-            });
-        });
-    }
-
     function lerp(start, end, factor) {
-        // return start * (1 - factor) + end * factor;
-        return start + (end - start) * factor;
-    }
-    
-    // document.addEventListener('pointermove', (e) => {
-    //     const perspective = document.getElementsByClassName('perspective')
-        
+    return start + (end - start) * factor;
+}
 
-    //     for(i = 0; i < perspective.length; i++) {
-    //         if (perspective[i].contains(e.target)) {
+function init_boxes() {
+    const perspectives = document.getElementsByClassName('perspective');
+    const initialGap = 5; // Small gap to bring covers close together
+    const totalCovers = perspectives.length;
+    const centerIndex = (totalCovers - 1) / 2;
 
-    //             const box = perspective[i].getElementsByClassName('box')[0]
-
-    //             if(LIBRARY_MODE) {
-    //                 show_cover(perspective[i])
-    //             }
-    //             else {
-    //                 console.log(perspective[i])
-    //                 const box = perspective[i].getElementsByClassName('box')[0]
-    //                 const boxRect = box.getBoundingClientRect();
-    //                 const centerX = boxRect.left + boxRect.width / 2;
-    //                 const centerY = boxRect.top + boxRect.height / 2;
-            
-    //                 let box_id = box.parentElement.getAttribute("data-box-id")
-                    
-    //                 let box_info = BOX_INFO[box_id]
-    //                 let targetX = box_info["targetX"]
-    //                 let targetY = box_info["targetY"]
-    //                 let currentX = box_info["currentX"]
-    //                 let currentY = box_info["currentY"]
-    //                 let auto_rotate = box_info["auto_rotate"]
-
-    //                 targetX = targetX + ((e.pageX - centerX) / boxRect.width) * 5
-    //                 targetY = targetY + ((e.pageY - centerY) / boxRect.height) * 5
-    //                 is_hovering = true;
-    //                 auto_rotate = false;
-    //                 targetX = 0
-    //                 targetY = 0
-                    
-    //                 box_info["targetX"] = targetX
-    //                 box_info["targetY"] = targetY
-    //                 box_info["currentX"] = currentX
-    //                 box_info["currentY"] = currentY
-    //                 BOX_INFO[box_id]["auto_rotate"] = false
-    //             }
-    //         }
-    //     }
-    // });
-
-    // document.querySelectorAll("#slide-index, #slide-current, #letztes, #nächstes").forEach((item) => {item.addEventListener("mouseenter", entercontrols)})
-
-
-
-    // function show_cover() {
-    //     const perspective = document.getElementsByClassName('perspective')
-    //     console.log(e.target)
-        
-
-    //     for(i = 0; i < perspective.length; i++) {
-    //         if (perspective[i].contains(document.getElementById(this.id))) {
-
-    //             const box = perspective[i].getElementsByClassName('box')[0]
-
-    //             if(LIBRARY_MODE) {
-    //                 show_cover(perspective[i])
-    //             }
-    //         }
-    //     }
-    // }
-
-    
-    function show_cover(face) {
-        let perspective = face.parentElement.parentElement
-        console.log(perspective)
-
-        if(!LIBRARY_MODE) {return}
-        
-        const perspectives = document.getElementsByClassName('perspective')
-        let box_info
-
-        for(i = 0; i < perspectives.length; i++) {
-            
-            box_info = BOX_INFO[perspectives[i].getAttribute("data-box-id")]
-            
-            box_info["targetX"] = 90
-            box_info["targetY"] = 0
-            // box_info["currentX"] = 0
-            box_info["currentY"] = 0
-            box_info["translateX"] = 0
-
-            let relative_sibling = perspectives[i].parentElement.previousSibling
-            console.log(perspectives[i])
-            console.log(relative_sibling)
-            if(relative_sibling) {
-
-                let sibling_box = perspectives[i].parentElement.previousSibling.getElementsByClassName('front')[0]
-                let own_box = perspectives[i].getElementsByClassName('front')[0]
-                let sibling_box_x = sibling_box.getBoundingClientRect().left
-                let own_box_x = own_box.getBoundingClientRect().left
-
-                console.log(own_box)
-                console.log(own_box.getBoundingClientRect().left)
-                console.log(sibling_box)
-                console.log(sibling_box.getBoundingClientRect().left)
-
-                box_info["translateX"] = sibling_box_x - 50 - own_box_x
-
-            }
-        }
-
-
-        box_info = BOX_INFO[perspective.getAttribute("data-box-id")]
-        
-        box_info["targetX"] = 0
-        box_info["targetY"] = 0
-        // box_info["currentX"] = 0
-        box_info["currentY"] = 0
-        box_info["translateX"] = 0
-        
+    // Calculate initial positions
+    let translateXs = [];
+    for (let i = 0; i < totalCovers; i++) {
+        let offsetFromCenter = i - centerIndex;
+        let translateX = offsetFromCenter * initialGap;
+        translateXs.push(translateX);
     }
 
+    // Center the group
+    let sumTranslateX = translateXs.reduce((sum, x) => sum + x, 0);
+    let avgTranslateX = sumTranslateX / totalCovers;
 
-    document.addEventListener('pointerout', (e) => {
-        const perspective = document.getElementsByClassName('perspective')
+    for (let i = 0; i < perspectives.length; i++) {
+        let box_id = "box" + i;
+        perspectives[i].setAttribute("data-box-id", box_id);
+        BOX_INFO[box_id] = {};
+        BOX_INFO[box_id]["currentX"] = 90;
+        BOX_INFO[box_id]["targetX"] = 90;
+        BOX_INFO[box_id]["translateX"] = translateXs[i] - avgTranslateX;
+    }
 
-        for(i = 0; i < perspective.length; i++) {
+    animate();
 
-        if (!perspective[i].contains(e.target)) {
-                BOX_INFO[perspective[i].getAttribute("data-box-id")]["auto_rotate"] = true
-            }
-        }
+    // Attach event listeners to the entire cover
+    document.querySelectorAll('.cover').forEach((item) => {
+        item.addEventListener('mouseenter', () => {
+            // show_cover(item);
+        });
+
+
     });
-    
-    window.addEventListener("resize", scale_model)
-    
-    function scale_model() {
-        
-        const perspective = document.getElementsByClassName('perspective')[0]
-        let p_width = perspective.clientWidth * 0.6
-        // document.querySelector(':root').style.setProperty('--model-width', p_width + "px")
+}
+
+function show_cover(coverElement) {
+    if (!LIBRARY_MODE) { return; }
+
+    const perspectives = Array.from(document.getElementsByClassName('perspective'));
+    const selectedIndex = perspectives.findIndex(perspective => perspective.parentElement === coverElement);
+
+    if (selectedIndex === -1) {
+        console.error("Selected perspective not found");
+        return;
     }
 
-    function animate() {
-        const boxes = document.getElementsByClassName('box')
+    const hoverGap = 100; // Larger gap when cover is hovered
+    const totalCovers = perspectives.length;
 
-        for(i = 0; i < boxes.length; i++) {
-            animate_box(boxes[i])
+    // Calculate positions relative to the selected cover
+    let translateXs = [];
+    for (let i = 0; i < totalCovers; i++) {
+        let offsetFromSelected = i - selectedIndex;
+        let translateX = offsetFromSelected * hoverGap;
+        translateXs.push(translateX);
+    }
+
+    // Center the group
+    let sumTranslateX = translateXs.reduce((sum, x) => sum + x, 0);
+    let avgTranslateX = sumTranslateX / totalCovers;
+
+    for (let i = 0; i < totalCovers; i++) {
+        let box_info = BOX_INFO[perspectives[i].getAttribute("data-box-id")];
+        box_info["translateX"] = translateXs[i] - avgTranslateX;
+
+        if (i === selectedIndex) {
+            box_info["targetX"] = 0; // Hovered cover faces forward
+        } else {
+            box_info["targetX"] = 90; // Others are side-on
         }
 
-        
-        requestAnimationFrame(animate);
+        box_info["currentY"] = 0;
     }
-    
-    function animate_box(box) {
-        let box_id = box.parentElement.getAttribute("data-box-id")
-        let box_info = BOX_INFO[box_id]
-        let targetX = box_info["targetX"]
-        let targetY = box_info["targetY"]
-        let currentX = box_info["currentX"]
-        let currentY = box_info["currentY"]
-        let translateX = box_info["translateX"]
-        let auto_rotate = box_info["auto_rotate"]
+}
 
+function reset_covers() {
+    const perspectives = Array.from(document.getElementsByClassName('perspective'));
+    const initialGap = 5; // Same as in init_boxes
+    const totalCovers = perspectives.length;
+    const centerIndex = (totalCovers - 1) / 2;
 
-
-        let lerpFactor = 0.01;
-        if (auto_rotate && AUTO_ROTATE_TOGGLE) {
-            targetX = currentX + 80; 
-            targetY = 0;
-            lerpFactor = 0.003;
-        }
-    
-        // console.log("currentX: " + currentX + " targetX: " + targetX + " currentY: " + currentY + " targetY: " + targetY)
-        currentX = lerp(currentX, targetX, lerpFactor);
-        currentY = lerp(currentY, targetY, lerpFactor);
-    
-        box.style.transform = `rotateY(${currentX}deg) rotateX(${-currentY}deg)`;
-        box.parentElement.style.transform = `translateX(${translateX}px)`
-        
-        
-        box_info["targetX"] = targetX
-        box_info["targetY"] = targetY
-        box_info["currentX"] = currentX
-        box_info["currentY"] = currentY
-        box_info["translateX"] = translateX
-    
+    // Calculate initial positions
+    let translateXs = [];
+    for (let i = 0; i < totalCovers; i++) {
+        let offsetFromCenter = i - centerIndex;
+        let translateX = offsetFromCenter * initialGap;
+        translateXs.push(translateX);
     }
-    
+
+    // Center the group
+    let sumTranslateX = translateXs.reduce((sum, x) => sum + x, 0);
+    let avgTranslateX = sumTranslateX / totalCovers;
+
+    for (let i = 0; i < totalCovers; i++) {
+        let box_info = BOX_INFO[perspectives[i].getAttribute("data-box-id")];
+        box_info["translateX"] = translateXs[i] - avgTranslateX;
+        box_info["targetX"] = 90; // Reset rotation
+        box_info["currentY"] = 0;
+    }
+}
+
+function animate() {
+    const boxes = document.getElementsByClassName('box');
+
+    for (let i = 0; i < boxes.length; i++) {
+        animate_box(boxes[i]);
+    }
+
+    requestAnimationFrame(animate);
+}
+
+function animate_box(box) {
+    let box_id = box.parentElement.getAttribute("data-box-id");
+    let box_info = BOX_INFO[box_id];
+    let targetX = box_info["targetX"];
+    let currentX = box_info["currentX"];
+    let translateX = box_info["translateX"];
+
+    let lerpFactor = 0.08; // Adjusted for smoother animation
+
+    currentX = lerp(currentX, targetX, lerpFactor);
+
+    // Apply rotation to the box
+    box.style.transform = `rotateY(${currentX}deg)`;
+
+    // Apply translation to the cover
+    box.parentElement.parentElement.style.transform = `translateX(calc(-50% + ${translateX}px))`;
+
+    // Update the box info
+    box_info["currentX"] = currentX;
+}
+
     </script>
 
         <style>
@@ -742,6 +651,31 @@ init_boxes()
             .box {
                 transform-origin: center left;
             }
+
+            #issue-library {
+    position: relative;
+    height: 550px;
+    max-height: 50vh;
+    min-height: 400px;
+    margin: 0 auto; /* Center the container */
+}
+
+.cover {
+    position: absolute;
+    top: 0;
+    left: 50%; /* Start from the center */
+    transform: translateX(-50%); /* Center the cover */
+}
+
+.perspective {
+    transform-style: preserve-3d;
+    transform-origin: center center;
+}
+
+.box {
+    transform-origin: center left;
+}
+
 
         </style>
     </head>
