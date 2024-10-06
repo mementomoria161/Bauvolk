@@ -94,8 +94,8 @@
                     date_en: "12/2024",
                     title_de: "IN ARBEIT",
                     title_en: "<br>WORK IN PROGRESS",
-                    cover_de: "images/issues/de/issue-i-cover.webp",
-                    cover_en: "images/issues/de/issue-i-cover.webp",
+                    cover_de: "images/issues/de/issue-ii-cover.webp",
+                    cover_en: "images/issues/de/issue-ii-cover.webp",
                     url: "heft-ii"
                 },
             ]
@@ -251,7 +251,18 @@
 <script>
 
 function suf_init() {
-    // init_boxes()
+    let boxes = document.getElementById("issue-library").getElementsByClassName('box')
+    boxes[boxes.length-1].classList.add("box_hovered");
+
+    document.querySelectorAll('.box').forEach((item) => {
+        item.addEventListener('mouseenter', () => {
+            document.querySelectorAll('.box').forEach((item) => {
+                item.classList.remove("box_hovered");
+            });
+
+            item.classList.add("box_hovered");
+        });
+    });
 }
 
     var BOX_INFO = {}
@@ -427,6 +438,7 @@ function animate_box(box) {
             grid-area: issue-library;
             display: flex;
             position: relative;
+            padding-left: 450px;
             margin: 0 auto; /* Center the container */
         }
 
@@ -603,12 +615,6 @@ function animate_box(box) {
             pointer-events: none;
         }
 
-        .face {
-            
-            
-            /* box-shadow: 10px 10px 10px 0px rgba(0, 0, 0, 0.35); */
-        }
-
         .box {
             position: relative;
             width: var(--model-width);
@@ -617,12 +623,18 @@ function animate_box(box) {
             transition: all 0.4s ease-in-out;
             transform-style: preserve-3d;
             pointer-events: auto !important;
+            transform-origin: center left;
         }
 
-        .box:hover {
+        .box_hovered {
             transform: rotateY(0deg) !important;
-            margin-left: 220px;
-            margin-right: 250px;
+            margin-right: 500px;
+        }
+
+        .perspective {
+            max-width: 1000px;
+            perspective: 3000px;
+            perspective-origin: unset
         }
 
         </style>
