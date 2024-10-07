@@ -2,7 +2,6 @@
 
 :root {
 	--theme:white;
-	--content-color-contrast: #750000;
 	--content-color-text: black;
 	--content-color-link-hover: #750000;
 }
@@ -35,6 +34,21 @@ article {
 	max-width: 900px;
 	width: 100%;
 	color: black;
+}
+
+article *::-webkit-selection {
+	color: white !important;
+	background: #750000 !important;
+}
+
+article *::selection {
+	color: white !important;
+	background: #750000 !important;
+}
+
+article *::-moz-selection {
+	color: white !important;
+	background: #750000 !important;
 }
 
 #cover-section section {

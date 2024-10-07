@@ -58,7 +58,7 @@ body {
 	
 }
 
-/* .paperOverlay {
+.paperOverlay {
 	position: absolute;
 	top: 0;
 	bottom: 0;
@@ -69,7 +69,7 @@ body {
 	mix-blend-mode: multiply;
 	pointer-events: none;
 	z-index: 10000;
-  } */
+  }
 
 #content {
 	color: var(--content-color-text);
