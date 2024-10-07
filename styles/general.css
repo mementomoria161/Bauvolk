@@ -422,6 +422,7 @@ button[disabled]{
 	perspective-origin: 50% -500px;
 	display: flex;
 	justify-content: center;
+	filter: drop-shadow(0 0 30px #333)
 }
 
 .box {
@@ -454,7 +455,6 @@ button[disabled]{
 	background-image: url("../images/issues/de/issue-i-back.webp");
 	transform: translateZ(calc(-1 * var(--model-depth))) scaleX(-1);
 	
-	filter: drop-shadow(0 0 30px #333)
 }
 
 
