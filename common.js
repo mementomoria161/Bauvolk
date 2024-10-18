@@ -208,12 +208,12 @@ window.addEventListener('resize', () => {
 
 function init_scrollbar() {
     document.getElementById("content").addEventListener("scroll", () => {
-        reset_scrollbar('--scrollbar-color', '--default-scrollbar-color', "scrollbar", 3000)
+        reset_scrollbar('--scrollbar-color', '--color-text', "scrollbar", 3000)
     });
 
     if(document.getElementById("slide-index")) {
         document.getElementById("slide-index").addEventListener("scroll", () => {
-            reset_scrollbar('--scrollbar-color-index', '--default-scrollbar-color-index', "scrollbar_index", 10000)
+            reset_scrollbar('--scrollbar-color-index', '--color-text-index', "scrollbar_index", 10000)
         })
     }
 }

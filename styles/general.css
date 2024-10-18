@@ -9,16 +9,25 @@
 	--font-extreme: clamp(2rem, 0.444444444444444rem + 7.11111111111111vw, 4rem); /* 25pt-50pt | 35px-800px*/
 	
 	--theme:red;
-	--default-scrollbar-color: white;
-	--header-color: #750000;
-	--header-color-contrast: white;
-	--header-color-text: white;
-	--content-color: #750000;
-	--content-color-contrast-text: #750000;
-	--content-color-contrast: white;
-	--content-color-text: white;
-	--content-color-link-hover: lightgrey;
+	/* --color-text: white;
+	--color-background: #750000;
+	--color-background-contrast: white;
+	--color-text: white;
+	--color-background: #750000;
+	--color-background-contrast-text: #750000;
+	--color-background-contrast: white;
+	--color-text: white;
+	--color-background-link-hover: lightgrey; */
+
+
+	--color-background: #750000;
+	--color-text: white;
+	--color-highlight-background: white;
+	--color-highlight-text: #750000;
+	--color-link-hover: lightgrey;
 }
+
+
 
 html {
 	overflow-x: hidden;
@@ -48,7 +57,7 @@ body {
 
 	padding:0px;
 	margin:0px;
-	background-color: var(--content-color);
+	background-color: var(--color-background);
 
 	display: grid;
 	grid-template-rows: 1fr;
@@ -72,8 +81,8 @@ body {
   }
 
 #content {
-	color: var(--content-color-text);
-	background-color: var(--content-color);
+	color: var(--color-text);
+	background-color: var(--color-background);
 	overflow-y: auto;
 	height:100%;
 	padding:20px;
@@ -99,48 +108,48 @@ body {
 /* SELECTION */
 
 #header *::-moz-selection {
-	color: var(--header-color);
-	background: var(--header-color-contrast);
+	color: var(--color-background);
+	background: var(--color-background-contrast);
 }
 
 #header *::-webkit-selection {
-	color: var(--header-color);
-	background: var(--header-color-contrast);
+	color: var(--color-background);
+	background: var(--color-background-contrast);
 }
 
 #header *::selection {
-	color: var(--header-color);
-	background: var(--header-color-contrast);
+	color: var(--color-background);
+	background: var(--color-background-contrast);
 }
 
 #content *::-moz-selection {
-	color: var(--content-color-contrast-text);
-	background: var(--content-color-contrast);
+	color: var(--color-background-contrast-text);
+	background: var(--color-background-contrast);
 }
 
 #content *::-webkit-selection {
-	color: var(--content-color-contrast-text);
-	background: var(--content-color-contrast);
+	color: var(--color-background-contrast-text);
+	background: var(--color-background-contrast);
 }
 
 #content *::selection {
-	color: var(--content-color-contrast-text);
-	background: var(--content-color-contrast);
+	color: var(--color-background-contrast-text);
+	background: var(--color-background-contrast);
 }
 
 #footer *::-moz-selection {
-	color: var(--header-color);
-	background: var(--header-color-contrast);
+	color: var(--color-background);
+	background: var(--color-background-contrast);
 }
 
 #footer *::-webkit-selection {
-	color: var(--header-color);
-	background: var(--header-color-contrast);
+	color: var(--color-background);
+	background: var(--color-background-contrast);
 }
 
 #footer *::selection {
-	color: var(--header-color);
-	background: var(--header-color-contrast);
+	color: var(--color-background);
+	background: var(--color-background-contrast);
 }
 
 
@@ -168,11 +177,11 @@ a:hover {
 
 
 #content a:link, #content a:visited, #content a:active {
-	color: var(--content-color-text);
+	color: var(--color-text);
 }
 
 #content a:hover {
-	color: var(--content-color-link-hover);
+	color: var(--color-background-link-hover);
 }
 
 
