@@ -1417,11 +1417,13 @@ function toggle_slide_index() {
 function display_slide_index() {
     var indexitems = document.getElementsByClassName("indexitem")
     for (let i = 0; i < indexitems.length; i++) {
-        indexitems[i].style.fontWeight = "400"
+        // indexitems[i].style.fontWeight = "400"
+        indexitems[i].style.fontStyle = "normal";
     }
 
     // document.getElementById("slide-current").disabled = true;
-    document.getElementById("index"+slide_current).style.fontWeight = "700"
+    // document.getElementById("index"+slide_current).style.fontWeight = "700"
+    document.getElementById("index"+slide_current).style.fontStyle = "italic";
     document.getElementById("timeline-btns").style.display = "none";
     document.getElementById("slide-title").style.display = "none";
     document.getElementById(SLIDE_LIST[slide_current]).style.display = "none";
