@@ -5,7 +5,7 @@
 
             // PRELOAD
 
-            let lang = localStorage.getItem("gefaengnishefte_language"); if(lang == null) {lang = "de"}
+            let lang = localStorage.getItem("demiurg_language"); if(lang == null) {lang = "de"}
             let preload = '<link rel="preload" as="image" fetchpriority="high" href="images/issues/' + lang + '/issue-i-cover.webp">'
             document.currentScript.insertAdjacentHTML("afterend", preload)
             
@@ -17,15 +17,15 @@
         <meta name="viewport" content="width=device-width, height=device-height, user-scalable=no">
         <meta name="description" content="Gedanken einer politisch desinteressierten Jugend.">
         <meta property="og:type" content="website"/>
-        <meta property="og:site_name" content="GEFÄNGNISHEFTE"/>
+        <meta property="og:site_name" content="DEMIURG"/>
         <meta property="og:title" content="HEFTE"/>
         <meta property="og:description" content="Gedanken einer politisch desinteressierten Jugend."/>
-        <meta property="og:image" itemprop="image" content="https://www.gefaengnishefte.org/images/opengraph/red_2x1.jpg"/>
+        <meta property="og:image" itemprop="image" content="https://www.demiurg.org/images/opengraph/red_2x1.jpg"/>
         <meta property="og:image:type" content="image/jpeg"/>
         <meta property="og:image:width" content="1200"/>
         <meta property="og:image:height" content="630"/>
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:image" content="https://www.gefaengnishefte.org/images/opengraph/red_1x1.jpg" />
+        <meta name="twitter:image" content="https://www.demiurg.org/images/opengraph/red_1x1.jpg" />
 
         <!-- https://realfavicongenerator.net/ -->
         <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/red/apple-touch-icon.png">
@@ -45,10 +45,10 @@
         <link rel="stylesheet" href="styles/fonts.css">
         <link rel="stylesheet" href="styles/general.css">
 
-        <link rel="preload" as="font" crossorigin type="font/woff2" href="https://www.gefaengnishefte.org/fonts/Spectral/Spectral-Regular.woff2">
-        <link rel="preload" as="font" crossorigin type="font/woff2" href="https://www.gefaengnishefte.org/fonts/Spectral/Spectral-Bold.woff2">
-        <link rel="preload" as="font" crossorigin type="font/woff2" href="https://www.gefaengnishefte.org/fonts/Spectral/Spectral-Italic.woff2">
-        <link rel="preload" as="font" crossorigin type="font/woff2" href="https://www.gefaengnishefte.org/fonts/Quaderni/Quaderni-Regular.woff2">
+        <link rel="preload" as="font" crossorigin type="font/woff2" href="https://www.demiurg.org/fonts/Spectral/Spectral-Regular.woff2">
+        <link rel="preload" as="font" crossorigin type="font/woff2" href="https://www.demiurg.org/fonts/Spectral/Spectral-Bold.woff2">
+        <link rel="preload" as="font" crossorigin type="font/woff2" href="https://www.demiurg.org/fonts/Spectral/Spectral-Italic.woff2">
+        <link rel="preload" as="font" crossorigin type="font/woff2" href="https://www.demiurg.org/fonts/Quaderni/Quaderni-Regular.woff2">
         
         <link rel="preload" as="fetch" crossorigin href="components/header.html">
         <link rel="preload" as="fetch" crossorigin href="components/controls.html">
@@ -144,7 +144,7 @@
             function show_library() {
                 let library = document.getElementById("issue-library")
                 let images = library.getElementsByClassName("cover")[slide_current].getElementsByClassName("cover-image")
-                let lang = localStorage.getItem("gefaengnishefte_language")
+                let lang = localStorage.getItem("demiurg_language")
                 let image 
 
                 for (let i = 0; i < images.length; i++) {
@@ -213,7 +213,7 @@
             function seteagerload() {
 
                 let covers = document.getElementById("slides").getElementsByTagName("img")
-                let lang = localStorage.getItem("gefaengnishefte_language")
+                let lang = localStorage.getItem("demiurg_language")
                 
                 for (let i = 0; i < covers.length; i++) {
                     if(covers[i].lang == lang) {

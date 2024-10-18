@@ -170,7 +170,7 @@ function init_pwa() {
     // document.getElementById("notifications").addEventListener("click", () => {
     //     Notification.requestPermission().then((result) => {
     //         if (result === "granted") {
-    //             issue_notification("ISSUE I", "A new ISSUE has just been released!", "https://gefaengnishefte.org/images/issues/issue-i-illustration.WebP");
+    //             issue_notification("ISSUE I", "A new ISSUE has just been released!", "https://demiurg.org/images/issues/issue-i-illustration.WebP");
     //         }
     //     });
     // });
@@ -471,11 +471,11 @@ function init_language() {
 
 
 function reset_language() {
-    if(localStorage.getItem("gefaengnishefte_language") == null){
-        localStorage.setItem("gefaengnishefte_language", "de")
+    if(localStorage.getItem("demiurg_language") == null){
+        localStorage.setItem("demiurg_language", "de")
     }
     
-	set_language(localStorage.getItem("gefaengnishefte_language"))
+	set_language(localStorage.getItem("demiurg_language"))
 }
 
 
@@ -490,7 +490,7 @@ function set_language(language) {
     }
     
     stop_audio()
-	localStorage.setItem("gefaengnishefte_language", language);
+	localStorage.setItem("demiurg_language", language);
 }
 
 
@@ -508,7 +508,7 @@ var datainfoshown = false;
 
 function init_cookies() {
     
-    if(localStorage.getItem("gefaengnishefte_cookies") == "true"){
+    if(localStorage.getItem("demiurg_cookies") == "true"){
         showcookiecontent();
     }
     else {
@@ -521,7 +521,7 @@ function cookies(choice) {
     document.getElementById("databanner").style.display = "none";
 
     if(choice) {
-        localStorage.setItem("gefaengnishefte_cookies", choice);
+        localStorage.setItem("demiurg_cookies", choice);
     }
 
     init_cookies();
@@ -543,7 +543,7 @@ function clear_cookies_third_party() {
     let fpcookies = {}
 
     for (let [key, value] of Object.entries(localStorage)) {
-        if(key.includes("gefaengnishefte_")) {fpcookies[key] = value}    
+        if(key.includes("demiurg_")) {fpcookies[key] = value}    
     }
 
     clear_cookies()
@@ -667,7 +667,7 @@ function load_slide_frames() {
 
 
 function load_frame(frames, current, slide) {
-    if(localStorage.getItem("gefaengnishefte_cookies") == "true" && current < frames.length && slide == slide_current) {
+    if(localStorage.getItem("demiurg_cookies") == "true" && current < frames.length && slide == slide_current) {
 
         if(frames[current].getAttribute('data-source') == "youtube" && frames[current].getAttribute('data-loaded') != "true") {
             let frame = frames[current]
@@ -717,7 +717,7 @@ function load_frame(frames, current, slide) {
 function set_audio_positions() {
     let audios = document.getElementsByTagName("audio");
     for (let i = 0; i < audios.length; i++ ) {
-        audios[i].currentTime = localStorage.getItem("gefaengnishefte_audio_" + audios[i].src);
+        audios[i].currentTime = localStorage.getItem("demiurg_audio_" + audios[i].src);
     }
 }
 
@@ -727,7 +727,7 @@ window.addEventListener("beforeunload", save_audio_positions);
 function save_audio_positions() {
     let audios = document.getElementsByTagName("audio");
     for (let i = 0; i < audios.length; i++ ) {
-        localStorage.setItem("gefaengnishefte_audio_" + audios[i].src, audios[i].currentTime);
+        localStorage.setItem("demiurg_audio_" + audios[i].src, audios[i].currentTime);
     }
 }
 
@@ -911,8 +911,8 @@ function show_emailinfo_content() {
 // SWITCH ABO TYPE
 
 function init_abo() {
-    if(localStorage.getItem("gefaengnishefte_abo") == null) {localStorage.setItem("gefaengnishefte_abo", "email")}
-	setabo(localStorage.getItem("gefaengnishefte_abo"))
+    if(localStorage.getItem("demiurg_abo") == null) {localStorage.setItem("demiurg_abo", "email")}
+	setabo(localStorage.getItem("demiurg_abo"))
 
     // LISTENERS
 	document.getElementById("email-form").addEventListener('submit', function(event){submit_email(event, "email-btn")})
@@ -961,7 +961,7 @@ function setabo(type) {
         document.getElementById(type + '-form-content').style.display = "flex";
     }
 
-	localStorage.setItem("gefaengnishefte_abo", type);	
+	localStorage.setItem("demiurg_abo", type);	
 }
 
 
@@ -1197,7 +1197,7 @@ function init_highlights() {
     remove_after(window_url, "?")
 
     for (let [URLsnippet, IDs] of Object.entries(highlights)) {
-        if (window_url == ("https://www.GEFAENGNISHEFTE.org" + URLsnippet).toLowerCase()) {
+        if (window_url == ("https://www.DEMIURG.org" + URLsnippet).toLowerCase()) {
             for (let i = 0; i < IDs.length; i++ ) {
                 console.log("window: " + window_url + "   snippet: " + URLsnippet + " -> " + IDs[i])
 
@@ -1527,7 +1527,7 @@ function init_footnotes() {
         })
     }
 
-    if(localStorage.getItem("gefaengnishefte_cookies") != "true"){
+    if(localStorage.getItem("demiurg_cookies") != "true"){
         hidecookiecontent();
     }
 
@@ -1711,7 +1711,7 @@ function footnote_horizontal_bounds() {
 //     });
 
 //     const loader = new GLTFLoader();
-//     loader.load(MODEL[localStorage.getItem("gefaengnishefte_language")], (gltf) => {
+//     loader.load(MODEL[localStorage.getItem("demiurg_language")], (gltf) => {
 //         model = gltf.scene;
 
 //         model.traverse((child) => {
