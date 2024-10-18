@@ -1203,7 +1203,7 @@ function init_highlights() {
 
                 let element = document.getElementById(IDs[i])
                 // element.style.fontWeight = "700"
-                element.style.fontStyle = "italic";  
+                element.style.textDecoration = "underline";  
             }
             return
         }
@@ -1418,12 +1418,12 @@ function display_slide_index() {
     var indexitems = document.getElementsByClassName("indexitem")
     for (let i = 0; i < indexitems.length; i++) {
         // indexitems[i].style.fontWeight = "400"
-        indexitems[i].style.fontStyle = "normal";
+        indexitems[i].style.textDecoration = "none"; 
     }
 
     // document.getElementById("slide-current").disabled = true;
     // document.getElementById("index"+slide_current).style.fontWeight = "700"
-    document.getElementById("index"+slide_current).style.fontStyle = "italic";
+    document.getElementById("index"+slide_current).style.textDecoration = "underline"; 
     document.getElementById("timeline-btns").style.display = "none";
     document.getElementById("slide-title").style.display = "none";
     document.getElementById(SLIDE_LIST[slide_current]).style.display = "none";

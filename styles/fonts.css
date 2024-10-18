@@ -425,19 +425,7 @@
 	font-family: "Gespenst";	
 }
 
-.artikel-title *, #title *, #logo, .issue-title.vertical * {
+.artikel-title * {
 	font-family: "Quaderni" !important;
 	font-weight: 400 !important;
 }
-
-/* .issue-title.vertical * {
-	font-size: 22pt;
-	line-height: 0.9;
-} */
-
-/* @media screen and (max-width: 800px) {
-	#logo {
-		font-size: 22pt !important;
-		padding: 5px 12px 0px 12px !important;
-	}
-} */

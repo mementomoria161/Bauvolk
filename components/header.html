@@ -29,7 +29,7 @@
 				display: flex;
 				justify-content: space-between;
 				align-items: center;
-				gap:5px;
+				/* gap:5px; */
 
 				color: var(--color-text);
 			}
@@ -63,7 +63,8 @@
 				padding: 15px 20px;
 				display: flex;
 				justify-content: space-between;
-				gap: 30px;
+				/* gap: 25px; */
+				min-width: 245px;
 			}
 
 			.dropanchor {
@@ -225,6 +226,22 @@
 			}
 
 
+
+			#header .issue-title {
+				white-space: wrap;
+				flex-direction: column;
+				align-items: center;
+				justify-content: flex-start;
+				text-align: center;
+				flex: 1
+			}
+
+			#cover-container {
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+				gap:20px;
+			}
+
 		</style>
 	</head>
 
@@ -275,8 +292,20 @@
 		<div id="menu-area">
 
 			<div class="menu-content" id="menu-issues">
-				<a class="issue-title" id="info-issue-i"  href="https://www.demiurg.page/heft-i"><span lang="de">HEFT I</span><span lang="en">ISSUE I</span> <span lang="de">GRUNDRISSE DES <br>KONSTRUKTIVEN <br>SOZIALISMUS</span><span lang="en">OUTLINES OF <br>CONSTRUCTIVE SOCIALISM</span></a>
-				<a class="issue-title" id="info-issue-ii"  href="https://www.demiurg.page/heft-ii"><span lang="de">HEFT II</span><span lang="en">ISSUE II</span> <span lang="de">IN ARBEIT</span><span lang="en">WORK IN PROGRESS</span></a>
+				<div id="cover-container">
+					<a class="issue-title" id="info-issue-i" href="https://www.demiurg.page/heft-i">
+						<img lang="de" class="header_cover" src="images/issues/de/issue-i-cover.webp">
+						<img lang="en" class="header_cover" src="images/issues/en/issue-i-cover.webp">
+						<span lang="de">HEFT I<br>Grundrisse des<br>konstruktiven<br>Sozialismus</span>
+						<span lang="en">ISSUE I<br>Outlines of<br>Constructive<br>Socialism</span>
+					</a>
+					<a class="issue-title" id="info-issue-ii" href="https://www.demiurg.page/heft-ii">
+						<img lang="de" class="header_cover" src="images/issues/de/issue-ii-cover.webp">
+						<img lang="en" class="header_cover" src="images/issues/en/issue-ii-cover.webp">
+						<span lang="de">HEFT II<br>In Arbeit</span>
+						<span lang="en">ISSUE II<br>Work in Progress</span>
+					</a>
+				</div>
 			</div>
 
 			<div class="menu-content" id="menu-kanon">

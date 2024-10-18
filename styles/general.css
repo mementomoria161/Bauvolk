@@ -13,7 +13,7 @@
 	--color-text: white;
 	--color-highlight-background:white;
 	--color-highlight-text: #750000;
-	--color-link-hover: lightgrey;
+	--color-link-hover: white;
 }
 
 
@@ -96,83 +96,34 @@ body {
 
 /* SELECTION */
 
-#header *::-moz-selection {
+*::-moz-selection {
 	color: var(--color-highlight-text);
 	background: var(--color-highlight-background);
 }
 
-#header *::-webkit-selection {
+*::-webkit-selection {
 	color: var(--color-highlight-text);
 	background: var(--color-highlight-background);
 }
 
-#header *::selection {
+*::selection {
 	color: var(--color-highlight-text);
 	background: var(--color-highlight-background);
 }
-
-#content *::-moz-selection {
-	color: var(--color-highlight-text);
-	background: var(--color-highlight-background);
-}
-
-#content *::-webkit-selection {
-	color: var(--color-highlight-text);
-	background: var(--color-highlight-background);
-}
-
-#content *::selection {
-	color: var(--color-highlight-text);
-	background: var(--color-highlight-background);
-}
-
-#footer *::-moz-selection {
-	color: var(--color-highlight-text);
-	background: var(--color-highlight-background);
-}
-
-#footer *::-webkit-selection {
-	color: var(--color-highlight-text);
-	background: var(--color-highlight-background);
-}
-
-#footer *::selection {
-	color: var(--color-highlight-text);
-	background: var(--color-highlight-background);
-}
-
 
 /* LINK */
 
 a:link, a:active, a:visited
 {
 	text-decoration: none;
-	transition: 0.1s;
-	color: white;
-}
-
-a:hover {
-	color: lightgrey;
-}
-
-
-#header a:link, #header a:visited, #header a:active  {
-	color: white;
-}
-
-#header a:hover {
-	color: lightgrey;
-}
-
-
-#content a:link, #content a:visited, #content a:active {
+	/* transition: 0.1s; */
 	color: var(--color-text);
 }
 
-#content a:hover {
+a:hover {
 	color: var(--color-link-hover);
+	font-style: italic;
 }
-
 
 
 
