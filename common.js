@@ -1197,7 +1197,7 @@ function init_highlights() {
     remove_after(window_url, "?")
 
     for (let [URLsnippet, IDs] of Object.entries(highlights)) {
-        if (window_url == ("https://www.DEMIURG.org" + URLsnippet).toLowerCase()) {
+        if (window_url == ("https://www.DEMIURG.page" + URLsnippet).toLowerCase()) {
             for (let i = 0; i < IDs.length; i++ ) {
                 console.log("window: " + window_url + "   snippet: " + URLsnippet + " -> " + IDs[i])
 
