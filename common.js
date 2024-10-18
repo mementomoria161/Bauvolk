@@ -1202,13 +1202,8 @@ function init_highlights() {
                 console.log("window: " + window_url + "   snippet: " + URLsnippet + " -> " + IDs[i])
 
                 let element = document.getElementById(IDs[i])
-                // if(element.classList.contains("nav-selectable")) {
-                //     element.classList.add("nav-selected");
-                // }
-                // else {
-                    element.style.fontWeight = "700"
-                // }
-                
+                // element.style.fontWeight = "700"
+                element.style.fontStyle = "italic";  
             }
             return
         }
