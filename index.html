@@ -134,14 +134,14 @@
                 }
 
                 display_issue(slide_current)
-                show_library()
+                init_library()
                 seteagerload()
                 // init_prevent_touch_response()
             }
 
 
             // NOT WORKING FOR SLIDES?
-            function show_library() {
+            function init_library() {
                 let library = document.getElementById("issue-library")
                 let images = library.getElementsByClassName("cover")[slide_current].getElementsByClassName("cover-image")
                 let lang = localStorage.getItem("demiurg_language")
@@ -159,20 +159,32 @@
 
                 // if(image == null) {
                 //     console.log("lib is null")
-                //     setTimeout(show_library, 10)
+                //     setTimeout(init_library, 10)
                 // }
                 // else if (image.complete) {
                 //     console.log("image complete")
                 //     library.style.display = "flex"
                 // }
                 // else {
-                //     console.log("show_library")
-                //     setTimeout(show_library, 10)
+                //     console.log("init_library")
+                //     setTimeout(init_library, 10)
                 // }
+
+                library.querySelectorAll('.box').forEach((item) => {
+                    
+                    item.addEventListener('mouseenter', () => {
+
+                        library.querySelectorAll('.box').forEach((item) => {
+                            item.classList.remove("box_hovered")
+                        })
+
+                        item.classList.add("box_hovered")
+                    })
+                })
             }
-
-
             
+
+
             // DISPLAY COMBINED
 
             var library_cooldown = false
@@ -197,13 +209,6 @@
 
                 let titles = issue_list.querySelectorAll('.issue-title')
                 titles.forEach((title) => {title.style.display = "flex"})
-                // titles.item(index).style.display = "none";
-
-                let title_covers = issue_list.querySelectorAll('.cover')
-                // title_covers.forEach((title_cover) => {title_cover.style.display = "none"})
-                
-                // title_covers.item(index).getElementsByClassName('box')[0].style.transform = `rotateY(1000deg) rotateX(1000deg)`;
-                // title_covers.item(index).style.display = "flex"
             }
 
 
@@ -247,173 +252,10 @@
             //     event.currentTarget.removeEventListener("click", prevent_link_events)
             // }
 
+
+
             
         </script>
-
-<script>
-
-function suf_init() {
-    let library = document.getElementById("issue-library")
-    // let boxes = library.getElementsByClassName('box')
-    // boxes[boxes.length-1].classList.add("box_hovered");
-
-    library.querySelectorAll('.box').forEach((item) => {
-        item.addEventListener('mouseenter', () => {
-            library.querySelectorAll('.box').forEach((item) => {
-                item.classList.remove("box_hovered");
-            });
-
-            item.classList.add("box_hovered");
-        });
-    });
-}
-
-    var BOX_INFO = {}
-    var AUTO_ROTATE_TOGGLE = false
-    var LIBRARY_MODE = true
-    let defaultRotation = 0;
-    
-    function lerp(start, end, factor) {
-    return start + (end - start) * factor;
-}
-
-function init_boxes() {
-    const perspectives = document.getElementsByClassName('perspective');
-    const initialGap = 5; // Small gap to bring covers close together
-    const totalCovers = perspectives.length;
-    const centerIndex = (totalCovers - 1) / 2;
-
-    // Calculate initial positions
-    let translateXs = [];
-    for (let i = 0; i < totalCovers; i++) {
-        let offsetFromCenter = i - centerIndex;
-        let translateX = offsetFromCenter * initialGap;
-        translateXs.push(translateX);
-    }
-
-    // Center the group
-    let sumTranslateX = translateXs.reduce((sum, x) => sum + x, 0);
-    let avgTranslateX = sumTranslateX / totalCovers;
-
-    for (let i = 0; i < perspectives.length; i++) {
-        let box_id = "box" + i;
-        perspectives[i].setAttribute("data-box-id", box_id);
-        BOX_INFO[box_id] = {};
-        BOX_INFO[box_id]["currentX"] = 90;
-        BOX_INFO[box_id]["targetX"] = 90;
-        BOX_INFO[box_id]["translateX"] = translateXs[i] - avgTranslateX;
-    }
-
-    animate();
-
-    // Attach event listeners to the entire cover
-    document.querySelectorAll('.cover').forEach((item) => {
-        item.addEventListener('mouseenter', () => {
-            // show_cover(item);
-        });
-
-
-    });
-}
-
-function show_cover(coverElement) {
-    if (!LIBRARY_MODE) { return; }
-
-    const perspectives = Array.from(document.getElementsByClassName('perspective'));
-    const selectedIndex = perspectives.findIndex(perspective => perspective.parentElement === coverElement);
-
-    if (selectedIndex === -1) {
-        console.error("Selected perspective not found");
-        return;
-    }
-
-    const hoverGap = 100; // Larger gap when cover is hovered
-    const totalCovers = perspectives.length;
-
-    // Calculate positions relative to the selected cover
-    let translateXs = [];
-    for (let i = 0; i < totalCovers; i++) {
-        let offsetFromSelected = i - selectedIndex;
-        let translateX = offsetFromSelected * hoverGap;
-        translateXs.push(translateX);
-    }
-
-    // Center the group
-    let sumTranslateX = translateXs.reduce((sum, x) => sum + x, 0);
-    let avgTranslateX = sumTranslateX / totalCovers;
-
-    for (let i = 0; i < totalCovers; i++) {
-        let box_info = BOX_INFO[perspectives[i].getAttribute("data-box-id")];
-        box_info["translateX"] = translateXs[i] - avgTranslateX;
-
-        if (i === selectedIndex) {
-            box_info["targetX"] = 0; // Hovered cover faces forward
-        } else {
-            box_info["targetX"] = 90; // Others are side-on
-        }
-
-        box_info["currentY"] = 0;
-    }
-}
-
-function reset_covers() {
-    const perspectives = Array.from(document.getElementsByClassName('perspective'));
-    const initialGap = 5; // Same as in init_boxes
-    const totalCovers = perspectives.length;
-    const centerIndex = (totalCovers - 1) / 2;
-
-    // Calculate initial positions
-    let translateXs = [];
-    for (let i = 0; i < totalCovers; i++) {
-        let offsetFromCenter = i - centerIndex;
-        let translateX = offsetFromCenter * initialGap;
-        translateXs.push(translateX);
-    }
-
-    // Center the group
-    let sumTranslateX = translateXs.reduce((sum, x) => sum + x, 0);
-    let avgTranslateX = sumTranslateX / totalCovers;
-
-    for (let i = 0; i < totalCovers; i++) {
-        let box_info = BOX_INFO[perspectives[i].getAttribute("data-box-id")];
-        box_info["translateX"] = translateXs[i] - avgTranslateX;
-        box_info["targetX"] = 90; // Reset rotation
-        box_info["currentY"] = 0;
-    }
-}
-
-function animate() {
-    const boxes = document.getElementsByClassName('box');
-
-    for (let i = 0; i < boxes.length; i++) {
-        animate_box(boxes[i]);
-    }
-
-    requestAnimationFrame(animate);
-}
-
-function animate_box(box) {
-    let box_id = box.parentElement.getAttribute("data-box-id");
-    let box_info = BOX_INFO[box_id];
-    let targetX = box_info["targetX"];
-    let currentX = box_info["currentX"];
-    let translateX = box_info["translateX"];
-
-    let lerpFactor = 0.08; // Adjusted for smoother animation
-
-    currentX = lerp(currentX, targetX, lerpFactor);
-
-    // Apply rotation to the box
-    // box.style.transform = `rotateY(${currentX}deg)`;
-
-    // Apply translation to the cover
-    box.parentElement.parentElement.style.transform = `translateX(calc(-50% + ${translateX}px))`;
-
-    // Update the box info
-    box_info["currentX"] = currentX;
-}
-
-    </script>
 
         <style>
 
