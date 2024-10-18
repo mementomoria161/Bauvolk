@@ -2,9 +2,9 @@
 
 @font-face {
 	font-family: "Spectral";
-	src:	url('https://www.DEMIURG.page/fonts/Spectral/Spectral-Regular.woff2') format('woff2'),
-			url('https://www.DEMIURG.page/fonts/Spectral/Spectral-Regular.woff') format('woff'),
-			url('https://www.DEMIURG.page/fonts/Spectral/Spectral-Regular.ttf') format('truetype');
+	src:	url('https://www.demiurg.page/fonts/Spectral/Spectral-Regular.woff2') format('woff2'),
+			url('https://www.demiurg.page/fonts/Spectral/Spectral-Regular.woff') format('woff'),
+			url('https://www.demiurg.page/fonts/Spectral/Spectral-Regular.ttf') format('truetype');
 	font-weight: 400;
 	font-style: normal;
 	font-display: block;
@@ -12,9 +12,9 @@
 
 @font-face {
 	font-family: "Spectral";
-	src:	url('https://www.DEMIURG.page/fonts/Spectral/Spectral-Bold.woff2') format('woff2'),
-			url('https://www.DEMIURG.page/fonts/Spectral/Spectral-Bold.woff') format('woff'),
-			url('https://www.DEMIURG.page/fonts/Spectral/Spectral-Bold.ttf') format('truetype');
+	src:	url('https://www.demiurg.page/fonts/Spectral/Spectral-Bold.woff2') format('woff2'),
+			url('https://www.demiurg.page/fonts/Spectral/Spectral-Bold.woff') format('woff'),
+			url('https://www.demiurg.page/fonts/Spectral/Spectral-Bold.ttf') format('truetype');
 	font-weight: 700;
 	font-style: normal;
 	font-display: block;
@@ -25,9 +25,9 @@
 
 @font-face {
 	font-family: "Spectral";
-	src:	url('https://www.DEMIURG.page/fonts/Spectral/Spectral-Italic.woff2') format('woff2'),
-			url('https://www.DEMIURG.page/fonts/Spectral/Spectral-Italic.woff') format('woff'),
-			url('https://www.DEMIURG.page/fonts/Spectral/Spectral-Italic.ttf') format('truetype');
+	src:	url('https://www.demiurg.page/fonts/Spectral/Spectral-Italic.woff2') format('woff2'),
+			url('https://www.demiurg.page/fonts/Spectral/Spectral-Italic.woff') format('woff'),
+			url('https://www.demiurg.page/fonts/Spectral/Spectral-Italic.ttf') format('truetype');
 	font-weight: 400;
 	font-style: italic;
 	font-display: block;
@@ -35,9 +35,9 @@
 
 @font-face {
 	font-family: "Spectral";
-	src:	url('https://www.DEMIURG.page/fonts/Spectral/Spectral-BoldItalic.woff2') format('woff2'),
-			url('https://www.DEMIURG.page/fonts/Spectral/Spectral-BoldItalic.woff') format('woff'),
-			url('https://www.DEMIURG.page/fonts/Spectral/Spectral-BoldItalic.ttf') format('truetype');
+	src:	url('https://www.demiurg.page/fonts/Spectral/Spectral-BoldItalic.woff2') format('woff2'),
+			url('https://www.demiurg.page/fonts/Spectral/Spectral-BoldItalic.woff') format('woff'),
+			url('https://www.demiurg.page/fonts/Spectral/Spectral-BoldItalic.ttf') format('truetype');
 	font-weight: 700;
 	font-style: italic;
 	font-display: block;
@@ -48,9 +48,9 @@
 
 @font-face {
 	font-family: "Quaderni";
-	src:	url('https://www.DEMIURG.page/fonts/Quaderni/Quaderni-Regular.woff2') format('woff2'),
-			url('https://www.DEMIURG.page/fonts/Quaderni/Quaderni-Regular.woff') format('woff'),
-			url('https://www.DEMIURG.page/fonts/Quaderni/Quaderni-Regular.ttf') format('truetype');
+	src:	url('https://www.demiurg.page/fonts/Quaderni/Quaderni-Regular.woff2') format('woff2'),
+			url('https://www.demiurg.page/fonts/Quaderni/Quaderni-Regular.woff') format('woff'),
+			url('https://www.demiurg.page/fonts/Quaderni/Quaderni-Regular.ttf') format('truetype');
 	font-weight: 400;
 	font-style: normal;
 	font-display: block;
@@ -60,8 +60,8 @@
 
 @font-face {
 	font-family: "Redaction";
-	src:	url('https://www.DEMIURG.page/fonts/Redaction/Redaction-Regular.woff2') format('woff2'),
-			url('https://www.DEMIURG.page/fonts/Redaction/Redaction-Regular.otf') format('truetype');
+	src:	url('https://www.demiurg.page/fonts/Redaction/Redaction-Regular.woff2') format('woff2'),
+			url('https://www.demiurg.page/fonts/Redaction/Redaction-Regular.otf') format('truetype');
 	font-weight: 400;
 	font-style: normal;
 	font-display: block;
@@ -69,8 +69,8 @@
 
 @font-face {
 	font-family: "Redaction";
-	src:	url('https://www.DEMIURG.page/fonts/Redaction/Redaction-Bold.woff2') format('woff2'),
-			url('https://www.DEMIURG.page/fonts/Redaction/Redaction-Bold.otf') format('truetype');
+	src:	url('https://www.demiurg.page/fonts/Redaction/Redaction-Bold.woff2') format('woff2'),
+			url('https://www.demiurg.page/fonts/Redaction/Redaction-Bold.otf') format('truetype');
 	font-weight: 700;
 	font-style: normal;
 	font-display: block;
@@ -78,8 +78,8 @@
 
 @font-face {
 	font-family: "Redaction";
-	src:	url('https://www.DEMIURG.page/fonts/Redaction/Redaction-Italic.woff2') format('woff2'),
-			url('https://www.DEMIURG.page/fonts/Redaction/Redaction-Italic.otf') format('truetype');
+	src:	url('https://www.demiurg.page/fonts/Redaction/Redaction-Italic.woff2') format('woff2'),
+			url('https://www.demiurg.page/fonts/Redaction/Redaction-Italic.otf') format('truetype');
 	font-weight: 400;
 	font-style: italic;
 	font-display: block;
@@ -90,9 +90,9 @@
 
 @font-face {
     font-family: 'Cormorant';
-    src: url('https://www.DEMIURG.page/fonts/Cormorant/Cormorant-BoldItalic.woff2') format('woff2'),
-        url('https://www.DEMIURG.page/fonts/Cormorant/Cormorant-BoldItalic.woff') format('woff'),
-        url('https://www.DEMIURG.page/fonts/Cormorant/Cormorant-BoldItalic.ttf') format('truetype');
+    src: url('https://www.demiurg.page/fonts/Cormorant/Cormorant-BoldItalic.woff2') format('woff2'),
+        url('https://www.demiurg.page/fonts/Cormorant/Cormorant-BoldItalic.woff') format('woff'),
+        url('https://www.demiurg.page/fonts/Cormorant/Cormorant-BoldItalic.ttf') format('truetype');
     font-weight: bold;
     font-style: italic;
     font-display: block;
@@ -100,9 +100,9 @@
 
 @font-face {
     font-family: 'Cormorant';
-    src: url('https://www.DEMIURG.page/fonts/Cormorant/Cormorant-Italic.woff2') format('woff2'),
-        url('https://www.DEMIURG.page/fonts/Cormorant/Cormorant-Italic.woff') format('woff'),
-        url('https://www.DEMIURG.page/fonts/Cormorant/Cormorant-Italic.ttf') format('truetype');
+    src: url('https://www.demiurg.page/fonts/Cormorant/Cormorant-Italic.woff2') format('woff2'),
+        url('https://www.demiurg.page/fonts/Cormorant/Cormorant-Italic.woff') format('woff'),
+        url('https://www.demiurg.page/fonts/Cormorant/Cormorant-Italic.ttf') format('truetype');
     font-weight: normal;
     font-style: italic;
     font-display: block;
@@ -110,9 +110,9 @@
 
 @font-face {
     font-family: 'Cormorant';
-    src: url('https://www.DEMIURG.page/fonts/Cormorant/Cormorant-Bold.woff2') format('woff2'),
-        url('https://www.DEMIURG.page/fonts/Cormorant/Cormorant-Bold.woff') format('woff'),
-        url('https://www.DEMIURG.page/fonts/Cormorant/Cormorant-Bold.ttf') format('truetype');
+    src: url('https://www.demiurg.page/fonts/Cormorant/Cormorant-Bold.woff2') format('woff2'),
+        url('https://www.demiurg.page/fonts/Cormorant/Cormorant-Bold.woff') format('woff'),
+        url('https://www.demiurg.page/fonts/Cormorant/Cormorant-Bold.ttf') format('truetype');
     font-weight: bold;
     font-style: normal;
     font-display: block;
@@ -120,9 +120,9 @@
 
 @font-face {
     font-family: 'Cormorant';
-    src: url('https://www.DEMIURG.page/fonts/Cormorant/Cormorant-LightItalic.woff2') format('woff2'),
-        url('https://www.DEMIURG.page/fonts/Cormorant/Cormorant-LightItalic.woff') format('woff'),
-        url('https://www.DEMIURG.page/fonts/Cormorant/Cormorant-LightItalic.ttf') format('truetype');
+    src: url('https://www.demiurg.page/fonts/Cormorant/Cormorant-LightItalic.woff2') format('woff2'),
+        url('https://www.demiurg.page/fonts/Cormorant/Cormorant-LightItalic.woff') format('woff'),
+        url('https://www.demiurg.page/fonts/Cormorant/Cormorant-LightItalic.ttf') format('truetype');
     font-weight: 300;
     font-style: italic;
     font-display: block;
@@ -130,9 +130,9 @@
 
 @font-face {
     font-family: 'Cormorant';
-    src: url('https://www.DEMIURG.page/fonts/Cormorant/Cormorant-Light.woff2') format('woff2'),
-        url('https://www.DEMIURG.page/fonts/Cormorant/Cormorant-Light.woff') format('woff'),
-        url('https://www.DEMIURG.page/fonts/Cormorant/Cormorant-Light.ttf') format('truetype');
+    src: url('https://www.demiurg.page/fonts/Cormorant/Cormorant-Light.woff2') format('woff2'),
+        url('https://www.demiurg.page/fonts/Cormorant/Cormorant-Light.woff') format('woff'),
+        url('https://www.demiurg.page/fonts/Cormorant/Cormorant-Light.ttf') format('truetype');
     font-weight: 300;
     font-style: normal;
     font-display: block;
@@ -140,9 +140,9 @@
 
 @font-face {
     font-family: 'Cormorant';
-    src: url('https://www.DEMIURG.page/fonts/Cormorant/Cormorant-Medium.woff2') format('woff2'),
-        url('https://www.DEMIURG.page/fonts/Cormorant/Cormorant-Medium.woff') format('woff'),
-        url('https://www.DEMIURG.page/fonts/Cormorant/Cormorant-Medium.ttf') format('truetype');
+    src: url('https://www.demiurg.page/fonts/Cormorant/Cormorant-Medium.woff2') format('woff2'),
+        url('https://www.demiurg.page/fonts/Cormorant/Cormorant-Medium.woff') format('woff'),
+        url('https://www.demiurg.page/fonts/Cormorant/Cormorant-Medium.ttf') format('truetype');
     font-weight: 500;
     font-style: normal;
     font-display: block;
@@ -150,9 +150,9 @@
 
 @font-face {
     font-family: 'Cormorant';
-    src: url('https://www.DEMIURG.page/fonts/Cormorant/Cormorant-MediumItalic.woff2') format('woff2'),
-        url('https://www.DEMIURG.page/fonts/Cormorant/Cormorant-MediumItalic.woff') format('woff'),
-        url('https://www.DEMIURG.page/fonts/Cormorant/Cormorant-MediumItalic.ttf') format('truetype');
+    src: url('https://www.demiurg.page/fonts/Cormorant/Cormorant-MediumItalic.woff2') format('woff2'),
+        url('https://www.demiurg.page/fonts/Cormorant/Cormorant-MediumItalic.woff') format('woff'),
+        url('https://www.demiurg.page/fonts/Cormorant/Cormorant-MediumItalic.ttf') format('truetype');
     font-weight: 500;
     font-style: italic;
     font-display: block;
@@ -160,9 +160,9 @@
 
 @font-face {
     font-family: 'Cormorant';
-    src: url('https://www.DEMIURG.page/fonts/Cormorant/Cormorant-Regular.woff2') format('woff2'),
-        url('https://www.DEMIURG.page/fonts/Cormorant/Cormorant-Regular.woff') format('woff'),
-        url('https://www.DEMIURG.page/fonts/Cormorant/Cormorant-Regular.ttf') format('truetype');
+    src: url('https://www.demiurg.page/fonts/Cormorant/Cormorant-Regular.woff2') format('woff2'),
+        url('https://www.demiurg.page/fonts/Cormorant/Cormorant-Regular.woff') format('woff'),
+        url('https://www.demiurg.page/fonts/Cormorant/Cormorant-Regular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
     font-display: block;
@@ -170,9 +170,9 @@
 
 @font-face {
     font-family: 'Cormorant';
-    src: url('https://www.DEMIURG.page/fonts/Cormorant/Cormorant-SemiBold.woff2') format('woff2'),
-        url('https://www.DEMIURG.page/fonts/Cormorant/Cormorant-SemiBold.woff') format('woff'),
-        url('https://www.DEMIURG.page/fonts/Cormorant/Cormorant-SemiBold.ttf') format('truetype');
+    src: url('https://www.demiurg.page/fonts/Cormorant/Cormorant-SemiBold.woff2') format('woff2'),
+        url('https://www.demiurg.page/fonts/Cormorant/Cormorant-SemiBold.woff') format('woff'),
+        url('https://www.demiurg.page/fonts/Cormorant/Cormorant-SemiBold.ttf') format('truetype');
     font-weight: 600;
     font-style: normal;
     font-display: block;
@@ -180,9 +180,9 @@
 
 @font-face {
     font-family: 'Cormorant';
-    src: url('https://www.DEMIURG.page/fonts/Cormorant/Cormorant-SemiBoldItalic.woff2') format('woff2'),
-        url('https://www.DEMIURG.page/fonts/Cormorant/Cormorant-SemiBoldItalic.woff') format('woff'),
-        url('https://www.DEMIURG.page/fonts/Cormorant/Cormorant-SemiBoldItalic.ttf') format('truetype');
+    src: url('https://www.demiurg.page/fonts/Cormorant/Cormorant-SemiBoldItalic.woff2') format('woff2'),
+        url('https://www.demiurg.page/fonts/Cormorant/Cormorant-SemiBoldItalic.woff') format('woff'),
+        url('https://www.demiurg.page/fonts/Cormorant/Cormorant-SemiBoldItalic.ttf') format('truetype');
     font-weight: 600;
     font-style: italic;
     font-display: block;
@@ -192,9 +192,9 @@
 
 @font-face {
     font-family: 'EB Garamond';
-    src: url('https://www.DEMIURG.page/fonts/Garamond/EBGaramond-BoldItalic.woff2') format('woff2'),
-        url('https://www.DEMIURG.page/fonts/Garamond/EBGaramond-BoldItalic.woff') format('woff'),
-        url('https://www.DEMIURG.page/fonts/Garamond/EBGaramond-BoldItalic.ttf') format('truetype');
+    src: url('https://www.demiurg.page/fonts/Garamond/EBGaramond-BoldItalic.woff2') format('woff2'),
+        url('https://www.demiurg.page/fonts/Garamond/EBGaramond-BoldItalic.woff') format('woff'),
+        url('https://www.demiurg.page/fonts/Garamond/EBGaramond-BoldItalic.ttf') format('truetype');
     font-weight: bold;
     font-style: italic;
      font-display: block;
@@ -202,9 +202,9 @@
 
 @font-face {
     font-family: 'EB Garamond';
-    src: url('https://www.DEMIURG.page/fonts/Garamond/EBGaramond-Bold.woff2') format('woff2'),
-        url('https://www.DEMIURG.page/fonts/Garamond/EBGaramond-Bold.woff') format('woff'),
-        url('https://www.DEMIURG.page/fonts/Garamond/EBGaramond-Bold.ttf') format('truetype');
+    src: url('https://www.demiurg.page/fonts/Garamond/EBGaramond-Bold.woff2') format('woff2'),
+        url('https://www.demiurg.page/fonts/Garamond/EBGaramond-Bold.woff') format('woff'),
+        url('https://www.demiurg.page/fonts/Garamond/EBGaramond-Bold.ttf') format('truetype');
     font-weight: bold;
     font-style: normal;
      font-display: block;
@@ -212,9 +212,9 @@
 
 @font-face {
     font-family: 'EB Garamond';
-    src: url('https://www.DEMIURG.page/fonts/Garamond/EBGaramond-ExtraBold.woff2') format('woff2'),
-        url('https://www.DEMIURG.page/fonts/Garamond/EBGaramond-ExtraBold.woff') format('woff'),
-        url('https://www.DEMIURG.page/fonts/Garamond/EBGaramond-ExtraBold.ttf') format('truetype');
+    src: url('https://www.demiurg.page/fonts/Garamond/EBGaramond-ExtraBold.woff2') format('woff2'),
+        url('https://www.demiurg.page/fonts/Garamond/EBGaramond-ExtraBold.woff') format('woff'),
+        url('https://www.demiurg.page/fonts/Garamond/EBGaramond-ExtraBold.ttf') format('truetype');
     font-weight: bold;
     font-style: normal;
      font-display: block;
@@ -222,9 +222,9 @@
 
 @font-face {
     font-family: 'EB Garamond';
-    src: url('https://www.DEMIURG.page/fonts/Garamond/EBGaramond-ExtraBoldItalic.woff2') format('woff2'),
-        url('https://www.DEMIURG.page/fonts/Garamond/EBGaramond-ExtraBoldItalic.woff') format('woff'),
-        url('https://www.DEMIURG.page/fonts/Garamond/EBGaramond-ExtraBoldItalic.ttf') format('truetype');
+    src: url('https://www.demiurg.page/fonts/Garamond/EBGaramond-ExtraBoldItalic.woff2') format('woff2'),
+        url('https://www.demiurg.page/fonts/Garamond/EBGaramond-ExtraBoldItalic.woff') format('woff'),
+        url('https://www.demiurg.page/fonts/Garamond/EBGaramond-ExtraBoldItalic.ttf') format('truetype');
     font-weight: bold;
     font-style: italic;
      font-display: block;
@@ -232,9 +232,9 @@
 
 @font-face {
     font-family: 'EB Garamond';
-    src: url('https://www.DEMIURG.page/fonts/Garamond/EBGaramond-Italic.woff2') format('woff2'),
-        url('https://www.DEMIURG.page/fonts/Garamond/EBGaramond-Italic.woff') format('woff'),
-        url('https://www.DEMIURG.page/fonts/Garamond/EBGaramond-Italic.ttf') format('truetype');
+    src: url('https://www.demiurg.page/fonts/Garamond/EBGaramond-Italic.woff2') format('woff2'),
+        url('https://www.demiurg.page/fonts/Garamond/EBGaramond-Italic.woff') format('woff'),
+        url('https://www.demiurg.page/fonts/Garamond/EBGaramond-Italic.ttf') format('truetype');
     font-weight: normal;
     font-style: italic;
      font-display: block;
@@ -242,9 +242,9 @@
 
 @font-face {
     font-family: 'EB Garamond';
-    src: url('https://www.DEMIURG.page/fonts/Garamond/EBGaramond-Medium.woff2') format('woff2'),
-        url('https://www.DEMIURG.page/fonts/Garamond/EBGaramond-Medium.woff') format('woff'),
-        url('https://www.DEMIURG.page/fonts/Garamond/EBGaramond-Medium.ttf') format('truetype');
+    src: url('https://www.demiurg.page/fonts/Garamond/EBGaramond-Medium.woff2') format('woff2'),
+        url('https://www.demiurg.page/fonts/Garamond/EBGaramond-Medium.woff') format('woff'),
+        url('https://www.demiurg.page/fonts/Garamond/EBGaramond-Medium.ttf') format('truetype');
     font-weight: 500;
     font-style: normal;
      font-display: block;
@@ -252,9 +252,9 @@
 
 @font-face {
     font-family: 'EB Garamond';
-    src: url('https://www.DEMIURG.page/fonts/Garamond/EBGaramond-MediumItalic.woff2') format('woff2'),
-        url('https://www.DEMIURG.page/fonts/Garamond/EBGaramond-MediumItalic.woff') format('woff'),
-        url('https://www.DEMIURG.page/fonts/Garamond/EBGaramond-MediumItalic.ttf') format('truetype');
+    src: url('https://www.demiurg.page/fonts/Garamond/EBGaramond-MediumItalic.woff2') format('woff2'),
+        url('https://www.demiurg.page/fonts/Garamond/EBGaramond-MediumItalic.woff') format('woff'),
+        url('https://www.demiurg.page/fonts/Garamond/EBGaramond-MediumItalic.ttf') format('truetype');
     font-weight: 500;
     font-style: italic;
      font-display: block;
@@ -262,9 +262,9 @@
 
 @font-face {
     font-family: 'EB Garamond';
-    src: url('https://www.DEMIURG.page/fonts/Garamond/EBGaramond-Regular.woff2') format('woff2'),
-        url('https://www.DEMIURG.page/fonts/Garamond/EBGaramond-Regular.woff') format('woff'),
-        url('https://www.DEMIURG.page/fonts/Garamond/EBGaramond-Regular.ttf') format('truetype');
+    src: url('https://www.demiurg.page/fonts/Garamond/EBGaramond-Regular.woff2') format('woff2'),
+        url('https://www.demiurg.page/fonts/Garamond/EBGaramond-Regular.woff') format('woff'),
+        url('https://www.demiurg.page/fonts/Garamond/EBGaramond-Regular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
      font-display: block;
@@ -272,9 +272,9 @@
 
 @font-face {
     font-family: 'EB Garamond';
-    src: url('https://www.DEMIURG.page/fonts/Garamond/EBGaramond-SemiBold.woff2') format('woff2'),
-        url('https://www.DEMIURG.page/fonts/Garamond/EBGaramond-SemiBold.woff') format('woff'),
-        url('https://www.DEMIURG.page/fonts/Garamond/EBGaramond-SemiBold.ttf') format('truetype');
+    src: url('https://www.demiurg.page/fonts/Garamond/EBGaramond-SemiBold.woff2') format('woff2'),
+        url('https://www.demiurg.page/fonts/Garamond/EBGaramond-SemiBold.woff') format('woff'),
+        url('https://www.demiurg.page/fonts/Garamond/EBGaramond-SemiBold.ttf') format('truetype');
     font-weight: 600;
     font-style: normal;
      font-display: block;
@@ -282,9 +282,9 @@
 
 @font-face {
     font-family: 'EB Garamond';
-    src: url('https://www.DEMIURG.page/fonts/Garamond/EBGaramond-SemiBoldItalic.woff2') format('woff2'),
-        url('https://www.DEMIURG.page/fonts/Garamond/EBGaramond-SemiBoldItalic.woff') format('woff'),
-        url('https://www.DEMIURG.page/fonts/Garamond/EBGaramond-SemiBoldItalic.ttf') format('truetype');
+    src: url('https://www.demiurg.page/fonts/Garamond/EBGaramond-SemiBoldItalic.woff2') format('woff2'),
+        url('https://www.demiurg.page/fonts/Garamond/EBGaramond-SemiBoldItalic.woff') format('woff'),
+        url('https://www.demiurg.page/fonts/Garamond/EBGaramond-SemiBoldItalic.ttf') format('truetype');
     font-weight: 600;
     font-style: italic;
      font-display: block;
@@ -296,9 +296,9 @@
 
 @font-face {
     font-family: 'Gespenst';
-    src: url('https://www.DEMIURG.page/fonts/Gespenst/Gespenst-Bold.woff2') format('woff2'),
-        url('https://www.DEMIURG.page/fonts/Gespenst/Gespenst-Bold.woff') format('woff'),
-        url('https://www.DEMIURG.page/fonts/Gespenst/Gespenst-Bold.ttf') format('truetype');
+    src: url('https://www.demiurg.page/fonts/Gespenst/Gespenst-Bold.woff2') format('woff2'),
+        url('https://www.demiurg.page/fonts/Gespenst/Gespenst-Bold.woff') format('woff'),
+        url('https://www.demiurg.page/fonts/Gespenst/Gespenst-Bold.ttf') format('truetype');
     font-weight: bold;
     font-style: normal;
     font-display: block;
@@ -306,9 +306,9 @@
 
 @font-face {
     font-family: 'Gespenst';
-    src: url('https://www.DEMIURG.page/fonts/Gespenst/Gespenst-Black.woff2') format('woff2'),
-        url('https://www.DEMIURG.page/fonts/Gespenst/Gespenst-Black.woff') format('woff'),
-        url('https://www.DEMIURG.page/fonts/Gespenst/Gespenst-Black.ttf') format('truetype');
+    src: url('https://www.demiurg.page/fonts/Gespenst/Gespenst-Black.woff2') format('woff2'),
+        url('https://www.demiurg.page/fonts/Gespenst/Gespenst-Black.woff') format('woff'),
+        url('https://www.demiurg.page/fonts/Gespenst/Gespenst-Black.ttf') format('truetype');
     font-weight: 900;
     font-style: normal;
     font-display: block;
@@ -316,9 +316,9 @@
 
 @font-face {
     font-family: 'Gespenst';
-    src: url('https://www.DEMIURG.page/fonts/Gespenst/Gespenst-Medium.woff2') format('woff2'),
-        url('https://www.DEMIURG.page/fonts/Gespenst/Gespenst-Medium.woff') format('woff'),
-        url('https://www.DEMIURG.page/fonts/Gespenst/Gespenst-Medium.ttf') format('truetype');
+    src: url('https://www.demiurg.page/fonts/Gespenst/Gespenst-Medium.woff2') format('woff2'),
+        url('https://www.demiurg.page/fonts/Gespenst/Gespenst-Medium.woff') format('woff'),
+        url('https://www.demiurg.page/fonts/Gespenst/Gespenst-Medium.ttf') format('truetype');
     font-weight: 500;
     font-style: normal;
     font-display: block;
@@ -326,9 +326,9 @@
 
 @font-face {
     font-family: 'Gespenst';
-    src: url('https://www.DEMIURG.page/fonts/Gespenst/Gespenst-Light.woff2') format('woff2'),
-        url('https://www.DEMIURG.page/fonts/Gespenst/Gespenst-Light.woff') format('woff'),
-        url('https://www.DEMIURG.page/fonts/Gespenst/Gespenst-Light.ttf') format('truetype');
+    src: url('https://www.demiurg.page/fonts/Gespenst/Gespenst-Light.woff2') format('woff2'),
+        url('https://www.demiurg.page/fonts/Gespenst/Gespenst-Light.woff') format('woff'),
+        url('https://www.demiurg.page/fonts/Gespenst/Gespenst-Light.ttf') format('truetype');
     font-weight: 300;
     font-style: normal;
     font-display: block;
@@ -336,9 +336,9 @@
 
 @font-face {
     font-family: 'Gespenst';
-    src: url('https://www.DEMIURG.page/fonts/Gespenst/Gespenst-UltraLight.woff2') format('woff2'),
-        url('https://www.DEMIURG.page/fonts/Gespenst/Gespenst-UltraLight.woff') format('woff'),
-        url('https://www.DEMIURG.page/fonts/Gespenst/Gespenst-UltraLight.ttf') format('truetype');
+    src: url('https://www.demiurg.page/fonts/Gespenst/Gespenst-UltraLight.woff2') format('woff2'),
+        url('https://www.demiurg.page/fonts/Gespenst/Gespenst-UltraLight.woff') format('woff'),
+        url('https://www.demiurg.page/fonts/Gespenst/Gespenst-UltraLight.ttf') format('truetype');
     font-weight: 200;
     font-style: normal;
     font-display: block;
@@ -346,9 +346,9 @@
 
 @font-face {
     font-family: 'Gespenst';
-    src: url('https://www.DEMIURG.page/fonts/Gespenst/Gespenst-Regular.woff2') format('woff2'),
-        url('https://www.DEMIURG.page/fonts/Gespenst/Gespenst-Regular.woff') format('woff'),
-        url('https://www.DEMIURG.page/fonts/Gespenst/Gespenst-Regular.ttf') format('truetype');
+    src: url('https://www.demiurg.page/fonts/Gespenst/Gespenst-Regular.woff2') format('woff2'),
+        url('https://www.demiurg.page/fonts/Gespenst/Gespenst-Regular.woff') format('woff'),
+        url('https://www.demiurg.page/fonts/Gespenst/Gespenst-Regular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
     font-display: block;
@@ -356,9 +356,9 @@
 
 @font-face {
     font-family: 'Gespenst';
-    src: url('https://www.DEMIURG.page/fonts/Gespenst/Gespenst-Thin.woff2') format('woff2'),
-        url('https://www.DEMIURG.page/fonts/Gespenst/Gespenst-Thin.woff') format('woff'),
-        url('https://www.DEMIURG.page/fonts/Gespenst/Gespenst-Thin.ttf') format('truetype');
+    src: url('https://www.demiurg.page/fonts/Gespenst/Gespenst-Thin.woff2') format('woff2'),
+        url('https://www.demiurg.page/fonts/Gespenst/Gespenst-Thin.woff') format('woff'),
+        url('https://www.demiurg.page/fonts/Gespenst/Gespenst-Thin.ttf') format('truetype');
     font-weight: 100;
     font-style: normal;
     font-display: block;
@@ -366,9 +366,9 @@
 
 @font-face {
     font-family: 'Gespenst UltraBlack';
-    src: url('https://www.DEMIURG.page/fonts/Gespenst/Gespenst-UltraBlack.woff2') format('woff2'),
-        url('https://www.DEMIURG.page/fonts/Gespenst/Gespenst-UltraBlack.woff') format('woff'),
-        url('https://www.DEMIURG.page/fonts/Gespenst/Gespenst-UltraBlack.ttf') format('truetype');
+    src: url('https://www.demiurg.page/fonts/Gespenst/Gespenst-UltraBlack.woff2') format('woff2'),
+        url('https://www.demiurg.page/fonts/Gespenst/Gespenst-UltraBlack.woff') format('woff'),
+        url('https://www.demiurg.page/fonts/Gespenst/Gespenst-UltraBlack.ttf') format('truetype');
     font-weight: 900;
     font-style: normal;
     font-display: block;
@@ -376,9 +376,9 @@
 
 @font-face {
     font-family: 'Gespenst';
-    src: url('https://www.DEMIURG.page/fonts/Gespenst/Gespenst-SemiBold.woff2') format('woff2'),
-        url('https://www.DEMIURG.page/fonts/Gespenst/Gespenst-SemiBold.woff') format('woff'),
-        url('https://www.DEMIURG.page/fonts/Gespenst/Gespenst-SemiBold.ttf') format('truetype');
+    src: url('https://www.demiurg.page/fonts/Gespenst/Gespenst-SemiBold.woff2') format('woff2'),
+        url('https://www.demiurg.page/fonts/Gespenst/Gespenst-SemiBold.woff') format('woff'),
+        url('https://www.demiurg.page/fonts/Gespenst/Gespenst-SemiBold.ttf') format('truetype');
     font-weight: 600;
     font-style: normal;
     font-display: block;
@@ -386,9 +386,9 @@
 
 @font-face {
     font-family: 'Ginoz';
-    src: url('https://www.DEMIURG.page/fonts/Ginoz/Ginoz-Regular.woff2') format('woff2'),
-        url('https://www.DEMIURG.page/fonts/Ginoz/Ginoz-Regular.woff') format('woff'),
-        url('https://www.DEMIURG.page/fonts/Ginoz/Ginoz-Regular.ttf') format('truetype');
+    src: url('https://www.demiurg.page/fonts/Ginoz/Ginoz-Regular.woff2') format('woff2'),
+        url('https://www.demiurg.page/fonts/Ginoz/Ginoz-Regular.woff') format('woff'),
+        url('https://www.demiurg.page/fonts/Ginoz/Ginoz-Regular.ttf') format('truetype');
     font-weight: normal;
     font-style: italic;
     font-display: block;
@@ -396,8 +396,8 @@
 
 @font-face {
     font-family: 'Baskervville';
-    src: url('https://www.DEMIURG.page/fonts/Baskervville/Baskervville-Regular.woff2') format('woff2'),
-        url('https://www.DEMIURG.page/fonts/Baskervville/Baskervville-Regular.ttf') format('truetype');
+    src: url('https://www.demiurg.page/fonts/Baskervville/Baskervville-Regular.woff2') format('woff2'),
+        url('https://www.demiurg.page/fonts/Baskervville/Baskervville-Regular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
     font-display: block;
@@ -405,8 +405,8 @@
 
 @font-face {
     font-family: 'Baskervville';
-    src: url('https://www.DEMIURG.page/fonts/Baskervville/Baskervville-Italic.woff2') format('woff2'),
-        url('https://www.DEMIURG.page/fonts/Baskervville/Baskervville-Italic.ttf') format('truetype');
+    src: url('https://www.demiurg.page/fonts/Baskervville/Baskervville-Italic.woff2') format('woff2'),
+        url('https://www.demiurg.page/fonts/Baskervville/Baskervville-Italic.ttf') format('truetype');
     font-weight: normal;
     font-style: italic;
     font-display: block;

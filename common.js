@@ -170,7 +170,7 @@ function init_pwa() {
     // document.getElementById("notifications").addEventListener("click", () => {
     //     Notification.requestPermission().then((result) => {
     //         if (result === "granted") {
-    //             issue_notification("ISSUE I", "A new ISSUE has just been released!", "https://demiurg.org/images/issues/issue-i-illustration.WebP");
+    //             issue_notification("ISSUE I", "A new ISSUE has just been released!", "https://demiurg.page/images/issues/issue-i-illustration.WebP");
     //         }
     //     });
     // });
@@ -1197,7 +1197,7 @@ function init_highlights() {
     remove_after(window_url, "?")
 
     for (let [URLsnippet, IDs] of Object.entries(highlights)) {
-        if (window_url == ("https://www.DEMIURG.page" + URLsnippet).toLowerCase()) {
+        if (window_url == ("https://www.demiurg.page" + URLsnippet).toLowerCase()) {
             for (let i = 0; i < IDs.length; i++ ) {
                 console.log("window: " + window_url + "   snippet: " + URLsnippet + " -> " + IDs[i])
 
