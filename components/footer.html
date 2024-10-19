@@ -107,6 +107,22 @@
             
             /* REACTIVE */
 
+            #footer-audio {
+                position: absolute;
+                position: fixed;
+                right:85px;
+                bottom:30px;
+                display: none;
+                gap:5px;
+                width: 100%;
+                max-width: 400px;
+                flex-wrap: wrap;
+            }
+
+            #footer .audio-timeline {
+                min-width: 100%;
+            }
+
 
             @media screen and (width < 800px), screen and (max-width: 800px) {
 
@@ -118,22 +134,14 @@
                     position: fixed;
                     left: 30px;
                 }
+
+                #footer-audio {
+                    /* display: none; */
+                    max-width: calc(100vw - 115px);
+                }
             }
 
-            #footer-audio {
-                position: absolute;
-                position: fixed;
-                left:30px;
-                bottom:30px;
-                display: flex;
-                gap:5px;
-                width: 100%;
-                max-width: calc(100vw - 115px);
-                flex-wrap: wrap;
-            }
-            #footer .audio-timeline {
-                min-width: 100%;
-            }
+
 
 
         </style>

@@ -191,6 +191,7 @@ function play_audio(element) {
     
     update_audio(global_timeline, audio)
     update_audio(local_timeline, audio)
+    document.getElementById("content").addEventListener("scroll", auto_player)
 }
 
 function update_audio(element, audio) {
@@ -250,6 +251,26 @@ function adjust_volume() {
         icons[i].src = settings.icon
     }
 
+}
+
+
+
+function auto_player() {
+	
+	// let scrollmargin = 100
+    let scrollheight = document.getElementById("content").scrollTop
+    let offsetTop = ACTIVE_AUDIO_ELEMENT.offsetTop
+    console.log(offsetTop)
+    
+    console.log(scrollheight)
+    
+    if(scrollheight >= offsetTop){
+        document.getElementById("footer-audio").style.display = "flex"
+    }
+    else {
+        
+        document.getElementById("footer-audio").style.display = "none"
+    }
 }
 
 
