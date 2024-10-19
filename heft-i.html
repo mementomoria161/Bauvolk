@@ -146,7 +146,7 @@ function animate() {
         lerpFactor = 0.003;
     }
 
-    console.log("currentX: " + currentX + " targetX: " + targetX + " currentY: " + currentY + " targetY: " + targetY)
+    // console.log("currentX: " + currentX + " targetX: " + targetX + " currentY: " + currentY + " targetY: " + targetY)
     currentX = lerp(currentX, targetX, lerpFactor);
     currentY = lerp(currentY, targetY, lerpFactor);
 
@@ -156,7 +156,83 @@ function animate() {
     requestAnimationFrame(animate);
 }
 
+function play_audio(element) {
+    let audio = element.firstElementChild
+    let icon = element.getElementsByTagName('img')[0]
+    console.log(audio)
+    audio.currentTime = audio.getAttribute('data-time')
+    
+    if(audio.paused) {
+        audio.play()
+        icon.src = "images/internal/pause.svg"
+    }
+    else {
+        audio.pause();
+        icon.src = "images/internal/play.svg"
+    }
+
+    update_audio(element, audio)
+}
+
+function update_audio(element, audio) {
+
+    let progress = audio.currentTime / audio.duration * 100
+    audio.setAttribute('data-time', audio.currentTime)
+    
+    element.nextElementSibling.style.background = "linear-gradient(90deg, lightgrey " + progress + "%, transparent " + progress + "%)"
+
+    setTimeout(update_audio, 100, element, audio)
+}
+
+function skim_audio(event, element) {
+    
+    let audio = element.previousElementSibling.firstElementChild
+    let rect = element.getBoundingClientRect()
+    let container_width = rect.width
+    let clickX = event.clientX - rect.left;
+
+    let new_time = (clickX / container_width) * audio.duration;
+
+    audio.currentTime = new_time
+}
+
+var volume_presets = [
+    {volume: 0,     icon: "images/internal/volume_mute.svg",},
+    {volume: 0.25,  icon: "images/internal/volume_low.svg",},
+    {volume: 0.5,   icon: "images/internal/volume_low.svg",},
+    {volume: 0.75,  icon: "images/internal/volume_high.svg",},
+    {volume: 1,     icon: "images/internal/volume_high.svg",},
+]
+
+function adjust_volume(element) {
+    
+    let audio = element.previousElementSibling.previousElementSibling.firstElementChild
+    let icon = element.firstElementChild
+    let volume_setting = audio.getAttribute('data-volume')
+
+    volume_setting = Number(volume_setting) + 1
+    if(volume_setting >= volume_presets.length) {volume_setting = 0}
+
+    let settings = volume_presets[volume_setting]
+
+    icon.src = settings.icon
+    audio.volume = settings.volume
+    audio.setAttribute('data-volume', volume_setting)
+}
+
+
+
+
 </script>
+<style>
+    .audio-timeline {
+        width:100%;
+    }
+
+    audio {
+        display: none;
+    }
+</style>
     </head>
 
     <body>
@@ -181,28 +257,30 @@ function animate() {
                 <section id="abstract">
                     <p lang="de" class="abstract-text">Das große Experiment einer sozialen und solidarischen Gesellschaft war gescheitert. Vielmehr noch, der Realsozialismus stellte sich als ebenso produktivistisch und ausbeuterisch heraus wie der Westen, dem er darin nacheiferte. So wurde die Utopie zum Schimpfwort, die Realpolitik zur Parole. Unter diesem Zeitgeist feierte der Neoliberalismus am Ende des letzten Jahrhunderts seinen globalen Siegeszug. Zwar sei der Kapitalismus brutal, aber er sei das beste gesellschaftliche und wirtschaftliche Ordnungssystem, das wir gefunden haben. Einige gehen noch weiter.</p>
                     <p lang="en" class="abstract-text">Preliminary abstract – Capitalism seems to have no alternative as an economic system. A  must </p>
-                    <!-- <audio lang="de" controls src="/files/de/HEFT I – Vorläufiger Auszug.mp3">
-                        <a href="/files/de/HEFT I - Vorläufiger Auszug.mp3"> Download audio </a>
+                    
+
+<!-- 
+                    <audio lang="de" controls src="/files/de/HEFT I 0.mp3">
+                        <a href="/files/de/HEFT I -  0.mp3"> Download audio </a>
                     </audio>
                     <audio lang="en" controls src="/files/en/ISSUE I – Vorläufiger Auszug.mp3">
-                        <a href="/files/en/ISSUE I - Vorläufiger Auszug.mp3"> Download audio </a>
+                        <a href="/files/en/ISSUE I -  0.mp3"> Download audio </a>
                     </audio> -->
                     
                     <div class="issue-button-group">
                         <button onclick="share(this, 0, 'de')" class="issue-button"><img src="images/internal/share.svg"></button>
-                        <a lang="de" href="files/de/ISSUE I – ALTERNATIVE UTOPIEN.pdf" download><button class="issue-button"><img src="images/internal/download.svg"></button></a>
-                        <a lang="en" href="files/en/ISSUE I – ALTERNATIVE UTOPIAS.pdf" download><button class="issue-button"><img src="images/internal/download.svg"></button></a>
-                        <a href="bestellen.html" targert="_blank"><button class="issue-button"><img src="images/internal/order.svg"></button></a>
+                        <a lang="de" href="files/de/ISSUE I – ALTERNATIVE UTOPIEN.pdf" download><button class="issue-button"><img src="images/internal/save.svg"></button></a>
+                        <a lang="en" href="files/en/ISSUE I – ALTERNATIVE UTOPIAS.pdf" download><button class="issue-button"><img src="images/internal/save.svg"></button></a>
+                        <!-- <a href="bestellen.html" targert="_blank"><button class="issue-button"><img src="images/internal/order.svg"></button></a> -->
+                        <button onclick="play_audio(this)" class="issue-button">
+                            <audio lang="de" controls src="/files/de/HEFT I 0.mp3" data-time="0" data-volume="2"></audio>
+                            <img src="images/internal/play.svg">
+                        </button>
+                        <button onclick="skim_audio(event, this)" class="issue-button audio-timeline"></button>
+                        <button onclick="adjust_volume(this)" class="issue-button">
+                            <img src="images/internal/volume_low.svg">
+                        </button>
                     </div>
-
-                    <!-- <div class="issue-button-group">
-                        <button lang="de" onclick="share(this, 0, 'de')" class="issue-button">HEFT teilen</button>
-                        <button lang="en" onclick="share(this, 0, 'en')" class="issue-button">Share ISSUE</button>
-                        <a lang="de" href="files/de/ISSUE I – ALTERNATIVE UTOPIEN.pdf" download><button class="issue-button">PDF herunterladen</button></a>
-                        <a lang="en" href="files/en/ISSUE I – ALTERNATIVE UTOPIAS.pdf" download><button class="issue-button">Download PDF</button></a>
-                        <a lang="de" href="bestellen.html" targert="_blank"><button class="issue-button">Kopie bestellen</button></a>
-                        <a lang="en" href="bestellen.html" targert="_blank"><button class="issue-button">Order copy</button></a>
-                    </div> -->
                 </section>
             </div> 
 
@@ -222,15 +300,6 @@ function animate() {
             </article>
 
             <section id="issue-button-section">
-                <!-- <div class="issue-button-group">
-                    <button lang="de" onclick="share(this, 0, 'de')" class="issue-button">HEFT teilen</button>
-                    <button lang="en" onclick="share(this, 0, 'en')" class="issue-button">Share ISSUE</button>
-                    <a lang="de" href="files/de/ISSUE I – ALTERNATIVE UTOPIEN.pdf" download><button class="issue-button">PDF herunterladen</button></a>
-                    <a lang="en" href="files/en/ISSUE I – ALTERNATIVE UTOPIAS.pdf" download><button class="issue-button">Download PDF</button></a>
-                    <a lang="de" href="bestellen.html" targert="_blank"><button class="issue-button">Kopie bestellen</button></a>
-                    <a lang="en" href="bestellen.html" targert="_blank"><button class="issue-button">Order copy</button></a>
-                </div> -->
-
                 <div class="issue-button-group">
                     <button onclick="share(this, 0, 'de')" class="issue-button"><img src="images/internal/share.svg"></button>
                     <a lang="de" href="files/de/ISSUE I – ALTERNATIVE UTOPIEN.pdf" download><button class="issue-button"><img src="images/internal/download.svg"></button></a>

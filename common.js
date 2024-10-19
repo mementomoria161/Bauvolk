@@ -129,7 +129,7 @@ window.onpopstate = function(event){
         event.preventDefault()
         history.pushState({}, '', window.location.href)
         history.forward()
-        closemenu()
+        close_menu()
     }
     else if(INDEX_OPEN){
         event.preventDefault()
@@ -1028,7 +1028,6 @@ function check_menu_origin(origin) {
 
 function open_menu(ID) {
     
-    
     document.getElementById("menu-area").style.display = "block";
     document.getElementById("menu-expanded").style.display = "none";
     document.getElementById("menu-issues").style.display = "none";
@@ -1100,79 +1099,6 @@ function auto_close_menu() {
     if (window.innerWidth > 800) {
         safe_close_menu()
     }
-}
-
-// function openmenu(event) {
-//     origin = check_menu_origin(event.currentTarget)
-    
-//     let anchor = origin.getElementsByClassName("dropanchor")[0]
-//     let menu = origin.getElementsByClassName("dropmenu")[0]
-
-// 	hidedropmenus();
-//     menu.style.display = "block"
-// 	anchor.style.visibility = "visible";
-
-// 	if (window.innerWidth >= 800) {
-
-//         if (origin.classList.contains("menu-horizontal") && (event.pointerType === "touch" || event.pointerType === "pen")) {
-//             hidedropmenus();
-//             return
-//         }
-
-// 		menu.style.width = document.getElementById("navigation").offsetWidth + 201 + 'px'; // og value 30
-//         menu.style.height = "initial";
-// 	}
-// 	else {
-// 		// menu.style.width = "100vw";
-//         // console.log('calc(100vh - ' + document.getElementById("navigation").offsetHeight + 'px)')
-//         menu.style.height = 'calc(100vh - ' + document.getElementById("navigation").offsetHeight + 'px)';
-//         menu.style.display = "grid"
-// 	}
-
-// 	menu_open = true
-// }
-
-
-function safeclosemenu() {
-
-    for (let value of ["email-input", "email-checkbox", "email-btn"]) {
-        if(document.getElementById(value) === document.activeElement) {return}
-    }
-
-    if(document.getElementById("email-input").value == "") {
-        reset_emailinfo()
-    }
-
-    closemenu()
-}
-
-
-function closemenu() {
-
-	hidedropmenus();
-
-	if (window.innerWidth < 800) {
-		// document.getElementById("logo").style.display = "inline";
-		// document.getElementById("closemenu").style.display = "none";
-		// document.getElementById("openmenu").style.display = "inline";
-        // document.getElementById("navigation").style.width = "fit-content";
-        // document.getElementById("navigation").style.justifyContent = "space-between";
-
-        // menu.animate([{ opacity: 1},{ opacity: 0},], {duration: 500, iterations: 1})
-	}
-
-    fullscreen_menu = false
-	menu_open = false
-}
-
-
-function hidedropmenus() {
-	var dropmenus = document.getElementsByClassName("dropmenu")
-
-	for (let i = 0; i < dropmenus.length; i++)
-	{
-        dropmenus[i].style.display = "none";
-	}
 }
 
 // NAVIGATION HIGHLIGHT
