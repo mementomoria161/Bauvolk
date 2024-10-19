@@ -125,7 +125,8 @@
             // COVERSCRIPT
 
             document.addEventListener("DOMContentLoaded", initcovers)
-
+            
+            
 
             function initcovers() {
                 for (let i = 0; i < ISSUE_LIST.length; i++) {
@@ -136,10 +137,19 @@
                 display_issue(slide_current)
                 init_library()
                 seteagerload()
+                window.addEventListener("resize", scale_model)
+                scale_model
                 // init_prevent_touch_response()
             }
 
 
+            function scale_model() {
+                let p_width = window.innerHeight * 0.35
+                if(p_width >= 500) {p_width = 500}
+                if(p_width >= window.innerWidth && window.innerWidth * 0.8 < window.innerHeight * 0.35) {p_width = indow.innerWidth * 0.8}
+                
+                document.querySelector(':root').style.setProperty('--model-width', p_width + "px");
+            }
             // NOT WORKING FOR SLIDES?
             function init_library() {
                 let library = document.getElementById("issue-library")
@@ -230,6 +240,17 @@
 
             // PREVENT TOUCHING RESPONSE
             // DOES THIS EVEN CONNECT TO ANYTHING?
+
+            // @media screen and (max-width: 800px), (hover: none) {
+            // body {
+            //     grid-template-rows: auto minmax(0, 1fr) auto;
+            //     grid-template-areas: "header" "main" "controls";
+            // }
+
+            // :root {
+            //     --model-width: 300px;
+            // }
+
 
             // function init_prevent_touch_response() {
             //     let covers = document.getElementById("issue-library").getElementsByClassName("cover")
@@ -410,6 +431,10 @@
             perspective: 3000px;
             perspective-origin: unset
         }
+
+        /* :root {
+            --model-width: 10vw
+        } */
 
         /* REACTIVE STYLES */
         @media screen and (max-height: 1000px) {

@@ -59,6 +59,12 @@
 				user-select: none;
 			}
 
+			#logo-img {
+				object-fit: cover;
+				width: 230px;
+				padding: 10px 10px;
+			}
+
 			#navigation {
 				padding: 15px 20px;
 				display: flex;
@@ -95,7 +101,6 @@
 			#info-general {
 				white-space: normal;
 			}
-
 
 			/* OPTIONS */
 
@@ -178,9 +183,16 @@
 			
 
 			@media screen and (max-width: 800px) {
-				
+				#logo-img {
+					width: 210px;
+				}
+
 				#headerbox, #menu-area {
 					width: 370px;
+				}
+
+				#navigation {
+					min-width: unset;
 				}
 
 				.menu-horizontal, #etc {
@@ -201,7 +213,6 @@
 				}
 
 				#menu-etc {
-					/* flex-direction: column; */
 					border: 3px outset grey;
 					padding: 20px;
 				}
@@ -219,11 +230,19 @@
 				}
 			}
 
-			#logo_img {
-				object-fit: cover;
-				min-width: 230px;
-				padding: 10px 10px;
+			@media screen and (max-width: 400px) {
+
+
+				#logo-img {
+					min-width: unset;
+				}
+
+				#headerbox, #menu-area {
+					width: 300px;
+				}
 			}
+
+
 
 
 
@@ -250,7 +269,7 @@
 		<div id="headerbox">
 			
 			<a id="logo" href="https://www.demiurg.page">
-				<img id="logo_img" src="images/internal/logo.svg">
+				<img id="logo-img" src="images/internal/logo.svg">
 				<!-- <svg width="fit-content" height="fit-content" viewBox="0 0 539 151" fill="none" xmlns="http://www.w3.org/2000/svg">
 					<path d="M402.745 66.9028C402.126 66.9853 401.459 67.0264 400.747 67.0264H397.745V39.8308L415.066 29.8308H418.067C418.78 29.8308 419.446 29.8733 420.066 29.9584C422.452 30.2859 424.151 31.244 425.162 32.8325C426.496 34.8335 427.163 37.562 427.163 41.0183L427.163 45.8389C427.163 49.4164 426.496 52.1756 425.162 54.116C424.683 54.8462 424.049 55.4389 423.26 55.8943L423.258 55.8958L405.94 65.8943C405.065 66.3995 404 66.7358 402.745 66.9028Z" fill="black"/>
 					<path d="M51.0625 29.8308L33.7419 39.8308V120.69H36.9254C37.5653 120.69 38.1707 120.658 38.7419 120.594C40.2081 120.43 41.4479 120.055 42.4613 119.47L59.7818 109.47C60.8051 108.879 61.5975 108.073 62.1589 107.052C63.5536 104.566 64.251 100.503 64.251 94.864L64.2509 45.657C64.2509 39.9571 63.584 35.8945 62.25 33.469C61.1291 31.4312 59.0666 30.2494 56.0624 29.9237C55.4909 29.8618 54.8855 29.8308 54.2459 29.8308H51.0625Z" fill="black"/>
@@ -317,8 +336,8 @@
 			<div class="menu-content" id="menu-etc">
 
 				<div id="menu-expanded">
-					<a id="highlight-issues-expanded" href="https://www.demiurg.page"><button><span lang="de">HEFTE</span><span lang="en">ISSUES</span></button></a><br>
-					<a id="highlight-kanon-expanded" href="https://www.demiurg.page/kanon"><button>KANON</button></a>
+					<a id="highlight-issues-expanded" href="https://www.demiurg.page"><span lang="de">HEFTE</span><span lang="en">ISSUES</span></a><br>
+					<a id="highlight-kanon-expanded" href="https://www.demiurg.page/kanon">KANON</a>
 				</div>
 
 
@@ -341,7 +360,7 @@
 
 					<form id="email-form">
 						<span class="abo"><button type="submit" id="email-btn"><span lang="de">Abonnieren</span><span lang="en">Subscribe</span></button>
-						<span><input type="email" name="Email" id="email-input" placeholder="Email" required autocomplete="email" data-1p-ignore data-lpignore="true"></span></span>
+						<span><input type="email" name="Email" id="email-input" placeholder="Email" required autocomplete="off" data-1p-ignore data-lpignore="true"></span></span>
 						<input type="hidden" name="_subject" value="Abonnement">
 						<input type="hidden" name="_captcha" value="true">
 						<input type="hidden" name="_template" value="box">

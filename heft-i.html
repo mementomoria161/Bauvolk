@@ -82,14 +82,8 @@
             // LOADING
             
             load_components(["header", "footer", "databanner"])
-            function suf_init() {
 
-                // if(typeof renderer_setup  === "function" && typeof THREE !== "undefined") {
-                //     renderer_setup()
-                // }
-                // else {
-                //     setTimeout(suf_init, 20);
-                // }
+            function suf_init() {
                 scale_model();
                 animate();
             }
@@ -181,6 +175,10 @@ function update_audio(element, audio) {
     
     element.nextElementSibling.style.background = "linear-gradient(90deg, lightgrey " + progress + "%, transparent " + progress + "%)"
 
+    if(audio.paused) {
+        element.getElementsByTagName('img')[0].src = "images/internal/play.svg"
+    }
+    
     setTimeout(update_audio, 100, element, audio)
 }
 
@@ -319,7 +317,7 @@ function adjust_volume(element) {
 
                 <form id="email-form-content">
                     <span class="abo"><button type="submit" id="email-btn-content"><span lang="de">Abonnieren</span><span lang="en">Subscribe</span></button>
-                    <span><input type="email" name="Email" id="email-input-content" placeholder="Email" required autocomplete="email" data-1p-ignore data-lpignore="true"></span></span>
+                    <span><input type="email" name="Email" id="email-input-content" placeholder="Email" required autocomplete="off" data-1p-ignore data-lpignore="true"></span></span>
                     <input type="hidden" name="_subject" value="Abonnement">
                     <input type="hidden" name="_captcha" value="true">
                     <input type="hidden" name="_template" value="box">
