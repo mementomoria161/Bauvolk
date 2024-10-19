@@ -150,22 +150,47 @@ function animate() {
     requestAnimationFrame(animate);
 }
 
+
+
+
+
+var ACTIVE_AUDIO
+var ACTIVE_AUDIO_ELEMENT 
+
+
 function play_audio(element) {
-    let audio = element.firstElementChild
-    let icon = element.getElementsByTagName('img')[0]
-    console.log(audio)
+
+    let audio = element.getElementsByTagName('audio')[0]
+
+    let local_player = element.parentElement
+    let global_player = document.getElementById("footer-audio")
+
+    let local_icon = element.getElementsByClassName("play-icon")[0]
+    let global_icon = global_player.getElementsByClassName("play-icon")[0]
+
+    let local_timeline = local_player.getElementsByClassName('audio-timeline')[0] 
+    let global_timeline = global_player.getElementsByClassName("audio-timeline")[0]
+
+
+
     audio.currentTime = audio.getAttribute('data-time')
     
     if(audio.paused) {
         audio.play()
-        icon.src = "images/internal/pause.svg"
+        local_icon.src = "images/internal/pause.svg"
+        global_icon.src = "images/internal/pause.svg"
     }
     else {
         audio.pause();
-        icon.src = "images/internal/play.svg"
+        local_icon.src = "images/internal/play.svg"
+        global_icon.src = "images/internal/play.svg"
     }
 
-    update_audio(element, audio)
+    ACTIVE_AUDIO = audio
+    ACTIVE_AUDIO_ELEMENT = element
+    
+    update_audio(global_timeline, audio)
+    update_audio(local_timeline, audio)
 }
 
 function update_audio(element, audio) {
@@ -173,10 +198,10 @@ function update_audio(element, audio) {
     let progress = audio.currentTime / audio.duration * 100
     audio.setAttribute('data-time', audio.currentTime)
     
-    element.nextElementSibling.style.background = "linear-gradient(90deg, lightgrey " + progress + "%, transparent " + progress + "%)"
+    element.style.background = "linear-gradient(90deg, lightgrey " + progress + "%, var(--color-background) " + progress + "%)"
 
     if(audio.paused) {
-        element.getElementsByTagName('img')[0].src = "images/internal/play.svg"
+        element.parentElement.getElementsByClassName('play-icon')[0].src = "images/internal/play.svg"
     }
     
     setTimeout(update_audio, 100, element, audio)
@@ -184,7 +209,8 @@ function update_audio(element, audio) {
 
 function skim_audio(event, element) {
     
-    let audio = element.previousElementSibling.firstElementChild
+    // let audio = element.parentElement.getElementsByTagName('audio')[0]
+    let audio = ACTIVE_AUDIO
     let rect = element.getBoundingClientRect()
     let container_width = rect.width
     let clickX = event.clientX - rect.left;
@@ -202,20 +228,28 @@ var volume_presets = [
     {volume: 1,     icon: "images/internal/volume_high.svg",},
 ]
 
-function adjust_volume(element) {
-    
-    let audio = element.previousElementSibling.previousElementSibling.firstElementChild
-    let icon = element.firstElementChild
-    let volume_setting = audio.getAttribute('data-volume')
+var VOLUME_SETTING = 2
 
-    volume_setting = Number(volume_setting) + 1
-    if(volume_setting >= volume_presets.length) {volume_setting = 0}
+function adjust_volume() {
 
-    let settings = volume_presets[volume_setting]
+    VOLUME_SETTING = VOLUME_SETTING + 1
+    if(VOLUME_SETTING >= volume_presets.length) {VOLUME_SETTING = 0}
 
-    icon.src = settings.icon
-    audio.volume = settings.volume
-    audio.setAttribute('data-volume', volume_setting)
+    let settings = volume_presets[VOLUME_SETTING]
+    let audios = document.getElementsByTagName('audio')
+    let icons = document.getElementsByClassName('volume-icon')
+
+
+    for (let i = 0; i < audios.length; i++)
+    {
+        audios[i].volume = settings.volume
+    }
+
+    for (let i = 0; i < icons.length; i++)
+    {
+        icons[i].src = settings.icon
+    }
+
 }
 
 
@@ -271,12 +305,12 @@ function adjust_volume(element) {
                         <a lang="en" href="files/en/ISSUE I – ALTERNATIVE UTOPIAS.pdf" download><button class="issue-button"><img src="images/internal/save.svg"></button></a>
                         <!-- <a href="bestellen.html" targert="_blank"><button class="issue-button"><img src="images/internal/order.svg"></button></a> -->
                         <button onclick="play_audio(this)" class="issue-button">
-                            <audio lang="de" controls src="/files/de/HEFT I 0.mp3" data-time="0" data-volume="2"></audio>
-                            <img src="images/internal/play.svg">
+                            <audio lang="de" controls src="/files/de/HEFT I 0.mp3" data-time="0"></audio>
+                            <img src="images/internal/play.svg" class="play-icon">
                         </button>
                         <button onclick="skim_audio(event, this)" class="issue-button audio-timeline"></button>
                         <button onclick="adjust_volume(this)" class="issue-button">
-                            <img src="images/internal/volume_low.svg">
+                            <img src="images/internal/volume_low.svg" class="volume-icon" >
                         </button>
                     </div>
                 </section>
