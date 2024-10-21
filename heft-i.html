@@ -224,15 +224,23 @@ function update_audio(element, audio) {
     }
 }
 
-function skim_audio(event, element) {
+function skim_audio(event, element, vertical) {
     
-    // let audio = element.parentElement.getElementsByTagName('audio')[0]
+
     let audio = ACTIVE_AUDIO
     let rect = element.getBoundingClientRect()
-    let container_width = rect.width
-    let clickX = event.clientX - rect.left;
+    let container_size, click
 
-    let new_time = (clickX / container_width) * audio.duration;
+    if(vertical) {
+        container_size = rect.height
+        click = event.clientY - rect.top;
+    }
+    else {
+        container_size = rect.width
+        click = event.clientX - rect.left;
+    }
+
+    let new_time = (click / container_size) * audio.duration;
 
     audio.currentTime = new_time
 }
@@ -400,8 +408,8 @@ function close_player() {
                 </section>
 
                 <section id="abstract">
-                    <p lang="de" class="abstract-text">Das große Experiment einer sozialen und solidarischen Gesellschaft war gescheitert. Vielmehr noch, der Realsozialismus stellte sich als ebenso produktivistisch und ausbeuterisch heraus wie der Westen, dem er darin nacheiferte. So wurde die Utopie zum Schimpfwort, die Realpolitik zur Parole. Unter diesem Zeitgeist feierte der Neoliberalismus am Ende des letzten Jahrhunderts seinen globalen Siegeszug. Zwar sei der Kapitalismus brutal, aber er sei das beste gesellschaftliche und wirtschaftliche Ordnungssystem, das wir gefunden haben. Einige gehen noch weiter.</p>
-                    <p lang="en" class="abstract-text">Preliminary abstract – Capitalism seems to have no alternative as an economic system. A  must </p>
+                    <p lang="de" class="abstract-text">Seit dem Kollaps der Sowjetunion wirkt der Kapitalismus alternativlos. Die Hoffnung auf eine bessere Gesellschaft vergangener Jahrhunderte ist einer Ergebenheit gegenüber den bestehenden Verhältnissen gewichen. Die sozialistische Bewegung ist heute nicht mehr ansatzweise in der Lage, politische Mehrheiten für eine Umwälzung unserer Wirtschaftsordnung zu mobilisieren. Unsere Mitmenschen sind von der sozialistischen Idee vollkommen desillusioniert. Wer kann es ihnen übel nehmen?</p>
+                    <!-- <p lang="en" class="abstract-text">Preliminary abstract – Capitalism seems to have no alternative as an economic system. A  must </p> -->
                     
 
 <!-- 
@@ -448,18 +456,18 @@ function close_player() {
                                 <audio lang="de" controls src="/files/de/HEFT I 0.mp3" data-time="0"></audio>
                                 <img src="images/internal/play.svg" class="play-icon">
                             </button>
-                            <button onclick="skim_audio(event, this)" class="issue-button audio-timeline" data-vertical></button>
+                            <button onclick="skim_audio(event, this, true)" class="issue-button audio-timeline" data-vertical></button>
                             <button onclick="adjust_volume(this)" class="issue-button audio-volume">
                                 <img src="images/internal/volume_low.svg" class="volume-icon" >
                             </button>
                         </div>
                     </div>
                     <p lang="de">
-                        Seit dem Kollaps der Sowjetunion wirkt der Kapitalismus alternativlos. Das große Experiment einer sozialen und solidarischen Gesellschaft war gescheitert. Vielmehr noch, der Realsozialismus stellte sich als ebenso produktivistisch und ausbeuterisch heraus wie der Westen, dem er darin nacheiferte. So wurde die Utopie zum Schimpfwort, die Realpolitik zur Parole. Unter diesem Zeitgeist feierte der Neoliberalismus am Ende des letzten Jahrhunderts seinen globalen Siegeszug. Zwar sei der Kapitalismus brutal, aber er sei das beste gesellschaftliche und wirtschaftliche Ordnungssystem, das wir gefunden haben. Einige gehen noch weiter. Der Kapitalismus sei nicht nur das beste System, das wir bisher gefunden haben, sondern auch das beste, das wir je finden können. Mit dem Scheitern des Sozialismus, sei somit eine Epoche eingeläutet, in der es keine großen sozialen Umbrüche oder gar Revolutionen mehr geben werde. Die beflügelte Hoffnung auf eine bessere Gesellschaft vergangener Jahrhunderte ist damit einer trägen Ergebenheit gegenüber den bestehenden Verhältnissen gewichen. Um mit ihrer scheinbaren Alternativlosigkeit zu brechen, ist es aber ungenügend, das Gegebene zu kritisieren. Es braucht einen nachvollziehbaren Entwurf einer besseren Gesellschaft. In diesem Heft finden sich drei dieser alternativen Utopien.<span data-footnote="1"></span>
+                        Seit dem Kollaps der Sowjetunion wirkt der Kapitalismus alternativlos. Die Hoffnung auf eine bessere Gesellschaft vergangener Jahrhunderte ist einer Ergebenheit gegenüber den bestehenden Verhältnissen gewichen. Die sozialistische Bewegung ist heute nicht mehr ansatzweise in der Lage, politische Mehrheiten für eine Umwälzung unserer Wirtschaftsordnung zu mobilisieren. Unsere Mitmenschen sind von der sozialistischen Idee vollkommen desillusioniert. Wer kann es ihnen übel nehmen? Wir bieten ihnen keinen Gegenentwurf, der für sie nachvollziehbar ist. Deshalb greift unsere Kritik des Gegebenen für sie auch zu kurz. Denn egal, wie sehr sie ihre Unterdrückung spüren, sehen sie dennoch keinen Ausweg. Es liegt an uns als sozialistische Bewegung, diese Perspektive wieder zu schaffen. Wir müssen eine greifbare Alternative formulieren, die nicht nur in unseren Augen, sondern in denen der Mehrheit der Gesellschaft sinnvoll erscheint. Der demokratische Sozialismus ist unweigerlich zum Scheitern verurteilt, wenn wir daran scheitern. Um die kapitalistische Hegemonie zu brechen, bedarf es einer materiellen Gegenbewegung, die durch Praxis die Wirksamkeit der sozialistischen Idee unter Beweis stellt. Wir müssen unserer Klasse eine real existierende Alternative schaffen, in der die Arbeitenden selbst über die Ausrichtung der Wirtschaft, den Alltag in ihrem Betrieb und die Verteilung ihres Profits bestimmen können. Deshalb brauchen wir eine politökonomische Bewegung, die nicht nur das Versagen des Kapitalismus aufzeigt, sondern den Weg weist zu einer prosperierenden, demokratisch-sozialistischen Wirtschaftsordnung. In diesem Heft möchte ich die Grundrisse dessen zeichnen.<span data-footnote="1"></span>
                     </p>
-                    <p lang="en">
+                    <!-- <p lang="en">
                         Since the collapse of the Soviet Union, capitalism has seemed to have no alternative. The great experiment of a social and solidary society had failed. Much more, real socialism turned out to be just as productivist and exploitative as the West, which it emulated in this. Thus utopia became a dirty word, realpolitik a slogan. Under this zeitgeist, neoliberalism celebrated its global triumph at the end of the last century. It is true that capitalism is brutal, but it is the best system of social and economic order that we have found. Some go even further. Capitalism, they say, is not only the best system we have found so far, but also the best we can ever find. The failure of socialism, they say, heralds an era in which there will be no more great social upheavals or even revolutions. The inspired hope for a better society of past centuries has thus given way to an indolent submission to the existing conditions. In order to break with their apparent lack of alternatives, however, it is not enough to criticize the given. What is needed is a comprehensible blueprint for a better society. This issue contains three of these alternative utopias.<span data-footnote="1"></span>
-                    </p>
+                    </p> -->
 
                     
 
