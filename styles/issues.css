@@ -1,11 +1,6 @@
 /* MAIN */
 
-body {
-	grid-template-rows: auto 1fr;
-	grid-template-areas: "header" "main";
-}
-
-#content {
+main {
 	padding-left: 60px;
 	padding-right: 60px;
 }
