@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Logo Generator</title>
+    <meta name="viewport" content="width=device-width, height=device-height, user-scalable=no">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.8/FileSaver.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.5.0/jszip.min.js" type="text/javascript"> </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/opentype.js/1.3.3/opentype.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip-utils/0.0.2/jszip-utils.min.js"></script>
+    <style>
+
+    /* GESPENST */
+
+    @font-face {
+        font-family: 'Gespenst';
+        src: url('https://www.demiurg.page/fonts/Gespenst/Gespenst-Bold.woff2') format('woff2'),
+            url('https://www.demiurg.page/fonts/Gespenst/Gespenst-Bold.woff') format('woff'),
+            url('https://www.demiurg.page/fonts/Gespenst/Gespenst-Bold.ttf') format('truetype');
+        font-weight: bold;
+        font-style: normal;
+        font-display: block;
+    }
+
+    @font-face {
+        font-family: 'Gespenst';
+        src: url('https://www.demiurg.page/fonts/Gespenst/Gespenst-Black.woff2') format('woff2'),
+            url('https://www.demiurg.page/fonts/Gespenst/Gespenst-Black.woff') format('woff'),
+            url('https://www.demiurg.page/fonts/Gespenst/Gespenst-Black.ttf') format('truetype');
+        font-weight: 900;
+        font-style: normal;
+        font-display: block;
+    }
+
+    @font-face {
+        font-family: 'Gespenst';
+        src: url('https://www.demiurg.page/fonts/Gespenst/Gespenst-Medium.woff2') format('woff2'),
+            url('https://www.demiurg.page/fonts/Gespenst/Gespenst-Medium.woff') format('woff'),
+            url('https://www.demiurg.page/fonts/Gespenst/Gespenst-Medium.ttf') format('truetype');
+        font-weight: 500;
+        font-style: normal;
+        font-display: block;
+    }
+
+    @font-face {
+        font-family: 'Gespenst';
+        src: url('https://www.demiurg.page/fonts/Gespenst/Gespenst-Light.woff2') format('woff2'),
+            url('https://www.demiurg.page/fonts/Gespenst/Gespenst-Light.woff') format('woff'),
+            url('https://www.demiurg.page/fonts/Gespenst/Gespenst-Light.ttf') format('truetype');
+        font-weight: 300;
+        font-style: normal;
+        font-display: block;
+    }
+
+    @font-face {
+        font-family: 'Gespenst';
+        src: url('https://www.demiurg.page/fonts/Gespenst/Gespenst-UltraLight.woff2') format('woff2'),
+            url('https://www.demiurg.page/fonts/Gespenst/Gespenst-UltraLight.woff') format('woff'),
+            url('https://www.demiurg.page/fonts/Gespenst/Gespenst-UltraLight.ttf') format('truetype');
+        font-weight: 200;
+        font-style: normal;
+        font-display: block;
+    }
+
+    @font-face {
+        font-family: 'Gespenst';
+        src: url('https://www.demiurg.page/fonts/Gespenst/Gespenst-Regular.woff2') format('woff2'),
+            url('https://www.demiurg.page/fonts/Gespenst/Gespenst-Regular.woff') format('woff'),
+            url('https://www.demiurg.page/fonts/Gespenst/Gespenst-Regular.ttf') format('truetype');
+        font-weight: normal;
+        font-style: normal;
+        font-display: block;
+    }
+
+    @font-face {
+        font-family: 'Gespenst';
+        src: url('https://www.demiurg.page/fonts/Gespenst/Gespenst-Thin.woff2') format('woff2'),
+            url('https://www.demiurg.page/fonts/Gespenst/Gespenst-Thin.woff') format('woff'),
+            url('https://www.demiurg.page/fonts/Gespenst/Gespenst-Thin.ttf') format('truetype');
+        font-weight: 100;
+        font-style: normal;
+        font-display: block;
+    }
+
+    @font-face {
+        font-family: 'Gespenst UltraBlack';
+        src: url('https://www.demiurg.page/fonts/Gespenst/Gespenst-UltraBlack.woff2') format('woff2'),
+            url('https://www.demiurg.page/fonts/Gespenst/Gespenst-UltraBlack.woff') format('woff'),
+            url('https://www.demiurg.page/fonts/Gespenst/Gespenst-UltraBlack.ttf') format('truetype');
+        font-weight: 900;
+        font-style: normal;
+        font-display: block;
+    }
+
+    @font-face {
+        font-family: 'Gespenst';
+        src: url('https://www.demiurg.page/fonts/Gespenst/Gespenst-SemiBold.woff2') format('woff2'),
+            url('https://www.demiurg.page/fonts/Gespenst/Gespenst-SemiBold.woff') format('woff'),
+            url('https://www.demiurg.page/fonts/Gespenst/Gespenst-SemiBold.ttf') format('truetype');
+        font-weight: 600;
+        font-style: normal;
+        font-display: block;
+    }
+
+    @font-face {
+        font-family: 'Rudi';
+        src: url('https://www.demiurg.page/fonts/Rudi/Rudi-Regular.woff2') format('woff2'),
+            url('https://www.demiurg.page/fonts/Rudi/Rudi-Regular.woff') format('woff'),
+            url('https://www.demiurg.page/fonts/Rudi/Rudi-Regular.ttf') format('truetype');
+        font-weight: normal;
+        font-style: italic;
+        font-display: block;
+    }
+
+
+      body {
+          background-color: #3D1382 !important;
+          font-family: "Gespenst";
+          font-size: 20pt;
+          /* font-weight: 600; */
+      }
+
+      .logo_lg {
+        max-height: 200px;
+        max-width: 300px;
+        /* padding: 20px; */
+      }
+
+      #og_input_fields {
+        display: flex;
+        flex-wrap: wrap;
+        gap:10px;
+        justify-content: center;
+      }
+
+      #generation_window {
+        visibility: hidden;
+        height: 0px;
+      }
+
+      .logo_box {
+        height: fit-content;
+        background-color: #9B62FF;
+        border-radius: 25px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        gap:25px;
+
+        justify-content: center;
+        margin: 20px;
+        padding: 30px;
+        font-weight: 900 !important;
+      }
+      
+      .wortmarken_box {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .wortmarken_box .logo_lg{
+        max-height:50px;
+        max-width: 100%;
+      }
+
+      input:focus,
+      select:focus,
+      textarea:focus,
+      button:focus {
+        outline: none;
+      }
+
+      button, input {
+        padding: 5px 20px !important;
+        border-radius: 25px !important;
+        border: solid !important;
+        font-weight: 900 !important;          
+        font-family: "Gespenst" !important;
+        font-size: 20pt !important;
+        width:250px !important;
+      }
+
+      button {
+        background-color: #FF2828;
+        color: #FFF2F4;
+        border-color: white !important;
+        height: fit-content !important;
+      }
+
+      input {
+        background-color: #FFF2F4;
+        border-color: black !important;
+        color: black !important;
+      }
+
+      label {
+        color: #FFF2F4;
+      }
+
+
+
+      #input_section {
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        margin: 60px;
+        width: fit-content;
+        margin-left: auto;
+        margin-right: auto;
+        color:black;
+      }
+
+      p {
+        padding-left: 30px;
+        padding-top:30px;
+        margin: 0px;
+        color: #FFF2F4;
+      }
+
+      #loading_section {
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+        align-items: center;
+        gap: 10px;
+        margin: 60px;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 100%;
+      }
+
+
+      #loading_percentage, #loading_bar {
+        visibility: hidden;
+      }
+
+      #loading_bar {
+        width:500px;
+      }
+
+      #loading_percentage {
+        padding: 0px;
+        padding-left: 30px;
+        width: 60px;
+      }
+
+      #loading_bar {
+        max-width: 70%;
+        width: 500px;
+        height: 30px;
+        border-radius: 25px;
+        border: solid #9B62FF 4px;
+        background-image: linear-gradient(left, #9B62FF, #9B62FF, 70% transparent,  100% transparent);
+        background-image: -webkit-linear-gradient(left, #9B62FF, #9B62FF 70%, transparent 70%, transparent 100%)  
+      }
+
+      .main_color {
+        background-color: #3D1382 !important;
+      }
+
+      .og_pb_large {
+        display: none;
+      }
+    </style>
+    <script>
+      var zip
+      var file_counter = 0
+      var current_og = "Ortsgruppe"
+      var current_og_upper = "ORTSGRUPPE"
+      const base_color = "FF2828"
+      const colors = [
+        ["Rot 1", "FF2828"],
+        ["Rot 2", "6D0921"],
+        ["Lila 1", "9B62FF"],
+        ["Lila 2", "3D1382"],
+        ["Schwarz", "000000"]
+      ]
+
+      const sw_colors = [
+        ["Creme", "FFF2F4"],
+        ["Schwarz", "000000"]
+      ]
+
+      let fontFiles = [
+        'https://www.demiurg.page/fonts/Gespenst/OFL.txt',
+        'https://www.demiurg.page/fonts/Rudi/OFL.txt',
+        'https://www.demiurg.page/fonts/Gespenst/Gespenst-Thin.ttf',
+        'https://www.demiurg.page/fonts/Gespenst/Gespenst-UltraLight.ttf',
+        'https://www.demiurg.page/fonts/Gespenst/Gespenst-Light.ttf',
+        'https://www.demiurg.page/fonts/Gespenst/Gespenst-Regular.ttf',
+        'https://www.demiurg.page/fonts/Gespenst/Gespenst-Medium.ttf',
+        'https://www.demiurg.page/fonts/Gespenst/Gespenst-SemiBold.ttf',
+        'https://www.demiurg.page/fonts/Gespenst/Gespenst-Bold.ttf',
+        'https://www.demiurg.page/fonts/Gespenst/Gespenst-Black.ttf',
+        'https://www.demiurg.page/fonts/Gespenst/Gespenst-UltraBlack.ttf',
+        'https://www.demiurg.page/fonts/Rudi/Rudi-Regular.ttf',
+      ]
+
+      let fontFilesNames = [
+        'OFL-Gespenst.txt',
+        'OFL-Rudi.txt',
+        'Gespenst-Thin.ttf',
+        'Gespenst-UltraLight.ttf',
+        'Gespenst-Light.ttf',
+        'Gespenst-Regular.ttf',
+        'Gespenst-Medium.ttf',
+        'Gespenst-SemiBold.ttf',
+        'Gespenst-Bold.ttf',
+        'Gespenst-Black.ttf',
+        'Gespenst-UltraBlack.ttf',
+        'Rudi-Regular.ttf',
+      ]
+
+      window.onload = (event) => {      
+        document.getElementById("ortsgruppe").addEventListener('input', change_ortsgruppe)
+        adjustSVGSizeAll()
+      };
+
+
+      function reset_loading_bar() {
+        loaded = 0
+        document.getElementById('loading_bar').style.visibility = "hidden"
+        document.getElementById('loading_bar').style.backgroundImage = "-webkit-linear-gradient(left, #9B62FF, #9B62FF " + 0 + "%, transparent " + 0 + "%, transparent 100%)"
+
+        
+        document.getElementById('loading_percentage').style.visibility = "hidden"
+        document.getElementById('loading_percentage').textContent = ""
+      }
+
+      var loaded = 0
+
+      function increase_loading_bar(amount) {
+        document.getElementById('loading_bar').style.visibility = "visible"
+        
+        document.getElementById('loading_percentage').style.visibility = "visible"
+        loaded = loaded + amount
+
+        if(loaded > 100) {
+          loaded = 100
+        }
+
+        display_loaded = Math.round(loaded)
+
+        document.getElementById('loading_bar').style.backgroundImage = "-webkit-linear-gradient(left, #9B62FF, #9B62FF " + display_loaded + "%, transparent " + display_loaded + "%, transparent 100%)"
+        document.getElementById('loading_percentage').textContent = display_loaded + "%"
+      }
+
+      function change_ortsgruppe() {
+        reset_loading_bar()
+        let og = document.getElementById('ortsgruppe').value
+
+        var og_input = document.getElementsByClassName("ortsgruppe_input")
+        for (let i = 0; i < og_input.length; i++)
+        {
+          og_input[i].innerHTML = og_input[i].innerHTML = og
+        }
+
+        var og_input_upper = document.getElementsByClassName("ortsgruppe_input_uppercase")
+        for (let i = 0; i < og_input_upper.length; i++)
+        {
+          og_input_upper[i].innerHTML = og.toUpperCase()
+        }
+
+        var og_input_upper_scaled = document.getElementsByClassName("ortsgruppe_input_uppercase_scaled")
+        for (let i = 0; i < og_input_upper_scaled.length; i++)
+        {
+          og_input_upper_scaled[i].innerHTML = og.toUpperCase()
+
+          let og_length = og_input_upper_scaled[i].textContent.length
+          
+          if(og_length <= 7) {
+
+            change_class_visibility('og_pb_large', true)
+            change_class_visibility('og_pb_small', false)
+            og_input_upper_scaled[i].parentElement.setAttribute("font-size", "140")
+            og_input_upper_scaled[i].setAttribute("y", "701.4")
+          }
+          else {
+            change_class_visibility('og_pb_large', false)
+            change_class_visibility('og_pb_small', true)
+            og_input_upper_scaled[i].parentElement.setAttribute("font-size", "86")
+            og_input_upper_scaled[i].setAttribute("y", "682.06")
+          }
+        //   og_input_upper_scaled[i].innerHTML = og.toUpperCase()
+        //   console.log("test")
+    
+          
+        //   // Applying ems directly was causing some weirdness, converting ems to pixels got rid of the weirdyness
+          
+        //   console.log("TEST")
+        //   while(og_input_upper_scaled[i].getBoundingClientRect().width < 60) {
+        //     font_size_current = font_size_current + 1
+        //     console.log("font_size_current: " + font_size_current)
+            
+        //     console.log("bb: " + og_input_upper_scaled[i].getBoundingClientRect().width)
+        //     og_input_upper_scaled[i].style.fontSize = font_size_current + "px"
+        //   }
+        } 
+
+
+
+        current_og_upper = og.toUpperCase()
+        current_og = og
+        adjustSVGSizeAll();
+      }
+
+      function change_class_visibility(size_class, visible) {
+
+        var size_class_el = document.getElementsByClassName(size_class)
+
+        for(i = 0; i < size_class_el.length; i++) {
+          if(visible == true) {
+            size_class_el[i].style.display = 'inline';
+          }
+          else {
+            size_class_el[i].style.display = 'none';
+          }
+          
+        }
+      }
+
+      function textToPath(svg, callback) {
+        const textElements = svg.querySelectorAll('text');
+        const fontUrl = 'https://www.demiurg.page/fonts/Gespenst/Gespenst-UltraBlack.ttf';
+
+        opentype.load(fontUrl, function(err, font) {
+            if (err) {
+                console.error('Could not load font: ' + err);
+                return;
+            }
+
+            textElements.forEach((textElement) => {
+                const fontSize = parseFloat(textElement.getAttribute('font-size'));
+                const fill = textElement.getAttribute('fill') || '#000000';
+                const x = parseFloat(textElement.getAttribute('x')) || 0;
+                const y = parseFloat(textElement.getAttribute('y')) || 0;
+                const tspanElements = textElement.querySelectorAll('tspan:not(.tspan-exclude)');
+
+                let combinedPathData = '';
+
+                let totalWidth = 0;
+                const textAnchor = textElement.getAttribute('text-anchor') || 'start';
+
+                tspanElements.forEach((tspanElement) => {
+                    const text = tspanElement.textContent;
+                    const glyphs = font.stringToGlyphs(text);
+                    const tspanX = parseFloat(tspanElement.getAttribute('x')) || x;
+                    const tspanY = parseFloat(tspanElement.getAttribute('y')) || y;
+                    let xOffset = 0;
+
+                    glyphs.forEach(glyph => {
+                        totalWidth += glyph.advanceWidth * (fontSize / font.unitsPerEm);
+                    });
+
+                    if (textAnchor === 'middle') {
+                        xOffset = -totalWidth / 2;
+                    } else if (textAnchor === 'end') {
+                        xOffset = -totalWidth;
+                    }
+
+                    const path = font.getPath(text, tspanX + xOffset, tspanY, fontSize);
+                    combinedPathData += path.toPathData(2);
+                });
+
+                const pathElement = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+                pathElement.setAttribute('d', combinedPathData);
+                pathElement.setAttribute('fill', fill);
+
+                textElement.parentNode.replaceChild(pathElement, textElement);
+            });
+
+            if (callback) {
+                callback(svg);
+            }
+        });
+      }
+
+
+
+      function adjustSVGSizeAll() {
+        var svgs = document.getElementsByClassName("logo_lg");
+        for (let i = 0; i < svgs.length; i++) {
+          adjustSVGSize(svgs[i])
+        }
+      }
+
+      function adjustSVGSize(svg) {
+          svg.removeAttribute("width");
+          svg.removeAttribute("height");
+
+          let bbox = svg.getBBox({"stroke": true});
+          
+          svg.setAttribute("viewBox", `${bbox.x} ${bbox.y} ${bbox.width} ${bbox.height}`);
+          svg.setAttribute("width", bbox.width);
+          svg.setAttribute("height", bbox.height);
+      }
+
+
+      function export_set() {
+        zip = new JSZip()
+        var logos = document.getElementsByClassName("logo_lg")
+
+        for (let i = 0; i < logos.length; i++)
+        {
+          if(logos[i].getAttribute("data-sw") == "true") {
+            
+            for (let j = 0; j < sw_colors.length; j++)
+            {
+              export_svg(logos[i], sw_colors[j])
+            }
+          }
+          else {
+            for (let j = 0; j < colors.length; j++)
+            {
+              export_svg(logos[i], colors[j])
+            }
+          }
+        }
+      }
+
+      
+      function export_svg(logo, color) {
+        let directory = logo.getAttribute("data-directory") + " " + color[0];
+        let htmlStr = logo.outerHTML.replaceAll(base_color, color[1]);
+
+        if (color[0] == "Schwarz" && !logo.getAttribute("data-directory").includes("Profilbild")) {
+            htmlStr = htmlStr.replaceAll('<text fill="#FFF2F4"', '<text fill="#' + color[1] + '"');
+        }
+
+        const svgElement = new DOMParser().parseFromString(htmlStr, 'image/svg+xml').documentElement;
+
+        textToPath(svgElement, function(updatedSvg) {
+            console.log(updatedSvg)
+            document.getElementById("generation_window").innerHTML = ""
+            document.getElementById("generation_window").append(updatedSvg)
+
+            adjustSVGSize(updatedSvg)
+            // Serialize updated SVG with paths
+            let updatedHtmlStr = new XMLSerializer().serializeToString(updatedSvg);
+            let svg = new Blob([updatedHtmlStr], { type: "image/svg+xml" });
+            file_counter++;
+            const url = URL.createObjectURL(svg);
+            let img = new Image();
+
+            img.onload = async () => {
+                URL.revokeObjectURL(img.src);
+                canvas.width = img.width;
+                canvas.height = img.height;
+                canvas.getContext('2d').drawImage(img, 0, 0);
+
+                let imgData = canvas.toDataURL('image/png');
+                let byteString = atob(imgData.split(',')[1]);
+                let ab = new ArrayBuffer(byteString.length);
+                let ia = new Uint8Array(ab);
+                for (let i = 0; i < byteString.length; i++) {
+                    ia[i] = byteString.charCodeAt(i);
+                }
+
+                let pngBlob = new Blob([ia], { type: "image/png" });
+                
+                increase_loading_bar(0.7)
+                zip.file(`${directory}.png`, pngBlob, {binary: true});
+
+                if (--file_counter === 0) {
+                    await addFontFilesToZip(); 
+                    export_zip();
+                }
+            }
+
+            img.src = url;
+            img.style.visibility = "hidden";
+
+            increase_loading_bar(0.7)
+            if(!directory.includes("Profilbild")){
+              zip.file(directory + ".svg", svg, {binary: true})
+            }
+        });
+      }
+
+
+      async function addFontFilesToZip() {
+          const fontFilesPromises = fontFiles.map((fontFile, i) => {
+              return new Promise((resolve, reject) => {
+                  JSZipUtils.getBinaryContent(fontFile, (error, data) => {
+                      if (error) {
+                          return reject(error);
+                      }
+
+                      let fileName = 'Schriftarten/' + fontFilesNames[i]
+                      zip.file(fileName, data, { binary: true });
+                      
+                      increase_loading_bar(0.7)
+                      resolve();
+                  });
+              });
+          });
+
+          await Promise.all(fontFilesPromises);
+      }
+
+      function export_zip() {
+        
+
+        zip.generateAsync({
+            type: 'blob'
+        }).then(function(content) {
+          
+            increase_loading_bar(100)
+            saveAs(content, "SDS Material " + document.getElementById('ortsgruppe').value + ".zip")
+        })
+      }
+    </script>
+  </head>
+  <body>
+    <div id="input_section">
+      <label for="name">Ortsgruppe hier eingeben:</label>
+      <div id="og_input_fields">
+        <input type="text" id="ortsgruppe" name="Ortsgruppe" required minlength="1" maxlength="20" size="10" />
+        <button onclick="export_set()">Herunterladen</button>
+      </div>
+    </div>
+
+    <div id="loading_section">
+      <div id="loading_bar"></div>
+      <p id="loading_percentage"></p>
+    </div>
+    <canvas id="canvas" style="display:none;"></canvas>
+    <div id="generation_window"></div>
+
+    <p>Logos</p>
+    <div class="logo_box">
+      <svg class="logo_lg" data-directory="Ortsgruppe/Logos/Logo" width="1099" height="511" viewBox="0 0 1099 511" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M997.084 411.592H0.00366706L74.3506 0.000131234H1070.35L997.084 411.592Z" fill="#FF2828"/>
+        <path d="M775.972 335.568C724.45 335.568 691.617 326.917 677.473 309.617C663.33 292.19 658.595 270.344 663.267 244.078H749.832C746.927 260.494 749.327 270.218 757.03 273.248C764.733 276.153 774.267 277.605 785.632 277.605C796.871 277.605 806.784 276.469 815.371 274.196C823.958 271.796 828.883 267.061 830.146 259.989C831.535 252.033 826.168 246.793 814.045 244.267C802.048 241.742 785.632 238.837 764.796 235.554C726.281 228.103 701.719 218.759 691.112 207.52C680.504 196.155 676.084 180.875 677.852 161.68C679.241 138.445 690.796 118.366 712.516 101.445C734.362 84.5233 770.226 76.0625 820.106 76.0625C869.861 76.0625 901.873 85.0284 916.142 102.96C930.538 120.892 935.589 142.233 931.296 166.984H844.731C847.509 150.946 844.92 141.602 836.965 138.95C829.135 136.172 819.98 134.783 809.499 134.783C797.629 134.783 787.211 135.856 778.245 138.003C769.405 140.15 764.417 144.506 763.281 151.073C761.765 160.291 766.753 166.1 778.245 168.499C789.862 170.772 806.784 173.866 829.009 177.781C869.04 185.358 894.422 193.818 905.156 203.163C915.89 212.508 919.994 227.346 917.468 247.677C914.816 271.923 903.135 292.632 882.426 309.806C861.716 326.981 826.231 335.568 775.972 335.568Z" fill="#FFF2F4"/>
+        <path d="M389.29 334.052L434.371 78.3356H584.202C622.465 78.3356 646.964 88.1854 657.697 107.885C668.557 127.585 670.515 160.291 663.569 206.004C656.624 252.475 644.312 285.434 626.632 304.882C609.08 324.329 581.172 334.052 542.909 334.052H389.29ZM486.083 275.711H527.755C540.888 275.711 550.928 272.68 557.873 266.619C564.818 260.431 571.259 240.226 577.194 206.004C583.255 172.035 583.887 152.02 579.088 145.958C574.289 139.771 565.324 136.677 552.191 136.677H510.518L486.083 275.711Z" fill="#FFF2F4"/>
+        <path d="M251.836 335.568C200.314 335.568 167.481 326.917 153.337 309.617C139.194 292.19 134.459 270.344 139.131 244.078H225.696C222.791 260.494 225.191 270.218 232.894 273.249C240.597 276.153 250.131 277.605 261.496 277.605C272.735 277.605 282.648 276.469 291.235 274.196C299.822 271.796 304.747 267.061 306.01 259.989C307.399 252.033 302.032 246.793 289.909 244.267C277.913 241.742 261.496 238.837 240.66 235.554C202.145 228.103 177.583 218.759 166.976 207.52C156.368 196.155 151.948 180.875 153.716 161.68C155.105 138.445 166.66 118.366 188.38 101.445C210.227 84.5233 246.09 76.0625 295.971 76.0625C345.725 76.0625 377.737 85.0284 392.006 102.96C406.402 120.892 411.453 142.233 407.16 166.984H320.595C323.373 150.946 320.785 141.602 312.829 138.95C305 136.172 295.844 134.783 285.363 134.783C273.493 134.783 263.075 135.856 254.109 138.003C245.269 140.15 240.281 144.506 239.145 151.073C237.629 160.291 242.617 166.1 254.109 168.499C265.727 170.772 282.648 173.866 304.873 177.781C344.904 185.358 370.286 193.818 381.02 203.163C391.754 212.508 395.858 227.346 393.332 247.677C390.68 271.923 379 292.632 358.29 309.807C337.58 326.981 302.095 335.568 251.836 335.568Z" fill="#FFF2F4"/>
+        <path d="M276.343 370.658H1086.11L1064.06 500H254.287L276.343 370.658Z" fill="#FFF2F4"/>
+
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M267.25 359.883H1098.88L1073.15 510.775H241.52L267.25 359.883ZM276.343 370.658H1086.11L1064.06 500H254.287L276.343 370.658Z" fill="#FF2828"/>
+
+        <text fill="#FF2828" xml:space="preserve" style="white-space: pre" font-family="Gespenst" font-size="85.3664" font-weight="900" text-anchor="middle"><tspan x="679.125" y="465.782" class="ortsgruppe_input">Ortsgruppe</tspan></text>
+      </svg>
+
+      <svg class="logo_lg" data-directory="Bundesverband/Logos/Logo" width="1099" height="511" viewBox="0 0 1099 511" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M997.084 411.592H0.00366706L74.3506 0.000131234H1070.35L997.084 411.592Z" fill="#FF2828"/>
+        <path d="M775.972 335.568C724.45 335.568 691.617 326.917 677.473 309.617C663.33 292.19 658.595 270.344 663.267 244.078H749.832C746.927 260.494 749.327 270.218 757.03 273.248C764.733 276.153 774.267 277.605 785.632 277.605C796.871 277.605 806.784 276.469 815.371 274.196C823.958 271.796 828.883 267.061 830.146 259.989C831.535 252.033 826.168 246.793 814.045 244.267C802.048 241.742 785.632 238.837 764.796 235.554C726.281 228.103 701.719 218.759 691.112 207.52C680.504 196.155 676.084 180.875 677.852 161.68C679.241 138.445 690.796 118.366 712.516 101.445C734.362 84.5233 770.226 76.0625 820.106 76.0625C869.861 76.0625 901.873 85.0284 916.142 102.96C930.538 120.892 935.589 142.233 931.296 166.984H844.731C847.509 150.946 844.92 141.602 836.965 138.95C829.135 136.172 819.98 134.783 809.499 134.783C797.629 134.783 787.211 135.856 778.245 138.003C769.405 140.15 764.417 144.506 763.281 151.073C761.765 160.291 766.753 166.1 778.245 168.499C789.862 170.772 806.784 173.866 829.009 177.781C869.04 185.358 894.422 193.818 905.156 203.163C915.89 212.508 919.994 227.346 917.468 247.677C914.816 271.923 903.135 292.632 882.426 309.806C861.716 326.981 826.231 335.568 775.972 335.568Z" fill="#FFF2F4"/>
+        <path d="M389.29 334.052L434.371 78.3356H584.202C622.465 78.3356 646.964 88.1854 657.697 107.885C668.557 127.585 670.515 160.291 663.569 206.004C656.624 252.475 644.312 285.434 626.632 304.882C609.08 324.329 581.172 334.052 542.909 334.052H389.29ZM486.083 275.711H527.755C540.888 275.711 550.928 272.68 557.873 266.619C564.818 260.431 571.259 240.226 577.194 206.004C583.255 172.035 583.887 152.02 579.088 145.958C574.289 139.771 565.324 136.677 552.191 136.677H510.518L486.083 275.711Z" fill="#FFF2F4"/>
+        <path d="M251.836 335.568C200.314 335.568 167.481 326.917 153.337 309.617C139.194 292.19 134.459 270.344 139.131 244.078H225.696C222.791 260.494 225.191 270.218 232.894 273.249C240.597 276.153 250.131 277.605 261.496 277.605C272.735 277.605 282.648 276.469 291.235 274.196C299.822 271.796 304.747 267.061 306.01 259.989C307.399 252.033 302.032 246.793 289.909 244.267C277.913 241.742 261.496 238.837 240.66 235.554C202.145 228.103 177.583 218.759 166.976 207.52C156.368 196.155 151.948 180.875 153.716 161.68C155.105 138.445 166.66 118.366 188.38 101.445C210.227 84.5233 246.09 76.0625 295.971 76.0625C345.725 76.0625 377.737 85.0284 392.006 102.96C406.402 120.892 411.453 142.233 407.16 166.984H320.595C323.373 150.946 320.785 141.602 312.829 138.95C305 136.172 295.844 134.783 285.363 134.783C273.493 134.783 263.075 135.856 254.109 138.003C245.269 140.15 240.281 144.506 239.145 151.073C237.629 160.291 242.617 166.1 254.109 168.499C265.727 170.772 282.648 173.866 304.873 177.781C344.904 185.358 370.286 193.818 381.02 203.163C391.754 212.508 395.858 227.346 393.332 247.677C390.68 271.923 379 292.632 358.29 309.807C337.58 326.981 302.095 335.568 251.836 335.568Z" fill="#FFF2F4"/>
+        <path d="M276.343 370.658H1086.11L1064.06 500H254.287L276.343 370.658Z" fill="#FFF2F4"/>
+
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M267.25 359.883H1098.88L1073.15 510.775H241.52L267.25 359.883ZM276.343 370.658H1086.11L1064.06 500H254.287L276.343 370.658Z" fill="#FF2828"/>
+
+        <text fill="#FF2828" xml:space="preserve" style="white-space: pre" font-family="Gespenst" font-size="85.3664" font-weight="900" text-anchor="middle"><tspan x="679.125" y="465.782">Die Linke</tspan></text>
+      </svg>
+        
+      <svg class="logo_lg" data-directory="Bundesverband/Logos/Logo Einfach" width="1071" height="412" viewBox="0 0 1071 412" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M997.078 411.592H-0.00219727L74.3447 0.000610352H1070.35L997.078 411.592Z" fill="#FF2828"/>
+        <path d="M775.966 335.568C724.444 335.568 691.611 326.917 677.468 309.617C663.324 292.19 658.589 270.344 663.261 244.078H749.826C746.921 260.494 749.321 270.218 757.024 273.248C764.727 276.153 774.261 277.605 785.626 277.605C796.865 277.605 806.778 276.469 815.365 274.196C823.952 271.796 828.877 267.061 830.14 259.989C831.529 252.033 826.162 246.793 814.039 244.267C802.043 241.742 785.626 238.837 764.79 235.554C726.275 228.103 701.713 218.759 691.106 207.52C680.498 196.155 676.078 180.875 677.846 161.68C679.235 138.445 690.79 118.366 712.51 101.445C734.357 84.5233 770.22 76.0625 820.101 76.0625C869.855 76.0625 901.867 85.0284 916.136 102.96C930.532 120.892 935.583 142.233 931.29 166.984H844.725C847.503 150.946 844.915 141.602 836.959 138.95C829.13 136.172 819.974 134.783 809.493 134.783C797.623 134.783 787.205 135.856 778.239 138.003C769.399 140.15 764.411 144.506 763.275 151.073C761.759 160.291 766.747 166.1 778.239 168.499C789.857 170.772 806.778 173.866 829.003 177.781C869.034 185.358 894.416 193.818 905.15 203.163C915.884 212.508 919.988 227.346 917.462 247.677C914.81 271.923 903.13 292.632 882.42 309.806C861.71 326.981 826.225 335.568 775.966 335.568Z" fill="#FFF2F4"/>
+        <path d="M389.284 334.052L434.366 78.3356H584.197C622.459 78.3356 646.958 88.1854 657.691 107.885C668.552 127.585 670.509 160.291 663.563 206.004C656.618 252.475 644.306 285.434 626.627 304.882C609.074 324.329 581.166 334.052 542.903 334.052H389.284ZM486.077 275.711H527.749C540.883 275.711 550.922 272.68 557.867 266.619C564.813 260.431 571.253 240.226 577.188 206.004C583.249 172.035 583.881 152.02 579.082 145.958C574.284 139.771 565.318 136.677 552.185 136.677H510.512L486.077 275.711Z" fill="#FFF2F4"/>
+        <path d="M251.83 335.568C200.308 335.568 167.475 326.917 153.332 309.617C139.188 292.19 134.453 270.344 139.125 244.078H225.69C222.786 260.494 225.185 270.218 232.888 273.249C240.591 276.153 250.125 277.605 261.49 277.605C272.729 277.605 282.642 276.469 291.229 274.196C299.816 271.796 304.741 267.061 306.004 259.989C307.393 252.033 302.026 246.793 289.903 244.267C277.907 241.742 261.49 238.837 240.654 235.554C202.139 228.103 177.577 218.759 166.97 207.52C156.362 196.155 151.943 180.875 153.71 161.68C155.1 138.445 166.654 118.366 188.374 101.445C210.221 84.5233 246.084 76.0625 295.965 76.0625C345.719 76.0625 377.731 85.0284 392 102.96C406.396 120.892 411.448 142.233 407.154 166.984H320.589C323.367 150.946 320.779 141.602 312.823 138.95C304.994 136.172 295.838 134.783 285.357 134.783C273.487 134.783 263.069 135.856 254.103 138.003C245.263 140.15 240.275 144.506 239.139 151.073C237.623 160.291 242.611 166.1 254.103 168.499C265.721 170.772 282.642 173.866 304.867 177.781C344.898 185.358 370.28 193.818 381.014 203.163C391.748 212.508 395.852 227.346 393.326 247.677C390.675 271.923 378.994 292.632 358.284 309.807C337.574 326.981 302.089 335.568 251.83 335.568Z" fill="#FFF2F4"/>
+      </svg>
+    </div>
+
+    <p>Profilbilder</p>
+    <div class="logo_box">
+      <svg class="logo_lg" data-directory="Ortsgruppe/Profilbilder/Profilbild" width="1000" height="1000" viewBox="0 0 1000 1000" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="1000" height="1000" fill="#FF2828"/>
+        <text fill="#FFF2F4" xml:space="preserve" style="white-space: pre" font-family="Gespenst" font-size="85.7313" font-weight="900" text-anchor="middle"><tspan x="500" y="682.06" class="ortsgruppe_input_uppercase_scaled">ORTSGRUPPE</tspan></text>
+        
+        <path class="og_pb_small" d="M729.566 565.308C680.466 565.308 649.176 557.064 635.698 540.577C622.219 523.97 617.706 503.15 622.159 478.118H704.655C701.887 493.763 704.174 503.03 711.515 505.918C718.856 508.686 727.942 510.07 738.773 510.07C749.483 510.07 758.93 508.987 767.114 506.821C775.297 504.534 779.991 500.021 781.194 493.282C782.518 485.7 777.403 480.706 765.85 478.299C754.417 475.892 738.773 473.124 718.916 469.995C682.211 462.895 658.804 453.989 648.695 443.279C638.586 432.448 634.374 417.886 636.059 399.594C637.382 377.45 648.394 358.315 669.093 342.189C689.913 326.063 724.091 318 771.627 318C819.042 318 849.55 326.544 863.149 343.633C876.868 360.722 881.682 381.061 877.59 404.648H795.094C797.741 389.364 795.274 380.459 787.693 377.932C780.231 375.284 771.506 373.96 761.518 373.96C750.205 373.96 740.277 374.983 731.732 377.029C723.308 379.075 718.555 383.227 717.472 389.485C716.028 398.27 720.781 403.806 731.732 406.092C742.804 408.258 758.93 411.207 780.111 414.938C818.26 422.158 842.449 430.221 852.679 439.127C862.908 448.032 866.819 462.173 864.412 481.548C861.885 504.654 850.753 524.391 831.017 540.758C811.28 557.125 777.463 565.308 729.566 565.308Z" fill="#FFF2F4"/>
+        <path class="og_pb_small" d="M361.059 563.864L404.022 320.166H546.811C583.275 320.166 606.622 329.553 616.851 348.327C627.201 367.101 629.066 398.27 622.447 441.835C615.828 486.121 604.095 517.531 587.246 536.064C570.519 554.597 543.922 563.864 507.458 563.864H361.059ZM453.303 508.265H493.017C505.532 508.265 515.1 505.376 521.719 499.6C528.338 493.703 534.475 474.448 540.132 441.835C545.908 409.462 546.51 390.387 541.937 384.611C537.364 378.714 528.819 375.765 516.303 375.765H476.59L453.303 508.265Z" fill="#FFF2F4"/>
+        <path class="og_pb_small" d="M230.066 565.308C180.965 565.308 149.676 557.064 136.197 540.577C122.719 523.97 118.206 503.15 122.659 478.118H205.155C202.387 493.763 204.673 503.03 212.014 505.918C219.355 508.686 228.441 510.07 239.272 510.07C249.983 510.07 259.43 508.987 267.614 506.821C275.797 504.534 280.49 500.021 281.694 493.282C283.018 485.7 277.903 480.706 266.35 478.299C254.917 475.892 239.272 473.124 219.416 469.995C182.71 462.895 159.303 453.989 149.195 443.279C139.086 432.448 134.874 417.886 136.558 399.594C137.882 377.45 148.894 358.315 169.593 342.189C190.413 326.063 224.59 318 272.126 318C319.542 318 350.05 326.544 363.648 343.633C377.368 360.722 382.182 381.061 378.09 404.648H295.594C298.241 389.364 295.774 380.459 288.192 377.932C280.731 375.284 272.006 373.96 262.018 373.96C250.705 373.96 240.777 374.983 232.232 377.029C223.808 379.075 219.055 383.227 217.971 389.485C216.527 398.27 221.281 403.806 232.232 406.092C243.304 408.258 259.43 411.207 280.611 414.938C318.76 422.158 342.949 430.221 353.179 439.127C363.408 448.032 367.319 462.173 364.912 481.548C362.385 504.654 351.253 524.391 331.516 540.758C311.78 557.125 277.963 565.308 230.066 565.308Z" fill="#FFF2F4"/>
+     
+        <path class="og_pb_large" d="M729.566 546.308C680.466 546.308 649.176 538.064 635.698 521.577C622.219 504.97 617.706 484.15 622.159 459.118H704.655C701.887 474.763 704.174 484.03 711.515 486.918C718.856 489.686 727.942 491.07 738.773 491.07C749.483 491.07 758.93 489.987 767.114 487.821C775.297 485.534 779.991 481.021 781.194 474.282C782.518 466.7 777.403 461.706 765.85 459.299C754.417 456.892 738.773 454.124 718.916 450.995C682.211 443.895 658.804 434.989 648.695 424.279C638.586 413.448 634.374 398.886 636.059 380.594C637.382 358.45 648.394 339.315 669.093 323.189C689.913 307.063 724.091 299 771.627 299C819.042 299 849.55 307.544 863.149 324.633C876.868 341.722 881.682 362.061 877.59 385.648H795.094C797.741 370.364 795.274 361.459 787.693 358.932C780.231 356.284 771.506 354.96 761.518 354.96C750.205 354.96 740.277 355.983 731.732 358.029C723.308 360.075 718.555 364.227 717.472 370.485C716.028 379.27 720.781 384.806 731.732 387.092C742.804 389.258 758.93 392.207 780.111 395.938C818.26 403.158 842.449 411.221 852.679 420.127C862.908 429.032 866.819 443.173 864.412 462.548C861.885 485.654 850.753 505.391 831.017 521.758C811.28 538.125 777.463 546.308 729.566 546.308Z" fill="#FFF2F4"/>
+        <path class="og_pb_large" d="M361.059 544.864L404.022 301.166H546.811C583.275 301.166 606.622 310.553 616.851 329.327C627.201 348.101 629.066 379.27 622.447 422.835C615.828 467.121 604.095 498.531 587.246 517.064C570.519 535.597 543.922 544.864 507.458 544.864H361.059ZM453.303 489.265H493.017C505.532 489.265 515.1 486.376 521.719 480.6C528.338 474.703 534.475 455.448 540.132 422.835C545.908 390.462 546.51 371.387 541.937 365.611C537.364 359.714 528.819 356.765 516.303 356.765H476.59L453.303 489.265Z" fill="#FFF2F4"/>
+        <path class="og_pb_large" d="M230.066 546.308C180.965 546.308 149.676 538.064 136.197 521.577C122.719 504.97 118.206 484.15 122.659 459.118H205.155C202.387 474.763 204.673 484.03 212.014 486.918C219.355 489.686 228.441 491.07 239.272 491.07C249.983 491.07 259.43 489.987 267.614 487.821C275.797 485.534 280.49 481.021 281.694 474.282C283.018 466.7 277.903 461.706 266.35 459.299C254.917 456.892 239.272 454.124 219.416 450.995C182.71 443.895 159.303 434.989 149.195 424.279C139.086 413.448 134.874 398.886 136.558 380.594C137.882 358.45 148.894 339.315 169.593 323.189C190.413 307.063 224.59 299 272.126 299C319.542 299 350.05 307.544 363.648 324.633C377.368 341.722 382.182 362.061 378.09 385.648H295.594C298.241 370.364 295.774 361.459 288.192 358.932C280.731 356.284 272.006 354.96 262.018 354.96C250.705 354.96 240.777 355.983 232.232 358.029C223.808 360.075 219.055 364.227 217.971 370.485C216.527 379.27 221.281 384.806 232.232 387.092C243.304 389.258 259.43 392.207 280.611 395.938C318.76 403.158 342.949 411.221 353.179 420.127C363.408 429.032 367.319 443.173 364.912 462.548C362.385 485.654 351.253 505.391 331.516 521.758C311.78 538.125 277.963 546.308 230.066 546.308Z" fill="#FFF2F4"/>
+        
+      </svg>
+      
+      <svg class="logo_lg" data-directory="Bundesverband/Profilbilder/Profilbild" width="1001" height="1001" viewBox="0 0 1001 1001" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="1000.3" height="1000.3" fill="#FF2828"/>
+        <path d="M752.087 637C697.29 637 662.371 627.8 647.328 609.4C632.286 590.866 627.249 567.631 632.219 539.695H724.286C721.197 557.155 723.749 567.496 731.941 570.72C740.134 573.809 750.274 575.353 762.362 575.353C774.315 575.353 784.858 574.145 793.991 571.727C803.124 569.175 808.362 564.139 809.705 556.617C811.182 548.156 805.474 542.582 792.581 539.896C779.822 537.21 762.362 534.121 740.201 530.629C699.238 522.705 673.115 512.766 661.833 500.813C650.552 488.726 645.851 472.474 647.731 452.06C649.208 427.347 661.497 405.993 684.598 387.996C707.833 369.999 745.976 361 799.027 361C851.944 361 885.991 370.536 901.168 389.607C916.479 408.679 921.851 431.377 917.284 457.701H825.217C828.172 440.644 825.419 430.705 816.957 427.885C808.63 424.93 798.893 423.453 787.746 423.453C775.121 423.453 764.041 424.594 754.505 426.877C745.103 429.161 739.798 433.794 738.59 440.778C736.978 450.582 742.283 456.761 754.505 459.312C766.861 461.73 784.858 465.02 808.496 469.184C851.071 477.242 878.067 486.241 889.483 496.18C900.899 506.118 905.264 521.899 902.578 543.523C899.757 569.309 887.334 591.336 865.308 609.601C843.281 627.867 805.541 637 752.087 637Z" fill="#FFF2F4"/>
+        <path d="M340.827 635.388L388.774 363.418H548.129C588.824 363.418 614.879 373.894 626.295 394.845C637.846 415.797 639.927 450.583 632.541 499.201C625.154 548.626 612.059 583.68 593.256 604.364C574.587 625.047 544.906 635.388 504.211 635.388H340.827ZM443.773 573.339H488.094C502.062 573.339 512.739 570.115 520.126 563.669C527.513 557.088 534.362 535.599 540.675 499.201C547.122 463.073 547.793 441.785 542.69 435.339C537.586 428.758 528.05 425.467 514.082 425.467H469.761L443.773 573.339Z" fill="#FFF2F4"/>
+        <path d="M194.637 637C139.84 637 104.92 627.8 89.8775 609.4C74.8351 590.866 69.7986 567.631 74.768 539.695H166.835C163.746 557.155 166.298 567.496 174.491 570.72C182.683 573.809 192.823 575.353 204.911 575.353C216.864 575.353 227.407 574.145 236.54 571.727C245.673 569.175 250.911 564.139 252.254 556.618C253.731 548.156 248.023 542.582 235.13 539.896C222.371 537.21 204.911 534.121 182.75 530.629C141.787 522.705 115.664 512.766 104.383 500.813C93.1008 488.726 88.4001 472.474 90.2804 452.06C91.7578 427.347 104.047 405.993 127.148 387.996C150.383 369.999 188.526 361 241.577 361C294.493 361 328.54 370.536 343.717 389.607C359.028 408.679 364.4 431.377 359.834 457.701H267.766C270.721 440.644 267.968 430.705 259.507 427.885C251.18 424.93 241.442 423.453 230.295 423.453C217.67 423.453 206.59 424.594 197.054 426.877C187.653 429.161 182.348 433.794 181.139 440.778C179.527 450.582 184.832 456.761 197.054 459.312C209.41 461.73 227.407 465.02 251.045 469.184C293.62 477.242 320.616 486.241 332.032 496.18C343.448 506.118 347.813 521.899 345.127 543.523C342.307 569.309 329.883 591.336 307.857 609.601C285.831 627.867 248.091 637 194.637 637Z" fill="#FFF2F4"/>
+      </svg>
+    </div>
+
+    <p>Wortmarken</p>
+    <div class="logo_box wortmarken_box">
+      <svg class="logo_lg" data-directory="Ortsgruppe/Wortmarken/Wortmarke 1 Zeilen" preserveAspectRatio="xMinYMin meet" width="12910" height="500" viewBox="0 0 12910 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <text fill="#FFF2F4" xml:space="preserve" style="white-space: pre" font-family="Gespenst" font-size="322.732" font-weight="900"><tspan x="1400" y="359.48">SOZIALISTISCH-DEMOKRATISCHER STUDIERENDENVERBAND <tspan class="ortsgruppe_input_uppercase tspan-exclude">ORTSGRUPPE</tspan></tspan></text>
+        <path d="M1211.25 500L0.000732422 500L90.317 0L1300.26 0L1211.25 500Z" fill="#FF2828"/>
+        <path d="M942.648 407.645C880.059 407.645 840.174 397.137 822.993 376.12C805.812 354.95 800.059 328.412 805.735 296.503H910.894C907.365 316.446 910.28 328.258 919.638 331.94C928.995 335.468 940.577 337.232 954.384 337.232C968.037 337.232 980.079 335.852 990.51 333.09C1000.94 330.176 1006.92 324.423 1008.46 315.832C1010.15 306.168 1003.63 299.802 988.9 296.734C974.326 293.665 954.384 290.137 929.072 286.149C882.284 277.098 852.447 265.746 839.561 252.093C826.675 238.287 821.305 219.725 823.453 196.407C825.141 168.181 839.177 143.789 865.562 123.233C892.101 102.677 935.668 92.399 996.263 92.399C1056.7 92.399 1095.59 103.291 1112.93 125.074C1130.42 146.858 1136.55 172.783 1131.34 202.85H1026.18C1029.55 183.368 1026.41 172.016 1016.74 168.794C1007.23 165.419 996.11 163.732 983.377 163.732C968.957 163.732 956.301 165.036 945.409 167.644C934.671 170.252 928.612 175.544 927.231 183.521C925.39 194.72 931.45 201.776 945.409 204.691C959.523 207.452 980.079 211.211 1007.08 215.966C1055.71 225.17 1086.54 235.449 1099.58 246.8C1112.62 258.152 1117.61 276.177 1114.54 300.875C1111.32 330.329 1097.13 355.487 1071.97 376.35C1046.81 397.213 1003.7 407.645 942.648 407.645Z" fill="#FFF2F4"/>
+        <path d="M472.908 405.804L527.674 95.1604H709.688C756.169 95.1604 785.93 107.126 798.969 131.057C812.162 154.988 814.539 194.72 806.102 250.252C797.665 306.705 782.708 346.743 761.232 370.368C739.908 393.992 706.006 405.804 659.525 405.804H472.908ZM590.493 334.931H641.116C657.07 334.931 669.266 331.25 677.703 323.886C686.14 316.369 693.964 291.825 701.174 250.252C708.537 208.986 709.304 184.672 703.475 177.308C697.645 169.792 686.754 166.033 670.8 166.033H620.176L590.493 334.931Z" fill="#FFF2F4"/>
+        <path d="M305.93 407.645C243.341 407.645 203.456 397.137 186.275 376.12C169.093 354.95 163.341 328.412 169.017 296.503H274.175C270.647 316.446 273.562 328.258 282.919 331.94C292.277 335.468 303.859 337.232 317.665 337.232C331.318 337.232 343.36 335.852 353.792 333.09C364.223 330.176 370.206 324.423 371.74 315.832C373.428 306.168 366.908 299.802 352.181 296.734C337.608 293.665 317.665 290.137 292.354 286.149C245.565 277.098 215.728 265.746 202.842 252.093C189.956 238.287 184.587 219.725 186.735 196.407C188.422 168.181 202.459 143.79 228.844 123.233C255.383 102.677 298.95 92.3991 359.545 92.3991C419.986 92.3991 458.874 103.291 476.209 125.074C493.697 146.858 499.833 172.783 494.617 202.85H389.458C392.833 183.368 389.689 172.016 380.024 168.794C370.513 165.42 359.391 163.732 346.659 163.732C332.239 163.732 319.583 165.036 308.691 167.644C297.953 170.252 291.893 175.544 290.513 183.521C288.672 194.72 294.731 201.776 308.691 204.691C322.804 207.452 343.36 211.211 370.36 215.966C418.989 225.17 449.823 235.449 462.862 246.8C475.902 258.152 480.887 276.177 477.819 300.875C474.598 330.329 460.408 355.487 435.25 376.35C410.091 397.213 366.985 407.645 305.93 407.645Z" fill="#FFF2F4"/>
+      </svg>
+
+      <svg class="logo_lg" data-directory="Ortsgruppe/Wortmarken/Wortmarke 2 Zeilen" preserveAspectRatio="xMinYMin meet" width="6521" height="500" viewBox="0 0 6521 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <text fill="#FFF2F4" xml:space="preserve" style="white-space: pre" font-family="Gespenst" font-size="273.496" font-weight="900"><tspan x="1400" y="210.657">SOZIALISTISCH-DEMOKRATISCHER</tspan><tspan x="1400" y="483.657">STUDIERENDENVERBAND <tspan class="ortsgruppe_input_uppercase tspan-exclude">ORTSGRUPPE</tspan></tspan></text>
+        <path d="M1211.25 500H0.000854492L90.3171 0H1300.26L1211.25 500Z" fill="#FF2828"/>
+        <path d="M942.644 407.647C880.055 407.647 840.17 397.138 822.989 376.122C805.808 354.952 800.055 328.413 805.731 296.505H910.89C907.361 316.448 910.276 328.26 919.634 331.942C928.991 335.47 940.573 337.234 954.38 337.234C968.033 337.234 980.075 335.854 990.506 333.092C1000.94 330.178 1006.92 324.425 1008.45 315.834C1010.14 306.17 1003.62 299.803 988.896 296.735C974.322 293.667 954.38 290.139 929.068 286.15C882.28 277.1 852.443 265.748 839.557 252.095C826.671 238.288 821.302 219.726 823.449 196.409C825.137 168.183 839.173 143.791 865.559 123.235C892.098 102.679 935.664 92.4009 996.259 92.4009C1056.7 92.4009 1095.59 103.293 1112.92 125.076C1130.41 146.859 1136.55 172.785 1131.33 202.852H1026.17C1029.55 183.37 1026.4 172.018 1016.74 168.796C1007.23 165.421 996.106 163.734 983.373 163.734C968.953 163.734 956.297 165.038 945.406 167.646C934.667 170.254 928.608 175.546 927.227 183.523C925.386 194.722 931.446 201.778 945.406 204.693C959.519 207.454 980.075 211.213 1007.07 215.968C1055.7 225.172 1086.54 235.45 1099.58 246.802C1112.62 258.154 1117.6 276.179 1114.53 300.877C1111.31 330.331 1097.12 355.489 1071.96 376.352C1046.81 397.215 1003.7 407.647 942.644 407.647Z" fill="#FFF2F4"/>
+        <path d="M472.904 405.806L527.67 95.1622H709.684C756.165 95.1622 785.926 107.128 798.965 131.059C812.158 154.99 814.536 194.722 806.098 250.254C797.661 306.707 782.704 346.745 761.228 370.369C739.904 393.994 706.002 405.806 659.521 405.806H472.904ZM590.489 334.933H641.112C657.066 334.933 669.262 331.251 677.699 323.888C686.136 316.371 693.96 291.826 701.17 250.254C708.533 208.988 709.3 184.674 703.471 177.31C697.642 169.793 686.75 166.035 670.796 166.035H620.172L590.489 334.933Z" fill="#FFF2F4"/>
+        <path d="M305.926 407.647C243.337 407.647 203.452 397.139 186.271 376.122C169.089 354.952 163.337 328.413 169.013 296.505H274.171C270.643 316.448 273.558 328.26 282.915 331.942C292.273 335.47 303.855 337.234 317.661 337.234C331.314 337.234 343.357 335.854 353.788 333.092C364.22 330.178 370.202 324.425 371.736 315.834C373.424 306.17 366.904 299.803 352.177 296.735C337.604 293.667 317.661 290.139 292.35 286.151C245.561 277.1 215.724 265.748 202.838 252.095C189.952 238.288 184.583 219.726 186.731 196.409C188.418 168.183 202.455 143.791 228.84 123.235C255.379 102.679 298.946 92.4009 359.541 92.4009C419.982 92.4009 458.87 103.293 476.205 125.076C493.693 146.859 499.829 172.785 494.613 202.852H389.455C392.829 183.37 389.685 172.018 380.02 168.796C370.509 165.421 359.387 163.734 346.655 163.734C332.235 163.734 319.579 165.038 308.687 167.646C297.949 170.254 291.889 175.546 290.509 183.523C288.668 194.722 294.727 201.778 308.687 204.693C322.8 207.454 343.357 211.213 370.356 215.968C418.985 225.172 449.819 235.45 462.858 246.802C475.898 258.154 480.883 276.179 477.815 300.877C474.594 330.331 460.404 355.489 435.246 376.352C410.087 397.215 366.981 407.647 305.926 407.647Z" fill="#FFF2F4"/>
+      </svg>
+      
+      <svg class="logo_lg" data-directory="Ortsgruppe/Wortmarken/Wortmarke 4 Zeilen" preserveAspectRatio="xMinYMin meet" width="2936" height="500" viewBox="0 0 2936 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <text fill="#FFF2F4" xml:space="preserve" style="white-space: pre" font-family="Gespenst" font-size="126.275" font-weight="900"><tspan x="1400" y="104.729">SOZIALISTISCH-</tspan><tspan x="1400" y="230.729">DEMOKRATISCHER</tspan><tspan x="1400" y="356.729">STUDIERENDENVERBAND</tspan><tspan x="1400" y="482.729"><tspan class="ortsgruppe_input_uppercase tspan-exclude">ORTSGRUPPE</tspan></tspan></text>
+        <path d="M1211.25 499.578H1.02673L91.2667 0.000640869H1300.18L1211.25 499.578Z" fill="#FF2828"/>
+        <path d="M942.875 407.302C880.339 407.302 840.487 396.803 823.321 375.804C806.154 354.652 800.406 328.136 806.077 296.254H911.147C907.622 316.18 910.534 327.982 919.883 331.661C929.233 335.186 940.805 336.949 954.6 336.949C968.242 336.949 980.274 335.569 990.696 332.81C1001.12 329.898 1007.1 324.15 1008.63 315.567C1010.32 305.911 1003.8 299.55 989.087 296.484C974.526 293.419 954.6 289.894 929.31 285.908C882.561 276.865 852.749 265.523 839.874 251.882C826.999 238.087 821.635 219.541 823.78 196.243C825.466 168.04 839.491 143.67 865.854 123.131C892.371 102.592 935.901 92.3228 996.444 92.3228C1056.83 92.3228 1095.69 103.205 1113.01 124.97C1130.48 146.735 1136.61 172.639 1131.4 202.68H1026.33C1029.7 183.215 1026.56 171.872 1016.91 168.653C1007.4 165.281 996.291 163.595 983.569 163.595C969.161 163.595 956.516 164.898 945.634 167.504C934.904 170.11 928.85 175.398 927.471 183.368C925.631 194.557 931.686 201.607 945.634 204.52C959.735 207.279 980.274 211.034 1007.25 215.785C1055.84 224.982 1086.65 235.251 1099.67 246.594C1112.7 257.936 1117.68 275.946 1114.62 300.623C1111.4 330.052 1097.22 355.189 1072.09 376.034C1046.95 396.879 1003.88 407.302 942.875 407.302Z" fill="#FFF2F4"/>
+        <path d="M473.532 405.463L528.251 95.0818H710.111C756.553 95.0818 786.289 107.037 799.317 130.948C812.499 154.859 814.874 194.557 806.444 250.042C798.014 306.447 783.07 346.452 761.612 370.056C740.306 393.66 706.433 405.463 659.991 405.463H473.532ZM591.017 334.65H641.598C657.538 334.65 669.723 330.971 678.154 323.614C686.584 316.104 694.401 291.58 701.605 250.042C708.962 208.811 709.728 184.517 703.904 177.16C698.079 169.65 687.197 165.895 671.256 165.895H620.676L591.017 334.65Z" fill="#FFF2F4"/>
+        <path d="M306.695 407.302C244.159 407.302 204.308 396.803 187.141 375.804C169.974 354.652 164.226 328.136 169.898 296.255H274.967C271.442 316.18 274.354 327.982 283.704 331.661C293.054 335.186 304.626 336.949 318.421 336.949C332.062 336.949 344.094 335.569 354.517 332.81C364.939 329.898 370.917 324.15 372.45 315.567C374.136 305.911 367.622 299.55 352.907 296.484C338.346 293.419 318.421 289.894 293.13 285.908C246.382 276.865 216.57 265.523 203.695 251.882C190.82 238.087 185.455 219.541 187.601 196.243C189.287 168.04 203.311 143.67 229.675 123.131C256.191 102.592 299.721 92.3228 360.264 92.3228C420.655 92.3228 459.51 103.205 476.83 124.97C494.303 146.735 500.434 172.639 495.223 202.68H390.153C393.525 183.215 390.383 171.872 380.727 168.653C371.224 165.281 360.111 163.595 347.389 163.595C332.982 163.595 320.336 164.898 309.454 167.504C298.725 170.11 292.67 175.398 291.291 183.368C289.452 194.557 295.506 201.607 309.454 204.52C323.555 207.279 344.094 211.034 371.07 215.785C419.658 224.982 450.466 235.251 463.495 246.594C476.523 257.936 481.505 275.946 478.439 300.623C475.22 330.052 461.042 355.189 435.905 376.034C410.768 396.879 367.698 407.302 306.695 407.302Z" fill="#FFF2F4"/>
+      </svg>
+
+      <svg class="logo_lg" data-sw="true" data-directory="Ortsgruppe/Wortmarken/Wortmarke 1 Zeilen Einfach" preserveAspectRatio="xMinYMin meet" width="25025" height="524" viewBox="0 0 25025 524" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <text fill="#FFF2F4" xml:space="preserve" style="white-space: pre" font-family="Gespenst" font-size="704.888" font-weight="900"><tspan x="0" y="512.47">SOZIALISTISCH-DEMOKRATISCHER STUDIERENDENVERBAND <tspan class="ortsgruppe_input_uppercase tspan-exclude">ORTSGRUPPE</tspan></tspan></text>
+      </svg>
+
+      <svg class="logo_lg" data-directory="Bundesverband/Wortmarken/Wortmarke 1 Zeilen" preserveAspectRatio="xMinYMin meet" width="12910" height="500" viewBox="0 0 12910 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <text fill="#FFF2F4" xml:space="preserve" style="white-space: pre" font-family="Gespenst" font-size="322.732" font-weight="900"><tspan x="1400" y="359.48">SOZIALISTISCH-DEMOKRATISCHER STUDIERENDENVERBAND</tspan></text>
+        <path d="M1211.25 500L0.000732422 500L90.317 0L1300.26 0L1211.25 500Z" fill="#FF2828"/>
+        <path d="M942.648 407.645C880.059 407.645 840.174 397.137 822.993 376.12C805.812 354.95 800.059 328.412 805.735 296.503H910.894C907.365 316.446 910.28 328.258 919.638 331.94C928.995 335.468 940.577 337.232 954.384 337.232C968.037 337.232 980.079 335.852 990.51 333.09C1000.94 330.176 1006.92 324.423 1008.46 315.832C1010.15 306.168 1003.63 299.802 988.9 296.734C974.326 293.665 954.384 290.137 929.072 286.149C882.284 277.098 852.447 265.746 839.561 252.093C826.675 238.287 821.305 219.725 823.453 196.407C825.141 168.181 839.177 143.789 865.562 123.233C892.101 102.677 935.668 92.399 996.263 92.399C1056.7 92.399 1095.59 103.291 1112.93 125.074C1130.42 146.858 1136.55 172.783 1131.34 202.85H1026.18C1029.55 183.368 1026.41 172.016 1016.74 168.794C1007.23 165.419 996.11 163.732 983.377 163.732C968.957 163.732 956.301 165.036 945.409 167.644C934.671 170.252 928.612 175.544 927.231 183.521C925.39 194.72 931.45 201.776 945.409 204.691C959.523 207.452 980.079 211.211 1007.08 215.966C1055.71 225.17 1086.54 235.449 1099.58 246.8C1112.62 258.152 1117.61 276.177 1114.54 300.875C1111.32 330.329 1097.13 355.487 1071.97 376.35C1046.81 397.213 1003.7 407.645 942.648 407.645Z" fill="#FFF2F4"/>
+        <path d="M472.908 405.804L527.674 95.1604H709.688C756.169 95.1604 785.93 107.126 798.969 131.057C812.162 154.988 814.539 194.72 806.102 250.252C797.665 306.705 782.708 346.743 761.232 370.368C739.908 393.992 706.006 405.804 659.525 405.804H472.908ZM590.493 334.931H641.116C657.07 334.931 669.266 331.25 677.703 323.886C686.14 316.369 693.964 291.825 701.174 250.252C708.537 208.986 709.304 184.672 703.475 177.308C697.645 169.792 686.754 166.033 670.8 166.033H620.176L590.493 334.931Z" fill="#FFF2F4"/>
+        <path d="M305.93 407.645C243.341 407.645 203.456 397.137 186.275 376.12C169.093 354.95 163.341 328.412 169.017 296.503H274.175C270.647 316.446 273.562 328.258 282.919 331.94C292.277 335.468 303.859 337.232 317.665 337.232C331.318 337.232 343.36 335.852 353.792 333.09C364.223 330.176 370.206 324.423 371.74 315.832C373.428 306.168 366.908 299.802 352.181 296.734C337.608 293.665 317.665 290.137 292.354 286.149C245.565 277.098 215.728 265.746 202.842 252.093C189.956 238.287 184.587 219.725 186.735 196.407C188.422 168.181 202.459 143.79 228.844 123.233C255.383 102.677 298.95 92.3991 359.545 92.3991C419.986 92.3991 458.874 103.291 476.209 125.074C493.697 146.858 499.833 172.783 494.617 202.85H389.458C392.833 183.368 389.689 172.016 380.024 168.794C370.513 165.42 359.391 163.732 346.659 163.732C332.239 163.732 319.583 165.036 308.691 167.644C297.953 170.252 291.893 175.544 290.513 183.521C288.672 194.72 294.731 201.776 308.691 204.691C322.804 207.452 343.36 211.211 370.36 215.966C418.989 225.17 449.823 235.449 462.862 246.8C475.902 258.152 480.887 276.177 477.819 300.875C474.598 330.329 460.408 355.487 435.25 376.35C410.091 397.213 366.985 407.645 305.93 407.645Z" fill="#FFF2F4"/>
+      </svg>
+
+      <svg class="logo_lg" data-directory="Bundesverband/Wortmarken/Wortmarke 2 Zeilen" preserveAspectRatio="xMinYMin meet" width="6521" height="500" viewBox="0 0 6521 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <text fill="#FFF2F4" xml:space="preserve" style="white-space: pre" font-family="Gespenst" font-size="273.496" font-weight="900"><tspan x="1400" y="210.657">SOZIALISTISCH-DEMOKRATISCHER</tspan><tspan x="1400" y="483.657">STUDIERENDENVERBAND</tspan></text>
+        <path d="M1211.25 500H0.000854492L90.3171 0H1300.26L1211.25 500Z" fill="#FF2828"/>
+        <path d="M942.644 407.647C880.055 407.647 840.17 397.138 822.989 376.122C805.808 354.952 800.055 328.413 805.731 296.505H910.89C907.361 316.448 910.276 328.26 919.634 331.942C928.991 335.47 940.573 337.234 954.38 337.234C968.033 337.234 980.075 335.854 990.506 333.092C1000.94 330.178 1006.92 324.425 1008.45 315.834C1010.14 306.17 1003.62 299.803 988.896 296.735C974.322 293.667 954.38 290.139 929.068 286.15C882.28 277.1 852.443 265.748 839.557 252.095C826.671 238.288 821.302 219.726 823.449 196.409C825.137 168.183 839.173 143.791 865.559 123.235C892.098 102.679 935.664 92.4009 996.259 92.4009C1056.7 92.4009 1095.59 103.293 1112.92 125.076C1130.41 146.859 1136.55 172.785 1131.33 202.852H1026.17C1029.55 183.37 1026.4 172.018 1016.74 168.796C1007.23 165.421 996.106 163.734 983.373 163.734C968.953 163.734 956.297 165.038 945.406 167.646C934.667 170.254 928.608 175.546 927.227 183.523C925.386 194.722 931.446 201.778 945.406 204.693C959.519 207.454 980.075 211.213 1007.07 215.968C1055.7 225.172 1086.54 235.45 1099.58 246.802C1112.62 258.154 1117.6 276.179 1114.53 300.877C1111.31 330.331 1097.12 355.489 1071.96 376.352C1046.81 397.215 1003.7 407.647 942.644 407.647Z" fill="#FFF2F4"/>
+        <path d="M472.904 405.806L527.67 95.1622H709.684C756.165 95.1622 785.926 107.128 798.965 131.059C812.158 154.99 814.536 194.722 806.098 250.254C797.661 306.707 782.704 346.745 761.228 370.369C739.904 393.994 706.002 405.806 659.521 405.806H472.904ZM590.489 334.933H641.112C657.066 334.933 669.262 331.251 677.699 323.888C686.136 316.371 693.96 291.826 701.17 250.254C708.533 208.988 709.3 184.674 703.471 177.31C697.642 169.793 686.75 166.035 670.796 166.035H620.172L590.489 334.933Z" fill="#FFF2F4"/>
+        <path d="M305.926 407.647C243.337 407.647 203.452 397.139 186.271 376.122C169.089 354.952 163.337 328.413 169.013 296.505H274.171C270.643 316.448 273.558 328.26 282.915 331.942C292.273 335.47 303.855 337.234 317.661 337.234C331.314 337.234 343.357 335.854 353.788 333.092C364.22 330.178 370.202 324.425 371.736 315.834C373.424 306.17 366.904 299.803 352.177 296.735C337.604 293.667 317.661 290.139 292.35 286.151C245.561 277.1 215.724 265.748 202.838 252.095C189.952 238.288 184.583 219.726 186.731 196.409C188.418 168.183 202.455 143.791 228.84 123.235C255.379 102.679 298.946 92.4009 359.541 92.4009C419.982 92.4009 458.87 103.293 476.205 125.076C493.693 146.859 499.829 172.785 494.613 202.852H389.455C392.829 183.37 389.685 172.018 380.02 168.796C370.509 165.421 359.387 163.734 346.655 163.734C332.235 163.734 319.579 165.038 308.687 167.646C297.949 170.254 291.889 175.546 290.509 183.523C288.668 194.722 294.727 201.778 308.687 204.693C322.8 207.454 343.357 211.213 370.356 215.968C418.985 225.172 449.819 235.45 462.858 246.802C475.898 258.154 480.883 276.179 477.815 300.877C474.594 330.331 460.404 355.489 435.246 376.352C410.087 397.215 366.981 407.647 305.926 407.647Z" fill="#FFF2F4"/>
+      </svg>
+      
+      <svg class="logo_lg" data-directory="Bundesverband/Wortmarken/Wortmarke 3 Zeilen" preserveAspectRatio="xMinYMin meet" width="3489" height="500" viewBox="0 0 3489 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <text fill="#FFF2F4" xml:space="preserve" style="white-space: pre" font-family="Gespenst" font-size="172.226" font-weight="900"><tspan x="1400" y="136.47">SOZIALISTISCH-</tspan><tspan x="1400" y="308.47">DEMOKRATISCHER</tspan><tspan x="1400" y="480.47">STUDIERENDENVERBAND</tspan></text>
+        <path d="M1211.25 499.577H1.02661L91.2666 0.000152588H1300.18L1211.25 499.577Z" fill="#FF2828"/>
+        <path d="M942.875 407.302C880.339 407.302 840.487 396.803 823.321 375.804C806.154 354.652 800.406 328.136 806.077 296.254H911.147C907.622 316.18 910.534 327.982 919.884 331.661C929.233 335.186 940.806 336.949 954.6 336.949C968.242 336.949 980.274 335.569 990.696 332.81C1001.12 329.898 1007.1 324.15 1008.63 315.567C1010.32 305.911 1003.8 299.55 989.087 296.484C974.526 293.419 954.6 289.894 929.31 285.908C882.561 276.865 852.749 265.523 839.874 251.882C826.999 238.087 821.635 219.541 823.781 196.243C825.467 168.04 839.491 143.67 865.854 123.131C892.371 102.592 935.901 92.3228 996.444 92.3228C1056.83 92.3228 1095.69 103.205 1113.01 124.97C1130.48 146.735 1136.61 172.639 1131.4 202.68H1026.33C1029.7 183.215 1026.56 171.872 1016.91 168.653C1007.4 165.281 996.291 163.595 983.569 163.595C969.161 163.595 956.516 164.898 945.634 167.504C934.904 170.11 928.85 175.398 927.471 183.368C925.631 194.557 931.686 201.607 945.634 204.52C959.735 207.279 980.274 211.034 1007.25 215.785C1055.84 224.982 1086.65 235.251 1099.67 246.594C1112.7 257.936 1117.68 275.946 1114.62 300.623C1111.4 330.052 1097.22 355.189 1072.09 376.034C1046.95 396.879 1003.88 407.302 942.875 407.302Z" fill="#FFF2F4"/>
+        <path d="M473.532 405.463L528.251 95.0818H710.111C756.554 95.0818 786.289 107.037 799.317 130.948C812.499 154.859 814.874 194.557 806.444 250.042C798.014 306.447 783.07 346.452 761.612 370.056C740.306 393.66 706.433 405.463 659.991 405.463H473.532ZM591.017 334.65H641.598C657.538 334.65 669.723 330.971 678.154 323.614C686.584 316.104 694.401 291.58 701.605 250.042C708.962 208.811 709.728 184.517 703.904 177.16C698.079 169.65 687.197 165.895 671.256 165.895H620.676L591.017 334.65Z" fill="#FFF2F4"/>
+        <path d="M306.695 407.302C244.159 407.302 204.308 396.803 187.141 375.804C169.974 354.652 164.226 328.136 169.898 296.255H274.967C271.442 316.18 274.354 327.982 283.704 331.661C293.054 335.186 304.626 336.949 318.421 336.949C332.062 336.949 344.094 335.569 354.517 332.81C364.939 329.898 370.917 324.15 372.45 315.567C374.136 305.911 367.622 299.55 352.907 296.484C338.346 293.419 318.421 289.894 293.13 285.908C246.382 276.865 216.57 265.523 203.695 251.882C190.82 238.087 185.455 219.541 187.601 196.243C189.287 168.04 203.311 143.67 229.675 123.131C256.191 102.592 299.721 92.3228 360.264 92.3228C420.655 92.3228 459.51 103.205 476.83 124.97C494.303 146.735 500.434 172.639 495.223 202.68H390.153C393.525 183.215 390.383 171.872 380.727 168.653C371.224 165.281 360.111 163.595 347.389 163.595C332.982 163.595 320.336 164.898 309.454 167.504C298.725 170.11 292.67 175.398 291.291 183.368C289.452 194.557 295.506 201.607 309.454 204.52C323.555 207.279 344.094 211.034 371.07 215.785C419.658 224.982 450.466 235.251 463.495 246.594C476.523 257.936 481.505 275.946 478.439 300.623C475.22 330.052 461.042 355.189 435.905 376.034C410.768 396.879 367.698 407.302 306.695 407.302Z" fill="#FFF2F4"/>
+      </svg>
+
+      <svg class="logo_lg" data-sw="true" data-directory="Bundesverband/Wortmarken/Wortmarke 1 Zeilen Einfach" preserveAspectRatio="xMinYMin meet" width="25025" height="524" viewBox="0 0 25025 524" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <text fill="#FFF2F4" xml:space="preserve" style="white-space: pre" font-family="Gespenst" font-size="704.888" font-weight="900"><tspan x="0" y="512.47">SOZIALISTISCH-DEMOKRATISCHER STUDIERENDENVERBAND</tspan></text>
+      </svg>
+    </div>
+  </body>
+</html>

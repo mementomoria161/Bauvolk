@@ -131,7 +131,7 @@ h2, h3 {
 p {
 	font-size: 1.085rem;
 	font-size: var(--font-regular);
-	font-size: 26px;
+	font-size: 28px;
 	line-height: 1.8;
 	margin:0px;
 	hyphens: auto;
