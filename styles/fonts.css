@@ -126,9 +126,9 @@
 
 @font-face {
     font-family: 'ZT Formom';
-    src: url('ZTFormom-Regular.woff2') format('woff2'),
-        url('ZTFormom-Regular.woff') format('woff'),
-        url('ZTFormom-Regular.ttf') format('truetype');
+    src: url('https://www.demiurg.page/fonts/ZTFormom/ZTFormom-Regular.woff2') format('woff2'),
+        url('https://www.demiurg.page/fonts/ZTFormom/ZTFormom-Regular.woff') format('woff'),
+        url('https://www.demiurg.page/fonts/ZTFormom/ZTFormom-Regular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
     font-display: block;
@@ -136,9 +136,9 @@
 
 @font-face {
     font-family: 'ZT Formom';
-    src: url('ZTFormom-Oblique.woff2') format('woff2'),
-        url('ZTFormom-Oblique.woff') format('woff'),
-        url('ZTFormom-Oblique.ttf') format('truetype');
+    src: url('https://www.demiurg.page/fonts/ZTFormom/ZTFormom-Oblique.woff2') format('woff2'),
+        url('https://www.demiurg.page/fonts/ZTFormom/ZTFormom-Oblique.woff') format('woff'),
+        url('https://www.demiurg.page/fonts/ZTFormom/ZTFormom-Oblique.ttf') format('truetype');
     font-weight: normal;
     font-style: italic;
     font-display: block;
