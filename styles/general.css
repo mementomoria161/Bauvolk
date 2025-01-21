@@ -302,7 +302,7 @@ button[disabled]{
 
 .abo input, .abo button, td, th {
 	height: fit-content;
-	font-size:15pt;
+	font-size: 26px;
 	padding: 5px 20px;
 	color: black;
 }
