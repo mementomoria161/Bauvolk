@@ -255,8 +255,10 @@
 			}
 
 			#cover-container {
-				display: grid;
-				grid-template-columns: 1fr 1fr;
+				/* display: grid;
+				grid-template-columns: 1fr 1fr; */
+				display: flex;
+				flex-direction: column;
 				gap:20px;
 			}
 
@@ -299,16 +301,18 @@
 			<div class="menu-content" id="menu-issues">
 				<div id="cover-container">
 					<a class="issue-title" id="info-issue-i" href="https://www.demiurg.page/heft-i">
-						<img lang="de" class="header_cover" src="images/issues/de/issue-i-cover.webp">
-						<img lang="en" class="header_cover" src="images/issues/en/issue-i-cover.webp">
-						<span lang="de">№ I: Grundrisse des konstruktiven Sozialismus</span>
-						<span lang="en">ISSUE I<br>Outlines of<br>Constructive<br>Socialism</span>
+						<div class="issue-info">
+							<span class="issue-number">№ I</span>
+							<span class="issue-title" lang="de">Grundrisse des<br>konstruktiven Sozialismus</span>
+							<span class="issue-title" lang="en">Outlines of Constructive<br>Socialism</span>
+						</div>
 					</a>
 					<a class="issue-title" id="info-issue-ii" href="https://www.demiurg.page/heft-ii">
-						<img lang="de" class="header_cover" src="images/issues/de/issue-ii-cover.webp">
-						<img lang="en" class="header_cover" src="images/issues/en/issue-ii-cover.webp">
-						<span lang="de">HEFT II<br>In Arbeit</span>
-						<span lang="en">ISSUE II<br>Work in Progress</span>
+						<div class="issue-info">
+							<span class="issue-number">№ II</span>
+							<span class="issue-title" lang="de">In Arbeit<br>Veröffentlichung 2025</span>
+							<span class="issue-title" lang="en">Outlines of Constructive<br>Socialism</span>
+						</div>
 					</a>
 				</div>
 			</div>

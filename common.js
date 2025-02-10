@@ -1338,11 +1338,11 @@ function display_slide_index() {
 
     // document.getElementById("slide-current").disabled = true;
     // document.getElementById("index"+slide_current).style.fontWeight = "700"
-    document.getElementById("index"+slide_current).style.textDecoration = "underline"; 
+    // document.getElementById("index"+slide_current).style.textDecoration = "underline"; 
     document.getElementById("timeline-btns").style.display = "none";
     document.getElementById("slide-title").style.display = "none";
     document.getElementById(SLIDE_LIST[slide_current]).style.display = "none";
-    document.getElementById("slide-index").style.display = "block";
+    document.getElementById("slide-index").style.display = "flex";
 
     INDEX_OPEN = true
 }

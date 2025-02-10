@@ -65,11 +65,10 @@
 
             const ISSUE_LIST = [
                 {
-                    no_de: "HEFT I",
-                    no_en: "ISSUE I",
+                    no: "№ I",
                     date_de: "03/2024",
                     date_en: "03/2024",
-                    title_de: "GRUNDRISSE DES <br>KONSTRUKTIVEN SOZIALISMUS",
+                    title_de: "Grundrisse des<br>konstruktiven Sozialismus",
                     title_en: "OUTLINES OF <br>CONSTRUCTIVE SOCIALISM",
                     cover_de: "images/issues/de/issue-i-cover.webp",
                     cover_en: "images/issues/en/issue-i-cover.webp",
@@ -77,11 +76,10 @@
                     default_hovered: " box_hovered"
                 },
                 {
-                    no_de: "HEFT II",
-                    no_en: "ISSUE II",
+                    no: "№ II",
                     date_de: "12/2024",
                     date_en: "12/2024",
-                    title_de: "<br>IN ARBEIT",
+                    title_de: "In Arbeit<br> Veröffentlichung 2025",
                     title_en: "<br>WORK IN PROGRESS",
                     cover_de: "images/issues/de/issue-ii-cover.webp",
                     cover_en: "images/issues/en/issue-ii-cover.webp",
@@ -89,11 +87,10 @@
                     default_hovered: ""
                 },
                 {
-                    no_de: "HEFT II",
-                    no_en: "ISSUE II",
+                    no: "№ III",
                     date_de: "12/2024",
                     date_en: "12/2024",
-                    title_de: "<br>IN ARBEIT",
+                    title_de: "In Arbeit<br> Veröffentlichung 2026",
                     title_en: "<br>WORK IN PROGRESS",
                     cover_de: "images/issues/de/issue-ii-cover.webp",
                     cover_en: "images/issues/de/issue-ii-cover.webp",
@@ -104,9 +101,11 @@
 
             // TEMPLATES
 
-            function cover_template(i){let issue = ISSUE_LIST[i]; return '<a class="cover" href=' + issue.url + '><img class="cover-image" loading="lazy" lang="de" src=' + issue.cover_de + ' alt="' + issue.no_de + ' COVER"/><img class="cover-image" loading="lazy" lang="en" src=' + issue.cover_en + ' alt="' + issue.no_en + ' COVER"/></a>'}
-            function basic_template(issue) {return '<span lang="de">' + issue.no_de + '&nbsp;  ⁄  &nbsp;' + issue.title_de + '</span><span lang="en">' + issue.no_en + '&nbsp;  ⁄  &nbsp;' + issue.title_en + '</span>'}
-            function basic_template_date(issue) {return '<span lang="de" class="left">' + issue.no_de + '<br>' + issue.date_de + '</span><span lang="en" class="left">' + issue.no_en +  '<br>' + issue.date_en + '</span><span lang="de">' + issue.title_de + '</span><span lang="en">' + issue.title_en + '</span>'}
+            function cover_template(i){let issue = ISSUE_LIST[i]; return '<a class="cover" href=' + issue.url + '><img class="cover-image" loading="lazy" lang="de" src=' + issue.cover_de + ' alt="' + issue.no + ' COVER"/><img class="cover-image" loading="lazy" lang="en" src=' + issue.cover_en + ' alt="' + issue.no + ' COVER"/></a>'}
+            // function basic_template(issue) {return '<span lang="de">' + issue.no_de + '&nbsp;  ⁄  &nbsp;' + issue.title_de + '</span><span lang="en">' + issue.no_en + '&nbsp;  ⁄  &nbsp;' + issue.title_en + '</span>'}
+            function basic_template(issue) {return '<div class="issue-info"><span class="issue-number">' + issue.no + '</span><span class="issue-title" lang="de">' + issue.title_de + '</span><span class="issue-title" lang="en">' + issue.title_en + '</span></div>'}
+
+            // function basic_template_date(issue) {return '<span lang="de" class="left">' + issue.no_de + '<br>' + issue.date_de + '</span><span lang="en" class="left">' + issue.no_en +  '<br>' + issue.date_en + '</span><span lang="de">' + issue.title_de + '</span><span lang="en">' + issue.title_en + '</span>'}
             function title_template(i){let issue = ISSUE_LIST[i]; return  cover_template(i)}
             function index_title_template(i){let issue = ISSUE_LIST[i]; return '<a class="issue-title center" href=' + issue.url + '><span lang="de">' + issue.title_de + '</span><span lang="en">' + issue.title_en + '</span></a>'}
             function index_template(slide, i){let issue = ISSUE_LIST[i]; return '<span onclick="display_combined(null, ' + i + ')" id="index' + i + '" class="indexitem issue-title">' + basic_template(issue) + '</span>'}
@@ -352,13 +351,14 @@
 
         /* SLIDE INDEX */
         #slide-index {
-            width: 100% !important;
+            /* width: 100% !important; */
             max-width: 390px !important;
             line-height: 1 !important;
-        }
-
-        #slide-index > * {
-            margin: 15px 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+            gap: 15px;
         }
 
         #slide-current {
@@ -495,7 +495,9 @@
         }
 
         /* SMALL SCREEN ADJUSTMENTS */
-        #slide-title {
+        #slide-title * {
+            text-transform: uppercase;
+            font-weight: 300 !important;
             font-size: clamp(1rem, -0.54rem + 5.7vw, 1.25rem) !important;
         }
 
@@ -523,16 +525,25 @@
             }
         }
 
+        #slide-index {
+            justify-content: flex-start;
+            align-items: flex-start;
+        }
+
+
+
         </style>
     </head>
 
     <body>
+        
         <!-- <div class="noise"></div>
         <div class="overlay"></div> -->
         
         <p id="seo">Gedanken einer politisch desinteressierten Jugend. Hefte des konstruktiven Sozialismus.</p>
         <header id="header"></header>
         <a id="mastodon_verification" rel="me" href="https://mastodon.social/@DEMIURG">Mastodon</a>
+
 
         <main id="content">
             <div id="issue-library"></div>
