@@ -2,9 +2,9 @@
 
 @font-face {
 	font-family: "Quaderni";
-	src:	url('https://www.bauvolk.page/fonts/Quaderni/Quaderni-Regular.woff2') format('woff2'),
-			url('https://www.bauvolk.page/fonts/Quaderni/Quaderni-Regular.woff') format('woff'),
-			url('https://www.bauvolk.page/fonts/Quaderni/Quaderni-Regular.ttf') format('truetype');
+	src:	url('https://www.bauvolk.org/fonts/Quaderni/Quaderni-Regular.woff2') format('woff2'),
+			url('https://www.bauvolk.org/fonts/Quaderni/Quaderni-Regular.woff') format('woff'),
+			url('https://www.bauvolk.org/fonts/Quaderni/Quaderni-Regular.ttf') format('truetype');
 	font-weight: 400;
 	font-style: normal;
 	font-display: block;
@@ -14,9 +14,9 @@
 
 @font-face {
     font-family: 'Gespenst';
-    src: url('https://www.bauvolk.page/fonts/Gespenst/Gespenst-Bold.woff2') format('woff2'),
-        url('https://www.bauvolk.page/fonts/Gespenst/Gespenst-Bold.woff') format('woff'),
-        url('https://www.bauvolk.page/fonts/Gespenst/Gespenst-Bold.ttf') format('truetype');
+    src: url('https://www.bauvolk.org/fonts/Gespenst/Gespenst-Bold.woff2') format('woff2'),
+        url('https://www.bauvolk.org/fonts/Gespenst/Gespenst-Bold.woff') format('woff'),
+        url('https://www.bauvolk.org/fonts/Gespenst/Gespenst-Bold.ttf') format('truetype');
     font-weight: bold;
     font-style: normal;
     font-display: block;
@@ -24,9 +24,9 @@
 
 @font-face {
     font-family: 'Gespenst';
-    src: url('https://www.bauvolk.page/fonts/Gespenst/Gespenst-Black.woff2') format('woff2'),
-        url('https://www.bauvolk.page/fonts/Gespenst/Gespenst-Black.woff') format('woff'),
-        url('https://www.bauvolk.page/fonts/Gespenst/Gespenst-Black.ttf') format('truetype');
+    src: url('https://www.bauvolk.org/fonts/Gespenst/Gespenst-Black.woff2') format('woff2'),
+        url('https://www.bauvolk.org/fonts/Gespenst/Gespenst-Black.woff') format('woff'),
+        url('https://www.bauvolk.org/fonts/Gespenst/Gespenst-Black.ttf') format('truetype');
     font-weight: 900;
     font-style: normal;
     font-display: block;
@@ -34,9 +34,9 @@
 
 @font-face {
     font-family: 'Gespenst';
-    src: url('https://www.bauvolk.page/fonts/Gespenst/Gespenst-Medium.woff2') format('woff2'),
-        url('https://www.bauvolk.page/fonts/Gespenst/Gespenst-Medium.woff') format('woff'),
-        url('https://www.bauvolk.page/fonts/Gespenst/Gespenst-Medium.ttf') format('truetype');
+    src: url('https://www.bauvolk.org/fonts/Gespenst/Gespenst-Medium.woff2') format('woff2'),
+        url('https://www.bauvolk.org/fonts/Gespenst/Gespenst-Medium.woff') format('woff'),
+        url('https://www.bauvolk.org/fonts/Gespenst/Gespenst-Medium.ttf') format('truetype');
     font-weight: 500;
     font-style: normal;
     font-display: block;
@@ -44,9 +44,9 @@
 
 @font-face {
     font-family: 'Gespenst';
-    src: url('https://www.bauvolk.page/fonts/Gespenst/Gespenst-Light.woff2') format('woff2'),
-        url('https://www.bauvolk.page/fonts/Gespenst/Gespenst-Light.woff') format('woff'),
-        url('https://www.bauvolk.page/fonts/Gespenst/Gespenst-Light.ttf') format('truetype');
+    src: url('https://www.bauvolk.org/fonts/Gespenst/Gespenst-Light.woff2') format('woff2'),
+        url('https://www.bauvolk.org/fonts/Gespenst/Gespenst-Light.woff') format('woff'),
+        url('https://www.bauvolk.org/fonts/Gespenst/Gespenst-Light.ttf') format('truetype');
     font-weight: 300;
     font-style: normal;
     font-display: block;
@@ -54,9 +54,9 @@
 
 @font-face {
     font-family: 'Gespenst';
-    src: url('https://www.bauvolk.page/fonts/Gespenst/Gespenst-UltraLight.woff2') format('woff2'),
-        url('https://www.bauvolk.page/fonts/Gespenst/Gespenst-UltraLight.woff') format('woff'),
-        url('https://www.bauvolk.page/fonts/Gespenst/Gespenst-UltraLight.ttf') format('truetype');
+    src: url('https://www.bauvolk.org/fonts/Gespenst/Gespenst-UltraLight.woff2') format('woff2'),
+        url('https://www.bauvolk.org/fonts/Gespenst/Gespenst-UltraLight.woff') format('woff'),
+        url('https://www.bauvolk.org/fonts/Gespenst/Gespenst-UltraLight.ttf') format('truetype');
     font-weight: 200;
     font-style: normal;
     font-display: block;
@@ -64,9 +64,9 @@
 
 @font-face {
     font-family: 'Gespenst';
-    src: url('https://www.bauvolk.page/fonts/Gespenst/Gespenst-Regular.woff2') format('woff2'),
-        url('https://www.bauvolk.page/fonts/Gespenst/Gespenst-Regular.woff') format('woff'),
-        url('https://www.bauvolk.page/fonts/Gespenst/Gespenst-Regular.ttf') format('truetype');
+    src: url('https://www.bauvolk.org/fonts/Gespenst/Gespenst-Regular.woff2') format('woff2'),
+        url('https://www.bauvolk.org/fonts/Gespenst/Gespenst-Regular.woff') format('woff'),
+        url('https://www.bauvolk.org/fonts/Gespenst/Gespenst-Regular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
     font-display: block;
@@ -74,9 +74,9 @@
 
 @font-face {
     font-family: 'Gespenst';
-    src: url('https://www.bauvolk.page/fonts/Gespenst/Gespenst-Thin.woff2') format('woff2'),
-        url('https://www.bauvolk.page/fonts/Gespenst/Gespenst-Thin.woff') format('woff'),
-        url('https://www.bauvolk.page/fonts/Gespenst/Gespenst-Thin.ttf') format('truetype');
+    src: url('https://www.bauvolk.org/fonts/Gespenst/Gespenst-Thin.woff2') format('woff2'),
+        url('https://www.bauvolk.org/fonts/Gespenst/Gespenst-Thin.woff') format('woff'),
+        url('https://www.bauvolk.org/fonts/Gespenst/Gespenst-Thin.ttf') format('truetype');
     font-weight: 100;
     font-style: normal;
     font-display: block;
@@ -84,9 +84,9 @@
 
 @font-face {
     font-family: 'Gespenst UltraBlack';
-    src: url('https://www.bauvolk.page/fonts/Gespenst/Gespenst-UltraBlack.woff2') format('woff2'),
-        url('https://www.bauvolk.page/fonts/Gespenst/Gespenst-UltraBlack.woff') format('woff'),
-        url('https://www.bauvolk.page/fonts/Gespenst/Gespenst-UltraBlack.ttf') format('truetype');
+    src: url('https://www.bauvolk.org/fonts/Gespenst/Gespenst-UltraBlack.woff2') format('woff2'),
+        url('https://www.bauvolk.org/fonts/Gespenst/Gespenst-UltraBlack.woff') format('woff'),
+        url('https://www.bauvolk.org/fonts/Gespenst/Gespenst-UltraBlack.ttf') format('truetype');
     font-weight: 900;
     font-style: normal;
     font-display: block;
@@ -94,9 +94,9 @@
 
 @font-face {
     font-family: 'Gespenst';
-    src: url('https://www.bauvolk.page/fonts/Gespenst/Gespenst-SemiBold.woff2') format('woff2'),
-        url('https://www.bauvolk.page/fonts/Gespenst/Gespenst-SemiBold.woff') format('woff'),
-        url('https://www.bauvolk.page/fonts/Gespenst/Gespenst-SemiBold.ttf') format('truetype');
+    src: url('https://www.bauvolk.org/fonts/Gespenst/Gespenst-SemiBold.woff2') format('woff2'),
+        url('https://www.bauvolk.org/fonts/Gespenst/Gespenst-SemiBold.woff') format('woff'),
+        url('https://www.bauvolk.org/fonts/Gespenst/Gespenst-SemiBold.ttf') format('truetype');
     font-weight: 600;
     font-style: normal;
     font-display: block;
@@ -106,8 +106,8 @@
 
 @font-face {
     font-family: 'Baskervville';
-    src: url('https://www.bauvolk.page/fonts/Baskervville/Baskervville-Regular.woff2') format('woff2'),
-        url('https://www.bauvolk.page/fonts/Baskervville/Baskervville-Regular.ttf') format('truetype');
+    src: url('https://www.bauvolk.org/fonts/Baskervville/Baskervville-Regular.woff2') format('woff2'),
+        url('https://www.bauvolk.org/fonts/Baskervville/Baskervville-Regular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
     font-display: block;
@@ -115,8 +115,8 @@
 
 @font-face {
     font-family: 'Baskervville';
-    src: url('https://www.bauvolk.page/fonts/Baskervville/Baskervville-Italic.woff2') format('woff2'),
-        url('https://www.bauvolk.page/fonts/Baskervville/Baskervville-Italic.ttf') format('truetype');
+    src: url('https://www.bauvolk.org/fonts/Baskervville/Baskervville-Italic.woff2') format('woff2'),
+        url('https://www.bauvolk.org/fonts/Baskervville/Baskervville-Italic.ttf') format('truetype');
     font-weight: normal;
     font-style: italic;
     font-display: block;
@@ -126,9 +126,9 @@
 
 @font-face {
     font-family: 'ZT Formom';
-    src: url('https://www.bauvolk.page/fonts/ZTFormom/ZTFormom-Regular.woff2') format('woff2'),
-        url('https://www.bauvolk.page/fonts/ZTFormom/ZTFormom-Regular.woff') format('woff'),
-        url('https://www.bauvolk.page/fonts/ZTFormom/ZTFormom-Regular.ttf') format('truetype');
+    src: url('https://www.bauvolk.org/fonts/ZTFormom/ZTFormom-Regular.woff2') format('woff2'),
+        url('https://www.bauvolk.org/fonts/ZTFormom/ZTFormom-Regular.woff') format('woff'),
+        url('https://www.bauvolk.org/fonts/ZTFormom/ZTFormom-Regular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
     font-display: block;
@@ -136,9 +136,9 @@
 
 @font-face {
     font-family: 'ZT Formom';
-    src: url('https://www.bauvolk.page/fonts/ZTFormom/ZTFormom-Oblique.woff2') format('woff2'),
-        url('https://www.bauvolk.page/fonts/ZTFormom/ZTFormom-Oblique.woff') format('woff'),
-        url('https://www.bauvolk.page/fonts/ZTFormom/ZTFormom-Oblique.ttf') format('truetype');
+    src: url('https://www.bauvolk.org/fonts/ZTFormom/ZTFormom-Oblique.woff2') format('woff2'),
+        url('https://www.bauvolk.org/fonts/ZTFormom/ZTFormom-Oblique.woff') format('woff'),
+        url('https://www.bauvolk.org/fonts/ZTFormom/ZTFormom-Oblique.ttf') format('truetype');
     font-weight: normal;
     font-style: italic;
     font-display: block;
