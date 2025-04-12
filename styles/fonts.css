@@ -133,7 +133,7 @@
     src: url('https://www.bauvolk.org/fonts/EBGaramond/EBGaramond-Bold.woff2') format('woff2'),
         url('https://www.bauvolk.org/fonts/EBGaramond/EBGaramond-Bold.woff') format('woff'),
         url('https://www.bauvolk.org/fonts/EBGaramond/EBGaramond-Bold.ttf') format('truetype');
-    font-weight: bold;
+    font-weight: 700;
     font-style: normal;
     font-display: block;
 }
@@ -183,7 +183,7 @@
     src: url('https://www.bauvolk.org/fonts/EBGaramond/EBGaramond-Regular.woff2') format('woff2'),
         url('https://www.bauvolk.org/fonts/EBGaramond/EBGaramond-Regular.woff') format('woff'),
         url('https://www.bauvolk.org/fonts/EBGaramond/EBGaramond-Regular.ttf') format('truetype');
-    font-weight: normal;
+    font-weight: 400;
     font-style: normal;
     font-display: block;
 }
