@@ -64,7 +64,7 @@ article *::-moz-selection {
 /* PROGRESSBAR */
 
 :root {
-	--progress-var: -webkit-linear-gradient(left, white, white 70%, #750000 70%, #750000 100%)
+	--progress-var: -webkit-linear-gradient(left, transparent, transparent 70%, transparent 70%, transparent 100%)
 }
 
 #progressbar {

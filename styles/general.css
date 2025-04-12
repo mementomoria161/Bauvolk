@@ -142,6 +142,17 @@ p {
 	hyphens: auto;
 }
 
+p * {
+	font-family: "EBGaramond";
+	font-size: 1.085rem;
+	font-size: var(--font-regular);
+	font-size: 20px;
+	line-height: 1.8;
+	line-height: 2.1;
+	margin:0px;
+	hyphens: auto;
+}
+
 
 small {
 	font-size: 0.93rem;
