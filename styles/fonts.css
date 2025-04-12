@@ -110,7 +110,7 @@
     src: url('https://www.bauvolk.org/fonts/ZTFormom/ZTFormom-Regular.woff2') format('woff2'),
         url('https://www.bauvolk.org/fonts/ZTFormom/ZTFormom-Regular.woff') format('woff'),
         url('https://www.bauvolk.org/fonts/ZTFormom/ZTFormom-Regular.ttf') format('truetype');
-    font-weight: normal;
+    font-weight: 400;
     font-style: normal;
     font-display: block;
 }
@@ -120,7 +120,7 @@
     src: url('https://www.bauvolk.org/fonts/ZTFormom/ZTFormom-Oblique.woff2') format('woff2'),
         url('https://www.bauvolk.org/fonts/ZTFormom/ZTFormom-Oblique.woff') format('woff'),
         url('https://www.bauvolk.org/fonts/ZTFormom/ZTFormom-Oblique.ttf') format('truetype');
-    font-weight: normal;
+    font-weight: 400;
     font-style: italic;
     font-display: block;
 }
@@ -229,7 +229,7 @@
 
 .controls *, #headerbox *,  .abo * {
     font-family: "ZT Formom";
-    font-weight: 300;
+    font-weight: 400;
 }
 
 .abstract-text, .issue-info {
@@ -238,6 +238,10 @@
 }
 
 .artikel-title * {
-	font-family: "Quaderni" !important;
-	font-weight: 400 !important;
+	font-family: "Quaderni";
+	font-weight: 400;
+}
+
+.kanon-text-sans-small {
+    font-family: "Gespenst";
 }
