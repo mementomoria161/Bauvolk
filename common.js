@@ -207,7 +207,19 @@ function init_scrollbar() {
     }
 }
 
+function init_progressbar() {
+    document.getElementById("content").addEventListener("scroll", progressbar)
+}
 
+function progressbar() {
+    let content = document.getElementById("content");
+    let viewHeight = content.getBoundingClientRect().height;
+    let scroll = content.scrollTop;
+    let height = content.scrollHeight - viewHeight;
+    let progress = Math.min((scroll / height) * 100, 100);
+
+    document.documentElement.style.setProperty('--progress-var', "-webkit-linear-gradient(left, white, white " + progress + "%, transparent " + progress + "%, transparent 100%)");
+}
 
 function reset_scrollbar(color_var, color_default, timeoutID, time) {
 
