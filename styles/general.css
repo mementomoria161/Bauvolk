@@ -13,7 +13,7 @@
 	--color-text: white;
 	--color-highlight-background:white;
 	--color-highlight-text: #750000;
-	--color-link-hover: white;
+	--color-link-hover: lightgrey;
 }
 
 
@@ -95,6 +95,10 @@ header, main, #controls, #databanner {
 
 /* LINK */
 
+a {
+	transition: color 0.3s ease;
+}
+
 a:link, a:active, a:visited
 {
 	text-decoration: none;
@@ -103,7 +107,6 @@ a:link, a:active, a:visited
 
 a:hover {
 	color: var(--color-link-hover);
-	text-decoration: underline;
 }
 
 
@@ -466,10 +469,15 @@ button[disabled]{
 	justify-content: center;
 	align-items: center;
 	gap: 20px;
-	/* margin: 20px 0; */
 	font-family: "Gespenst";
 	max-width: fit-content;
 	white-space: nowrap;
+	line-height: 1;
+	text-decoration: none !important;
+}
+.issue-info a:hover {
+	color: blue;
+	text-decoration: none !important;
 }
 
 .issue-number {

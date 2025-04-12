@@ -211,7 +211,7 @@ function update_audio(element, audio) {
     let rotation = 90
 
 
-    if(element.hasAttribute("data-vertical") && window.innerWidth >= 1200) {rotation = 180}
+    if(element.hasAttribute("data-vertical") && window.innerWidth >= 1400) {rotation = 180}
 
     element.style.background = "linear-gradient(" + rotation + "deg, lightgrey " + progress + "%, var(--color-background) " + progress + "%)"
 
@@ -357,7 +357,7 @@ function close_player() {
         gap: 10px;
     }
 
-    @media screen and (max-width: 1200px) {
+    @media screen and (max-width: 1400px) {
         article .issue-button-group {
             position: static;
             top: 0; 
