@@ -224,11 +224,17 @@
 /* SETTINGS */
 
 * {
-	font-family: "ZT Formom";
+	font-family: "EBGaramond";
 }
 
-.abstract-text {
-	font-family: "Gespenst";	
+.controls *, #headerbox *,  .abo * {
+    font-family: "ZT Formom";
+    font-weight: 300;
+}
+
+.abstract-text, .issue-info {
+	font-family: "Gespenst";
+	font-weight: 900;
 }
 
 .artikel-title * {
