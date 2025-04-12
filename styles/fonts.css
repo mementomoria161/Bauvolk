@@ -227,21 +227,21 @@
 	font-family: "EBGaramond";
 }
 
-.controls *, #headerbox *,  .abo * {
+#controls *, #headerbox *,  .abo * {
     font-family: "ZT Formom";
     font-weight: 400;
 }
 
-.abstract-text, .issue-info {
-	font-family: "Gespenst";
-	font-weight: 900;
+.abstract-text, .issue-info * {
+	font-family: "Gespenst" !important;
+	font-weight: 900 !important;
 }
 
 .artikel-title * {
-	font-family: "Quaderni";
-	font-weight: 400;
+	font-family: "Quaderni" !important;
+	font-weight: 400 !important;
 }
 
 .kanon-text-sans-small {
-    font-family: "Gespenst";
+    font-family: "Gespenst" !important;
 }
