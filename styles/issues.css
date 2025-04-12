@@ -67,7 +67,9 @@ article *::-moz-selection {
 	position: absolute;
 	top:0;
 	z-index: 1000;
-	background-image: var(--progress-var)
+	background-image: var(--progress-var);
+	background-color: #750000;
+	/* border-bottom: 2px solid #750000; */
 }
 
 
