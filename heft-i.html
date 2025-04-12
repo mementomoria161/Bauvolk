@@ -474,12 +474,15 @@ function close_player() {
             </article>
 
             <section id="abo-content">
-                <span id="abo-selection-content">
-                    <span class="abo-description"><p lang="de">Dieses Heft ist noch in Arbeit. Abonniere den Newsletter für eine Benachrichtigung bei Veröffentlichung:</p><p lang="en">Subscribe via:</p></span><br><br>
+                <div id="abo-selection-content">
+					<span lang="de">Dieses Heft ist noch in Arbeit.<br>Abonniere mit</span>
+					<span lang="en">Subscribe via:</span>
                     <span class="option" id="email-opt-content" onclick="setabo('email')">Email</span> / 
                     <span class="option" id="telegram-opt-content" onclick="setabo('telegram')">Telegram</span> / 
-                    <span class="option" id="instagram-opt-content" onclick="setabo('instagram')">Instagram</span><br>
-                </span>
+                    <span class="option" id="instagram-opt-content" onclick="setabo('instagram')">Instagram</span>
+                    <span lang="de">für eine Benachrichtigung bei Veröffentlichung.</span>
+					<span lang="en">Subscribe via:</span>
+                </div>
 
                 <form id="email-form-content">
                     <span class="abo"><button type="submit" id="email-btn-content"><span lang="de">Abonnieren</span><span lang="en">Subscribe</span></button>

@@ -120,6 +120,7 @@
 			#abo-selection, #email-info {
 				font-size: 16px;
 				line-height: 1.3 !important;
+				text-align: center;
 			}
 
 			#email-form {
@@ -314,12 +315,13 @@
 				</div>
 
 				<div>
-					<span id="abo-selection">
-						<span class="long"><span lang="de">Abonniere mit:</span><span lang="en">Subscribe via:</span></span>
+					<div id="abo-selection">
+						<span lang="de">Abonniere mit</span>
+						<span lang="en">Subscribe via</span>
 						<span class="option" id="email-opt" onclick="setabo('email')">Email</span> / 
 						<span class="option" id="telegram-opt" onclick="setabo('telegram')">Telegram</span> / 
 						<span class="option" id="instagram-opt" onclick="setabo('instagram')">Instagram</span><br>
-					</span>
+					</div>
 
 					<form id="email-form">
 						<span class="abo"><button type="submit" id="email-btn"><span lang="de">Abonnieren</span><span lang="en">Subscribe</span></button>
