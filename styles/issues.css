@@ -60,6 +60,13 @@ article *::-moz-selection {
 	align-items: center;
 }
 
+
+/* PROGRESSBAR */
+
+:root {
+	--progress-var: -webkit-linear-gradient(left, white, white 70%, #750000 70%, #750000 100%)
+}
+
 #progressbar {
 	display: none;
 	height: 5px;
@@ -68,8 +75,6 @@ article *::-moz-selection {
 	top:0;
 	z-index: 1000;
 	background-image: var(--progress-var);
-	background-color: #750000;
-	/* border-bottom: 2px solid #750000; */
 }
 
 
@@ -216,11 +221,6 @@ audio::-webkit-media-controls-play-button {
 #abo-selection-content {
 	font-size: 11pt;
 	line-height: 1.3 !important;
-}
-
-.abo-description {
-	/* font-size: var(--font-regular) !important; */
-	font-size: 26px;
 }
 
 #abo-content input, #abo-content button {

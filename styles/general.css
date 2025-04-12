@@ -129,7 +129,7 @@ h2, h3 {
 }
 
 p {
-	font-family: "Baskervville";
+	font-family: "EBGaramond";
 	font-size: 1.085rem;
 	font-size: var(--font-regular);
 	font-size: 20px;
@@ -485,8 +485,4 @@ button[disabled]{
 	text-align: left;
 	font-weight: 900;
 	font-size: 16px;
-}
-
-:root {
-	--progress-var: -webkit-linear-gradient(left, white, white 70%, transparent 70%, transparent 100%)
 }

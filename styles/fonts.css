@@ -102,25 +102,6 @@
     font-display: block;
 }
 
-/* BASKERVILLE */
-
-@font-face {
-    font-family: 'Baskervville';
-    src: url('https://www.bauvolk.org/fonts/Baskervville/Baskervville-Regular.woff2') format('woff2'),
-        url('https://www.bauvolk.org/fonts/Baskervville/Baskervville-Regular.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-    font-display: block;
-}
-
-@font-face {
-    font-family: 'Baskervville';
-    src: url('https://www.bauvolk.org/fonts/Baskervville/Baskervville-Italic.woff2') format('woff2'),
-        url('https://www.bauvolk.org/fonts/Baskervville/Baskervville-Italic.ttf') format('truetype');
-    font-weight: normal;
-    font-style: italic;
-    font-display: block;
-}
 
 /* ZT FORMOM */
 
@@ -144,6 +125,98 @@
     font-display: block;
 }
 
+
+/* EBGaramond */
+
+@font-face {
+    font-family: 'EBGaramond';
+    src: url('https://www.bauvolk.org/fonts/EBGaramond/EBGaramond-Bold.woff2') format('woff2'),
+        url('https://www.bauvolk.org/fonts/EBGaramond/EBGaramond-Bold.woff') format('woff'),
+        url('https://www.bauvolk.org/fonts/EBGaramond/EBGaramond-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: block;
+}
+
+@font-face {
+    font-family: 'EBGaramond';
+    src: url('https://www.bauvolk.org/fonts/EBGaramond/EBGaramond-Black.woff2') format('woff2'),
+        url('https://www.bauvolk.org/fonts/EBGaramond/EBGaramond-Black.woff') format('woff'),
+        url('https://www.bauvolk.org/fonts/EBGaramond/EBGaramond-Black.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+    font-display: block;
+}
+
+@font-face {
+    font-family: 'EBGaramond';
+    src: url('https://www.bauvolk.org/fonts/EBGaramond/EBGaramond-Medium.woff2') format('woff2'),
+        url('https://www.bauvolk.org/fonts/EBGaramond/EBGaramond-Medium.woff') format('woff'),
+        url('https://www.bauvolk.org/fonts/EBGaramond/EBGaramond-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: block;
+}
+
+@font-face {
+    font-family: 'EBGaramond';
+    src: url('https://www.bauvolk.org/fonts/EBGaramond/EBGaramond-Light.woff2') format('woff2'),
+        url('https://www.bauvolk.org/fonts/EBGaramond/EBGaramond-Light.woff') format('woff'),
+        url('https://www.bauvolk.org/fonts/EBGaramond/EBGaramond-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: block;
+}
+
+@font-face {
+    font-family: 'EBGaramond';
+    src: url('https://www.bauvolk.org/fonts/EBGaramond/EBGaramond-UltraLight.woff2') format('woff2'),
+        url('https://www.bauvolk.org/fonts/EBGaramond/EBGaramond-UltraLight.woff') format('woff'),
+        url('https://www.bauvolk.org/fonts/EBGaramond/EBGaramond-UltraLight.ttf') format('truetype');
+    font-weight: 200;
+    font-style: normal;
+    font-display: block;
+}
+
+@font-face {
+    font-family: 'EBGaramond';
+    src: url('https://www.bauvolk.org/fonts/EBGaramond/EBGaramond-Regular.woff2') format('woff2'),
+        url('https://www.bauvolk.org/fonts/EBGaramond/EBGaramond-Regular.woff') format('woff'),
+        url('https://www.bauvolk.org/fonts/EBGaramond/EBGaramond-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+}
+
+@font-face {
+    font-family: 'EBGaramond';
+    src: url('https://www.bauvolk.org/fonts/EBGaramond/EBGaramond-Thin.woff2') format('woff2'),
+        url('https://www.bauvolk.org/fonts/EBGaramond/EBGaramond-Thin.woff') format('woff'),
+        url('https://www.bauvolk.org/fonts/EBGaramond/EBGaramond-Thin.ttf') format('truetype');
+    font-weight: 100;
+    font-style: normal;
+    font-display: block;
+}
+
+@font-face {
+    font-family: 'EBGaramond UltraBlack';
+    src: url('https://www.bauvolk.org/fonts/EBGaramond/EBGaramond-UltraBlack.woff2') format('woff2'),
+        url('https://www.bauvolk.org/fonts/EBGaramond/EBGaramond-UltraBlack.woff') format('woff'),
+        url('https://www.bauvolk.org/fonts/EBGaramond/EBGaramond-UltraBlack.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+    font-display: block;
+}
+
+@font-face {
+    font-family: 'EBGaramond';
+    src: url('https://www.bauvolk.org/fonts/EBGaramond/EBGaramond-SemiBold.woff2') format('woff2'),
+        url('https://www.bauvolk.org/fonts/EBGaramond/EBGaramond-SemiBold.woff') format('woff'),
+        url('https://www.bauvolk.org/fonts/EBGaramond/EBGaramond-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+    font-display: block;
+}
 
 
 
