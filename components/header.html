@@ -113,29 +113,6 @@
 			#install-app:hover {
 				color: lightgrey;
 			}
-			
-
-			/* FORM */
-
-			.email-form {
-				flex-direction: column-reverse;
-			}
-
-
-
-			.telegram-form, .instagram-form {
-				display: none;
-			}
-
-			#telegram-btn, #instagram-btn {
-				width: 100%;
-				text-align:center !important;
-			}
-
-			#telegram-btn *, #instagram-btn * {
-				padding: 0 !important;
-			}
-
 
 
 			/* REACTIVE */
@@ -304,7 +281,7 @@
 
 					<form class="email-form">
 						<span class="abo"><button type="submit" class="email-btn"><span lang="de">Abonnieren</span><span lang="en">Subscribe</span></button>
-						<span><input type="email" name="Email" class="email-input" placeholder="Email" required autocomplete="off" data-1p-ignore data-lpignore="true" onkeydown="fit_font_size(this)" onchange="fit_font_size(this)"></span></span>
+						<span><input type="email" name="Email" class="email-input" placeholder="Email" required autocomplete="off" data-1p-ignore data-lpignore="true" oninput="fit_font_size(this)"></span></span>
 						<input type="hidden" name="_subject" value="Abonnement">
 						<input type="hidden" name="_captcha" value="true">
 						<input type="hidden" name="_template" value="box">
