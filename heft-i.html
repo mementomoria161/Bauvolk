@@ -85,10 +85,7 @@
             function suf_init() {
                 scale_model()
                 animate()
-                init_progressbar();
-                console.log("init progressbar")
-                init_abo()
-                console.log("test")
+                init_progressbar()
             }
 
         </script>
@@ -302,6 +299,7 @@ function auto_player() {
 
 function close_player() {
     document.getElementById("footer-audio").style.display = "none"
+    stop_audio()
     PLAYER_CLOSED = true
 }
 
