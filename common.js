@@ -918,7 +918,7 @@ function set_abo(type) {
     document.querySelectorAll(".telegram-opt").forEach((item) => {item.style.textDecoration = "none"})
     document.querySelectorAll(".instagram-opt").forEach((item) => {item.style.textDecoration = "none"})
 
-    document.querySelectorAll("." + type + "-form").forEach((item) => {console.log("test"); item.style.display = "flex"})
+    document.querySelectorAll("." + type + "-form").forEach((item) => {item.style.display = "flex"})
     document.querySelectorAll("." + type + "-opt").forEach((item) => {item.style.textDecoration = "underline"})
 
 	localStorage.setItem("bauvolk_abo", type);	
