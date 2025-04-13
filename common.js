@@ -111,7 +111,7 @@ function init_header() {
     init_abo()
     init_highlights()
     window.addEventListener("resize", openmenufix)
-    document.getElementById("header").addEventListener("pointerleave", auto_close_menu)
+    document.getElementById("header").addEventListener("pointerleave", pointer_close_menu)
 }
 
 
@@ -1063,16 +1063,20 @@ function close_menu() {
 }
 
 function safe_close_menu() {
-    for (let value of ["email-input", "email-checkbox", "email-btn"]) {
-        if(document.getElementBy("header").getElementsByClassName(value)[0] === document.activeElement) {return}
-    }
+
 
     close_menu()
 }
 
-function auto_close_menu() {
+function pointer_close_menu() {
     if (window.innerWidth > 800) {
-        safe_close_menu()
+        for (let value of ["email-input", "mail-checkbox", "email-btn"]) {
+            console.log(value)
+            console.log(document.getElementBy("header"))
+            console.log(document.getElementBy("header").getElementsByClassName(value)[0])
+
+            if(document.getElementBy("header").getElementsByClassName(value)[0] === document.activeElement) {return}
+        }
     }
 }
 
