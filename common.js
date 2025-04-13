@@ -930,6 +930,7 @@ function fit_font_size(input) {
     
     if(is_overflown(input)) {
         while (is_overflown(input)){
+            if(font_size <= 12) {break}
             font_size--
             input.style.fontSize = font_size + 'px'
         }
@@ -939,6 +940,7 @@ function fit_font_size(input) {
         input.style.fontSize = font_size + 'px'
 
         while (is_overflown(input)){
+            if(font_size <= 12) {break}
             font_size--
             input.style.fontSize = font_size + 'px'
         }
