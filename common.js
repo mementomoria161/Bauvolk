@@ -1071,11 +1071,8 @@ function safe_close_menu() {
 function pointer_close_menu() {
     if (window.innerWidth > 800) {
         for (let value of ["email-input", "mail-checkbox", "email-btn"]) {
-            console.log(value)
-            console.log(document.getElementBy("header"))
-            console.log(document.getElementBy("header").getElementsByClassName(value)[0])
 
-            if(document.getElementBy("header").getElementsByClassName(value)[0] === document.activeElement) {return}
+            if(document.getElementById("header").getElementsByClassName(value)[0] === document.activeElement) {return}
         }
     }
 }
