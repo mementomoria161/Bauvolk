@@ -1062,18 +1062,14 @@ function close_menu() {
 	menu_open = false
 }
 
-function safe_close_menu() {
-
-
-    close_menu()
-}
-
 function pointer_close_menu() {
     if (window.innerWidth > 800) {
         for (let value of ["email-input", "mail-checkbox", "email-btn"]) {
 
             if(document.getElementById("header").getElementsByClassName(value)[0] === document.activeElement) {return}
         }
+
+        close_menu()
     }
 }
 
