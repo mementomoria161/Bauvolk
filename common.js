@@ -924,8 +924,31 @@ function set_abo(type) {
 	localStorage.setItem("bauvolk_abo", type);	
 }
 
+const MAX_FONT_SIZE = 26
 
+function fit_font_size(input) {
+    
+    if(is_overflown(input)) {
+        while (is_overflown(input)){
+            font_size--
+            input.style.fontSize = font_size + 'px'
+        }
+    } 
+    else {
+        font_size = MAX_FONT_SIZE;
+        input.style.fontSize = font_size + 'px'
 
+        while (is_overflown(input)){
+            font_size--
+            input.style.fontSize = font_size + 'px'
+        }
+    }	
+  }
+  
+  function is_overflown(element) {
+    console.log(element.scrollWidth, element.clientWidth)
+      return element.scrollWidth > element.clientWidth;
+  }
 
 
 

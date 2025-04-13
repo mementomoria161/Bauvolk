@@ -208,35 +208,6 @@ audio::-webkit-media-controls-play-button {
 	font-size: 15pt;
 }
 
-
-
-
-/* ABO */
-
-
-
-#abo-content input, #abo-content button {
-	height: 50px;
-}
-
-#email-form-content {
-	flex-direction: column-reverse;
-}
-
-#telegram-form-content, #instagram-form-content {
-	display: none;
-}
-
-#telegram-btn-content, #instagram-btn-content {
-	width: 100%;
-	text-align:center !important;
-}
-
-#telegram-btn-content *, #instagram-btn-content * {
-	padding: 0 !important;
-}
-
-
 /* CC */
 
 

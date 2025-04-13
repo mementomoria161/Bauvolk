@@ -304,13 +304,6 @@ button[disabled]{
 	cursor: pointer;
 }
 
-.abo input, .abo button, td, th {
-	height: fit-content;
-	font-size: 26px;
-	padding: 5px 20px;
-	color: black;
-}
-
 
 @media screen and (max-width: 450px) {
 	.abo {
@@ -319,7 +312,7 @@ button[disabled]{
 	}
 
 	.abo button, .abo input, td, th  {
-		font-size: 13pt;
+		/* font-size: 13pt; */
 		text-align:left;
 		padding-left: 10px;
 	}
@@ -362,6 +355,30 @@ button[disabled]{
 	text-align: justify;
 	white-space: pre-wrap;
 	order:-1;
+}
+
+.email-input, .email-btn {
+	height: 50px;
+	font-size: 26px;
+	padding: 5px 20px;
+	color: black;
+}
+
+#email-form-content {
+	flex-direction: column-reverse;
+}
+
+#telegram-form-content, #instagram-form-content {
+	display: none;
+}
+
+#telegram-btn-content, #instagram-btn-content {
+	width: 100%;
+	text-align:center !important;
+}
+
+#telegram-btn-content *, #instagram-btn-content * {
+	padding: 0 !important;
 }
 
 
