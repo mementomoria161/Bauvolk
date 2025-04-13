@@ -83,9 +83,12 @@
             load_components(["header", "footer", "databanner"])
 
             function suf_init() {
-                scale_model();
-                animate();
+                scale_model()
+                animate()
                 init_progressbar();
+                console.log("init progressbar")
+                init_abo()
+                console.log("test")
             }
 
         </script>
@@ -455,29 +458,7 @@ function close_player() {
                 </div>
             </article>
 
-            <section id="abo-content">
-                <div class="abo-selection">
-                    <span lang="de">Dieses Heft ist noch in Arbeit.<br>Abonniere mit</span>
-                    <span lang="en">This issue is still being worked on.<br>Subscribe via</span>
-                    <span class="option email-opt" onclick="set_abo('email')">Email</span> / 
-                    <span class="option telegram-opt" onclick="set_abo('telegram')">Telegram</span> / 
-                    <span class="option instagram-opt" onclick="set_abo('instagram')">Instagram</span>
-                    <span lang="de">für eine Benachrichtigung bei Veröffentlichung.</span>
-                    <span lang="en">for a notification on release.</span>
-                </div>
-
-                <form class="email-form">
-                    <span class="abo"><button type="submit" class="email-btn"><span lang="de">Abonnieren</span><span lang="en">Subscribe</span></button>
-                    <span><input type="email" name="Email" class="email-input" placeholder="Email" required autocomplete="off" data-1p-ignore data-lpignore="true" oninput="fit_font_size(this)"></span></span>
-                    <input type="hidden" name="_subject" value="Abonnement">
-                    <input type="hidden" name="_captcha" value="true">
-                    <input type="hidden" name="_template" value="box">
-                    <label class="mail-info" for="email-checkbox"><input type="checkbox" class="mail-checkbox" required> <span lang="de">Ich habe die <a href="https://www.bauvolk.org/datenschutz">Datenschutzerklärung</a> gelesen und akzeptiere sie. Ein Link zum <a href="https://www.bauvolk.org/deabonnieren">Deabonnieren</a> ist in jeder Mail.</span><span lang="en">I have read the <a href="https://www.bauvolk.org/datenschutz">privacy policy</a> and accept it. A link to <a href="https://www.bauvolk.org/deabonnieren">unsubscribe</a> is included in every mail.</span></label>
-                </form>
-
-                <a class="abo telegram-form" href="https://t.me/BAUVOLKMAGAZINE" target="_blank"><button type="submit" class="telegram-btn">t.me/BAUVOLKMAGAZINE</button></a>
-                <a class="abo instagram-form" href="https://www.instagram.com/BAUVOLKMAGAZINE" target="_blank"><button type="submit" class="instagram-btn">@BAUVOLKMAGAZINE</button></a>
-            </section>
+            <section id="abo-content" class="abo-form-placeholder"></section>
 
             <section id="creative-commons">
                 <p lang="de">Alle von uns erschaffenen Inhalte dürfen nicht-kommerziell und unter unserer Nennung als Autor*innen verwendet werden <a href="https://creativecommons.org/licenses/by-nc/4.0/" style="text-decoration: underline;">(CC BY-NC 4.0)</a>. Eine kommerzielle Nutzung ist möglicherweise auf <a href="mailto:bauvolk@riseup.net" target="_blank">Rückfrage</a> möglich.</p>

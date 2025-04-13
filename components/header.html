@@ -193,6 +193,10 @@
 				gap:20px;
 			}
 
+			#header .abo-desc-unreleased {
+				display: none;
+			}
+
 		</style>
 	</head>
 
@@ -270,13 +274,17 @@
 					<span class="option" id="lang-de" onclick="set_language('de')">DE</span> / <span class="option" id="lang-en" onclick="set_language('en')">EN</span><br>
 				</div>
 
-				<div>
+				<div id="abo-form">
 					<div class="abo-selection">
+						<span lang="de" class="abo-desc-unreleased">Dieses Heft ist noch in Arbeit.</span>
+						<span lang="en" class="abo-desc-unreleased">This issue is still being worked on.</span><br>
 						<span lang="de">Abonniere mit</span>
 						<span lang="en">Subscribe via</span>
 						<span class="option email-opt" onclick="set_abo('email')">Email</span> / 
 						<span class="option telegram-opt" onclick="set_abo('telegram')">Telegram</span> / 
 						<span class="option instagram-opt" onclick="set_abo('instagram')">Instagram</span>
+						<span lang="de" class="abo-desc-unreleased">für eine Benachrichtigung bei Veröffentlichung.</span>
+						<span lang="en" class="abo-desc-unreleased">for a notification on release.</span>
 					</div>
 
 					<form class="email-form">

@@ -894,6 +894,11 @@ function reset_mail_info() {
 // SWITCH ABO TYPE
 
 function init_abo() {
+
+    document.querySelectorAll(".abo-form-placeholder").forEach((item) => {
+        item.innerHTML = document.getElementById("abo-form").innerHTML
+    })
+
     if(localStorage.getItem("bauvolk_abo") == null) {localStorage.setItem("bauvolk_abo", "email")}
 	set_abo(localStorage.getItem("bauvolk_abo"))
 
