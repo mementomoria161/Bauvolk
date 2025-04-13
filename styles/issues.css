@@ -168,30 +168,24 @@ article {
 
 #creative-commons {
 	display: flex;
-	gap: 30px 0px;
+	gap: 20px 50px;
 	scroll-margin-top:0px;
 	margin-bottom: 120px;
-	flex-wrap: wrap;
-	justify-content: flex-start;
-}
-
-#creative-commons a:link {
-	color: white;
-}
-
-#creative-commons a:hover {
-	color: white;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 }
 
 #creative-commons-icons {
 	display: flex;
 	flex-flow: row;
-	gap:2px;
-	align-items: flex-end;
+	gap:5px;
+	align-items: center;
 }
 
-#creative-commons-icons * {
-	height: 50px;
+#creative-commons-icons > img {
+	height: 60px;
+	width: 60px;
 }
 
 
