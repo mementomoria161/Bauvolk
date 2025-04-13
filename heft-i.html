@@ -315,12 +315,6 @@ function close_player() {
         display: none;
     }
 
-    /* article {
-        display: flex;
-        flex-direction: row;
-        gap:50px;
-    } */
-
     article .issue-button-group {
         flex-direction: column-reverse;
     }
@@ -392,8 +386,6 @@ function close_player() {
     </head>
 
     <body>
-        <!-- <div class="noise"></div>
-        <div class="overlay"></div> -->
 
         <header id="header"></header>
 
@@ -414,16 +406,6 @@ function close_player() {
 
                 <section id="abstract">
                     <p lang="de" class="abstract-text">Seit dem Kollaps der Sowjetunion wirkt der Kapitalismus alternativlos. Die Hoffnung auf eine bessere Gesellschaft vergangener Jahrhunderte ist einer Ergebenheit gegenüber den bestehenden Verhältnissen gewichen. Die sozialistische Bewegung ist heute nicht mehr ansatzweise in der Lage, politische Mehrheiten für eine Umwälzung unserer Wirtschaftsordnung zu mobilisieren. Unsere Mitmenschen sind von der sozialistischen Idee vollkommen desillusioniert. Wer kann es ihnen übel nehmen?</p>
-                    <!-- <p lang="en" class="abstract-text">Preliminary abstract – Capitalism seems to have no alternative as an economic system. A  must </p> -->
-                    
-
-<!-- 
-                    <audio lang="de" controls src="/files/de/HEFT I 0.mp3">
-                        <a href="/files/de/HEFT I -  0.mp3"> Download audio </a>
-                    </audio>
-                    <audio lang="en" controls src="/files/en/ISSUE I – Vorläufiger Auszug.mp3">
-                        <a href="/files/en/ISSUE I -  0.mp3"> Download audio </a>
-                    </audio> -->
                     
                     <div class="issue-button-group">
                         <button onclick="share(this, 0, 'de')" class="issue-button"><img src="images/internal/share.svg"></button>
@@ -474,32 +456,32 @@ function close_player() {
             </article>
 
             <section id="abo-content">
-                <div id="abo-selection-content">
+                <div class="abo-selection">
 					<span lang="de">Dieses Heft ist noch in Arbeit.<br>Abonniere mit</span>
-					<span lang="en">Subscribe via:</span>
-                    <span class="option" id="email-opt-content" onclick="setabo('email')">Email</span> / 
-                    <span class="option" id="telegram-opt-content" onclick="setabo('telegram')">Telegram</span> / 
-                    <span class="option" id="instagram-opt-content" onclick="setabo('instagram')">Instagram</span>
+					<span lang="en">This issue is still being worked on.<br>Subscribe via</span>
+                    <span class="option email-opt" id="email-opt-content" onclick="set_abo('email')">Email</span> / 
+                    <span class="option telegram-opt" id="telegram-opt-content" onclick="set_abo('telegram')">Telegram</span> / 
+                    <span class="option instagram-opt" id="instagram-opt-content" onclick="set_abo('instagram')">Instagram</span>
                     <span lang="de">für eine Benachrichtigung bei Veröffentlichung.</span>
-					<span lang="en">Subscribe via:</span>
+					<span lang="en">for a notification on release.</span>
                 </div>
 
-                <form id="email-form-content">
-                    <span class="abo"><button type="submit" id="email-btn-content"><span lang="de">Abonnieren</span><span lang="en">Subscribe</span></button>
+                <form id="email-form-content" class="email-form">
+                    <span class="abo"><button type="submit" id="email-btn-content" class="email-btn"><span lang="de">Abonnieren</span><span lang="en">Subscribe</span></button>
                     <span><input type="email" name="Email" id="email-input-content" placeholder="Email" required autocomplete="off" data-1p-ignore data-lpignore="true"></span></span>
                     <input type="hidden" name="_subject" value="Abonnement">
                     <input type="hidden" name="_captcha" value="true">
                     <input type="hidden" name="_template" value="box">
-                    <label id="email-info-content" for="email-checkbox"><input type="checkbox" id="email-checkbox-content" required> <span lang="de">Ich habe die <a href="https://www.bauvolk.org/datenschutz">Datenschutzerklärung</a> gelesen und akzeptiere sie. Einen Link zum <a href="https://www.bauvolk.org/deabonnieren">Deabonnieren</a> findest du in jeder Mail.</span><span lang="en">I have read the <a href="https://www.bauvolk.org/datenschutz">privacy policy</a> and accept it. A link to <a href="https://www.bauvolk.org/deabonnieren">unsubscribe</a> is included in every mail.</span></label>
+                    <label id="email-info-content" class="mail-info" for="email-checkbox"><input type="checkbox" id="email-checkbox-content" class="mail-checkbox" required> <span lang="de">Ich habe die <a href="https://www.bauvolk.org/datenschutz">Datenschutzerklärung</a> gelesen und akzeptiere sie. Einen Link zum <a href="https://www.bauvolk.org/deabonnieren">Deabonnieren</a> findest du in jeder Mail.</span><span lang="en">I have read the <a href="https://www.bauvolk.org/datenschutz">privacy policy</a> and accept it. A link to <a href="https://www.bauvolk.org/deabonnieren">unsubscribe</a> is included in every mail.</span></label>
                 </form>
                 
-                <a id="telegram-form-content" class="abo" href="https://t.me/BAUVOLK" target="_blank"><button type="submit" id="telegram-btn-content">t.me/BAUVOLK</button></a>
-                <a id="instagram-form-content" class="abo" href="https://www.instagram.com/BAUVOLK" target="_blank"><button type="submit" id="instagram-btn-content">@BAUVOLK</button></a>
+                <a id="telegram-form-content" class="abo telegram-form" href="https://t.me/bauvolkmagazine" target="_blank"><button type="submit" id="telegram-btn-content">t.me/bauvolk</button></a>
+                <a id="instagram-form-content" class="abo instagram-form" href="https://www.instagram.com/bauvolkmagazine" target="_blank"><button type="submit" id="instagram-btn-content">@bauvolk</button></a>
             </section>
 
             <section id="creative-commons">
-                <p lang="de">Alle von uns erschaffenen Inhalte dürfen nicht-kommerziell und unter unserer Nennung als Autor*innen verwendet werden <a href="https://creativecommons.org/licenses/by-nc/4.0/" style="text-decoration: underline;">(CC BY-NC 4.0)</a>. Eine kommerzielle Nutzung ist in fast allen Fällen auf <a href="mailto:BAUVOLK@riseup.net" target="_blank">Rückfrage</a> möglich.</p>
-                <p lang="en">All content created by us may be used non-commercially and with our attribution as authors <a href="https://creativecommons.org/licenses/ by-nc/4.0/" style="text-decoration: underline;">(CC BY-NC 4.0)</a>. Commercial use is possible in almost all cases on <a href="mailto:bauvolk@riseup.net" target="_blank"></a>request</a>.</p>
+                <p lang="de">Alle von uns erschaffenen Inhalte dürfen nicht-kommerziell und unter unserer Nennung als Autor*innen verwendet werden <a href="https://creativecommons.org/licenses/by-nc/4.0/" style="text-decoration: underline;">(CC BY-NC 4.0)</a>. Eine kommerzielle Nutzung ist möglicherweise auf <a href="mailto:bauvolk@riseup.net" target="_blank">Rückfrage</a> möglich.</p>
+                <p lang="en">All content created by us may be used non-commercially and with our attribution as authors <a href="https://creativecommons.org/licenses/ by-nc/4.0/" style="text-decoration: underline;">(CC BY-NC 4.0)</a>. Commercial use is likely possible on <a href="mailto:bauvolk@riseup.net" target="_blank"></a>request</a>.</p>
                 <div id="creative-commons-icons">
                     <img src="images/internal/cc.svg">
                     <img src="images/internal/by.svg">

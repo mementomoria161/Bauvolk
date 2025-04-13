@@ -117,34 +117,13 @@
 
 			/* FORM */
 
-			#abo-selection, #email-info {
-				font-size: 16px;
-				line-height: 1.3 !important;
-				text-align: center;
-			}
-
-			#email-form {
+			.email-form {
 				flex-direction: column-reverse;
 			}
 
-			#email-checkbox {
-				display:inline;
-				position:relative;
-				top: 3px;
-				width: 15px;
-				height:15px;
-				margin:0;
-				margin-top:20px;
-			}
 
-			#email-info {
-				display:none;
-				text-align: justify;
-				white-space: pre-wrap;
-				order:-1;
-			}
 
-			#telegram-form, #instagram-form {
+			.telegram-form, .instagram-form {
 				display: none;
 			}
 
@@ -165,7 +144,7 @@
 				cursor: pointer;
 			}
 
-			#closemenu, #openmenu, #menu-expanded, .menu-divider {
+			#closemenu, #openmenu, #menu-expanded {
 				display: none;
 			}
 			
@@ -315,26 +294,25 @@
 				</div>
 
 				<div>
-					<div id="abo-selection">
+					<div class="abo-selection">
 						<span lang="de">Abonniere mit</span>
 						<span lang="en">Subscribe via</span>
-						<span class="option" id="email-opt" onclick="setabo('email')">Email</span> / 
-						<span class="option" id="telegram-opt" onclick="setabo('telegram')">Telegram</span> / 
-						<span class="option" id="instagram-opt" onclick="setabo('instagram')">Instagram</span><br>
+						<span class="option email-opt" onclick="set_abo('email')">Email</span> / 
+						<span class="option telegram-opt" onclick="set_abo('telegram')">Telegram</span> / 
+						<span class="option instagram-opt" onclick="set_abo('instagram')">Instagram</span>
 					</div>
 
-					<form id="email-form">
-						<span class="abo"><button type="submit" id="email-btn"><span lang="de">Abonnieren</span><span lang="en">Subscribe</span></button>
-						<span><input type="email" name="Email" id="email-input" placeholder="Email" required autocomplete="off" data-1p-ignore data-lpignore="true"></span></span>
+					<form class="email-form">
+						<span class="abo"><button type="submit" class="email-btn"><span lang="de">Abonnieren</span><span lang="en">Subscribe</span></button>
+						<span><input type="email" name="Email" class="email-input" placeholder="Email" required autocomplete="off" data-1p-ignore data-lpignore="true"></span></span>
 						<input type="hidden" name="_subject" value="Abonnement">
 						<input type="hidden" name="_captcha" value="true">
 						<input type="hidden" name="_template" value="box">
-						<label id="email-info" for="email-checkbox"><input type="checkbox" id="email-checkbox" required> <span lang="de">Ich habe die <a href="https://www.bauvolk.org/datenschutz">Datenschutzerklärung</a> gelesen und akzeptiere sie. Einen Link zum <a href="https://www.bauvolk.org/deabonnieren">Deabonnieren</a> findest du in jeder Mail.</span><span lang="en">I have read the <a href="https://www.bauvolk.org/datenschutz">privacy policy</a> and accept it. A link to <a href="https://www.bauvolk.org/deabonnieren">unsubscribe</a> is included in every mail.</span></label>
+						<label class="mail-info" for="email-checkbox"><input type="checkbox" class="mail-checkbox" required> <span lang="de">Ich habe die <a href="https://www.bauvolk.org/datenschutz">Datenschutzerklärung</a> gelesen und akzeptiere sie. Einen Link zum <a href="https://www.bauvolk.org/deabonnieren">Deabonnieren</a> findest du in jeder Mail.</span><span lang="en">I have read the <a href="https://www.bauvolk.org/datenschutz">privacy policy</a> and accept it. A link to <a href="https://www.bauvolk.org/deabonnieren">unsubscribe</a> is included in every mail.</span></label>
 					</form>
 					
-					<a id="telegram-form" class="abo" href="https://t.me/BAUVOLKMAGAZINE" target="_blank"><button type="submit" id="telegram-btn">t.me/BAUVOLKMAGAZINE</button></a>
-					<a id="instagram-form" class="abo" href="https://www.instagram.com/BAUVOLKMAGAZINE" target="_blank"><button type="submit" id="instagram-btn">@BAUVOLKMAGAZINE</button></a>
-					<!-- <button id="notifications"><span lang="de">Benachrichtigungen aktivieren</span><span lang="en">Enable notifications</span></button> -->
+					<a class="abo telegram-form" href="https://t.me/BAUVOLKMAGAZINE" target="_blank"><button type="submit" id="telegram-btn">t.me/BAUVOLKMAGAZINE</button></a>
+					<a class="abo instagram-form" href="https://www.instagram.com/BAUVOLKMAGAZINE" target="_blank"><button type="submit" id="instagram-btn">@BAUVOLKMAGAZINE</button></a>
 				</div>
 
 			</div>

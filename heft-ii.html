@@ -75,24 +75,24 @@
 
         <main id="content">
             <section id="abo-content">
-                <div id="abo-selection-content">
+                <div id="abo-selection">
                     <span class="abo-description"><span lang="de">Dieses HEFT ist noch in Arbeit. Abonniere den Newsletter für eine Benachrichtigung bei Veröffentlichung:</span><span lang="en">Subscribe via:</span></span><br><br>
-                    <span class="option" id="email-opt-content" onclick="setabo('email')">Email</span> / 
-                    <span class="option" id="telegram-opt-content" onclick="setabo('telegram')">Telegram</span> / 
-                    <span class="option" id="instagram-opt-content" onclick="setabo('instagram')">Instagram</span><br>
+                    <span class="option email-opt" id="email-opt-content" onclick="set_abo('email')">Email</span> / 
+                    <span class="option telegram-opt" id="telegram-opt-content" onclick="set_abo('telegram')">Telegram</span> / 
+                    <span class="option " id="instagram-opt-content" onclick="set_abo('instagram')">Instagram</span><br>
                 </div>
 
-                <form id="email-form-content">
+                <form id="email-form-content" class="email-form">
                     <span class="abo"><button type="submit" id="email-btn-content"><span lang="de">Abonnieren</span><span lang="en">Subscribe</span></button>
                     <span><input type="email" name="Email" id="email-input-content" placeholder="Email" required autocomplete="off" data-1p-ignore data-lpignore="true"></span></span>
                     <input type="hidden" name="_subject" value="Abonnement">
                     <input type="hidden" name="_captcha" value="true">
                     <input type="hidden" name="_template" value="box">
-                    <label id="email-info-content" for="email-checkbox"><input type="checkbox" id="email-checkbox-content" required>   <span lang="de">Ich möchte über neue HEFTE benachrichtigt werden. <br><br>Hinweise zum Widerruf und der Verarbeitung deiner Daten geben wir in unserer <a href="https://www.bauvolk.org/datenschutz">Datenschutzerklärung</a>. Einen Link zum <a href="https://www.bauvolk.org/deabonnieren">Deabonnieren</a> findest du in jeder Mail.</span><span lang="en">I want to be notified about new ISSUES. <br><br>We provide information on revocation and the processing of your data in our <a href="https://www.bauvolk.org/datenschutz">data protection section</a>. A link to <a href="https://www.bauvolk.org/deabonnieren">unsubscribe</a> is included in every mail.</span></label>
+                    <label id="email-info-content" class="mail-info" for="email-checkbox"><input type="checkbox" id="email-checkbox-content" required>   <span lang="de">Ich möchte über neue HEFTE benachrichtigt werden. <br><br>Hinweise zum Widerruf und der Verarbeitung deiner Daten geben wir in unserer <a href="https://www.bauvolk.org/datenschutz">Datenschutzerklärung</a>. Einen Link zum <a href="https://www.bauvolk.org/deabonnieren">Deabonnieren</a> findest du in jeder Mail.</span><span lang="en">I want to be notified about new ISSUES. <br><br>We provide information on revocation and the processing of your data in our <a href="https://www.bauvolk.org/datenschutz">data protection section</a>. A link to <a href="https://www.bauvolk.org/deabonnieren">unsubscribe</a> is included in every mail.</span></label>
                 </form>
                 
-                <a id="telegram-form-content" class="abo" href="https://t.me/BAUVOLK" target="_blank"><button type="submit" id="telegram-btn-content">t.me/BAUVOLK</button></a>
-                <a id="instagram-form-content" class="abo" href="https://www.instagram.com/BAUVOLK" target="_blank"><button type="submit" id="instagram-btn-content">@BAUVOLK</button></a>
+                <a id="telegram-form-content" class="abo telegram-form" href="https://t.me/BAUVOLK" target="_blank"><button type="submit" id="telegram-btn-content">t.me/BAUVOLK</button></a>
+                <a id="instagram-form-content" class="abo instagram-form" href="https://www.instagram.com/BAUVOLK" target="_blank"><button type="submit" id="instagram-btn-content">@BAUVOLK</button></a>
             </section>
         </main>
 

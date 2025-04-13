@@ -750,22 +750,17 @@ function stop_audio() {
 // ABO LIB
 
 const MAIL_MSG = {
-    "email-btn": {
+    "subscribe": {
         initial: {msg: '<span lang="de">Abonnieren</span><span lang="en">Subscribe</span>', disabled: false, func: null},
-        success: {msg: '<span lang="de">Abonniert!</span><span lang="en">Subscribed!</span>', disabled: true, func: reset_emailinfo},
+        success: {msg: '<span lang="de">Abonniert!</span><span lang="en">Subscribed!</span>', disabled: true, func: reset_mail_info},
         error: {msg: '<span lang="de">FEHLER!</span><span lang="en">ERROR!</span>', disabled: false, func: null}
     },
-    "email-btn-content": {
-        initial: {msg: '<span lang="de">Abonnieren</span><span lang="en">Subscribe</span>', disabled: false, func: null},
-        success: {msg: '<span lang="de">Abonniert!</span><span lang="en">Subscribed!</span>', disabled: true, func: reset_emailinfo},
-        error: {msg: '<span lang="de">FEHLER!</span><span lang="en">ERROR!</span>', disabled: false, func: null}
-    },
-    "email-deabo-btn": {
+    "unsubscribe": {
         initial: {msg: '<span lang="de">Deabonnieren</span><span lang="en">Unsubscribe</span>', disabled: false, func: null},
         success: {msg: '<span lang="de">Deabonniert.</span><span lang="en">Unsubscribed.</span>', disabled: true, func: null},
         error: {msg: '<span lang="de">FEHLER!</span><span lang="en">ERROR!</span>', disabled: false, func: null}
     },
-    "email-confirm-info": {
+    "confirm": {
         initial: {msg: '', disabled: false, func: null},
         success: {msg: '<span lang="de">Deine E-mail wurde erfolgreich bestätigt!</span><span lang="en">Your E-Mail has been confirmed successfully!</span>', disabled: true, func: null},
         error: {msg: '<span lang="de">Etwas ist bei der Bestätigung schiefgelaufen.<br>Bitte versuche es noch einmal, oder schreibe Nachricht an <a href="mailto:BAUVOLK@riseup.net">BAUVOLK@riseup.net</a></span><span lang="en">Something went wrong during the confirmation process.<br>Please try again, or message us at <a href="mailto:BAUVOLK@riseup.net">BAUVOLK@riseup.net</a></span>', disabled: false, func: null}
@@ -777,14 +772,14 @@ const MAIL_MSG = {
     }
 }
 
-function change_text(ID, type) {
+function change_text(element, type, variation) {
     
-    let settings = MAIL_MSG[ID][type]
+    let settings = MAIL_MSG[type][variation]
     
-    document.getElementById(ID).innerHTML = settings.msg;
+    element.innerHTML = settings.msg;
 
     if(settings.disabled) {
-        document.getElementById(ID).disabled = settings.disabled;
+        element.disabled = settings.disabled;
     }
 
     if(settings.func) {
@@ -806,9 +801,7 @@ function make_table(data) {
 }
 
 
-function fetch_mail(content, ID) {
-
-    // change_text(ID, "sending")
+function fetch_mail(content, element, type) {
     
     fetch("https://formsubmit.co/ajax/6d2bd15bcc3410a47e44b78943d390d0", {
         method: "POST",
@@ -821,23 +814,25 @@ function fetch_mail(content, ID) {
         .then(response => response.json())
         .then(data => {
             console.log(data);
-            change_text(ID, "success")
+            change_text(element, type, "success")
         })
         .catch(error => {
             console.log(error);
-            change_text(ID, "error")
+            change_text(element, type, "error")
         });
 }
 
 
 // ABO
 
-function submit_email(event, ID) {
+function submit_email(event) {
 	event.preventDefault()
+    console.log(event.target)
     
     let data = new FormData(event.target)
     data.append('Code', makeid(40));
-    fetch_mail(make_table(data), ID)
+    let button = event.target.getElementsByClassName("email-btn")[0]
+    fetch_mail(make_table(data), button, "subscribe")
 }
 
 
@@ -845,11 +840,12 @@ function remove_email(event) {
     event.preventDefault()
 
     let data = new FormData(event.target)
-    fetch_mail(make_table(data), "email-deabo-btn")
+    let button = event.target.getElementsByClassName("email-btn")[0]
+    fetch_mail(make_table(data), button, "unsubscribe")
 }
 
 
-function confirm_email() {
+function confirm_email(event) {
     const params = new Proxy(new URLSearchParams(window.location.search), {
         get: (searchParams, prop) => searchParams.get(prop),
     });
@@ -859,70 +855,52 @@ function confirm_email() {
     table["_subject"] = "Bestätigungsmail"
     table["_captcha"] = true
     table["_template"] = "box"
-    
-    fetch_mail(table, "email-confirm-info")
+
+    let element = document.getElementById("email-confirm-info")
+    fetch_mail(table, element, "confirm")
 }
 
 
 function input_remove_email() {
-    change_text("email-deabo-btn", "initial")
+    let element = document.getElementById("email-deabo-btn")
+    change_text(element, "unsubscribe", "initial")
 }
 
+function input_mail(element) {
+    let form = element.parentElement.parentElement.parentElement
+    let mail_info = form.getElementsByClassName("mail-info")[0]
+    let mail_button = form.getElementsByClassName("email-btn")[0]
+    let mail_checkbox = form.getElementsByClassName("mail-checkbox")[0]
 
-function input_email(is_content) {
-    if(is_content) {
-        change_text("email-btn-content", "initial")
-        show_emailinfo_content()
+    change_text(mail_button, "subscribe", "initial")
+
+    if(element.value == "") {
+        mail_checkbox.checked = false
+	    mail_info.style.display = "none"
     }
     else {
-        change_text("email-btn", "initial")
-        show_emailinfo()
+        mail_button.disabled = false
+	    mail_info.style.display = "block"
     }
 }
-
 
 // EMAIL INFO
 
-function reset_emailinfo() {
-	document.getElementById("email-info").style.display = "none";
-	document.getElementById("email-checkbox").checked = false;
-    if(document.getElementById("email-info-content")) {
-        document.getElementById("email-info-content").style.display = "none";
-        document.getElementById("email-checkbox-content").checked = false;
-    }
+function reset_mail_info() {
+    document.querySelectorAll(".mail-checkbox").forEach((item) => {item.checked = false})
+    document.querySelectorAll(".mail-info").forEach((item) => {item.style.display = "none"})
 }
-
-function hide_emailinfo() {
-	document.getElementById("email-info").style.display = "none"
-    if(document.getElementById('abo-content')) {
-        document.getElementById("email-info-content").style.display = "none"
-    }
-}
-
-function show_emailinfo() {
-	document.getElementById("email-info").style.display = "block"
-}
-
-function show_emailinfo_content() {
-    document.getElementById("email-info-content").style.display = "block"
-}
-
-
 
 // SWITCH ABO TYPE
 
 function init_abo() {
     if(localStorage.getItem("bauvolk_abo") == null) {localStorage.setItem("bauvolk_abo", "email")}
-	setabo(localStorage.getItem("bauvolk_abo"))
+	set_abo(localStorage.getItem("bauvolk_abo"))
 
     // LISTENERS
-	document.getElementById("email-form").addEventListener('submit', function(event){submit_email(event, "email-btn")})
-    document.getElementById("email-form").addEventListener('input',  function(event){input_email(false)})
-    
-    if(document.getElementById('abo-content')) {
-        document.getElementById("email-form-content").addEventListener('submit', function(event){submit_email(event, "email-btn-content")})
-        document.getElementById("email-form-content").addEventListener('input',  function(event){input_email(true)})
-        }
+
+    document.querySelectorAll(".email-form").forEach((item) => {item.addEventListener('submit', function(event){submit_email(event)})})
+    document.querySelectorAll(".email-form").forEach((item) => {item.addEventListener('input',  function(event){input_mail(event.target)})})
     
     if(document.getElementById("email-deabo-form")) {
         document.getElementById("email-deabo-form").addEventListener('submit', function(event){remove_email(event)})
@@ -930,37 +908,18 @@ function init_abo() {
     }
 }
 
-function setabo(type) {
+function set_abo(type) {
 
-	document.getElementById('email-form').style.display = "none";
-	document.getElementById('telegram-form').style.display = "none"
-	document.getElementById('instagram-form').style.display = "none"
+    document.querySelectorAll(".email-form").forEach((item) => {item.style.display = "none"})
+    document.querySelectorAll(".telegram-form").forEach((item) => {item.style.display = "none"})
+    document.querySelectorAll(".instagram-form").forEach((item) => {item.style.display = "none"})
 
-	document.getElementById("email-opt").style.textDecoration = "none"
-	document.getElementById("telegram-opt").style.textDecoration = "none"
-	document.getElementById("instagram-opt").style.textDecoration = "none"
+    document.querySelectorAll(".email-opt").forEach((item) => {item.style.textDecoration = "none"})
+    document.querySelectorAll(".telegram-opt").forEach((item) => {item.style.textDecoration = "none"})
+    document.querySelectorAll(".instagram-opt").forEach((item) => {item.style.textDecoration = "none"})
 
-    if(document.getElementById('abo-content')) {
-        document.getElementById('email-form-content').style.display = "none";
-        document.getElementById('telegram-form-content').style.display = "none"
-        document.getElementById('instagram-form-content').style.display = "none"
-    
-        document.getElementById("email-opt-content").style.textDecoration = "none"
-        document.getElementById("telegram-opt-content").style.textDecoration = "none"
-        document.getElementById("instagram-opt-content").style.textDecoration = "none"
-    }
-
-	if(type == "telegram" || type == "instagram") {
-		hide_emailinfo()
-	}
-
-	document.getElementById(type + '-opt').style.textDecoration = "underline"
-	document.getElementById(type + '-form').style.display = "flex";
-
-    if(document.getElementById('abo-content')) {
-        document.getElementById(type + '-opt-content').style.textDecoration = "underline"
-        document.getElementById(type + '-form-content').style.display = "flex";
-    }
+    document.querySelectorAll("." + type + "-form").forEach((item) => {console.log("test"); item.style.display = "flex"})
+    document.querySelectorAll("." + type + "-opt").forEach((item) => {item.style.textDecoration = "underline"})
 
 	localStorage.setItem("bauvolk_abo", type);	
 }
@@ -1069,13 +1028,7 @@ function close_menu() {
     document.getElementById("menu-etc").style.display = "none";
 
 
-    // document.getElementById("content").style.display = "";
-    // if(document.getElementById("footer")) {
-    //     document.getElementById("footer").style.display = "";
-    // }
-
     if (window.innerWidth <= 800) {
-		// document.getElementById("logo").style.display = "inline";
 		document.getElementById("closemenu").style.display = "none";
 		document.getElementById("openmenu").style.display = "inline";
 	}
@@ -1086,11 +1039,7 @@ function close_menu() {
 
 function safe_close_menu() {
     for (let value of ["email-input", "email-checkbox", "email-btn"]) {
-        if(document.getElementById(value) === document.activeElement) {return}
-    }
-
-    if(document.getElementById("email-input").value == "") {
-        reset_emailinfo()
+        if(document.getElementBy("header").getElementsByClassName(value)[0] === document.activeElement) {return}
     }
 
     close_menu()
