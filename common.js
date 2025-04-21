@@ -740,6 +740,155 @@ function stop_audio() {
     }
 }
 
+var ACTIVE_AUDIO
+var ACTIVE_AUDIO_ELEMENT 
+
+
+function play_audio(element) {
+
+    let audio = element.getElementsByTagName('audio')[0]
+
+    let local_player = element.parentElement
+    let global_player = document.getElementById("footer-audio")
+
+    let local_icon = element.getElementsByClassName("play-icon")[0]
+    let global_icon = global_player.getElementsByClassName("play-icon")[0]
+
+    let local_timeline = local_player.getElementsByClassName('audio-timeline')[0] 
+    let global_timeline = global_player.getElementsByClassName("audio-timeline")[0]
+
+
+
+    audio.currentTime = audio.getAttribute('data-time')
+    
+    if(audio.paused) {
+        let audios = document.getElementsByTagName('audio')
+
+        for (let i = 0; i < audios.length; i++)
+        {
+            audios[i].pause()
+        }
+
+        audio.play()
+        local_icon.src = "images/internal/pause.svg"
+        global_icon.src = "images/internal/pause.svg"
+        
+        PLAYER_CLOSED = false
+    }
+    else {
+        audio.pause();
+        local_icon.src = "images/internal/play.svg"
+        global_icon.src = "images/internal/play.svg"
+    }
+
+    ACTIVE_AUDIO = audio
+    ACTIVE_AUDIO_ELEMENT = element
+    
+    update_audio(global_timeline, audio)
+    update_audio(local_timeline, audio)
+    document.getElementById("content").addEventListener("scroll", auto_player)
+}
+
+function update_audio(element, audio) {
+
+    let progress = audio.currentTime / audio.duration * 100
+    audio.setAttribute('data-time', audio.currentTime)
+    
+    let rotation = 90
+
+
+    if(element.hasAttribute("data-vertical") && window.innerWidth >= 1400) {rotation = 180}
+
+    element.style.background = "linear-gradient(" + rotation + "deg, lightgrey " + progress + "%, var(--color-background) " + progress + "%)"
+
+    if(audio.paused) {
+        element.parentElement.getElementsByClassName('play-icon')[0].src = "images/internal/play.svg"
+    }
+
+
+    if(audio == ACTIVE_AUDIO) {
+        setTimeout(update_audio, 100, element, audio)
+    }
+}
+
+function skim_audio(event, element, vertical) {
+    
+
+    let audio = ACTIVE_AUDIO
+    let rect = element.getBoundingClientRect()
+    let container_size, click
+
+    if(vertical) {
+        container_size = rect.height
+        click = event.clientY - rect.top;
+    }
+    else {
+        container_size = rect.width
+        click = event.clientX - rect.left;
+    }
+
+    let new_time = (click / container_size) * audio.duration;
+
+    audio.currentTime = new_time
+}
+
+var volume_presets = [
+    {volume: 0,     icon: "images/internal/volume_mute.svg",},
+    {volume: 0.25,  icon: "images/internal/volume_low.svg",},
+    {volume: 0.5,   icon: "images/internal/volume_low.svg",},
+    {volume: 0.75,  icon: "images/internal/volume_high.svg",},
+    {volume: 1,     icon: "images/internal/volume_high.svg",},
+]
+
+var VOLUME_SETTING = 2
+
+function adjust_volume() {
+
+    VOLUME_SETTING = VOLUME_SETTING + 1
+    if(VOLUME_SETTING >= volume_presets.length) {VOLUME_SETTING = 0}
+
+    let settings = volume_presets[VOLUME_SETTING]
+    let audios = document.getElementsByTagName('audio')
+    let icons = document.getElementsByClassName('volume-icon')
+
+
+    for (let i = 0; i < audios.length; i++)
+    {
+        audios[i].volume = settings.volume
+    }
+
+    for (let i = 0; i < icons.length; i++)
+    {
+        icons[i].src = settings.icon
+    }
+
+}
+
+
+PLAYER_CLOSED = false
+
+function auto_player() {
+	
+    let button_group = ACTIVE_AUDIO_ELEMENT.parentElement
+
+    let audio_top = button_group.getBoundingClientRect().top
+    let audio_bot = button_group.getBoundingClientRect().bottom
+    
+    
+    if(audio_bot >= 0 && audio_top <= window.innerHeight || PLAYER_CLOSED){
+        document.getElementById("footer-audio").style.display = "none"
+    }
+    else {
+        document.getElementById("footer-audio").style.display = "flex"
+    }
+}
+
+function close_player() {
+    document.getElementById("footer-audio").style.display = "none"
+    stop_audio()
+    PLAYER_CLOSED = true
+}
+
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
