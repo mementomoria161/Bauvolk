@@ -1170,7 +1170,8 @@ function open_menu(ID) {
     document.getElementById("menu-area").style.display = "block";
     // document.getElementById("menu-expanded").style.display = "none";
     document.getElementById("menu-issues").style.display = "none";
-    document.getElementById("menu-kanon").style.display = "none";
+    // document.getElementById("menu-kanon").style.display = "none";
+    document.getElementById("menu-abo").style.display = "none";
     document.getElementById("menu-etc").style.display = "none";
 
     document.getElementById("menu-area").style.width = document.getElementById("headerbox").offsetWidth
@@ -1203,7 +1204,8 @@ function open_menu(ID) {
 function close_menu() {
     document.getElementById("menu-area").style.display = "none";
     document.getElementById("menu-issues").style.display = "none";
-    document.getElementById("menu-kanon").style.display = "none";
+    // document.getElementById("menu-kanon").style.display = "none";
+    document.getElementById("menu-abo").style.display = "none";
     document.getElementById("menu-etc").style.display = "none";
 
 

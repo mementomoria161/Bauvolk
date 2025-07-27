@@ -40,15 +40,10 @@
 				border:5px outset grey;
 				width: 500px;
 				background-color: var(--color-background);
-				/* background: #0003;
-				box-shadow: rgba(22, 21, 19, 0) 0px 165px 46px 0px, rgba(22, 21, 19, 0.01) 0px 106px 42px 0px, rgba(22, 21, 19, 0.05) 0px 60px 36px 0px, rgba(22, 21, 19, 0.08) 0px 26px 26px 0px, rgba(22, 21, 19, 0.09) 0px 7px 15px 0px;
-				backdrop-filter: blur(20px); */
 			}
 			
 
 			#logo {
-				/* padding: 10px 20px; */
-				/* width: 200px; */
 				line-height: 0;
 				-webkit-tap-highlight-color: transparent;
 				-webkit-touch-callout: none;
@@ -128,8 +123,22 @@
 				display: none;
 			}
 			
+			#abo-form-expanded {
+				display: none;
+			}
+
+			#abo-form-expanded .abo-selection {
+				max-height: fit-content;
+			}
+
+			
 
 			@media screen and (max-width: 800px) {
+				
+				#abo-form-expanded {
+					display: block;
+				}
+
 				#logo-img {
 					width: 210px;
 				}
@@ -149,6 +158,7 @@
 				#openmenu, #menu-expanded {
 					display: block;
 				}
+
 
 				#menu-area {
 					border: none;
@@ -220,8 +230,14 @@
 
 				<!-- KANON -->
 
-				<div class="menu-horizontal" onpointerenter="open_menu('menu-kanon')">
+				<!-- <div class="menu-horizontal" onpointerenter="open_menu('menu-kanon')">
 					<a class="dropanchor nav-selectable" id="highlight-kanon" href="https://www.bauvolk.org/kanon">KANON</a>
+				</div> -->
+
+				<!-- ABO -->
+
+				<div class="menu-horizontal" onpointerenter="open_menu('menu-abo')">
+					<span class="dropanchor nav-selectable" id="highlight-abo" href="https://www.bauvolk.org/abo"><span lang="de">ABO</span><span lang="en">SUB</span></span>
 				</div>
 
 				<!-- MENU/ETC -->
@@ -255,16 +271,44 @@
 				</div>
 			</div>
 
-			<div class="menu-content" id="menu-kanon">
+			<!-- <div class="menu-content" id="menu-kanon">
 				<a href="https://www.bauvolk.org/kanon"><span lang="de">Eine Zusammenstellung sehenswerter Inhalte</span><span lang="en">A collection of content worth seeing</span></a>
+			</div> -->
+
+			<div class="menu-content" id="menu-abo">			
+				<div id="abo-form">
+					<div class="abo-selection">
+						<span lang="de">Abonniere mit</span>
+						<span lang="en">Subscribe via</span>
+						<span class="option email-opt" onclick="set_abo('email')">Email</span> / 
+						<span class="option telegram-opt" onclick="set_abo('telegram')">Telegram</span> / 
+						<span class="option instagram-opt" onclick="set_abo('instagram')">Instagram</span>
+						<span lang="de" class="abo-desc-unreleased">für eine Benachrichtigung bei Veröffentlichung.</span>
+						<span lang="en" class="abo-desc-unreleased">for a notification on release.</span>
+					</div>
+
+					<form class="email-form">
+						<span class="abo"><button type="submit" class="email-btn"><span lang="de">Abonnieren</span><span lang="en">Subscribe</span></button>
+						<span><input type="email" name="Email" class="email-input" placeholder="Email" required autocomplete="off" data-1p-ignore data-lpignore="true" oninput="fit_font_size(this)"></span></span>
+						<input type="hidden" name="_subject" value="Abonnement">
+						<input type="hidden" name="_captcha" value="true">
+						<input type="hidden" name="_template" value="box">
+						<label class="mail-info" for="email-checkbox"><input type="checkbox" class="mail-checkbox" required> <span lang="de">Ich habe die <a href="https://www.bauvolk.org/datenschutz">Datenschutzerklärung</a> gelesen und akzeptiere sie. Ein Link zum <a href="https://www.bauvolk.org/deabonnieren">Deabonnieren</a> ist in jeder Mail.</span><span lang="en">I have read the <a href="https://www.bauvolk.org/datenschutz">privacy policy</a> and accept it. A link to <a href="https://www.bauvolk.org/deabonnieren">unsubscribe</a> is included in every mail.</span></label>
+					</form>
+					
+					<a class="abo telegram-form" href="https://t.me/BAUVOLKMAGAZINE" target="_blank"><button type="submit" class="telegram-btn">t.me/BAUVOLKMAGAZINE</button></a>
+					<a class="abo instagram-form" href="https://www.instagram.com/BAUVOLKMAGAZINE" target="_blank"><button type="submit" class="instagram-btn">@BAUVOLKMAGAZINE</button></a>
+				</div>
 			</div>
+
 
 
 			<div class="menu-content" id="menu-etc">
 
 				<div id="menu-expanded">
-					<a id="highlight-issues-expanded" href="https://www.bauvolk.org"><span lang="de">HEFTE</span><span lang="en">ISSUES</span></a><br>
-					<a id="highlight-kanon-expanded" href="https://www.bauvolk.org/kanon">KANON</a>
+					<a id="highlight-issues-expanded" href="https://www.bauvolk.org"><span lang="de">HEFTE</span><span lang="en">ISSUES</span></a>
+					<!-- <br> -->
+					<!-- <a id="highlight-kanon-expanded" href="https://www.bauvolk.org/kanon">KANON</a> -->
 				</div>
 
 
@@ -277,7 +321,7 @@
 					<span class="option" id="lang-de" onclick="set_language('de')">DE</span> / <span class="option" id="lang-en" onclick="set_language('en')">EN</span><br>
 				</div>
 
-				<div id="abo-form">
+				<div id="abo-form-expanded">
 					<div class="abo-selection">
 						<span lang="de" class="abo-desc-unreleased">Dieses Heft ist noch in Arbeit.</span>
 						<span lang="en" class="abo-desc-unreleased">This issue is still being worked on.</span><br>
