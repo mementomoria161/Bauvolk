@@ -27,7 +27,6 @@
 				align-items: center;
 				/* gap:5px; */
 				font-size: 22px;
-
 				color: var(--color-text);
 			}
 
@@ -77,8 +76,6 @@
 			#etc, #highlight-abo {
 				cursor: default;
 			}
-
-
 
 			.menu-content {
 				padding: 25px 40px 25px 40px;
@@ -136,7 +133,7 @@
 
 			@media screen and (max-width: 800px) {
 				
-				#abo-form-expanded {
+				#openmenu, #menu-expanded, #abo-form-expanded {
 					display: block;
 				}
 
@@ -150,28 +147,14 @@
 
 				#navigation {
 					min-width: unset;
+					justify-content: flex-end;
 				}
 
 				.menu-horizontal, #etc {
 					display: none;
 				}
 
-				#openmenu, #menu-expanded {
-					display: block;
-				}
-
-
-				#menu-area {
-					border: none;
-					background-color: transparent;
-				}
-
-				#navigation {
-					justify-content: flex-end;
-				}
-
 				#menu-etc {
-					border: 3px outset grey;
 					padding: 20px;
 				}
 
@@ -180,7 +163,7 @@
 			@media screen and (max-height: 600px) {
 
 				#menu-expanded {
-					margin-bottom: 15px;;
+					margin-bottom: 15px;
 				}
 				
 				#menu-etc {
@@ -254,22 +237,7 @@
 		<div id="menu-area">
 
 			<div class="menu-content" id="menu-issues">
-				<div id="cover-container">
-					<a id="info-issue-i" href="https://www.bauvolk.org/heft-i">
-						<div class="issue-info">
-							<span class="issue-number">№ I</span>
-							<span class="issue-title" lang="de">Grundrisse des<br>konstruktiven Sozialismus</span>
-							<span class="issue-title" lang="en">Outlines of Constructive<br>Socialism</span>
-						</div>
-					</a>
-					<a id="info-issue-ii" href="https://www.bauvolk.org/heft-ii">
-						<div class="issue-info">
-							<span class="issue-number">№ II</span>
-							<span class="issue-title" lang="de">In Arbeit<br>Veröffentlichung 2025</span>
-							<span class="issue-title" lang="en">Outlines of Constructive<br>Socialism</span>
-						</div>
-					</a>
-				</div>
+				<div id="cover-container"></div>
 			</div>
 
 			<!-- <div class="menu-content" id="menu-kanon">

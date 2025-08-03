@@ -13,6 +13,78 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
+// ISSUE LIST & TEMPLATES
+
+const ISSUE_LIST = [
+    {
+        no: "№ I",
+        date_de: "03/2024",
+        date_en: "03/2024",
+        title_de: "Grundrisse des<br>konstruktiven Sozialismus",
+        title_en: "OUTLINES OF <br>CONSTRUCTIVE SOCIALISM",
+        cover_de: "images/issues/de/issue-i-cover.webp",
+        cover_en: "images/issues/en/issue-i-cover.webp",
+        url: "heft-i",
+        default_hovered: " box_hovered"
+    },
+    {
+        no: "№ II",
+        date_de: "12/2024",
+        date_en: "12/2024",
+        title_de: "In Arbeit<br> Veröffentlichung 2025",
+        title_en: "<br>WORK IN PROGRESS",
+        cover_de: "images/issues/de/issue-ii-cover.webp",
+        cover_en: "images/issues/en/issue-ii-cover.webp",
+        url: "heft-ii",
+        default_hovered: ""
+    },
+    {
+        no: "№ III",
+        date_de: "12/2024",
+        date_en: "12/2024",
+        title_de: "In Arbeit<br> Veröffentlichung 2026",
+        title_en: "<br>WORK IN PROGRESS",
+        cover_de: "images/issues/de/issue-ii-cover.webp",
+        cover_en: "images/issues/de/issue-ii-cover.webp",
+        url: "heft-ii",
+        default_hovered: ""
+    }
+]
+
+
+function index_title_template(i){
+    let issue = ISSUE_LIST[i]
+
+    return `<a class="issue-title center" href=` + issue.url + `>
+                <span lang="de">` + issue.title_de + `</span>
+                <span lang="en">` + issue.title_en + `</span>
+            </a>`
+}
+            
+
+function index_template(i){
+    let issue = ISSUE_LIST[i]
+
+    return `<span onclick="display_combined(null, ` + i + `)" id="index` + i + `" class="indexitem issue-title">
+                <div class="issue-info">
+                    <span class="issue-number">` + issue.no + `</span>
+                    <span class="issue-title" lang="de">` + issue.title_de + `</span>
+                    <span class="issue-title" lang="en">` + issue.title_en + `</span>
+                </div>
+            </span>`
+}
+
+
+function issue_info_link_template(i){
+    let issue = ISSUE_LIST[i]
+
+    return `<a  id="info-issue-` + i + `" class="issue-info" href=` + issue.url + `>
+                <span class="issue-number">` + issue.no + `</span>
+                <span class="issue-title" lang="de">` + issue.title_de + `</span>
+                <span class="issue-title" lang="en">` + issue.title_en + `</span>
+            </a>`
+}
+
 
 
 // GENERAL VARIABLES
@@ -112,6 +184,12 @@ function init_header() {
     init_highlights()
     window.addEventListener("resize", openmenufix)
     document.getElementById("header").addEventListener("pointerleave", pointer_close_menu)
+    
+    
+
+    for (let i = 0; i < ISSUE_LIST.length; i++) {
+        document.getElementById("cover-container").insertAdjacentHTML('beforeend', issue_info_link_template(i))
+    }    
 }
 
 
@@ -1344,8 +1422,8 @@ function init_controls() {
 
 		let slide = document.getElementById(SLIDE_LIST[i])
         let slide_index = document.getElementById('slide-index')
-
-        slide_index.insertAdjacentHTML('beforeend', index_template(slide, i));
+        console.log("slide: " + slide.id + " index: " + i)
+        slide_index.insertAdjacentHTML('beforeend', index_template(i));
     }
     
     display_slide(slide_current)

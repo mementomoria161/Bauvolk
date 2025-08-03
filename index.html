@@ -44,11 +44,6 @@
         
         <link rel="stylesheet" href="styles/fonts.css">
         <link rel="stylesheet" href="styles/general.css">
-
-        <link rel="preload" as="font" crossorigin type="font/woff2" href="https://www.bauvolk.org/fonts/Spectral/Spectral-Regular.woff2">
-        <link rel="preload" as="font" crossorigin type="font/woff2" href="https://www.bauvolk.org/fonts/Spectral/Spectral-Bold.woff2">
-        <link rel="preload" as="font" crossorigin type="font/woff2" href="https://www.bauvolk.org/fonts/Spectral/Spectral-Italic.woff2">
-        <link rel="preload" as="font" crossorigin type="font/woff2" href="https://www.bauvolk.org/fonts/Quaderni/Quaderni-Regular.woff2">
         
         <link rel="preload" as="fetch" crossorigin href="components/header.html">
         <link rel="preload" as="fetch" crossorigin href="components/controls.html">
@@ -63,54 +58,23 @@
             
             const OVERRIDE_TITLE_TEXT = "<span class='title-large'><span lang='de'>ÜBERSICHT</span><span lang='en'>OVERVIEW</span></span><span class='title-small'>#</span>"
 
-            const ISSUE_LIST = [
-                {
-                    no: "№ I",
-                    date_de: "03/2024",
-                    date_en: "03/2024",
-                    title_de: "Grundrisse des<br>konstruktiven Sozialismus",
-                    title_en: "OUTLINES OF <br>CONSTRUCTIVE SOCIALISM",
-                    cover_de: "images/issues/de/issue-i-cover.webp",
-                    cover_en: "images/issues/en/issue-i-cover.webp",
-                    url: "heft-i",
-                    default_hovered: " box_hovered"
-                },
-                {
-                    no: "№ II",
-                    date_de: "12/2024",
-                    date_en: "12/2024",
-                    title_de: "In Arbeit<br> Veröffentlichung 2025",
-                    title_en: "<br>WORK IN PROGRESS",
-                    cover_de: "images/issues/de/issue-ii-cover.webp",
-                    cover_en: "images/issues/en/issue-ii-cover.webp",
-                    url: "heft-ii",
-                    default_hovered: ""
-                },
-                {
-                    no: "№ III",
-                    date_de: "12/2024",
-                    date_en: "12/2024",
-                    title_de: "In Arbeit<br> Veröffentlichung 2026",
-                    title_en: "<br>WORK IN PROGRESS",
-                    cover_de: "images/issues/de/issue-ii-cover.webp",
-                    cover_en: "images/issues/de/issue-ii-cover.webp",
-                    url: "heft-ii",
-                    default_hovered: ""
-                }
-            ]
-
             // TEMPLATES
-
-            function cover_template(i){let issue = ISSUE_LIST[i]; return '<a class="cover" href=' + issue.url + '><img class="cover-image" loading="lazy" lang="de" src=' + issue.cover_de + ' alt="' + issue.no + ' COVER"/><img class="cover-image" loading="lazy" lang="en" src=' + issue.cover_en + ' alt="' + issue.no + ' COVER"/></a>'}
-            // function basic_template(issue) {return '<span lang="de">' + issue.no_de + '&nbsp;  ⁄  &nbsp;' + issue.title_de + '</span><span lang="en">' + issue.no_en + '&nbsp;  ⁄  &nbsp;' + issue.title_en + '</span>'}
-            function basic_template(issue) {return '<div class="issue-info"><span class="issue-number">' + issue.no + '</span><span class="issue-title" lang="de">' + issue.title_de + '</span><span class="issue-title" lang="en">' + issue.title_en + '</span></div>'}
-
-            // function basic_template_date(issue) {return '<span lang="de" class="left">' + issue.no_de + '<br>' + issue.date_de + '</span><span lang="en" class="left">' + issue.no_en +  '<br>' + issue.date_en + '</span><span lang="de">' + issue.title_de + '</span><span lang="en">' + issue.title_en + '</span>'}
-            function title_template(i){let issue = ISSUE_LIST[i]; return  cover_template(i)}
-            function index_title_template(i){let issue = ISSUE_LIST[i]; return '<a class="issue-title center" href=' + issue.url + '><span lang="de">' + issue.title_de + '</span><span lang="en">' + issue.title_en + '</span></a>'}
-            function index_template(slide, i){let issue = ISSUE_LIST[i]; return '<span onclick="display_combined(null, ' + i + ')" id="index' + i + '" class="indexitem issue-title">' + basic_template(issue) + '</span>'}
-            
-            function cover_template(i){let issue = ISSUE_LIST[i]; return `<a class="cover" href=` + issue.url + `><section class="perspective" id="perspective"><div class="box` + issue.default_hovered + `" id="box"><div class="face top"></div><div class="face bottom"></div><div class="face back"></div><div class="face front" style="background-image: url('` + issue.cover_de + `');"></div><div class="face left"></div><div class="face right"></div></div></section></a>`}
+        
+            function cover_template(i){
+                let issue = ISSUE_LIST[i]; 
+                return `<a class="cover" href=` + issue.url + `>
+                            <section class="perspective" id="perspective">
+                                <div class="box` + issue.default_hovered + `" id="box">
+                                    <div class="face top"></div>
+                                    <div class="face bottom"></div>
+                                    <div class="face back"></div>
+                                    <div class="face front" style="background-image: url('` + issue.cover_de + `');"></div>
+                                    <div class="face left"></div>
+                                    <div class="face right"></div>
+                                </div>
+                            </section>
+                        </a>`
+            }
 
             
             // LOADING
@@ -130,7 +94,7 @@
             function initcovers() {
                 for (let i = 0; i < ISSUE_LIST.length; i++) {
                     document.getElementById("slides").insertAdjacentHTML('beforeend', cover_template(i));
-                    document.getElementById("issue-library").insertAdjacentHTML('afterbegin', title_template(i));
+                    document.getElementById("issue-library").insertAdjacentHTML('afterbegin', cover_template(i));
                 }
 
                 display_issue(slide_current)
@@ -149,6 +113,7 @@
                 
                 document.querySelector(':root').style.setProperty('--model-width', p_width + "px");
             }
+
             // NOT WORKING FOR SLIDES?
             function init_library() {
                 let library = document.getElementById("issue-library")

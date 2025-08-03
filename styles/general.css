@@ -241,10 +241,10 @@ button[disabled]{
 
 /* FORMS */
 
-.abo {
+/* .abo { */
 	/* NEED THIS FOR SOME REASON OTHERWISE WONT APPLY */
     /* display: flex; */
-}
+/* } */
 
 .abo {	
 	width:100%;
