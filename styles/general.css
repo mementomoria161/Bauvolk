@@ -133,8 +133,8 @@ h2, h3 {
 
 p, p *{
 	font-size: 1.085rem;
-	font-size: var(--font-regular);
 	font-size: 22px;
+	font-size: var(--font-medium-large);
 	line-height: 1.8;
 	line-height: 2.1;
 	margin:0px;

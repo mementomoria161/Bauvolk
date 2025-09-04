@@ -3,10 +3,6 @@
 safari 
 - check preload
 
-kanon 
-- current number on ipad
-- height because sometimes scrolls
-
 issues
 - share double click issues
 
