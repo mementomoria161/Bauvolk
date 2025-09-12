@@ -79,16 +79,9 @@
 
             function suf_init() {
                 scale_model()
+                scale_fit_to_width_titles()
                 animate()
                 init_progressbar()
-
-                const svg = document.querySelectorAll("svg");
-
-                svg.forEach(element => {
-                    const bbox = element.querySelector("text").getBBox();
-                    console.log(bbox.height)
-                    element.setAttribute("viewBox", [bbox.x, bbox.y, bbox.width, bbox.height - 4].join(" "));
-                });
             }
 
         </script>

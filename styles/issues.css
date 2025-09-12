@@ -367,7 +367,6 @@ article .issue-button-group {
 		
 		max-width: unset !important;
 		inline-size: max-content;
-		/* line-height: 1; */
 		transform-origin: 0 0;
 		white-space: nowrap;
 		text-align: left;
@@ -394,7 +393,7 @@ article .issue-button-group {
 	  transform: scale(0);
 	  margin-block-end: -1lh;
 	}
-} */
+} */ */
 
 
 svg {

@@ -76,6 +76,31 @@
                         </a>`
             }
 
+            function slide_cover_template(i){
+                let issue = ISSUE_LIST[i]; 
+                return `<a class="cover" href=` + issue.url + `>
+                            <img class="cover-image" lang="de" src="` + issue.cover_de + `" alt="Cover von ` + issue.title_de + `">
+                            <img class="cover-image" lang="en" src="` + issue.cover_en + `" alt="Cover of ` + issue.title_en + `" >
+                        </a>`
+            }
+
+            function lib_list_template(i){
+                let issue = ISSUE_LIST[i]; 
+                return `<a class="issue-info" id="lib-list-` + i + `" onmouseenter="display_combined(null, ` + i + `)" href=` + issue.url + `>
+                            <span class="issue-number">` + issue.no + `</span>
+                            <span class="issue-title" lang="de">` + issue.title_de + `</span>
+                            <span class="issue-title" lang="en">` + issue.title_en + `</span>
+                        </a>`
+            }
+
+            function lib_cover_template(i){
+                let issue = ISSUE_LIST[i]; 
+                return `<a class="cover" id="lib-cover-` + i + `" href=` + issue.url + `>
+                            <img class="cover-image" lang="de" src="` + issue.cover_de + `" alt="Cover von ` + issue.title_de + `">
+                            <img class="cover-image" lang="en" src="` + issue.cover_en + `" alt="Cover of ` + issue.title_en + `" >
+                        </a>`
+            }
+
             
             // LOADING
 
@@ -89,22 +114,20 @@
 
             document.addEventListener("DOMContentLoaded", initcovers)
             
-            
-
             function initcovers() {
                 for (let i = 0; i < ISSUE_LIST.length; i++) {
-                    document.getElementById("slides").insertAdjacentHTML('beforeend', cover_template(i));
+                    document.getElementById("slides").insertAdjacentHTML('beforeend', slide_cover_template(i));
                     document.getElementById("issue-library").insertAdjacentHTML('afterbegin', cover_template(i));
+                    
+                    document.getElementById("issue-lib-list").insertAdjacentHTML('beforeend', lib_list_template(i));
+                    document.getElementById("issue-lib-covers").insertAdjacentHTML('beforeend', lib_cover_template(i));
                 }
 
-                display_issue(slide_current)
-                init_library()
+                display_lib_cover(slide_current)
                 seteagerload()
                 window.addEventListener("resize", scale_model)
-                scale_model
-                // init_prevent_touch_response()
+                scale_model()
             }
-
 
             function scale_model() {
                 let p_width = window.innerHeight * 0.35
@@ -112,57 +135,10 @@
                 if(p_width >= window.innerWidth && window.innerWidth * 0.8 < window.innerHeight * 0.35) {p_width = indow.innerWidth * 0.8}
                 
                 document.querySelector(':root').style.setProperty('--model-width', p_width + "px");
-            }
+            }            
 
-            // NOT WORKING FOR SLIDES?
-            function init_library() {
-                let library = document.getElementById("issue-library")
-                let images = library.getElementsByClassName("cover")[slide_current].getElementsByClassName("cover-image")
-                let lang = localStorage.getItem("bauvolk_language")
-                let image 
-
-                for (let i = 0; i < images.length; i++) {
-                    if(images[i].lang == lang) {
-                        image = images[i]
-                    }
-                }
-                // image.complete = true
-                // console.log(image)
-                
-                library.style.display = "flex"
-
-                // if(image == null) {
-                //     console.log("lib is null")
-                //     setTimeout(init_library, 10)
-                // }
-                // else if (image.complete) {
-                //     console.log("image complete")
-                //     library.style.display = "flex"
-                // }
-                // else {
-                //     console.log("init_library")
-                //     setTimeout(init_library, 10)
-                // }
-
-                library.querySelectorAll('.box').forEach((item) => {
-                    
-                    item.addEventListener('mouseenter', () => {
-
-                        library.querySelectorAll('.box').forEach((item) => {
-                            item.classList.remove("box_hovered")
-                        })
-
-                        item.classList.add("box_hovered")
-                    })
-                })
-            }
             
-
-
             // DISPLAY COMBINED
-
-            var library_cooldown = false
-
 
             function display_combined(event, index) {
 
@@ -171,10 +147,10 @@
                     event.preventDefault()
                 }
 
-                display_issue(index)
+                // display_issue(index)
                 display_slide(index)
+                display_lib_cover(index)
             }
-
 
 
             function display_issue(index) {
@@ -183,6 +159,22 @@
 
                 let titles = issue_list.querySelectorAll('.issue-title')
                 titles.forEach((title) => {title.style.display = "flex"})
+            }
+
+
+            function display_lib_cover(index) {
+                document.getElementById("issue-lib-covers").querySelectorAll('.cover').forEach((item) => {
+                    item.style.display = "none"
+                })
+
+                document.getElementById("lib-cover-" + index).style.display = "block"
+
+                document.getElementById("issue-lib-list").querySelectorAll('.issue-info').forEach((item) => {
+                    item.style.border = "4px solid transparent"
+                })
+
+                document.getElementById("lib-list-" + index).style.border = "4px outset grey"
+
             }
 
 
@@ -200,45 +192,6 @@
                     }
                 }
             }
-
-
-            // PREVENT TOUCHING RESPONSE
-            // DOES THIS EVEN CONNECT TO ANYTHING?
-
-            // @media screen and (max-width: 800px), (hover: none) {
-            // body {
-            //     grid-template-rows: auto minmax(0, 1fr) auto;
-            //     grid-template-areas: "header" "main" "controls";
-            // }
-
-            // :root {
-            //     --model-width: 300px;
-            // }
-
-
-            // function init_prevent_touch_response() {
-            //     let covers = document.getElementById("issue-library").getElementsByClassName("cover")
-
-            //     for (let i = 0; i < covers.length; i++) {
-            //         covers[i].addEventListener("pointerdown", (event) => {
-		    //             alert("tesz")
-            //             if (event.pointerType === "touch" || event.pointerType === "pen") {
-            //                 event.currentTarget.addEventListener("click", prevent_link_events)
-            //             }
-            //         })
-
-            //         // covers[i].addEventListener("mouseenter", ()=>{covers[i].style.color = ""})
-            //     }
-            // }
-
-            // function prevent_link_events(event) {
-            //     event.preventDefault()
-            //     // event.currentTarget.style.color = "white"
-            //     event.currentTarget.removeEventListener("click", prevent_link_events)
-            // }
-
-
-
             
         </script>
 
@@ -253,7 +206,8 @@
         #content {
             display: grid;
             justify-content: center;
-            grid-template-areas: "." "issue-library" "." "." "." ".";
+            /* grid-template-areas: "." "issue-library" "." "." "." "."; */
+            grid-template-areas: "." "issue-lib" "." "." ".";
         }
 
         /* ISSUE LIBRARY */
@@ -292,7 +246,7 @@
             object-fit: cover;
             cursor: pointer;
             box-shadow: 10px 10px 10px 0px rgba(0, 0, 0, 0.35);
-            height: 100%;
+            max-height: 100%;
         }
 
         /* SLIDES */
@@ -347,7 +301,7 @@
 
         /* VERTICAL TEXT */
 
-        .vertical {
+        /* .vertical {
             color: black !important;
             background-color: white;
             box-shadow: 10px 10px 10px 0px rgba(0, 0, 0, 0.35);
@@ -357,7 +311,7 @@
             text-orientation: mixed;
             width: fit-content;
             font-weight: 700;
-        }
+        } */
 
 
         /* PERSPECTIVE AND 3D BOX STYLES */
@@ -390,6 +344,37 @@
             max-width: 1000px;
             perspective: 3000px;
             perspective-origin: unset
+        }
+
+        #issue-lib {
+            display: flex;
+            flex-direction: row;
+            gap: 30px;
+            grid-area: issue-lib;
+        }
+
+        #issue-lib-list {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+            gap: 5px;
+        }
+
+        #issue-lib-list .issue-info {
+            padding: 10px 20px;
+            min-width: 350px;
+            text-align: left;
+            border: 3px solid transparent;
+            justify-content: flex-start;
+        }
+
+        #issue-lib-covers > a {
+            display: none;
+        }
+
+        #issue-library {
+            display: none !important;
         }
 
         /* :root {
@@ -426,7 +411,7 @@
                 display: flex !important;
             }
 
-            #issue-library {
+            #issue-library, #issue-lib {
                 display: none !important;
             }
 
@@ -482,6 +467,8 @@
         }
 
 
+
+
         </style>
     </head>
 
@@ -491,6 +478,10 @@
         <header id="header"></header>
 
         <main id="content">
+            <div id="issue-lib">
+                <div id="issue-lib-list"></div>
+                <div id="issue-lib-covers"></div>
+            </div>
             <div id="issue-library"></div>
             <div id="slides"></div>
         </main>
