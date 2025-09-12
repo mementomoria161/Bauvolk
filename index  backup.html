@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+
+            // PRELOAD
+
+            let lang = localStorage.getItem("bauvolk_language"); if(lang == null) {lang = "de"}
+            let preload = '<link rel="preload" as="image" fetchpriority="high" href="images/issues/' + lang + '/issue-i-cover.webp">'
+            document.currentScript.insertAdjacentHTML("afterend", preload)
+            
+
+        </script>
+        
+        <meta charset="UTF-8">
+        <title>BAUVOLK – HEFTE</title>
+        <meta name="viewport" content="width=device-width, height=device-height, user-scalable=no">
+        <meta name="description" content="Gedanken einer politisch desinteressierten Jugend.">
+        <meta property="og:type" content="website"/>
+        <meta property="og:site_name" content="BAUVOLK"/>
+        <meta property="og:title" content="BAUVOLK – HEFTE"/>
+        <meta property="og:description" content="Gedanken einer politisch desinteressierten Jugend."/>
+        <meta property="og:image" itemprop="image" content="https://www.bauvolk.org/images/opengraph/red_2x1.jpg"/>
+        <meta property="og:image:type" content="image/jpeg"/>
+        <meta property="og:image:width" content="1200"/>
+        <meta property="og:image:height" content="630"/>
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content="https://www.bauvolk.org/images/opengraph/red_1x1.jpg" />
+
+        <!-- https://realfavicongenerator.net/ -->
+        <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/red/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="48x48" href="images/favicon/red/favicon-48x48.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/red/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="images/favicon/red/favicon-16x16.png">
+        <link rel="mask-icon" href="images/favicon/red/safari-pinned-tab.svg" color="#750000">
+        <link rel="shortcut icon" href="images/favicon/red/favicon.ico">
+        <meta name="apple-mobile-web-app-title" content="BAUVOLK">
+        <meta name="application-name" content="BAUVOLK">
+        <meta name="msapplication-TileColor" content="#000000">
+        <meta name="msapplication-config" content="images/favicon/red/browserconfig.xml">
+        <meta name="theme-color" content="#750000">
+
+        <link rel="manifest" href="manifest.json">
+        
+        <link rel="stylesheet" href="styles/fonts.css">
+        <link rel="stylesheet" href="styles/general.css">
+        
+        <link rel="preload" as="fetch" crossorigin href="components/header.html">
+        <link rel="preload" as="fetch" crossorigin href="components/controls.html">
+        <link rel="preload" as="fetch" crossorigin href="components/databanner.html">
+
+        <script type="text/javascript" src="common.js"></script>
+        <script>
+
+            // VARIABLES
+
+            const META = {de: "BAUVOLK – HEFTE", en: "BAUVOLK – ISSUES"}
+            
+            const OVERRIDE_TITLE_TEXT = "<span class='title-large'><span lang='de'>ÜBERSICHT</span><span lang='en'>OVERVIEW</span></span><span class='title-small'>#</span>"
+
+            // TEMPLATES
+        
+            function cover_template(i){
+                let issue = ISSUE_LIST[i]; 
+                return `<a class="cover" href=` + issue.url + `>
+                            <section class="perspective" id="perspective">
+                                <div class="box` + issue.default_hovered + `" id="box">
+                                    <div class="face top"></div>
+                                    <div class="face bottom"></div>
+                                    <div class="face back"></div>
+                                    <div class="face front" style="background-image: url('` + issue.cover_de + `');"></div>
+                                    <div class="face left"></div>
+                                    <div class="face right"></div>
+                                </div>
+                            </section>
+                        </a>`
+            }
+
+            
+            // LOADING
+
+            load_components(["header", "controls", "databanner"])
+            
+        </script>
+
+        <script>
+
+            // COVERSCRIPT
+
+            document.addEventListener("DOMContentLoaded", initcovers)
+            
+            
+
+            function initcovers() {
+                for (let i = 0; i < ISSUE_LIST.length; i++) {
+                    document.getElementById("slides").insertAdjacentHTML('beforeend', cover_template(i));
+                    document.getElementById("issue-library").insertAdjacentHTML('afterbegin', cover_template(i));
+                }
+
+                display_issue(slide_current)
+                init_library()
+                seteagerload()
+                window.addEventListener("resize", scale_model)
+                scale_model
+                // init_prevent_touch_response()
+            }
+
+
+            function scale_model() {
+                let p_width = window.innerHeight * 0.35
+                if(p_width >= 500) {p_width = 500}
+                if(p_width >= window.innerWidth && window.innerWidth * 0.8 < window.innerHeight * 0.35) {p_width = indow.innerWidth * 0.8}
+                
+                document.querySelector(':root').style.setProperty('--model-width', p_width + "px");
+            }
+
+            // NOT WORKING FOR SLIDES?
+            function init_library() {
+                let library = document.getElementById("issue-library")
+                let images = library.getElementsByClassName("cover")[slide_current].getElementsByClassName("cover-image")
+                let lang = localStorage.getItem("bauvolk_language")
+                let image 
+
+                for (let i = 0; i < images.length; i++) {
+                    if(images[i].lang == lang) {
+                        image = images[i]
+                    }
+                }
+                // image.complete = true
+                // console.log(image)
+                
+                library.style.display = "flex"
+
+                // if(image == null) {
+                //     console.log("lib is null")
+                //     setTimeout(init_library, 10)
+                // }
+                // else if (image.complete) {
+                //     console.log("image complete")
+                //     library.style.display = "flex"
+                // }
+                // else {
+                //     console.log("init_library")
+                //     setTimeout(init_library, 10)
+                // }
+
+                library.querySelectorAll('.box').forEach((item) => {
+                    
+                    item.addEventListener('mouseenter', () => {
+
+                        library.querySelectorAll('.box').forEach((item) => {
+                            item.classList.remove("box_hovered")
+                        })
+
+                        item.classList.add("box_hovered")
+                    })
+                })
+            }
+            
+
+
+            // DISPLAY COMBINED
+
+            var library_cooldown = false
+
+
+            function display_combined(event, index) {
+
+                if(event) {
+                    event.stopPropagation()
+                    event.preventDefault()
+                }
+
+                display_issue(index)
+                display_slide(index)
+            }
+
+
+
+            function display_issue(index) {
+
+                let issue_list = document.getElementById("issue-library")
+
+                let titles = issue_list.querySelectorAll('.issue-title')
+                titles.forEach((title) => {title.style.display = "flex"})
+            }
+
+
+
+            // EAGER LOAD ACCORDING TO LANGUAGE
+
+            function seteagerload() {
+
+                let covers = document.getElementById("slides").getElementsByTagName("img")
+                let lang = localStorage.getItem("bauvolk_language")
+                
+                for (let i = 0; i < covers.length; i++) {
+                    if(covers[i].lang == lang) {
+                        covers[i].loading = "eager"
+                    }
+                }
+            }
+
+
+            // PREVENT TOUCHING RESPONSE
+            // DOES THIS EVEN CONNECT TO ANYTHING?
+
+            // @media screen and (max-width: 800px), (hover: none) {
+            // body {
+            //     grid-template-rows: auto minmax(0, 1fr) auto;
+            //     grid-template-areas: "header" "main" "controls";
+            // }
+
+            // :root {
+            //     --model-width: 300px;
+            // }
+
+
+            // function init_prevent_touch_response() {
+            //     let covers = document.getElementById("issue-library").getElementsByClassName("cover")
+
+            //     for (let i = 0; i < covers.length; i++) {
+            //         covers[i].addEventListener("pointerdown", (event) => {
+		    //             alert("tesz")
+            //             if (event.pointerType === "touch" || event.pointerType === "pen") {
+            //                 event.currentTarget.addEventListener("click", prevent_link_events)
+            //             }
+            //         })
+
+            //         // covers[i].addEventListener("mouseenter", ()=>{covers[i].style.color = ""})
+            //     }
+            // }
+
+            // function prevent_link_events(event) {
+            //     event.preventDefault()
+            //     // event.currentTarget.style.color = "white"
+            //     event.currentTarget.removeEventListener("click", prevent_link_events)
+            // }
+
+
+
+            
+        </script>
+
+        <style>
+
+        /* HIDDEN CONTROLS */
+        #controls {
+            display: none !important;
+        }
+
+        /* GRID SETUP FOR CONTENT */
+        #content {
+            display: grid;
+            justify-content: center;
+            grid-template-areas: "." "issue-library" "." "." "." ".";
+        }
+
+        /* ISSUE LIBRARY */
+        #issue-library {
+            flex-direction: row;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 20px;
+            height: 550px;
+            max-height: 50vh;
+            min-height: 400px;
+            grid-area: issue-library;
+            display: flex;
+            position: relative;
+            padding-left: 450px;
+            margin: 0 auto; /* Center the container */
+        }
+
+        /* COVER STYLING */
+        .cover {
+            display: flex;
+            -webkit-tap-highlight-color: transparent;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            justify-content: flex-start;
+            height: 550px;
+            max-height: 50vh;
+            min-height: 400px;
+        }
+
+        .cover-image {
+            object-fit: cover;
+            cursor: pointer;
+            box-shadow: 10px 10px 10px 0px rgba(0, 0, 0, 0.35);
+            height: 100%;
+        }
+
+        /* SLIDES */
+        #slides {
+            display: none;
+            grid-area: slides;
+        }
+
+        #slides .cover {
+            min-width: 300px;
+            max-width: 400px;
+            max-height: 100%;
+            height: var(--max-slide-height);
+            justify-content: center;
+        }
+
+        #slides .cover-image {
+            object-fit: contain;
+            max-height: 100%;
+        }
+
+        /* SLIDE INDEX */
+        #slide-index {
+            max-width: 390px !important;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+            gap: 15px;
+        }
+
+        #slide-current {
+            font-size: 15pt !important;
+            width: 160px !important;
+            padding: 5px 15px !important;
+        }
+
+        /* CONTROLS */
+        .control_l {
+            display: none !important;
+        }
+
+        .control_s {
+            display: inline !important;
+        }
+
+        #letztes, #nächstes {
+            padding: 0 !important;
+            font-size: 35pt !important;
+            width: 45px !important;
+        }
+
+        /* VERTICAL TEXT */
+
+        .vertical {
+            color: black !important;
+            background-color: white;
+            box-shadow: 10px 10px 10px 0px rgba(0, 0, 0, 0.35);
+            padding: 25px 10px;
+            height: 100%;
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            width: fit-content;
+            font-weight: 700;
+        }
+
+
+        /* PERSPECTIVE AND 3D BOX STYLES */
+        .perspective {
+            margin-left: -225px;
+            margin-right: -225px;
+            display: flex;
+            overflow: visible;
+            transition: all 0.4s ease-in-out;
+            pointer-events: none;
+        }
+
+        .box {
+            position: relative;
+            width: var(--model-width);
+            height: var(--model-height);
+            transform: rotateY(80deg);
+            transition: all 0.4s ease-in-out;
+            transform-style: preserve-3d;
+            pointer-events: auto !important;
+            transform-origin: center left;
+        }
+
+        .box_hovered {
+            transform: rotateY(0deg) !important;
+            margin-right: 475px;
+        }
+
+        .perspective {
+            max-width: 1000px;
+            perspective: 3000px;
+            perspective-origin: unset
+        }
+
+        /* :root {
+            --model-width: 10vw
+        } */
+
+        /* REACTIVE STYLES */
+        @media screen and (max-height: 1000px) {
+            .vertical * {
+                font-size: 18pt;
+            }
+        }
+
+        @media screen and (max-width: 800px), (hover: none) {
+            body {
+                grid-template-rows: auto minmax(0, 1fr) auto;
+                grid-template-areas: "header" "main" "controls";
+            }
+
+            :root {
+                --model-width: 300px;
+            }
+
+            #content {
+                padding-top: 90px;
+                padding-bottom: 0px;
+                display: grid;
+                justify-content: center;
+                grid-template-areas: "." "slides" "." ".";
+            }
+            
+
+            #controls {
+                display: flex !important;
+            }
+
+            #issue-library {
+                display: none !important;
+            }
+
+            #slides {
+                display: block;
+            }
+
+            .cover {
+                min-width: unset;
+            }
+
+            #issue-wrap {
+                padding: 0;
+            }
+
+            .box {
+                transform-style: preserve-3d;
+                transform: rotateY(0deg) !important;
+                margin: 0px !important;
+                transform-origin: center center;
+            }
+
+            .box:hover {
+                transform: rotateY(20deg) !important;
+            }
+        }
+
+        /* SMALL SCREEN ADJUSTMENTS */
+        #slide-title * {
+            text-transform: uppercase;
+            font-weight: 300 !important;
+            font-size: clamp(1rem, -0.54rem + 5.7vw, 1.25rem) !important;
+        }
+
+        .title-small {
+            display: none;
+        }
+
+        @media screen and (max-width: 320px) {
+            .title-small {
+                display: inline;
+            }
+
+            .title-large {
+                display: none;
+            }
+
+            #slide-current {
+                padding: 0 !important;
+                width: 45px !important;
+                font-size: 20pt !important;
+            }
+        }
+
+
+        </style>
+    </head>
+
+    <body>
+        
+        <p id="seo">Gedanken einer politisch desinteressierten Jugend. Hefte des konstruktiven Sozialismus.</p>
+        <header id="header"></header>
+
+        <main id="content">
+            <div id="issue-library"></div>
+            <div id="slides"></div>
+        </main>
+        
+        <div id="controls"></div>
+        <div id="databanner"></div>
+    </body>
+</html>

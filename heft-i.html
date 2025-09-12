@@ -81,6 +81,14 @@
                 scale_model()
                 animate()
                 init_progressbar()
+
+                const svg = document.querySelectorAll("svg");
+
+                svg.forEach(element => {
+                    const bbox = element.querySelector("text").getBBox();
+                    console.log(bbox.height)
+                    element.setAttribute("viewBox", [bbox.x, bbox.y, bbox.width, bbox.height - 4].join(" "));
+                });
             }
 
         </script>
@@ -170,7 +178,6 @@ function animate() {
 }
 
 
-
 </script>
 
     </head>
@@ -215,8 +222,21 @@ function animate() {
 
             <article id="die-vergesellschaftung-des-kapitalismus">
 
-                <h1 lang="de" class="artikel-title fit-to-width"><span>GRUNDRISSE DES KONSTRUKTIVEN</span><br><span>SOZIALISMUS</span></h1>
-                <h1 lang="en" class="artikel-title fit-to-width"><span>OUTLINES OF CONSTRUCTIVE</span><br><span>SOCIALISM</span></h1>
+
+                <div lang="de" class="artikel-title">
+                    <svg viewBox="0 0 0 0"><text>GRUNDRISSE DES</text></svg>
+                    <svg viewBox="0 0 0 0"><text>KONSTRUKTIVEN</text></svg>
+                    <svg viewBox="0 0 0 0"><text>SOZIALISMUS</text></svg>
+                </div>
+
+                <div lang="en" class="artikel-title">
+                    <svg viewBox="0 0 0 0"><text>GRUNDRISSE DES</text></svg>
+                    <svg viewBox="0 0 0 0"><text>KONSTRUKTIVEN</text></svg>
+                    <svg viewBox="0 0 0 0"><text>SOZIALISMUS</text></svg>
+                </div>
+
+                <!-- <h1 lang="de" class="artikel-title fit-to-width"><span>GRUNDRISSE DES KONSTRUKTIVEN</span><br><span>SOZIALISMUS</span></h1>
+                <h1 lang="en" class="artikel-title fit-to-width"><span>OUTLINES OF CONSTRUCTIVE</span><br><span>SOCIALISM</span></h1> -->
                 
                 <div class="artikel-text">
                     <div class="issue-button-group">

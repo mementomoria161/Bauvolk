@@ -9,7 +9,7 @@ section, article {
 	margin-bottom: 150px;
 	padding:20px;
 	scroll-margin-top:50px;
-	max-width: 900px;
+	max-width: 1000px;
 	width: 100%;
 	color: white;
 }
@@ -20,7 +20,6 @@ article {
 	scroll-margin-top:50px;
 	background-color: white;
 	border: solid 2px black;
-	max-width: 1000px;
 	width: 100%;
 	color: black;
 }
@@ -136,9 +135,9 @@ article {
 
 .artikel-title {
 	margin-bottom: 60px;
-	font-size: var(--font-extreme);
-	line-height: 0.9;
-	text-align: center;
+	/* font-size: var(--font-extreme); */
+	/* line-height: 0.9; */
+	/* text-align: center; */
 }
 
 
@@ -229,7 +228,7 @@ article .audio-timeline {
 }
 
 .artikel-title {
-	max-width: 900px;
+	/* max-width: 900px; */
 	margin-left: auto;
 	margin-right: auto;
 }
@@ -358,7 +357,7 @@ article .issue-button-group {
 
 
 
-@supports (animation-range: entry-crossing) {
+/* @supports (animation-range: entry-crossing) {
 	.fit-to-width {
 	  font-size: 15rem;
 	  overflow: hidden;
@@ -395,4 +394,13 @@ article .issue-button-group {
 	  transform: scale(0);
 	  margin-block-end: -1lh;
 	}
+} */
+
+
+svg {
+  width: 100%;
+}
+
+svg text {
+  font-family: "Quaderni" !important;
 }
