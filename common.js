@@ -1767,13 +1767,34 @@ function footnote_horizontal_bounds() {
 //////////////////////////////////////////////////// FIT TEXT ///////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+// first load
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", scale_titles_load);
+} else {
+  scale_titles_load();
+}
+
+async function scale_titles_load() {
+  try { await document.fonts.ready; } catch {}
+  requestAnimationFrame(scale_titles);
+}
+
+// when fonts finish loading later (some browsers fire updates)
+document.fonts?.addEventListener?.("loadingdone", () => {
+  requestAnimationFrame(scale_titles);
+});
+
+window.addEventListener("pageshow", e => { if (e.persisted) scale_titles(); });
+
 
 function scale_titles() {
     let svg = document.querySelectorAll(".title-svg")
 
     svg.forEach(element => {
-        const bbox = element.querySelector("text").getBBox()
-        
+        let text = element.querySelector("text");
+        if (!text) return;
+
+        let bbox = text.getBBox()
         console.log("test" + bbox.height)
         let bb_height = bbox.height - 1
         if (bb_height < 0) {bb_height = 0}
