@@ -1774,10 +1774,10 @@ function scale_titles() {
     svg.forEach(element => {
         const bbox = element.querySelector("text").getBBox()
         
-        console.log("test" + bbox)
-        // let bb_height = bbox.height - 4
-        // if (bb_height < 0) {bb_height = 0}
-        element.setAttribute("viewBox", [bbox.x, bbox.y, bbox.width, bbox.height].join(" "))
+        console.log("test" + bbox.height)
+        let bb_height = bbox.height - 1
+        if (bb_height < 0) {bb_height = 0}
+        element.setAttribute("viewBox", [bbox.x, bbox.y, bbox.width, bb_height].join(" "))
     })
 }
 
