@@ -134,11 +134,16 @@ article {
 }
 
 .artikel-title {
+	margin-left: auto;
+	margin-right: auto;
 	margin-bottom: 60px;
-	/* font-size: var(--font-extreme); */
-	/* line-height: 0.9; */
-	/* text-align: center; */
 }
+
+/* .artikel-title svg{
+	margin: 0px;
+	padding: 0px;
+} */
+
 
 
 /* ISSUE BUTTONS */
@@ -225,12 +230,6 @@ article .issue-button-group {
 article .audio-timeline {
 	flex-direction: column;
 	min-height: 300px;
-}
-
-.artikel-title {
-	/* max-width: 900px; */
-	margin-left: auto;
-	margin-right: auto;
 }
 
 .artikel-text {

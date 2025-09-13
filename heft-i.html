@@ -77,9 +77,9 @@
             
             load_components(["header", "footer", "databanner"])
 
-            function suf_init() {
+            function post_init() {
                 scale_model()
-                scale_fit_to_width_titles()
+                scale_titles()
                 animate()
                 init_progressbar()
             }
@@ -117,7 +117,6 @@ document.addEventListener('pointermove', (event) => {
 
 function rotate_cover(event) {
 
-    console.log("test")
     let box_info = document.getElementById('box').getBoundingClientRect()
     let centerX = box_info.left + box_info.width / 2;
     let centerY = box_info.top + box_info.height / 2;
@@ -217,15 +216,15 @@ function animate() {
 
 
                 <div lang="de" class="artikel-title">
-                    <svg viewBox="0 0 0 0"><text>GRUNDRISSE DES</text></svg>
-                    <svg viewBox="0 0 0 0"><text>KONSTRUKTIVEN</text></svg>
-                    <svg viewBox="0 0 0 0"><text>SOZIALISMUS</text></svg>
+                    <svg class="title-svg" viewBox="0 0 0 0"><text>GRUNDRISSE DES</text></svg>
+                    <svg class="title-svg" viewBox="0 0 0 0"><text>KONSTRUKTIVEN</text></svg>
+                    <svg class="title-svg" viewBox="0 0 0 0"><text>SOZIALISMUS</text></svg>
                 </div>
 
                 <div lang="en" class="artikel-title">
-                    <svg viewBox="0 0 0 0"><text>GRUNDRISSE DES</text></svg>
-                    <svg viewBox="0 0 0 0"><text>KONSTRUKTIVEN</text></svg>
-                    <svg viewBox="0 0 0 0"><text>SOZIALISMUS</text></svg>
+                    <svg class="title-svg" viewBox="0 0 0 0"><text>GRUNDRISSE DES</text></svg>
+                    <svg class="title-svg" viewBox="0 0 0 0"><text>KONSTRUKTIVEN</text></svg>
+                    <svg class="title-svg" viewBox="0 0 0 0"><text>SOZIALISMUS</text></svg>
                 </div>
 
                 <!-- <h1 lang="de" class="artikel-title fit-to-width"><span>GRUNDRISSE DES KONSTRUKTIVEN</span><br><span>SOZIALISMUS</span></h1>

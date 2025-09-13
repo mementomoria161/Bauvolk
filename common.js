@@ -170,8 +170,8 @@ function init() {
     init_options()
     set_audio_positions()
 
-    if(typeof suf_init  === "function") {
-        suf_init()
+    if(typeof post_init  === "function") {
+        post_init()
     }
 
     history.pushState({}, '', window.location.href)
@@ -1768,15 +1768,16 @@ function footnote_horizontal_bounds() {
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-function scale_fit_to_width_titles() {
-    const svg = document.querySelectorAll("svg");
+function scale_titles() {
+    let svg = document.querySelectorAll(".title-svg")
 
     svg.forEach(element => {
-        const bbox = element.querySelector("text").getBBox();
+        const bbox = element.querySelector("text").getBBox()
         console.log(bbox.height)
-        element.setAttribute("viewBox", [bbox.x, bbox.y, bbox.width, bbox.height - 4].join(" "));
-    });
-
+        let bb_height = bbox.height - 4
+        if (bb_height < 0) {bb_height = 0}
+        element.setAttribute("viewBox", [bbox.x, bbox.y, bbox.width, bb_height].join(" "))
+    })
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
