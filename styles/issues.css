@@ -139,10 +139,12 @@ article {
 	margin-bottom: 60px;
 }
 
-/* .artikel-title svg{
-	margin: 0px;
-	padding: 0px;
-} */
+.artikel-title .title-svg {
+  width: 100%;
+  height: auto;
+  display: block; /* avoid inline-gap */
+}
+
 
 
 

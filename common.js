@@ -15,17 +15,17 @@
 
 // ISSUE LIST & TEMPLATES
 
-const ISSUE_LIST = [
+const VOLUME_0_ISSUE_LIST = [
     {
         no: "№ I",
         date_de: "03/2024",
         date_en: "03/2024",
         title_de: "Grundrisse des<br>konstruktiven Sozialismus",
         title_en: "OUTLINES OF <br>CONSTRUCTIVE SOCIALISM",
-        cover_de: "images/issues/de/issue-i-cover.webp",
-        cover_en: "images/issues/en/issue-i-cover.webp",
+        cover_de: "/images/issues/de/issue-i-cover.webp",
+        cover_en: "/images/issues/en/issue-i-cover.webp",
         url: "heft-i",
-        default_hovered: " box_hovered"
+        default_hovered: "box_hovered"
     },
     {
         no: "№ II",
@@ -33,8 +33,33 @@ const ISSUE_LIST = [
         date_en: "12/2024",
         title_de: "In Arbeit<br> Veröffentlichung 2025",
         title_en: "<br>WORK IN PROGRESS",
-        cover_de: "images/issues/de/issue-ii-cover.webp",
-        cover_en: "images/issues/en/issue-ii-cover.webp",
+        cover_de: "/images/issues/de/issue-ii-cover.webp",
+        cover_en: "/images/issues/en/issue-ii-cover.webp",
+        url: "heft-ii",
+        default_hovered: ""
+    }
+]
+
+const VOLUME_1_ISSUE_LIST = [
+    {
+        no: "№ I",
+        date_de: "03/2024",
+        date_en: "03/2024",
+        title_de: "Grundrisse des<br>konstruktiven Sozialismus",
+        title_en: "OUTLINES OF <br>CONSTRUCTIVE SOCIALISM",
+        cover_de: "/images/issues/de/issue-i-cover.webp",
+        cover_en: "/images/issues/en/issue-i-cover.webp",
+        url: "heft-i",
+        default_hovered: "box_hovered"
+    },
+    {
+        no: "№ II",
+        date_de: "12/2024",
+        date_en: "12/2024",
+        title_de: "In Arbeit<br> Veröffentlichung 2025",
+        title_en: "<br>WORK IN PROGRESS",
+        cover_de: "/images/issues/de/issue-ii-cover.webp",
+        cover_en: "/images/issues/en/issue-ii-cover.webp",
         url: "heft-ii",
         default_hovered: ""
     },
@@ -44,12 +69,14 @@ const ISSUE_LIST = [
         date_en: "12/2024",
         title_de: "In Arbeit<br> Veröffentlichung 2026",
         title_en: "<br>WORK IN PROGRESS",
-        cover_de: "images/issues/de/issue-ii-cover.webp",
-        cover_en: "images/issues/de/issue-ii-cover.webp",
+        cover_de: "/images/issues/de/issue-ii-cover.webp",
+        cover_en: "/images/issues/de/issue-ii-cover.webp",
         url: "heft-ii",
         default_hovered: ""
     }
 ]
+
+var ISSUE_LIST = VOLUME_1_ISSUE_LIST
 
 
 function index_title_template(i){
@@ -121,7 +148,7 @@ function load_components(components) {
 	componentsneeded = components.length
 	
 	for (let i = 0; i < components.length; i++) {
-		fetchHTML("components/" + components[i] + ".html", components[i])
+		fetchHTML("/components/" + components[i] + ".html", components[i])
 	}
 }
 
