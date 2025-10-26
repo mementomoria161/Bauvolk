@@ -78,99 +78,27 @@
             load_components(["header", "footer", "databanner"])
 
             function post_init() {
-                scale_model()
-                // scale_titles()
-                animate()
                 init_progressbar()
             }
 
         </script>
+        <style>
 
-<script>
-    
-let currentX = 0;
-let currentY = 0;
-let targetX = 0;
-let targetY = 0;
-let is_hovering = false;
-let auto_rotate = true;
-const defaultRotation = 0;
-const DEFAULT_LERP_FACTOR = 0.003;
-const ROTATE_LERP_FACTOR = 0.008;
-var LERP_FACTOR = DEFAULT_LERP_FACTOR;
-var ROTATE_TIMEOUT_ID
+            .simple-title-section {
+                margin-top: 150px;
+                margin-bottom: 300px;
+                text-align: center;
+                width: 100%;
+                font-size: var(--font-extreme);
+                margin-left: auto;
+                margin-right: auto;
+            }
 
+            .simple-title-section * {
+                font-family: "ZT Formom";
+            }
 
-
-document.addEventListener('pointermove', (event) => {
-    let perspective = document.getElementById('perspective');
-
-    clearTimeout(ROTATE_TIMEOUT_ID)
-
-    if (perspective.contains(event.target)) {
-        ROTATE_TIMEOUT_ID = setTimeout(rotate_cover, 10, event)
-    }
-
-    is_hovering = true;
-    auto_rotate = false;
-})
-
-function rotate_cover(event) {
-
-    let box_info = document.getElementById('box').getBoundingClientRect()
-    let centerX = box_info.left + box_info.width / 2;
-    let centerY = box_info.top + box_info.height / 2;
-    let relativeX = event.pageX - centerX
-    let relativeY = event.pageY - centerY
-
-
-    targetX = targetX + (relativeX / box_info.width) * 5;
-    targetY = targetY + (relativeY / box_info.height) * 5;
-
-    ROTATE_TIMEOUT_ID = setTimeout(rotate_cover, 10, event)
-}
-
-document.addEventListener('pointerout', (e) => {
-    if (!document.getElementById('perspective').contains(e.target)) {
-        is_hovering = false;
-        auto_rotate = true;
-    }
-});
-
-window.addEventListener("resize", scale_model)
-
-function scale_model() {
-    let p_width = document.getElementById('perspective').clientWidth * 0.6
-    document.querySelector(':root').style.setProperty('--model-width', p_width + "px");
-}
-
-function lerp(start, end, factor) {
-    return start + (end - start) * factor;
-}
-
-function animate() {
-
-    if (auto_rotate) {
-        targetX = currentX + 80;
-        targetY = 0;
-        LERP_FACTOR = DEFAULT_LERP_FACTOR;
-    }
-    else {
-        LERP_FACTOR = ROTATE_LERP_FACTOR;
-    }
-
-    // console.log("currentX: " + currentX + " targetX: " + targetX + " currentY: " + currentY + " targetY: " + targetY)
-    currentX = lerp(currentX, targetX, LERP_FACTOR);
-    currentY = lerp(currentY, targetY, LERP_FACTOR);
-
-    let box = document.getElementById('box');
-    box.style.transform = `rotateY(${currentX}deg) rotateX(${-currentY}deg)`;
-
-    requestAnimationFrame(animate);
-}
-
-
-</script>
+        </style>
 
     </head>
 
@@ -181,80 +109,48 @@ function animate() {
         <div id="progressbar"></div>
 
         <main id="content">
-            <div id="cover-section">
-                <section class="perspective" id="perspective">
-                    <div class="box" id="box">
-                      <div class="face top"></div>
-                      <div class="face bottom"></div>
-                      <div class="face back"></div>
-                      <div class="face front"></div>
-                      <div class="face left"></div>
-                      <div class="face right"></div>
-                    </div>
-                </section>
 
-                <section id="abstract">
-                    <p lang="de" class="abstract-text">Seit dem Kollaps der Sowjetunion wirkt der Kapitalismus alternativlos. Die Hoffnung auf eine bessere Gesellschaft vergangener Jahrhunderte ist einer Ergebenheit gegenüber den bestehenden Verhältnissen gewichen. Die sozialistische Bewegung ist heute nicht mehr ansatzweise in der Lage, politische Mehrheiten für eine Umwälzung unserer Wirtschaftsordnung zu mobilisieren. Unsere Mitmenschen sind von der sozialistischen Idee vollkommen desillusioniert. Wer kann es ihnen übel nehmen?</p>
-                    
-                    <div class="issue-button-group">
-                        <button onclick="share(this, 0, 'de')" class="issue-button"><img src="/images/internal/share.svg"></button>
-                        <a lang="de" href="/files/de/ISSUE I – ALTERNATIVE UTOPIEN.pdf" download><button class="issue-button"><img src="/images/internal/save.svg"></button></a>
-                        <a lang="en" href="/files/en/ISSUE I – ALTERNATIVE UTOPIAS.pdf" download><button class="issue-button"><img src="/images/internal/save.svg"></button></a>
-                        <button onclick="play_audio(this)" class="issue-button">
-                            <audio lang="de" controls src="/files/de/HEFT I 0.mp3" data-time="0"></audio>
-                            <img src="/images/internal/play.svg" class="play-icon">
-                        </button>
-                        <button onclick="skim_audio(event, this)" class="issue-button audio-timeline"></button>
-                        <button onclick="adjust_volume(this)" class="issue-button">
-                            <img src="/images/internal/volume_low.svg" class="volume-icon" >
-                        </button>
-                    </div>
-                </section>
-            </div> 
+            <section class="simple-title-section">
+                <span lang="de">Die koordinative Macht der Geldschöpfung<br><br>Teil I: Mechanismen der Schöpfung monetärer Koordinationsmacht durch Zentral- und Geschäftsbanken im Eurosystem</span>
+                
+                <span lang="en">Die koordinative Macht der Geldschöpfung</span>
+            </section>
+
+
 
             <article id="die-vergesellschaftung-des-kapitalismus">
-
-
-                <div lang="de" class="artikel-title">
-                    <svg class="title-svg" viewBox="0 0 0 0"><text>GRUNDRISSE DES</text></svg>
-                    <svg class="title-svg" viewBox="0 0 0 0"><text>KONSTRUKTIVEN</text></svg>
-                    <svg class="title-svg" viewBox="0 0 0 0"><text>SOZIALISMUS</text></svg>
-                </div>
-
-                <div lang="en" class="artikel-title">
-                    <svg class="title-svg" viewBox="0 0 0 0"><text>GRUNDRISSE DES</text></svg>
-                    <svg class="title-svg" viewBox="0 0 0 0"><text>KONSTRUKTIVEN</text></svg>
-                    <svg class="title-svg" viewBox="0 0 0 0"><text>SOZIALISMUS</text></svg>
-                </div>
-
-                <!-- <h1 lang="de" class="artikel-title fit-to-width"><span>GRUNDRISSE DES KONSTRUKTIVEN</span><br><span>SOZIALISMUS</span></h1>
-                <h1 lang="en" class="artikel-title fit-to-width"><span>OUTLINES OF CONSTRUCTIVE</span><br><span>SOCIALISM</span></h1> -->
                 
                 <div class="artikel-text">
-                    <div class="issue-button-group">
-                        <div class="button-group-basic">
-                            <button onclick="share(this, 0, 'de')" class="issue-button"><img src="/images/internal/share.svg"></button>    
-                        </div>
-
-                        <div class="button-group-audio">
-                            <button onclick="play_audio(this)" class="issue-button">
-                                <audio lang="de" controls src="/files/de/HEFT I 0.mp3" data-time="0"></audio>
-                                <img src="/images/internal/play.svg" class="play-icon">
-                            </button>
-                            <button onclick="skim_audio(event, this, true)" class="issue-button audio-timeline" data-vertical></button>
-                            <button onclick="adjust_volume(this)" class="issue-button audio-volume">
-                                <img src="/images/internal/volume_low.svg" class="volume-icon" >
-                            </button>
-                        </div>
-                    </div>
+                    <h2 lang="de">1. EINFÜHRUNG</h2>
                     <p lang="de">
-                        Seit dem Kollaps der Sowjetunion wirkt der Kapitalismus alternativlos. Die Hoffnung auf eine bessere Gesellschaft vergangener Jahrhunderte ist einer Ergebenheit gegenüber den bestehenden Verhältnissen gewichen. Die sozialistische Bewegung ist heute nicht mehr ansatzweise in der Lage, politische Mehrheiten für eine Umwälzung unserer Wirtschaftsordnung zu mobilisieren. Unsere Mitmenschen sind von der sozialistischen Idee vollkommen desillusioniert. Wer kann es ihnen übel nehmen? Wir bieten ihnen keinen Gegenentwurf, der für sie nachvollziehbar ist. Deshalb greift unsere Kritik des Gegebenen für sie auch zu kurz. Denn egal, wie sehr sie ihre Unterdrückung spüren, sehen sie dennoch keinen Ausweg. Es liegt an uns als sozialistische Bewegung, diese Perspektive wieder zu schaffen. Wir müssen eine greifbare Alternative formulieren, die nicht nur in unseren Augen, sondern in denen der Mehrheit der Gesellschaft sinnvoll erscheint. Der demokratische Sozialismus ist unweigerlich zum Scheitern verurteilt, wenn wir daran scheitern. Um die kapitalistische Hegemonie zu brechen, bedarf es einer materiellen Gegenbewegung, die durch Praxis die Wirksamkeit der sozialistischen Idee unter Beweis stellt. Wir müssen unserer Klasse eine real existierende Alternative schaffen, in der die Arbeitenden selbst über die Ausrichtung der Wirtschaft, den Alltag in ihrem Betrieb und die Verteilung ihres Profits bestimmen können. Deshalb brauchen wir eine politökonomische Bewegung, die nicht nur das Versagen des Kapitalismus aufzeigt, sondern den Weg weist zu einer prosperierenden, demokratisch-sozialistischen Wirtschaftsordnung. In diesem Heft möchte ich die Grundrisse dessen zeichnen.<span data-footnote="1"></span>
+                        Milton Friedman brachte es treffend auf den Punkt: „There is not a single person in the world who could make [a] pencil”[1]. Er macht damit deutlich, dass eine Unzahl von Menschen aus der ganzen Welt für die Herstellung eines bloßen Bleistifts kooperieren muss, indem sie verschiedenen Rohstoffe beschaffen, spezielle Werkzeuge herstellen und die für die Herstellung erforderliche Arbeitskraft bereitstellen. All dies wirkt wie durch eine unsichtbare Hand koordiniert. Eine Hand, die ihren materiellen Ausdruck in Geld findet.[2]
+                        Hiermit hebt Friedman tatsächlich eine zentrale Eigenschaft des Geldes hervor, nämlich dessen koordinative Kapazität, ökonomische Akteure zu mobilisieren und zu organisieren. Doch seine Analyse lässt einen entscheidenden Aspekt außer Acht. Monetäre Beziehungen sind nicht neutral; Geld bestimmt die Ausrichtung wirtschaftlicher Aktivitäten und die Struktur der Beziehungen zwischen Wirtschaftsakteuren. Der intentionale und ordnende Charakter von Koordination bedeutet unweigerlich, dass die koordinative Kapazität des Geldes auch als koordinative Macht verstanden werden muss.
+                        Ausgehend von diesem Paradigma identifiziert und analysiert dieser Beitrag Knotenpunkte monetärer Koordinationsmacht. Während eine Untersuchung der koordinativen Macht von Vermögen zweifelsohne von Bedeutung wäre, zielt dieser Artikel darauf ab, eine untererforschte, aber nichtsdestotrotz mächtige Quelle monetärer Koordinationsmacht zu beleuchten: die Geldschöpfung. Die zentrale Frage, die in diesem Aufsatz untersucht wird, lautet deshalb: Durch welche Mechanismen und Akteure wird Geld geschöpft und unter welcher Räson wird dessen koordinative Macht eingesetzt? Kurzum: Wer schöpft Geld und wozu?
+                        In diesem Teil der Arbeit wird die erste Teilfrage behandelt. Um sie bereits oberflächlich zu beantworten, können wir feststellen, dass Geld im Normalfall von Banken geschaffen wird. Je nach Bank werden unterschiedliche Arten der Geldschöpfung praktiziert und sie erfolgt zu unterschiedlichen Zwecken. Diese Arbeit untersucht daher die Kapazität zur Geldschöpfung sowohl von Zentralbanken als auch von Privat- und Geschäftsbanken. Diese Analyse wird auf eine Betrachtung des Eurosystems beschränkt. Historische Beispiele werden dennoch illustrativ mit einbezogen.
+                        Diese Arbeit zeigt zunächst, weshalb Geld als Koordinationsmacht verstanden werden muss und postuliert, dass diese insbesondere durch Geldschöpfung ausgeübt werden kann. (2.1) Dies wird anschließend an dem historischen Beispiel des Wörgler Freigeldes demonstriert. (2.2) Kontrastiert wird der Wörgler Fall mit dem staatlich assoziierten Geldschöpfungsprozess von Zentralbanken. (2.3) Analog dazu werden die Mechanismen der Geldschöpfungsprozesse von Geschäftsbanken erläutert. (2.4) Dabei wird auf die Giralgeldschöpfung durch Kredit (2.4.1) und die Notwendigkeit der Refinanzierung der Geschäftsbanken eingegangen. (2.4.2) Daraus ergibt sich die Grundlage einer vorläufigen Analyse der gegenseitigen Abhängigkeit der Zentral- und Geschäftsbanken im Eurosystem. (2.4.3) Über die so gewonnenen Erkenntnisse wird ein Zwischenfazit gezogen sowie ein Ausblick auf den zweiten Teil der Arbeit eröffnet. (3)
                     </p>
-                    <!-- <p lang="en">
-                        Since the collapse of the Soviet Union, capitalism has seemed to have no alternative. The great experiment of a social and solidary society had failed. Much more, real socialism turned out to be just as productivist and exploitative as the West, which it emulated in this. Thus utopia became a dirty word, realpolitik a slogan. Under this zeitgeist, neoliberalism celebrated its global triumph at the end of the last century. It is true that capitalism is brutal, but it is the best system of social and economic order that we have found. Some go even further. Capitalism, they say, is not only the best system we have found so far, but also the best we can ever find. The failure of socialism, they say, heralds an era in which there will be no more great social upheavals or even revolutions. The inspired hope for a better society of past centuries has thus given way to an indolent submission to the existing conditions. In order to break with their apparent lack of alternatives, however, it is not enough to criticize the given. What is needed is a comprehensible blueprint for a better society. This issue contains three of these alternative utopias.<span data-footnote="1"></span>
-                    </p> -->
                 </div>
             </article>
+
+            
+            <article id="die-vergesellschaftung-des-kapitalismus">
+                <div class="artikel-text">
+                    <h2 lang="de">2. MECHANISMEN DER MONETÄREN KOORDINATION</h2>
+                    <h3 lang="de">2.1 Geld als koordinative Macht</h3>
+                    <p lang="de">
+                        In der Regel verstehen wir Geld durch dessen Funktion in unserem Alltag. Gehen wir in einen Laden, um etwas Brot oder andere Güter zu erwerben, erscheint uns Geld als Mittel des Warentauschs. Statt z.B. Vieh zum Markt zu schleppen und zu hoffen, dass eine Bäcker*in dieses gegen tausend ihrer Brote tauschen möchte, werden alle Waren durch ein einheitliches, allgemeines Äquivalent abgebildet. Die Rolle einer solchen Einheit übernahmen früh u.a. Edelmetalle und später v.a. Banknoten.[3] Zusätzlich zur Erleichterung von Warentransaktionen, konnten diese Einheiten zum Sparen angelegt werden. Dieser Auffassung nach dient Geld also der Erleichterung des Warentauschs, indem es als (Rechen-)einheit für den Warenwert fungiert und zusätzlich als Wertaufbewahrungsmittel. Ein solches Verständnis von Geld wurde von Marx[4] bis hin zur Bundesbank[5] wiederholt und herrscht heute im Alltagsverstand vor.
+                        Dennoch lohnt es sich möglicherweise, unsere Perspektive auf Geld über dessen Funktion in unserem unmittelbaren Erleben hinaus zu erweitern. Mit dieser Absicht betrachtet Jakob Feinig in »Water, Money and the Job Guarantee« Geld unter dem Blickwinkel des Ansatzes der Institutionellen Ethnographie.[6] Diese soziologische Methode „aims at extending people's ordinary knowledge as practitioners of our everyday worlds into reaches of powers and relations that are beyond them.“[7] Dieser Perspektive folgend zeigen sich individuelle menschliche Aktivitäten und Praktiken als durch Texte translokal organisierte und koordinierte Beziehungen.[8] Pässe, Tickets, Gesetze, Verträge, ärztliche Überweisungen, Visa oder eben auch Banknoten: Diese textuellen Medien sind gesellschaftliche Botenstoffe, die die wechselseitige Koordination unserer translokalen Gesellschaften ermöglichen. 
+                        Banknoten sind nach dieser Analyse textuelle Mediatoren von Schuld. Schließlich waren Banknoten ursprünglich auch nichts anderes als auf Zetteln festgehaltene Schuldverschreibungen von Banken gegenüber ihren Anlegenden.[9] Durch die Übertragbarkeit dieser Zahlungsversprechen zwischen Wirtschaftsakteuren können Banknoten aber auch selbst als Zahlungsmittel fungieren.[10] Ihre Akzeptanz wird dabei durch ihre staatliche Anerkennung als gesetzliches Zahlungsmittel gesichert, das insbesondere zur Begleichung von Steuerschulden allgemein benötigt wird. Aber im Prinzip sind Banknoten dieser Auffassung nach generalisierte Symbole von Schuld, d.h. gesellschaftliche Versprechen oder auch Forderungen, die gegen Ressourcen oder Leistungen getauscht werden können. Ein Geldsystem koordiniert dementsprechend mittels textuell meditierter Schuldverhältnisse Zugangsberechtigungen zu kollektiven Ressourcen.
+                        Geld ermöglicht aber nicht nur, Güter im Tausch zu erhalten, sondern koordiniert überhaupt die Ressourcen und Arbeiten, die für deren Produktion nötig sind. Mit Blick auf unser anfängliches Beispiel können wir nun feststellen, dass der prospektive Kauf von Brot eine Kette von Aktivitäten in Bewegung setzt: Es mobilisierte Menschen die, das Brot backten und lieferten ebenso wie diejenigen, die den verwendeten Ofen und den Lieferwagen entwickelten oder die für das Brot und die Maschinen benötigten Rohmaterialien an- und abbauten. Mehr als nur zu mobilisieren, nahm das Geld eine koordinative Funktion im Ablauf dieser Aktivitäten ein. Es strukturierte die Beziehungen zwischen den einzelnen Akteuren, die in diesen Prozess involviert waren. Insofern ist Geld weit mehr als nur ein Tauschmittel; es verleiht die Macht, kollektive Ressourcen zu mobilisieren und gesellschaftliche Aktivitäten zu koordinieren. 
+                        Geld spielt diese koordinative Rolle natürlich nicht nur durch Konsumausgaben, sondern insbesondere durch Investitionen. Der Fluss von Geld in verschiedene Wirtschaftsbereiche entscheidet maßgeblich darüber, wozu und für wen Arbeitskräfte und Ressourcen mobilisiert werden. So werden die beruflichen Tätigkeiten von Arbeitenden gesteuert und damit die Probleme bestimmt, die durch deren Arbeit gelöst werden – oder eben auch entstehen. Wenn etwa alle gesellschaftlichen Aktivitäten auf den Bau von Kohlekraftwerken fokussiert sind, können nicht gleichzeitig Windräder errichtet werden. Welche Probleme als lösenswert gelten und wofür gesellschaftliche Ressourcen mobilisiert werden, wird deshalb grundlegend durch die Zahlungsfähigkeit verschiedener Akteure und Interessengruppen bestimmt. 
+                        Doch Geld prägt nicht nur, woran gearbeitet wird, sondern auch wie gearbeitet wird. Es stellt die Beziehungen zwischen Arbeitenden, Produktionsmitteln und Eigentümern her. In diesem Prozess wirkt Geld nicht als neutraler Katalysator, sondern strukturiert diese Beziehungen. Die Produktionsverhältnisse werden dementsprechend grundlegend durch die koordinative Macht des Geldes organisiert.
+                        Diese Aspekte der monetären Koordinierung spielen also eine fundamentale Rolle in der Strukturierung und Ausrichtung unserer Gesellschaften sowie unseres gesellschaftlichen Lebens. Die koordinative Dimension des Geldes ist deshalb im Kern eine Machtdimension. Die Verteilung von Geld bedeutet demnach nicht nur einen Unterschied in der Lebensqualität durch den unterschiedlichen Zugang zu Gütern. Sondern, die dem Geld inhärente koordinative Macht, ermöglicht darüber hinaus relevante Strukturierungen der Form und Zukunft unserer Gesellschaft. Um es kurz zu machen: Geld dient also nicht nur der Güterverteilung, sondern der Koordination unserer Gesellschaft.
+                        Kritiken der politischen Konsequenzen von Vermögensungleichheit fokussieren sich üblicherweise auf die Möglichkeiten reicher Einzelpersonen und Unternehmen, Politiker zu bestechen und zu lobbyieren, Wahlkämpfe für politische Ämter zu finanzieren, Rechtssysteme durch Reichtum zu missbrauchen oder unter bestimmten Umständen sogar Gewalt zu finanzieren. Dass Geld in der Lage ist, auf diese Weise politische Macht auszuüben, steht außer Zweifel. Doch diese Darstellung übergeht den hier skizzierten Schlüsselaspekt des Geldes: Finanzielle Macht kann nicht nur mittelbar in politische Macht umgewandelt werden. Finanzielle Macht ist politische Macht, denn monetäre Koordination strukturiert unsere Gesellschaften. 
+                        Angesichts gegenwärtiger Vermögensungleichheiten mag das düster klingen. Dennoch sollte geprüft werden, ob monetäre Koordinationsmacht vielleicht auch Gesellschaftsgruppen, die über kein signifikantes Vermögen verfügen, gesellschaftliche Gestaltungsmöglichkeiten eröffnen könnte. Schließlich wäre es falsch anzunehmen, dass die koordinative Macht des Geldes allein dem akkumulierten Vermögen entspringen würde:
+                    </p>
+                </div>
+            </article>
+
 
             <section id="abo-content" class="abo-form-placeholder"></section>
 

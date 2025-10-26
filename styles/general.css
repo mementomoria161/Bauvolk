@@ -124,8 +124,8 @@ h1 {
 
 h2, h3 {
 	font-size: 1.085rem;
-	font-size: var(--font-regular);
-	font-weight: 300;
+	font-size: var(--font-medium-large);
+	font-weight: 900;
 	line-height: 1.4;
 	margin:0px;
 	margin-bottom:28px;
