@@ -306,6 +306,7 @@
 
 * {
 	font-family: "Baskervville";
+    font-variant-numeric: lining-nums; 
 }
 
 #controls *, #headerbox *,  .abo *{
