@@ -195,26 +195,26 @@
                 }
             }
 
-            function select_volume(number) {
-                if(number == 0) {
-                    ISSUE_LIST = VOLUME_0_ISSUE_LIST
-                } else if (number == 1) {
-                    ISSUE_LIST = VOLUME_1_ISSUE_LIST
-                }
-                document.getElementById("issue-lib-list").innerHTML = ""
-                document.getElementById("issue-lib-covers").innerHTML = ""
-                document.getElementById("issue-library").innerHTML = ""
-                document.getElementById("slides").innerHTML = ""
-                slide_current = 0
-                initcovers()
-                init_controls()
-                // init_controls()
-                display_lib_cover(1)
-                                display_slide(1)
-                display_combined(null, 1)
-                reset_language()
+            // function select_volume(number) {
+            //     if(number == 0) {
+            //         ISSUE_LIST = VOLUME_0_ISSUE_LIST
+            //     } else if (number == 1) {
+            //         ISSUE_LIST = VOLUME_1_ISSUE_LIST
+            //     }
+            //     document.getElementById("issue-lib-list").innerHTML = ""
+            //     document.getElementById("issue-lib-covers").innerHTML = ""
+            //     document.getElementById("issue-library").innerHTML = ""
+            //     document.getElementById("slides").innerHTML = ""
+            //     slide_current = 0
+            //     initcovers()
+            //     init_controls()
+            //     // init_controls()
+            //     display_lib_cover(1)
+            //                     display_slide(1)
+            //     display_combined(null, 1)
+            //     reset_language()
 
-            }
+            // }
             
         </script>
 
@@ -489,7 +489,7 @@
             }
         }
 
-        #volume-list {
+        /* #volume-list {
             display: flex;
             grid-area: volume-list;
             flex-direction: row;
@@ -506,7 +506,7 @@
         #volume-list div {
             cursor: pointer;
         }
-               
+                */
                             
 
 
@@ -525,11 +525,11 @@
             </div>
             <div id="issue-library"></div>
             <div id="slides"></div>
-            <div id="volume-list">
+            <!-- <div id="volume-list">
                 <span>Volume</span>
                 <div onclick="select_volume(0)">0</div>
                 <div onclick="select_volume(1)">1</div>
-            </div>
+            </div> -->
         </main>
         
         <div id="controls"></div>

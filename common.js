@@ -15,32 +15,32 @@
 
 // ISSUE LIST & TEMPLATES
 
-const VOLUME_0_ISSUE_LIST = [
-    {
-        no: "№ I",
-        date_de: "03/2024",
-        date_en: "03/2024",
-        title_de: "Grundrisse des<br>konstruktiven Sozialismus",
-        title_en: "OUTLINES OF <br>CONSTRUCTIVE SOCIALISM",
-        cover_de: "/images/issues/de/issue-i-cover.webp",
-        cover_en: "/images/issues/en/issue-i-cover.webp",
-        url: "heft-i",
-        default_hovered: "box_hovered"
-    },
-    {
-        no: "№ II",
-        date_de: "12/2024",
-        date_en: "12/2024",
-        title_de: "In Arbeit<br> Veröffentlichung 2025",
-        title_en: "<br>WORK IN PROGRESS",
-        cover_de: "/images/issues/de/issue-ii-cover.webp",
-        cover_en: "/images/issues/en/issue-ii-cover.webp",
-        url: "heft-ii",
-        default_hovered: ""
-    }
-]
+// const VOLUME_0_ISSUE_LIST = [
+//     {
+//         no: "№ I",
+//         date_de: "03/2024",
+//         date_en: "03/2024",
+//         title_de: "Grundrisse des<br>konstruktiven Sozialismus",
+//         title_en: "OUTLINES OF <br>CONSTRUCTIVE SOCIALISM",
+//         cover_de: "/images/issues/de/issue-i-cover.webp",
+//         cover_en: "/images/issues/en/issue-i-cover.webp",
+//         url: "heft-i",
+//         default_hovered: "box_hovered"
+//     },
+//     {
+//         no: "№ II",
+//         date_de: "12/2024",
+//         date_en: "12/2024",
+//         title_de: "In Arbeit<br> Veröffentlichung 2025",
+//         title_en: "<br>WORK IN PROGRESS",
+//         cover_de: "/images/issues/de/issue-ii-cover.webp",
+//         cover_en: "/images/issues/en/issue-ii-cover.webp",
+//         url: "heft-ii",
+//         default_hovered: ""
+//     }
+// ]
 
-const VOLUME_1_ISSUE_LIST = [
+const ISSUE_LIST = [
     {
         no: "№ I",
         date_de: "03/2024",
@@ -76,7 +76,7 @@ const VOLUME_1_ISSUE_LIST = [
     }
 ]
 
-var ISSUE_LIST = VOLUME_1_ISSUE_LIST
+// var ISSUE_LIST = VOLUME_1_ISSUE_LIST
 
 
 function index_title_template(i){
