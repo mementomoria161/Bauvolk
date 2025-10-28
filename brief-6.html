@@ -2,12 +2,12 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>BAUVOLK – BRIEF I</title>
+        <title>BAUVOLK – BRIEF</title>
         <meta name="viewport" content="width=device-width, height=device-height, user-scalable=no">
-        <meta name="description" content="DIE VERGESELLSCHAFTUNG DES KAPITALISMUS">
+        <meta name="description" content="BRIEF">
         <meta property="og:type" content="article"/>
         <meta property="og:site_name" content="BAUVOLK"/>
-        <meta property="og:title" content="BAUVOLK – BRIEF 6"/>
+        <meta property="og:title" content="BAUVOLK – BRIEF"/>
         <meta property="og:description" content="DIE VERGESELLSCHAFTUNG DES KAPITALISMUS"/>
         <meta property="og:image" itemprop="image" content="https://www.bauvolk.org/images/opengraph/heft-i_2x1.jpg"/>
         <meta property="og:image:type" content="image/jpeg"/>
@@ -85,8 +85,14 @@
                 font-style: italic;
             }
 
-            #to-top, #to-bottom {
-                display: none !important;
+            #brief-layout h2 {
+                font-style: normal;
+                text-align: center;
+            }
+
+            #brief-layout p {
+                text-align: justify;
+                font-style: normal;
             }
         </style>
     </head>
@@ -99,13 +105,62 @@
 
         <main id="content">
             <div id="brief-layout">
-                    Text herunterladen:
-                    <a href="files/de/ISSUE I – ALTERNATIVE UTOPIEN.pdf" download><button class="issue-button"><img src="images/internal/save.svg"></button></a>
+                
+                    <h2>BRIEF 6<br>28 OKTOBER 2025</h2>
+                    <p>Lieber Niklas,<br><br>wie bereits besprochen habe ich Kapitel 1 A und B überarbeitet und um Abschnitt E erweitert. Ich habe dir dennoch einmal das gesamte Kapitel aufgenommen, damit du es dir durchhören kannst. Jeder Abschnitt wurde mit unterschiedlichen Mikros aufgenommen. Sag gerne welche gut oder schlecht waren. Gib auch gerne Feedback, falls du signifikante Probleme mit dem Interface des Audio-Players hast. Damit du nicht alle Kapitel einzeln starten musst könnte ich dir für nächste Woche eine Autoplay Funktion einbauen (vielleicht eh notwendig für den Release?)
+                    <br><br>Viel Spaß mit dieser neuen, digitalen Methode wünscht dir<br>Niki</p>
+
+                    <!-- Text herunterladen:
+                    <a href="files/de/ISSUE I – ALTERNATIVE UTOPIEN.pdf" download><button class="issue-button"><img src="images/internal/save.svg"></button></a> -->
 
                     Audio Abschnitt 1A:
                     <div class="issue-button-group">
                         <button onclick="play_audio(this)" class="issue-button">
-                            <audio controls src="/files/de/brief-6/1A.mp3" data-time="0"></audio>
+                            <audio controls src="/files/de/6-1A.mp3" data-time="0"></audio>
+                            <img src="images/internal/play.svg" class="play-icon">
+                        </button>
+                        <button onclick="skim_audio(event, this)" class="issue-button audio-timeline"></button>
+                        <button onclick="adjust_volume(this)" class="issue-button">
+                            <img src="images/internal/volume_low.svg" class="volume-icon" >
+                        </button>
+                    </div>
+                    Audio Abschnitt 1B:
+                    <div class="issue-button-group">
+                        <button onclick="play_audio(this)" class="issue-button">
+                            <audio controls src="/files/de/6-1B.mp3" data-time="0"></audio>
+                            <img src="images/internal/play.svg" class="play-icon">
+                        </button>
+                        <button onclick="skim_audio(event, this)" class="issue-button audio-timeline"></button>
+                        <button onclick="adjust_volume(this)" class="issue-button">
+                            <img src="images/internal/volume_low.svg" class="volume-icon" >
+                        </button>
+                    </div>
+                    Audio Abschnitt 1C:
+                    <div class="issue-button-group">
+                        <button onclick="play_audio(this)" class="issue-button">
+                            <audio controls src="/files/de/6-1C.m4a" data-time="0"></audio>
+                            <img src="images/internal/play.svg" class="play-icon">
+                        </button>
+                        <button onclick="skim_audio(event, this)" class="issue-button audio-timeline"></button>
+                        <button onclick="adjust_volume(this)" class="issue-button">
+                            <img src="images/internal/volume_low.svg" class="volume-icon" >
+                        </button>
+                    </div>
+                    Audio Abschnitt 1D:
+                    <div class="issue-button-group">
+                        <button onclick="play_audio(this)" class="issue-button">
+                            <audio controls src="/files/de/6-1D.mp3" data-time="0"></audio>
+                            <img src="images/internal/play.svg" class="play-icon">
+                        </button>
+                        <button onclick="skim_audio(event, this)" class="issue-button audio-timeline"></button>
+                        <button onclick="adjust_volume(this)" class="issue-button">
+                            <img src="images/internal/volume_low.svg" class="volume-icon" >
+                        </button>
+                    </div>
+                    Audio Abschnitt 1E:
+                    <div class="issue-button-group">
+                        <button onclick="play_audio(this)" class="issue-button">
+                            <audio controls src="/files/de/6-1E.mp3" data-time="0"></audio>
                             <img src="images/internal/play.svg" class="play-icon">
                         </button>
                         <button onclick="skim_audio(event, this)" class="issue-button audio-timeline"></button>
@@ -114,6 +169,118 @@
                         </button>
                     </div>
                 </section>
+<!-- 
+                <article id="1A">
+                    <div class="artikel-text">
+                        <h2>A. DIE GEBURT DES KAPITALISMUS</h2>
+                        <div class="issue-button-group">
+                            <div class="button-group-audio">
+                                <button onclick="play_audio(this)" class="issue-button">
+                                    <audio lang="de" controls src="/files/de/6-1A.mp3" data-time="0"></audio>
+                                    <img src="images/internal/play.svg" class="play-icon">
+                                </button>
+                                <button onclick="skim_audio(event, this, true)" class="issue-button audio-timeline" data-vertical></button>
+                                <button onclick="adjust_volume(this)" class="issue-button audio-volume">
+                                    <img src="images/internal/volume_low.svg" class="volume-icon" >
+                                </button>
+                            </div>
+                        </div>
+                        <p>Arbeit ist zielgerichtete Weltveränderung. Durch bewusste Anstrengungen gestalten wir die Bedingungen unseres Lebens nach unseren Bedürfnissen und Vorstellungen. Die gemeinsame Organisation dieser Tätigkeiten ist Basis der Gesellschaft und ihrer Verhältnisse. Arbeit benötigt Mensch, Werkzeug und Technik. Wer die Verhältnisse zwischen diesen Teilen strukturiert, kontrolliert die materielle und soziale Basis der Gesellschaft. Die Feudalgesellschaft etwa basierte auf dem Grundbesitz. Den verfügbaren Produktionstechniken und -mitteln entsprechend war sie von Naturalwirtschaft geprägt. Die Agrikultur lieferte kaum mehr, als das zum bloßen Erhalt des Lebens Erforderliche. Beinahe die gesamte arbeitende Bevölkerung war daher in der Landwirtschaft tätig und somit abhängig von der Verfügbarkeit fruchtbarer Böden. Die Kontrolle über Ländereien bemächtige Grundherren, landlose Arbeitende in ihre Abhängigkeit zu zwingen. </p>
+                        <p>Die allmählich fortschreitende Entwicklung der Produktivkräfte brachte die feudalen Verhältnisse ins Ungleichgewicht. Dreifelderwirtschaft, Kehrpflug, Hufeisen, etc. führten zu leichten Produktionsüberschüssen, die über den Eigenbedarf hinausgingen. Handel war die Folge. Im Schutz von Burgen und Kirchen entstanden Märkte und schließlich Städte. Im Schutz der Stadtmauern entstand wiederum das frühe Bürgertum – wörtlich: »jemand, der hinter den Mauern wohnt«. Ihre auf dem Handel begründete ökonomische Relevanz und ihr Reichtum erlaubten das Erstreiten besonderer Stadtrechte für Stadt und Bürger, die weit über die der allgemeinen Landbevölkerung hinausgingen: Markt-, Zoll- und private Eigentumsrechte, Gewerbefreiheit, halbautonome kommunale Selbstverwaltung etc. Eine initiale Anhäufung von bürgerlichem Kapitaleigentum wurde so möglich. Städtische Händler und große Handwerker gründeten mit diesem Kapital Manufakturen, in denen Produkte in arbeitsteiliger, spezialisierter Handarbeit hergestellt wurden, woraus immense Produktivitätssteigerungen folgten. Die Städte waren damit die Brutstätten einer neuen, bürgerlichen Wirtschaftsweise. Die so entstehende bürgerliche Klasse akkumulierte mehr und mehr Kapital. Bürger waren nun oft reicher und wirtschaftlich einflussreicher als der Adel selbst. Die materielle Basis der Gesellschaft hatte sich gewandelt – der feudale Überbau jedoch nicht. Die feudale Produktionsweise war zu einem Hemmnis für die gesellschaftliche Entwicklung geworden. Der Widerspruch zwischen der politischen und ökonomischen Feudalordnung und der wachsenden Macht des Bürgertums war unhaltbar. </p>
+                        <p>Der erste Bruch geschah 1789. Exzessive Ausgaben hatten zum Staatsbankrott des Königreich Frankreich geführt. Ein königliches Edikt berief die Generalstände ein, um die Schulden durch erhöhte Steuern tilgen zu können. Der dritte Stand – mehrheitlich von Mitgliedern des Bürgertums vertreten – repräsentierte ca. 95% der Bevölkerung, sollte jedoch nur ein Drittel der Stimmrechte erhalten. Die ersten beiden Stände des Adels und des Klerus konnten sie also überstimmen. Der Konflikt über dieses Verhältnis, Unwilligkeit zu Zugeständnissen und Unentschlossenheit im Handeln des Königs führten schließlich zur ersten französischen Revolution, dem Fall des feudalen <em> Ancien Régime </em> und über einige Umwege zur Etablierung der bürgerlichen Gesellschaftsordnung. </p>
+                        <p>Ebenso wie die Feudalordnung durch die Adelsklasse bestimmt wurde, ist die bürgerliche Gesellschaft entlang der Interessen der bürgerlichen Klasse strukturiert. Und ebenso wie die feudale Gesellschaft auf dem Grundbesitz beruhte, beruht die bürgerliche Gesellschaft auf dem Privateigentum. Durch ihre Verfügungsgewalt über Land, Fabriken und Wohnraum zwingt die bürgerliche Klasse all diejenigen in ihre Abhängigkeit, die keinen solchen Kapitalbesitz vorweisen. Der bürgerlichen Klasse steht damit die Klasse der eigentumslosen Arbeitenden gegenüber. Das frühe Bürgertum hatte sich zunehmend Ländereien auch außerhalb der Städte angeeignet. Die dort arbeitende Landbevölkerung würde teils gewaltsam vertreiben. Aus den früheren Landarbeitenden und kleinen Handwerkenden ist so das »doppelt freie« Proletariat hervorgegangen. Frei von der Bindung an das Land der Grundherren, aber ebenso frei von eigenem Eigentum waren sie gezwungen, in den Manufakturen und Fabriken des Bürgertums nach Arbeit zu suchen und dort das einzige zu verkaufen, was sie besaßen: die eigene Arbeitskraft. Auch heute gehört die überwältigende Mehrheit eben dieser Klasse an.  </p>
+                        <p>Aufgrund der strukturellen Macht, die mit dem Eigentum an den Produktionsmitteln einhergeht, sind jedoch die entstehenden Arbeitsverhältnisse nach den Interessen der Klasse der Eigentümer ausgestaltet. In den daraus resultierenden Lohnarbeitsverhältnissen werden wir als Lohnarbeitende immer und notwendigerweise ausgebeutet. Der Begriff »Ausbeutung« ist keine Polemik, sondern kühle Beschreibung des Verhältnisses zwischen Arbeitenden und Besitzenden: Als Arbeitende schaffen wir durch unsere Arbeitskraft mehr als notwendig, um unser Leben zu erhalten. Dieser Mehrwert trägt aber nicht zur Verbesserung unserer eigenen Lebensumstände bei. Denn im Lohnarbeitsverhältnis eignet sich die Klasse der Eigentümer den wesentlichen Teil dessen als Profit an. Wir erhalten lediglich einen Lohn, der aber geringer ist, als der eigentliche Wert der durch unsere Arbeit geschaffenen Güter. Das bezeichnen wir als Ausbeutung im Lohnarbeitsverhältnis. Schlimmer noch, unsere so geraubte Arbeitskraft, versteinert in der Form von Kapital, bildet erneut die Grundlage der bürgerlichen Akkumulation von Eigentum und damit unserer fortwährenden und vertieften Unterjochung.</p>
+                    </div>
+                </article>
+                <article id="1B">
+                    <div class="artikel-text">
+                        <h2>B. MARX’ REVOLUTION</h2>
+                        <div class="issue-button-group">
+                            <div class="button-group-audio">
+                                <button onclick="play_audio(this)" class="issue-button">
+                                    <audio lang="de" controls src="/files/de/6-1B.mp3" data-time="0"></audio>
+                                    <img src="images/internal/play.svg" class="play-icon">
+                                </button>
+                                <button onclick="skim_audio(event, this, true)" class="issue-button audio-timeline" data-vertical></button>
+                                <button onclick="adjust_volume(this)" class="issue-button audio-volume">
+                                    <img src="images/internal/volume_low.svg" class="volume-icon" >
+                                </button>
+                            </div>
+                        </div>
+                        <p>Arbeit ist zielgerichtete produktive Weltveränderung. Durch bewusste Anstrengungen gestalten wir die Bedingungen unseres Lebens wir äußere Umstände nach unseren Bedürfnissen und Vorstellungen. Die gemeinsame Organisation dieser Tätigkeiten ist Basis der Gesellschaft und ihrer Verhältnisse. Arbeit benötigt Mensch, Werkzeug und Technik. Wer die Verhältnisse zwischen diesen Teilen strukturiert, kontrolliert die materielle und soziale Basis der Gesellschaft. Die Feudalgesellschaft etwa basierte auf dem Grundbesitz. Den verfügbaren Produktionstechniken und -mitteln entsprechend war sie von Naturalwirtschaft geprägt. Die Agrikultur lieferte kaum mehr, als das zum bloßen Erhalt des Lebens Erforderliche. Beinahe die gesamte arbeitende Bevölkerung war daher in der Landwirtschaft tätig und somit abhängig von der Verfügbarkeit fruchtbarer Böden. Die Kontrolle über Ländereien bemächtige Grundherren, landlose Arbeitende in ihre Abhängigkeit zu zwingen. </p>
+                        <p>Die allmählich fortschreitende Entwicklung der Produktivkräfte brachte die feudalen Verhältnisse ins Ungleichgewicht. Dreifelderwirtschaft, Kehrpflug, Hufeisen, etc. führten zu leichten Produktionsüberschüssen, die über den Eigenbedarf hinausgingen. Handel war die Folge. Im Schutz von Burgen und Kirchen entstanden Märkte und schließlich Städte. Im Schutz der Stadtmauern entstand wiederum das frühe Bürgertum – wörtlich: »jemand, der hinter den Mauern wohnt«. Ihre auf dem Handel begründete ökonomische Relevanz und ihr Reichtum erlaubten das Erstreiten besonderer Stadtrechte für Stadt und Bürger, die weit über die der allgemeinen Landbevölkerung hinausgingen: Markt-, Zoll- und private Eigentumsrechte, Gewerbefreiheit, halbautonome kommunale Selbstverwaltung etc. Eine initiale Anhäufung von bürgerlichem Kapitaleigentum wurde so möglich. Städtische Händler und große Handwerker gründeten mit diesem Kapital Manufakturen, in denen Produkte in arbeitsteiliger, spezialisierter Handarbeit hergestellt wurden, woraus immense Produktivitätssteigerungen folgten. Die Städte waren damit die Brutstätten einer neuen, bürgerlichen Wirtschaftsweise. Die so entstehende bürgerliche Klasse akkumulierte mehr und mehr Kapital. Bürger waren nun oft reicher und wirtschaftlich einflussreicher als der Adel selbst. Die materielle Basis der Gesellschaft hatte sich gewandelt – der feudale Überbau jedoch nicht. Die feudale Produktionsweise war zu einem Hemmnis für die gesellschaftliche Entwicklung geworden. Der Widerspruch zwischen der politischen und ökonomischen Feudalordnung und der wachsenden Macht des Bürgertums war unhaltbar. </p>
+                        <p>Der erste Bruch geschah 1789. Exzessive Ausgaben hatten zum Staatsbankrott des Königreich Frankreich geführt. Ein königliches Edikt berief die Generalstände ein, um die Schulden durch erhöhte Steuern tilgen zu können. Der dritte Stand – mehrheitlich von Mitgliedern des Bürgertums vertreten – repräsentierte ca. 95% der Bevölkerung, sollte jedoch nur ein Drittel der Stimmrechte erhalten. Die ersten beiden Stände des Adels und des Klerus konnten sie also überstimmen. Der Konflikt über dieses Verhältnis, Unwilligkeit zu Zugeständnissen und Unentschlossenheit im Handeln des Königs führten schließlich zur ersten französischen Revolution, dem Fall des feudalen <em> Ancien Régime </em> und über einige Umwege zur Etablierung der bürgerlichen Gesellschaftsordnung. </p>
+                        <p>Ebenso wie die Feudalordnung durch die Adelsklasse bestimmt wurde, ist die bürgerliche Gesellschaft entlang der Interessen der bürgerlichen Klasse strukturiert. Und ebenso wie die feudale Gesellschaft auf dem Grundbesitz beruhte, beruht die bürgerliche Gesellschaft auf dem Privateigentum. Durch ihre Verfügungsgewalt über Land, Fabriken und Wohnraum zwingt die bürgerliche Klasse all diejenigen in ihre Abhängigkeit, die keinen solchen Kapitalbesitz vorweisen. Der bürgerlichen Klasse steht damit die Klasse der eigentumslosen Arbeitenden gegenüber. Das frühe Bürgertum hatte sich zunehmend Ländereien auch außerhalb der Städte angeeignet. Die dort arbeitende Landbevölkerung würde teils gewaltsam vertreiben. Aus den früheren Landarbeitenden und kleinen Handwerkenden ist so das »doppelt freie« Proletariat hervorgegangen. Frei von der Bindung an das Land der Grundherren, aber ebenso frei von eigenem Eigentum waren sie gezwungen, in den Manufakturen und Fabriken des Bürgertums nach Arbeit zu suchen und dort das einzige zu verkaufen, was sie besaßen: die eigene Arbeitskraft. Auch heute gehört die überwältigende Mehrheit eben dieser Klasse an.  </p>
+                        <p>Aufgrund der strukturellen Macht, die mit dem Eigentum an den Produktionsmitteln einhergeht, sind jedoch die entstehenden Arbeitsverhältnisse nach den Interessen der Klasse der Eigentümer ausgestaltet. In den daraus resultierenden Lohnarbeitsverhältnissen werden wir als Lohnarbeitende immer und notwendigerweise ausgebeutet. Der Begriff »Ausbeutung« ist keine Polemik, sondern kühle Beschreibung des Verhältnisses zwischen Arbeitenden und Besitzenden: Als Arbeitende schaffen wir durch unsere Arbeitskraft mehr als notwendig, um unser Leben zu erhalten. Dieser Mehrwert trägt aber nicht zur Verbesserung unserer eigenen Lebensumstände bei. Denn im Lohnarbeitsverhältnis eignet sich die Klasse der Eigentümer den wesentlichen Teil dessen als Profit an. Wir erhalten lediglich einen Lohn, der aber geringer ist, als der eigentliche Wert der durch unsere Arbeit geschaffenen Güter. Das bezeichnen wir als Ausbeutung im Lohnarbeitsverhältnis. Schlimmer noch, unsere so geraubte Arbeitskraft, versteinert in der Form von Kapital, bildet erneut die Grundlage der bürgerlichen Akkumulation von Eigentum und damit unserer fortwährenden und vertieften Unterjochung.</p>
+                    </div>
+                </article>
+                <article id="1C">
+                    <div class="artikel-text">
+                        <h2>C. BERNSTEIN HATTE (FAST) RECHT</h2>
+                        <div class="issue-button-group">
+                            <div class="button-group-audio">
+                                <button onclick="play_audio(this)" class="issue-button">
+                                    <audio lang="de" controls src="/files/de/6-1C.mp3" data-time="0"></audio>
+                                    <img src="images/internal/play.svg" class="play-icon">
+                                </button>
+                                <button onclick="skim_audio(event, this, true)" class="issue-button audio-timeline" data-vertical></button>
+                                <button onclick="adjust_volume(this)" class="issue-button audio-volume">
+                                    <img src="images/internal/volume_low.svg" class="volume-icon" >
+                                </button>
+                            </div>
+                        </div>
+                        <p>Arbeit ist zielgerichtete produktive Weltveränderung. Durch bewusste Anstrengungen gestalten wir die Bedingungen unseres Lebens wir äußere Umstände nach unseren Bedürfnissen und Vorstellungen. Die gemeinsame Organisation dieser Tätigkeiten ist Basis der Gesellschaft und ihrer Verhältnisse. Arbeit benötigt Mensch, Werkzeug und Technik. Wer die Verhältnisse zwischen diesen Teilen strukturiert, kontrolliert die materielle und soziale Basis der Gesellschaft. Die Feudalgesellschaft etwa basierte auf dem Grundbesitz. Den verfügbaren Produktionstechniken und -mitteln entsprechend war sie von Naturalwirtschaft geprägt. Die Agrikultur lieferte kaum mehr, als das zum bloßen Erhalt des Lebens Erforderliche. Beinahe die gesamte arbeitende Bevölkerung war daher in der Landwirtschaft tätig und somit abhängig von der Verfügbarkeit fruchtbarer Böden. Die Kontrolle über Ländereien bemächtige Grundherren, landlose Arbeitende in ihre Abhängigkeit zu zwingen. </p>
+                        <p>Die allmählich fortschreitende Entwicklung der Produktivkräfte brachte die feudalen Verhältnisse ins Ungleichgewicht. Dreifelderwirtschaft, Kehrpflug, Hufeisen, etc. führten zu leichten Produktionsüberschüssen, die über den Eigenbedarf hinausgingen. Handel war die Folge. Im Schutz von Burgen und Kirchen entstanden Märkte und schließlich Städte. Im Schutz der Stadtmauern entstand wiederum das frühe Bürgertum – wörtlich: »jemand, der hinter den Mauern wohnt«. Ihre auf dem Handel begründete ökonomische Relevanz und ihr Reichtum erlaubten das Erstreiten besonderer Stadtrechte für Stadt und Bürger, die weit über die der allgemeinen Landbevölkerung hinausgingen: Markt-, Zoll- und private Eigentumsrechte, Gewerbefreiheit, halbautonome kommunale Selbstverwaltung etc. Eine initiale Anhäufung von bürgerlichem Kapitaleigentum wurde so möglich. Städtische Händler und große Handwerker gründeten mit diesem Kapital Manufakturen, in denen Produkte in arbeitsteiliger, spezialisierter Handarbeit hergestellt wurden, woraus immense Produktivitätssteigerungen folgten. Die Städte waren damit die Brutstätten einer neuen, bürgerlichen Wirtschaftsweise. Die so entstehende bürgerliche Klasse akkumulierte mehr und mehr Kapital. Bürger waren nun oft reicher und wirtschaftlich einflussreicher als der Adel selbst. Die materielle Basis der Gesellschaft hatte sich gewandelt – der feudale Überbau jedoch nicht. Die feudale Produktionsweise war zu einem Hemmnis für die gesellschaftliche Entwicklung geworden. Der Widerspruch zwischen der politischen und ökonomischen Feudalordnung und der wachsenden Macht des Bürgertums war unhaltbar. </p>
+                        <p>Der erste Bruch geschah 1789. Exzessive Ausgaben hatten zum Staatsbankrott des Königreich Frankreich geführt. Ein königliches Edikt berief die Generalstände ein, um die Schulden durch erhöhte Steuern tilgen zu können. Der dritte Stand – mehrheitlich von Mitgliedern des Bürgertums vertreten – repräsentierte ca. 95% der Bevölkerung, sollte jedoch nur ein Drittel der Stimmrechte erhalten. Die ersten beiden Stände des Adels und des Klerus konnten sie also überstimmen. Der Konflikt über dieses Verhältnis, Unwilligkeit zu Zugeständnissen und Unentschlossenheit im Handeln des Königs führten schließlich zur ersten französischen Revolution, dem Fall des feudalen <em> Ancien Régime </em> und über einige Umwege zur Etablierung der bürgerlichen Gesellschaftsordnung. </p>
+                        <p>Ebenso wie die Feudalordnung durch die Adelsklasse bestimmt wurde, ist die bürgerliche Gesellschaft entlang der Interessen der bürgerlichen Klasse strukturiert. Und ebenso wie die feudale Gesellschaft auf dem Grundbesitz beruhte, beruht die bürgerliche Gesellschaft auf dem Privateigentum. Durch ihre Verfügungsgewalt über Land, Fabriken und Wohnraum zwingt die bürgerliche Klasse all diejenigen in ihre Abhängigkeit, die keinen solchen Kapitalbesitz vorweisen. Der bürgerlichen Klasse steht damit die Klasse der eigentumslosen Arbeitenden gegenüber. Das frühe Bürgertum hatte sich zunehmend Ländereien auch außerhalb der Städte angeeignet. Die dort arbeitende Landbevölkerung würde teils gewaltsam vertreiben. Aus den früheren Landarbeitenden und kleinen Handwerkenden ist so das »doppelt freie« Proletariat hervorgegangen. Frei von der Bindung an das Land der Grundherren, aber ebenso frei von eigenem Eigentum waren sie gezwungen, in den Manufakturen und Fabriken des Bürgertums nach Arbeit zu suchen und dort das einzige zu verkaufen, was sie besaßen: die eigene Arbeitskraft. Auch heute gehört die überwältigende Mehrheit eben dieser Klasse an.  </p>
+                        <p>Aufgrund der strukturellen Macht, die mit dem Eigentum an den Produktionsmitteln einhergeht, sind jedoch die entstehenden Arbeitsverhältnisse nach den Interessen der Klasse der Eigentümer ausgestaltet. In den daraus resultierenden Lohnarbeitsverhältnissen werden wir als Lohnarbeitende immer und notwendigerweise ausgebeutet. Der Begriff »Ausbeutung« ist keine Polemik, sondern kühle Beschreibung des Verhältnisses zwischen Arbeitenden und Besitzenden: Als Arbeitende schaffen wir durch unsere Arbeitskraft mehr als notwendig, um unser Leben zu erhalten. Dieser Mehrwert trägt aber nicht zur Verbesserung unserer eigenen Lebensumstände bei. Denn im Lohnarbeitsverhältnis eignet sich die Klasse der Eigentümer den wesentlichen Teil dessen als Profit an. Wir erhalten lediglich einen Lohn, der aber geringer ist, als der eigentliche Wert der durch unsere Arbeit geschaffenen Güter. Das bezeichnen wir als Ausbeutung im Lohnarbeitsverhältnis. Schlimmer noch, unsere so geraubte Arbeitskraft, versteinert in der Form von Kapital, bildet erneut die Grundlage der bürgerlichen Akkumulation von Eigentum und damit unserer fortwährenden und vertieften Unterjochung.</p>
+                    </div>
+                </article>
+                <article id="1D">
+                    <div class="artikel-text">
+                        <h2>D. NOTWENDIGKEIT EINES ALTERNATIVEN SOZIALISMUS</h2>
+                        <div class="issue-button-group">
+                            <div class="button-group-audio">
+                                <button onclick="play_audio(this)" class="issue-button">
+                                    <audio lang="de" controls src="/files/de/6-1D.mp3" data-time="0"></audio>
+                                    <img src="images/internal/play.svg" class="play-icon">
+                                </button>
+                                <button onclick="skim_audio(event, this, true)" class="issue-button audio-timeline" data-vertical></button>
+                                <button onclick="adjust_volume(this)" class="issue-button audio-volume">
+                                    <img src="images/internal/volume_low.svg" class="volume-icon" >
+                                </button>
+                            </div>
+                        </div>
+                        <p>Arbeit ist zielgerichtete produktive Weltveränderung. Durch bewusste Anstrengungen gestalten wir die Bedingungen unseres Lebens wir äußere Umstände nach unseren Bedürfnissen und Vorstellungen. Die gemeinsame Organisation dieser Tätigkeiten ist Basis der Gesellschaft und ihrer Verhältnisse. Arbeit benötigt Mensch, Werkzeug und Technik. Wer die Verhältnisse zwischen diesen Teilen strukturiert, kontrolliert die materielle und soziale Basis der Gesellschaft. Die Feudalgesellschaft etwa basierte auf dem Grundbesitz. Den verfügbaren Produktionstechniken und -mitteln entsprechend war sie von Naturalwirtschaft geprägt. Die Agrikultur lieferte kaum mehr, als das zum bloßen Erhalt des Lebens Erforderliche. Beinahe die gesamte arbeitende Bevölkerung war daher in der Landwirtschaft tätig und somit abhängig von der Verfügbarkeit fruchtbarer Böden. Die Kontrolle über Ländereien bemächtige Grundherren, landlose Arbeitende in ihre Abhängigkeit zu zwingen. </p>
+                        <p>Die allmählich fortschreitende Entwicklung der Produktivkräfte brachte die feudalen Verhältnisse ins Ungleichgewicht. Dreifelderwirtschaft, Kehrpflug, Hufeisen, etc. führten zu leichten Produktionsüberschüssen, die über den Eigenbedarf hinausgingen. Handel war die Folge. Im Schutz von Burgen und Kirchen entstanden Märkte und schließlich Städte. Im Schutz der Stadtmauern entstand wiederum das frühe Bürgertum – wörtlich: »jemand, der hinter den Mauern wohnt«. Ihre auf dem Handel begründete ökonomische Relevanz und ihr Reichtum erlaubten das Erstreiten besonderer Stadtrechte für Stadt und Bürger, die weit über die der allgemeinen Landbevölkerung hinausgingen: Markt-, Zoll- und private Eigentumsrechte, Gewerbefreiheit, halbautonome kommunale Selbstverwaltung etc. Eine initiale Anhäufung von bürgerlichem Kapitaleigentum wurde so möglich. Städtische Händler und große Handwerker gründeten mit diesem Kapital Manufakturen, in denen Produkte in arbeitsteiliger, spezialisierter Handarbeit hergestellt wurden, woraus immense Produktivitätssteigerungen folgten. Die Städte waren damit die Brutstätten einer neuen, bürgerlichen Wirtschaftsweise. Die so entstehende bürgerliche Klasse akkumulierte mehr und mehr Kapital. Bürger waren nun oft reicher und wirtschaftlich einflussreicher als der Adel selbst. Die materielle Basis der Gesellschaft hatte sich gewandelt – der feudale Überbau jedoch nicht. Die feudale Produktionsweise war zu einem Hemmnis für die gesellschaftliche Entwicklung geworden. Der Widerspruch zwischen der politischen und ökonomischen Feudalordnung und der wachsenden Macht des Bürgertums war unhaltbar. </p>
+                        <p>Der erste Bruch geschah 1789. Exzessive Ausgaben hatten zum Staatsbankrott des Königreich Frankreich geführt. Ein königliches Edikt berief die Generalstände ein, um die Schulden durch erhöhte Steuern tilgen zu können. Der dritte Stand – mehrheitlich von Mitgliedern des Bürgertums vertreten – repräsentierte ca. 95% der Bevölkerung, sollte jedoch nur ein Drittel der Stimmrechte erhalten. Die ersten beiden Stände des Adels und des Klerus konnten sie also überstimmen. Der Konflikt über dieses Verhältnis, Unwilligkeit zu Zugeständnissen und Unentschlossenheit im Handeln des Königs führten schließlich zur ersten französischen Revolution, dem Fall des feudalen <em> Ancien Régime </em> und über einige Umwege zur Etablierung der bürgerlichen Gesellschaftsordnung. </p>
+                        <p>Ebenso wie die Feudalordnung durch die Adelsklasse bestimmt wurde, ist die bürgerliche Gesellschaft entlang der Interessen der bürgerlichen Klasse strukturiert. Und ebenso wie die feudale Gesellschaft auf dem Grundbesitz beruhte, beruht die bürgerliche Gesellschaft auf dem Privateigentum. Durch ihre Verfügungsgewalt über Land, Fabriken und Wohnraum zwingt die bürgerliche Klasse all diejenigen in ihre Abhängigkeit, die keinen solchen Kapitalbesitz vorweisen. Der bürgerlichen Klasse steht damit die Klasse der eigentumslosen Arbeitenden gegenüber. Das frühe Bürgertum hatte sich zunehmend Ländereien auch außerhalb der Städte angeeignet. Die dort arbeitende Landbevölkerung würde teils gewaltsam vertreiben. Aus den früheren Landarbeitenden und kleinen Handwerkenden ist so das »doppelt freie« Proletariat hervorgegangen. Frei von der Bindung an das Land der Grundherren, aber ebenso frei von eigenem Eigentum waren sie gezwungen, in den Manufakturen und Fabriken des Bürgertums nach Arbeit zu suchen und dort das einzige zu verkaufen, was sie besaßen: die eigene Arbeitskraft. Auch heute gehört die überwältigende Mehrheit eben dieser Klasse an.  </p>
+                        <p>Aufgrund der strukturellen Macht, die mit dem Eigentum an den Produktionsmitteln einhergeht, sind jedoch die entstehenden Arbeitsverhältnisse nach den Interessen der Klasse der Eigentümer ausgestaltet. In den daraus resultierenden Lohnarbeitsverhältnissen werden wir als Lohnarbeitende immer und notwendigerweise ausgebeutet. Der Begriff »Ausbeutung« ist keine Polemik, sondern kühle Beschreibung des Verhältnisses zwischen Arbeitenden und Besitzenden: Als Arbeitende schaffen wir durch unsere Arbeitskraft mehr als notwendig, um unser Leben zu erhalten. Dieser Mehrwert trägt aber nicht zur Verbesserung unserer eigenen Lebensumstände bei. Denn im Lohnarbeitsverhältnis eignet sich die Klasse der Eigentümer den wesentlichen Teil dessen als Profit an. Wir erhalten lediglich einen Lohn, der aber geringer ist, als der eigentliche Wert der durch unsere Arbeit geschaffenen Güter. Das bezeichnen wir als Ausbeutung im Lohnarbeitsverhältnis. Schlimmer noch, unsere so geraubte Arbeitskraft, versteinert in der Form von Kapital, bildet erneut die Grundlage der bürgerlichen Akkumulation von Eigentum und damit unserer fortwährenden und vertieften Unterjochung.</p>
+                    </div>
+                </article>
+                <article id="1E">
+                    <div class="artikel-text">
+                        <h2>E. VOM ERFOLG DER BÜRGERLICHEN LERNEN</h2>
+                        <div class="issue-button-group">
+                            <div class="button-group-audio">
+                                <button onclick="play_audio(this)" class="issue-button">
+                                    <audio lang="de" controls src="/files/de/6-1E.mp3" data-time="0"></audio>
+                                    <img src="images/internal/play.svg" class="play-icon">
+                                </button>
+                                <button onclick="skim_audio(event, this, true)" class="issue-button audio-timeline" data-vertical></button>
+                                <button onclick="adjust_volume(this)" class="issue-button audio-volume">
+                                    <img src="images/internal/volume_low.svg" class="volume-icon" >
+                                </button>
+                            </div>
+                        </div>
+                        <p>Arbeit ist zielgerichtete produktive Weltveränderung. Durch bewusste Anstrengungen gestalten wir die Bedingungen unseres Lebens wir äußere Umstände nach unseren Bedürfnissen und Vorstellungen. Die gemeinsame Organisation dieser Tätigkeiten ist Basis der Gesellschaft und ihrer Verhältnisse. Arbeit benötigt Mensch, Werkzeug und Technik. Wer die Verhältnisse zwischen diesen Teilen strukturiert, kontrolliert die materielle und soziale Basis der Gesellschaft. Die Feudalgesellschaft etwa basierte auf dem Grundbesitz. Den verfügbaren Produktionstechniken und -mitteln entsprechend war sie von Naturalwirtschaft geprägt. Die Agrikultur lieferte kaum mehr, als das zum bloßen Erhalt des Lebens Erforderliche. Beinahe die gesamte arbeitende Bevölkerung war daher in der Landwirtschaft tätig und somit abhängig von der Verfügbarkeit fruchtbarer Böden. Die Kontrolle über Ländereien bemächtige Grundherren, landlose Arbeitende in ihre Abhängigkeit zu zwingen. </p>
+                        <p>Die allmählich fortschreitende Entwicklung der Produktivkräfte brachte die feudalen Verhältnisse ins Ungleichgewicht. Dreifelderwirtschaft, Kehrpflug, Hufeisen, etc. führten zu leichten Produktionsüberschüssen, die über den Eigenbedarf hinausgingen. Handel war die Folge. Im Schutz von Burgen und Kirchen entstanden Märkte und schließlich Städte. Im Schutz der Stadtmauern entstand wiederum das frühe Bürgertum – wörtlich: »jemand, der hinter den Mauern wohnt«. Ihre auf dem Handel begründete ökonomische Relevanz und ihr Reichtum erlaubten das Erstreiten besonderer Stadtrechte für Stadt und Bürger, die weit über die der allgemeinen Landbevölkerung hinausgingen: Markt-, Zoll- und private Eigentumsrechte, Gewerbefreiheit, halbautonome kommunale Selbstverwaltung etc. Eine initiale Anhäufung von bürgerlichem Kapitaleigentum wurde so möglich. Städtische Händler und große Handwerker gründeten mit diesem Kapital Manufakturen, in denen Produkte in arbeitsteiliger, spezialisierter Handarbeit hergestellt wurden, woraus immense Produktivitätssteigerungen folgten. Die Städte waren damit die Brutstätten einer neuen, bürgerlichen Wirtschaftsweise. Die so entstehende bürgerliche Klasse akkumulierte mehr und mehr Kapital. Bürger waren nun oft reicher und wirtschaftlich einflussreicher als der Adel selbst. Die materielle Basis der Gesellschaft hatte sich gewandelt – der feudale Überbau jedoch nicht. Die feudale Produktionsweise war zu einem Hemmnis für die gesellschaftliche Entwicklung geworden. Der Widerspruch zwischen der politischen und ökonomischen Feudalordnung und der wachsenden Macht des Bürgertums war unhaltbar. </p>
+                        <p>Der erste Bruch geschah 1789. Exzessive Ausgaben hatten zum Staatsbankrott des Königreich Frankreich geführt. Ein königliches Edikt berief die Generalstände ein, um die Schulden durch erhöhte Steuern tilgen zu können. Der dritte Stand – mehrheitlich von Mitgliedern des Bürgertums vertreten – repräsentierte ca. 95% der Bevölkerung, sollte jedoch nur ein Drittel der Stimmrechte erhalten. Die ersten beiden Stände des Adels und des Klerus konnten sie also überstimmen. Der Konflikt über dieses Verhältnis, Unwilligkeit zu Zugeständnissen und Unentschlossenheit im Handeln des Königs führten schließlich zur ersten französischen Revolution, dem Fall des feudalen <em> Ancien Régime </em> und über einige Umwege zur Etablierung der bürgerlichen Gesellschaftsordnung. </p>
+                        <p>Ebenso wie die Feudalordnung durch die Adelsklasse bestimmt wurde, ist die bürgerliche Gesellschaft entlang der Interessen der bürgerlichen Klasse strukturiert. Und ebenso wie die feudale Gesellschaft auf dem Grundbesitz beruhte, beruht die bürgerliche Gesellschaft auf dem Privateigentum. Durch ihre Verfügungsgewalt über Land, Fabriken und Wohnraum zwingt die bürgerliche Klasse all diejenigen in ihre Abhängigkeit, die keinen solchen Kapitalbesitz vorweisen. Der bürgerlichen Klasse steht damit die Klasse der eigentumslosen Arbeitenden gegenüber. Das frühe Bürgertum hatte sich zunehmend Ländereien auch außerhalb der Städte angeeignet. Die dort arbeitende Landbevölkerung würde teils gewaltsam vertreiben. Aus den früheren Landarbeitenden und kleinen Handwerkenden ist so das »doppelt freie« Proletariat hervorgegangen. Frei von der Bindung an das Land der Grundherren, aber ebenso frei von eigenem Eigentum waren sie gezwungen, in den Manufakturen und Fabriken des Bürgertums nach Arbeit zu suchen und dort das einzige zu verkaufen, was sie besaßen: die eigene Arbeitskraft. Auch heute gehört die überwältigende Mehrheit eben dieser Klasse an.  </p>
+                        <p>Aufgrund der strukturellen Macht, die mit dem Eigentum an den Produktionsmitteln einhergeht, sind jedoch die entstehenden Arbeitsverhältnisse nach den Interessen der Klasse der Eigentümer ausgestaltet. In den daraus resultierenden Lohnarbeitsverhältnissen werden wir als Lohnarbeitende immer und notwendigerweise ausgebeutet. Der Begriff »Ausbeutung« ist keine Polemik, sondern kühle Beschreibung des Verhältnisses zwischen Arbeitenden und Besitzenden: Als Arbeitende schaffen wir durch unsere Arbeitskraft mehr als notwendig, um unser Leben zu erhalten. Dieser Mehrwert trägt aber nicht zur Verbesserung unserer eigenen Lebensumstände bei. Denn im Lohnarbeitsverhältnis eignet sich die Klasse der Eigentümer den wesentlichen Teil dessen als Profit an. Wir erhalten lediglich einen Lohn, der aber geringer ist, als der eigentliche Wert der durch unsere Arbeit geschaffenen Güter. Das bezeichnen wir als Ausbeutung im Lohnarbeitsverhältnis. Schlimmer noch, unsere so geraubte Arbeitskraft, versteinert in der Form von Kapital, bildet erneut die Grundlage der bürgerlichen Akkumulation von Eigentum und damit unserer fortwährenden und vertieften Unterjochung.</p>
+                    </div>
+                </article> -->
+
             </div>
         </main>
 
