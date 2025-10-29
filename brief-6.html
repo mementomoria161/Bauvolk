@@ -69,6 +69,7 @@
 
             function post_init() {
                 init_progressbar()
+                init_auto_play() 
             }
 
         </script>
@@ -81,18 +82,17 @@
                 gap: 20px;
                 justify-content: center;
                 align-items: center;
-                padding: 40px;
+            }
+            section {
                 font-style: italic;
             }
 
             #brief-layout h2 {
-                font-style: normal;
                 text-align: center;
             }
 
             #brief-layout p {
                 text-align: justify;
-                font-style: normal;
             }
 
             #to-top, #to-bottom {
@@ -110,13 +110,22 @@
         <main id="content">
             <div id="brief-layout">
                 
-                    <h2>BRIEF 6<br>28 OKTOBER 2025</h2>
+            <article id="die-vergesellschaftung-des-kapitalismus">
+
+
+                <div class="artikel-title">
+                    <svg class="title-svg" viewBox="0 0 0 0"><text>BRIEF 6</text></svg>
+                    <svg class="title-svg" viewBox="0 0 0 0"><text>28. OKTOBER 2025</text></svg>
+                </div>
                     <p>Lieber Niklas,<br><br>wie bereits besprochen habe ich Kapitel 1 A und B überarbeitet und um Abschnitt E erweitert. Ich habe dir dennoch einmal das gesamte Kapitel aufgenommen, damit du es dir durchhören kannst. Jeder Abschnitt wurde mit unterschiedlichen Mikros aufgenommen. Sag gerne welche gut oder schlecht waren. Gib auch gerne Feedback, falls du signifikante Probleme mit dem Interface des Audio-Players hast. Damit du nicht alle Kapitel einzeln starten musst könnte ich dir für nächste Woche eine Autoplay Funktion einbauen (vielleicht eh notwendig für den Release?)
                     <br><br>Viel Spaß mit dieser neuen, digitalen Methode wünscht dir<br>Niki</p>
+            </article>
 
                     <!-- Text herunterladen:
                     <a href="files/de/ISSUE I – ALTERNATIVE UTOPIEN.pdf" download><button class="issue-button"><img src="images/internal/save.svg"></button></a> -->
-
+            
+            
+            <section id="creative-commons">
                     Audio Abschnitt 1A:
                     <div class="issue-button-group">
                         <button onclick="play_audio(this)" class="issue-button">
@@ -124,6 +133,9 @@
                             <img src="images/internal/play.svg" class="play-icon">
                         </button>
                         <button onclick="skim_audio(event, this)" class="issue-button audio-timeline"></button>
+                        <button onclick="toggle_autoplay()" class="issue-button">
+                            <img src="/images/internal/autoplay_on.svg" class="autoplay-icon">
+                        </button>
                         <button onclick="adjust_volume(this)" class="issue-button">
                             <img src="images/internal/volume_low.svg" class="volume-icon" >
                         </button>
@@ -135,6 +147,9 @@
                             <img src="images/internal/play.svg" class="play-icon">
                         </button>
                         <button onclick="skim_audio(event, this)" class="issue-button audio-timeline"></button>
+                        <button onclick="toggle_autoplay()" class="issue-button">
+                            <img src="/images/internal/autoplay_on.svg" class="autoplay-icon">
+                        </button>
                         <button onclick="adjust_volume(this)" class="issue-button">
                             <img src="images/internal/volume_low.svg" class="volume-icon" >
                         </button>
@@ -146,6 +161,9 @@
                             <img src="images/internal/play.svg" class="play-icon">
                         </button>
                         <button onclick="skim_audio(event, this)" class="issue-button audio-timeline"></button>
+                        <button onclick="toggle_autoplay()" class="issue-button">
+                            <img src="/images/internal/autoplay_on.svg" class="autoplay-icon">
+                        </button>
                         <button onclick="adjust_volume(this)" class="issue-button">
                             <img src="images/internal/volume_low.svg" class="volume-icon" >
                         </button>
@@ -157,6 +175,9 @@
                             <img src="images/internal/play.svg" class="play-icon">
                         </button>
                         <button onclick="skim_audio(event, this)" class="issue-button audio-timeline"></button>
+                        <button onclick="toggle_autoplay()" class="issue-button">
+                            <img src="/images/internal/autoplay_on.svg" class="autoplay-icon">
+                        </button>
                         <button onclick="adjust_volume(this)" class="issue-button">
                             <img src="images/internal/volume_low.svg" class="volume-icon" >
                         </button>
@@ -168,11 +189,16 @@
                             <img src="images/internal/play.svg" class="play-icon">
                         </button>
                         <button onclick="skim_audio(event, this)" class="issue-button audio-timeline"></button>
+                        <button onclick="toggle_autoplay()" class="issue-button">
+                            <img src="/images/internal/autoplay_on.svg" class="autoplay-icon">
+                        </button>
                         <button onclick="adjust_volume(this)" class="issue-button">
                             <img src="images/internal/volume_low.svg" class="volume-icon" >
                         </button>
                     </div>
-                </section>
+            </section>
+
+                    
 <!-- 
                 <article id="1A">
                     <div class="artikel-text">

@@ -917,7 +917,9 @@ function update_audio(element, audio) {
 }
 
 function skim_audio(event, element, vertical) {
+    let selected_audio = element.parentElement.getElementsByTagName('audio')[0]
     
+    if (ACTIVE_AUDIO != selected_audio && !document.getElementById("footer").contains(element)) {return}
 
     let audio = ACTIVE_AUDIO
     let rect = element.getBoundingClientRect()
@@ -985,6 +987,51 @@ function auto_player() {
     }
     else {
         document.getElementById("footer-audio").style.display = "flex"
+    }
+}
+
+let AUTOPLAY = true
+
+function toggle_autoplay() {
+    if(AUTOPLAY) {
+        AUTOPLAY = false
+    } else {
+        AUTOPLAY = true
+    }
+
+    let icons = document.getElementsByClassName('autoplay-icon')
+
+    for (let i = 0; i < icons.length; i++)
+    {
+        if(AUTOPLAY) {
+            icons[i].src = "images/internal/autoplay_on.svg"
+        } else {
+            icons[i].src = "images/internal/autoplay_off.svg"
+        }
+    }
+}
+
+function init_auto_play() {
+    let audios = document.getElementsByTagName("audio")
+
+    for (let i = 0; i < audios.length; i++)
+    {
+        audios[i].addEventListener("ended", function(){
+            play_next_audio(audios[i])
+        })
+    }
+}
+
+function play_next_audio(element) {
+    if(!AUTOPLAY) {return}
+    let audios = document.getElementsByTagName("audio")
+
+    for (let i = 0; i < audios.length; i++)
+    {
+        if(audios[i] == element) {
+            play_audio(audios[i+1].parentElement)
+            break
+        }
     }
 }
 

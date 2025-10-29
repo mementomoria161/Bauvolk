@@ -82,6 +82,7 @@
                 // scale_titles()
                 animate()
                 init_progressbar()
+                init_auto_play()
             }
 
         </script>
@@ -205,6 +206,9 @@ function animate() {
                             <img src="images/internal/play.svg" class="play-icon">
                         </button>
                         <button onclick="skim_audio(event, this)" class="issue-button audio-timeline"></button>
+                        <button onclick="toggle_autoplay()" class="issue-button">
+                            <img src="/images/internal/autoplay_on.svg" class="autoplay-icon">
+                        </button>
                         <button onclick="adjust_volume(this)" class="issue-button">
                             <img src="images/internal/volume_low.svg" class="volume-icon" >
                         </button>
@@ -242,6 +246,9 @@ function animate() {
                                 <img src="images/internal/play.svg" class="play-icon">
                             </button>
                             <button onclick="skim_audio(event, this, true)" class="issue-button audio-timeline" data-vertical></button>
+                        <button onclick="toggle_autoplay()" class="issue-button">
+                            <img src="/images/internal/autoplay_on.svg" class="autoplay-icon">
+                        </button>
                             <button onclick="adjust_volume(this)" class="issue-button audio-volume">
                                 <img src="images/internal/volume_low.svg" class="volume-icon" >
                             </button>
