@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>BAUVOLK – BRIEF</title>
+        <meta name="viewport" content="width=device-width, height=device-height, user-scalable=no">
+        <meta name="description" content="BRIEF">
+        <meta property="og:type" content="article"/>
+        <meta property="og:site_name" content="BAUVOLK"/>
+        <meta property="og:title" content="BAUVOLK – BRIEF"/>
+        <meta property="og:description" content="DIE VERGESELLSCHAFTUNG DES KAPITALISMUS"/>
+        <meta property="og:image" itemprop="image" content="https://www.bauvolk.org/images/opengraph/heft-i_2x1.jpg"/>
+        <meta property="og:image:type" content="image/jpeg"/>
+        <meta property="og:image:width" content="1200"/>
+        <meta property="og:image:height" content="630"/>
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content="https://www.bauvolk.org/images/opengraph/heft-i_1x1.jpg" />
+
+        <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/red/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="48x48" href="images/favicon/red/favicon-48x48.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/red/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="images/favicon/red/favicon-16x16.png">
+        <link rel="mask-icon" href="images/favicon/red/safari-pinned-tab.svg" color="#750000">
+        <link rel="shortcut icon" href="images/favicon/red/favicon.ico">
+        <meta name="apple-mobile-web-app-title" content="BAUVOLK">
+        <meta name="application-name" content="BAUVOLK">
+        <meta name="msapplication-TileColor" content="#000000">
+        <meta name="msapplication-config" content="images/favicon/red/browserconfig.xml">
+        <meta name="theme-color" content="#750000">
+
+        <link rel="manifest" href="manifest.json">
+        
+
+        <link rel="stylesheet" href="styles/fonts.css">
+        <link rel="stylesheet" href="styles/general.css">
+        <link rel="stylesheet" href="styles/issues.css">
+        <!-- <link rel="stylesheet" href="styles/unreleased.css"> -->
+
+        
+        <link rel="preload" as="fetch" crossorigin href="components/header.html">
+        <link rel="preload" as="fetch" crossorigin href="components/footer.html">
+        <link rel="preload" as="fetch" crossorigin href="components/databanner.html">
+
+        <script type="text/javascript" src="common.js"></script>
+
+        <script>
+
+            // VARIABLES
+
+            const META = {de: "BAUVOLK – BRIEF", en: "BAUVOLK – LETTER"}
+
+            const FOOTNOTE_LIST = [
+                {
+                    text_de: "Vgl. Cornelius Castoriadis, Interview on Autonomy and Democracy, in: Paraskinio, ET1 1984",
+                    text_en: "Cf. Cornelius Castoriadis, Interview on Autonomy and Democracy, in: Paraskinio, ET1 1984",
+                    embed_source: "youtube",
+                    embed_id: "hs9ZsKj-o1k"
+                },
+                {
+                    text_de:"Vgl. Cornelius Castoriadis, Interview on Autonomy and Democracy, in: Paraskinio, ET1 1984",
+                    text_en:"Cf. Cornelius Castoriadis, Interview on Autonomy and Democracy, in: Paraskinio, ET1 1984",
+                    embed_url: "https://player.vimeo.com/video/279828346"
+                }
+            ]
+
+            // LOADING
+            
+            load_components(["header", "footer", "databanner"])
+
+            function post_init() {
+                init_progressbar()
+                init_auto_play() 
+            }
+
+        </script>
+
+        <style>
+            #brief {
+                margin-top: 50px;
+            }
+            section {
+                font-style: italic;
+                text-align: center;
+                line-height: 50pt;
+            }
+
+            #brief-layout h2 {
+                text-align: center;
+            }
+
+            #brief-layout p {
+                text-align: justify;
+            }
+
+            #to-top, #to-bottom {
+                display: none !important;
+            }
+
+            #footer-audio {
+                right: 30px !important;
+            }
+
+            @media screen and (width < 800px), screen and (max-width: 800px) {
+
+                #footer-audio {
+                    max-width: calc(100vw - 60px) !important;
+                    left: 30px !important;
+                }
+            }
+        </style>
+    </head>
+
+    <body>
+
+        <header id="header"></header>
+
+        <div id="progressbar"></div>
+
+        <main id="content">
+            <!-- <div id="brief-layout"> -->
+                
+            <article id="brief">
+                <div class="artikel-title">
+                    <svg class="title-svg" viewBox="0 0 0 0"><text>BRIEF 6</text></svg>
+                    <svg class="title-svg" viewBox="0 0 0 0"><text>28. OKTOBER 2025</text></svg>
+                </div>
+                    <p>Lieber Niklas,<br><br>hier ist eine Rohszizze von Abschnitt 2. Ich habe versucht die Idee, die wir hatten von den konkreten gegeben meteriellen Möglichkeiten auszugehen und daraus Handlungsperspektiven abzuleiten, umzusetzen. Ich weiß niht ganz ob es mir gelungen ist.
+                    <br><br>Alles Liebe<br>Niki</p>
+            </article>
+
+                    <!-- Text herunterladen:
+                    <a href="files/de/ISSUE I – ALTERNATIVE UTOPIEN.pdf" download><button class="issue-button"><img src="images/internal/save.svg"></button></a> -->
+            
+            
+            <section id="audio-section">
+                    Audio Abschnitt 2A:
+                    <div class="issue-button-group">
+                        <button onclick="play_audio(this)" class="issue-button">
+                            <audio controls src="/files/de/6-2A.mp3" data-time="0"></audio>
+                            <img src="images/internal/play.svg" class="play-icon">
+                        </button>
+                        <button onclick="skim_audio(event, this)" class="issue-button audio-timeline"></button>
+                        <button onclick="toggle_autoplay()" class="issue-button">
+                            <img src="/images/internal/autoplay_on.svg" class="autoplay-icon">
+                        </button>
+                        <button onclick="adjust_volume(this)" class="issue-button">
+                            <img src="images/internal/volume_low.svg" class="volume-icon" >
+                        </button>
+                    </div>
+                    Audio Abschnitt 2B:
+                    <div class="issue-button-group">
+                        <button onclick="play_audio(this)" class="issue-button">
+                            <audio controls src="/files/de/7-2B.mp3" data-time="0"></audio>
+                            <img src="images/internal/play.svg" class="play-icon">
+                        </button>
+                        <button onclick="skim_audio(event, this)" class="issue-button audio-timeline"></button>
+                        <button onclick="toggle_autoplay()" class="issue-button">
+                            <img src="/images/internal/autoplay_on.svg" class="autoplay-icon">
+                        </button>
+                        <button onclick="adjust_volume(this)" class="issue-button">
+                            <img src="images/internal/volume_low.svg" class="volume-icon" >
+                        </button>
+                    </div>
+                    Audio Abschnitt 2C:
+                    <div class="issue-button-group">
+                        <button onclick="play_audio(this)" class="issue-button">
+                            <audio controls src="/files/de/7-2C.mp3" data-time="0"></audio>
+                            <img src="images/internal/play.svg" class="play-icon">
+                        </button>
+                        <button onclick="skim_audio(event, this)" class="issue-button audio-timeline"></button>
+                        <button onclick="toggle_autoplay()" class="issue-button">
+                            <img src="/images/internal/autoplay_on.svg" class="autoplay-icon">
+                        </button>
+                        <button onclick="adjust_volume(this)" class="issue-button">
+                            <img src="images/internal/volume_low.svg" class="volume-icon" >
+                        </button>
+                    </div>
+            </section>
+            <!-- </div> -->
+        </main>
+
+        <footer id="footer"></footer>
+        <div id="databanner"></div>
+    </body>
+</html>
