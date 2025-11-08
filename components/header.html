@@ -195,7 +195,28 @@
 			#header .abo-desc-unreleased {
 				display: none;
 			}
+			
+            @media screen and (width < 800px), screen and (max-width: 800px) {
 
+                #to-top, #to-bottom {
+                    right:30px;
+                }
+
+                .note {
+                    position: fixed;
+                    left: 30px;
+                }
+
+                .note {
+                    min-height: 105px;
+                }
+
+
+                #footer-audio {
+                    /* display: none; */
+                    max-width: calc(100vw - 115px);
+                }
+            }
 		</style>
 	</head>
 
