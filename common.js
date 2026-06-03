@@ -1104,7 +1104,7 @@ function make_table(data) {
 
 function fetch_mail(content, element, type) {
     
-    fetch("https://formsubmit.co/ajax/bauvolk@riseup.net", {
+    fetch("https://formsubmit.co/ajax/7eb2c7641e8293f92a0e178a14c20efd", {
         method: "POST",
         headers: { 
             'Content-Type': 'application/json',
