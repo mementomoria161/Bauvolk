@@ -90,82 +90,42 @@
 <script>
     
 let currentX = 0;
-let currentY = 0;
-let targetX = 0;
-let targetY = 0;
-let is_hovering = false;
-let auto_rotate = true;
-const defaultRotation = 0;
-const DEFAULT_LERP_FACTOR = 0.003;
-const ROTATE_LERP_FACTOR = 0.008;
-var LERP_FACTOR = DEFAULT_LERP_FACTOR;
-var ROTATE_TIMEOUT_ID
-
-
-
-document.addEventListener('pointermove', (event) => {
-    let perspective = document.getElementById('perspective');
-
-    clearTimeout(ROTATE_TIMEOUT_ID)
-
-    if (perspective.contains(event.target)) {
-        ROTATE_TIMEOUT_ID = setTimeout(rotate_cover, 10, event)
-    }
-
-    is_hovering = true;
-    auto_rotate = false;
-})
-
-function rotate_cover(event) {
-
-    let box_info = document.getElementById('box').getBoundingClientRect()
-    let centerX = box_info.left + box_info.width / 2;
-    let centerY = box_info.top + box_info.height / 2;
-    let relativeX = event.pageX - centerX
-    let relativeY = event.pageY - centerY
-
-
-    targetX = targetX + (relativeX / box_info.width) * 5;
-    targetY = targetY + (relativeY / box_info.height) * 5;
-
-    ROTATE_TIMEOUT_ID = setTimeout(rotate_cover, 10, event)
-}
-
-document.addEventListener('pointerout', (e) => {
-    if (!document.getElementById('perspective').contains(e.target)) {
-        is_hovering = false;
-        auto_rotate = true;
-    }
-});
+const AUTO_ROTATE_SPEED = 0.25; // degrees per frame
 
 window.addEventListener("resize", scale_model)
 
 function scale_model() {
-    let p_width = document.getElementById('perspective').clientWidth * 0.6
-    document.querySelector(':root').style.setProperty('--model-width', p_width + "px");
+    let perspective = document.getElementById('perspective');
+    if (perspective) {
+        let p_width = perspective.clientWidth * 0.6;
+        document.querySelector(':root').style.setProperty('--model-width', p_width + "px");
+    }
 }
 
-function lerp(start, end, factor) {
-    return start + (end - start) * factor;
-}
+let lastTime = performance.now();
 
 function animate() {
+    let now = performance.now();
+    let deltaTime = now - lastTime;
+    lastTime = now;
+    if (deltaTime > 100) deltaTime = 16.67; // prevent jump on tab resume
+    
+    const timeRatio = deltaTime / 16.67;
 
-    if (auto_rotate) {
-        targetX = currentX + 80;
-        targetY = 0;
-        LERP_FACTOR = DEFAULT_LERP_FACTOR;
-    }
-    else {
-        LERP_FACTOR = ROTATE_LERP_FACTOR;
-    }
+    // Increment rotation Y for continuous spin
+    currentX += AUTO_ROTATE_SPEED * timeRatio;
 
-    // console.log("currentX: " + currentX + " targetX: " + targetX + " currentY: " + currentY + " targetY: " + targetY)
-    currentX = lerp(currentX, targetX, LERP_FACTOR);
-    currentY = lerp(currentY, targetY, LERP_FACTOR);
+    // Keep angles within [0, 360) range to prevent overflow
+    if (currentX > 360) {
+        currentX -= 360;
+    } else if (currentX < 0) {
+        currentX += 360;
+    }
 
     let box = document.getElementById('box');
-    box.style.transform = `rotateY(${currentX}deg) rotateX(${-currentY}deg)`;
+    if (box) {
+        box.style.transform = `rotateY(${currentX}deg)`;
+    }
 
     requestAnimationFrame(animate);
 }

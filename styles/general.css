@@ -365,7 +365,7 @@ button[disabled]{
 	perspective-origin: 50% -500px;
 	display: flex;
 	justify-content: center;
-	filter: drop-shadow(0 0 30px #333)
+	filter: drop-shadow(0 0 30px #333);
 }
 
 .box {

@@ -515,24 +515,7 @@ async function share_api(index, language, button) {
 }
 
 function copy_link(button, url) {
-
     navigator.clipboard.writeText(url);
-
-    if(button.getAttribute("data-text-replaced") == "true") {return}
-    
-    let textOriginal = button.innerHTML
-    let textReplace = '<span lang="de">Link kopiert!</span><span lang="en">Copied link!</span>'
-
-    button.innerHTML = textReplace;
-    button.setAttribute("data-text-replaced", "true")
-
-    setTimeout(function(){
-        button.innerHTML = textOriginal;
-        button.setAttribute("data-text-replaced", "")
-        reset_language()
-    }, 3000);
-
-    reset_language()
 }
 
 
