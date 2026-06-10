@@ -1500,7 +1500,7 @@ function init_controls() {
 
 function update_slide_height() {
     let interface_height = document.getElementById("navigation").offsetHeight + document.getElementById("controls").offsetHeight + 30
-    document.documentElement.style.setProperty('--max-slide-height', 'min(55vh, calc(100vh - ' + interface_height + 'px))'); ;
+    document.documentElement.style.setProperty('--max-slide-height', 'min(55dvh, calc(100dvh - ' + interface_height + 'px))'); ;
 }
 
 
