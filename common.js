@@ -193,7 +193,6 @@ function init() {
 
     init_scrollbar()
     init_language()
-    init_pwa()
     init_options()
     set_audio_positions()
 
@@ -247,50 +246,6 @@ window.onpopstate = function(event){
     }
 }
 
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////// PWA ///////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-var PWA_PROMPT;
-
-window.addEventListener('beforeinstallprompt', (e) => {
-    document.getElementById('install-app').style.display = "inline";
-    PWA_PROMPT = e;
-});
-
-function init_pwa() {
-    document.getElementById('install-app').addEventListener('click', async () => {
-        if (PWA_PROMPT !== null) {
-            PWA_PROMPT.prompt();
-            const { outcome } = await PWA_PROMPT.userChoice;
-            if (outcome === 'accepted') {
-                PWA_PROMPT = null;
-                document.getElementById('install-app').style.display = "none";
-            }
-        }
-    });
-
-    // document.getElementById("notifications").addEventListener("click", () => {
-    //     Notification.requestPermission().then((result) => {
-    //         if (result === "granted") {
-    //             issue_notification("ISSUE I", "A new ISSUE has just been released!", "https://bauvolk.org/images/issues/issue-i-illustration.WebP");
-    //         }
-    //     });
-    // });
-}
-
-
-
-// function issue_notification(issue, body, img) {
-//     let options = {
-//       body: body,
-//       icon: img,
-//     };
-//     new Notification(issue, options);
-//     setTimeout(issue_notification, 30000);
-// }
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
