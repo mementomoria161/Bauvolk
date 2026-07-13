@@ -73,23 +73,6 @@
             // TEMPLATES
         
 
-            // DEFUNCT?
-            function cover_template(i){
-                let issue = ISSUE_LIST[i]; 
-                return `<a class="cover" href=` + issue.url + `>
-                            <section class="perspective" id="perspective">
-                                <div class="box` + issue.default_hovered + `" id="box">
-                                    <div class="face top"></div>
-                                    <div class="face bottom"></div>
-                                    <div class="face back"></div>
-                                    <div class="face front" style="background-image: url('` + issue.cover_de + `');"></div>
-                                    <div class="face left"></div>
-                                    <div class="face right"></div>
-                                </div>
-                            </section>
-                        </a>`
-            }
-
             function slide_cover_template(i){
                 let issue = ISSUE_LIST[i]; 
                 return `<a class="cover" href=` + issue.url + `>
@@ -100,7 +83,7 @@
 
             function lib_list_template(i){
                 let issue = ISSUE_LIST[i]; 
-                return `<a class="issue-info" id="lib-list-` + i + `" onmouseenter="display_combined(null, ` + i + `)" href=` + issue.url + `>
+                return `<a class="issue-info" id="lib-list-` + i + `" onmouseenter="display_combined(` + i + `)" href=` + issue.url + `>
                             <span class="issue-number">` + issue.no + `</span>
                             <span class="issue-title" lang="de">` + issue.title_de + `</span>
                             <span class="issue-title" lang="en">` + issue.title_en + `</span>
@@ -131,48 +114,20 @@
             function initcovers() {
                 for (let i = 0; i < ISSUE_LIST.length; i++) {
                     document.getElementById("slides").insertAdjacentHTML('beforeend', slide_cover_template(i));
-                    document.getElementById("issue-library").insertAdjacentHTML('afterbegin', cover_template(i));
-                    
                     document.getElementById("issue-lib-list").insertAdjacentHTML('beforeend', lib_list_template(i));
                     document.getElementById("issue-lib-covers").insertAdjacentHTML('beforeend', lib_cover_template(i));
                 }
 
                 display_lib_cover(slide_current)
                 seteagerload()
-                window.addEventListener("resize", scale_model)
-                scale_model()
             }
-
-            function scale_model() {
-                let p_width = window.innerHeight * 0.35
-                if(p_width >= 500) {p_width = 500}
-                if(p_width >= window.innerWidth && window.innerWidth * 0.8 < window.innerHeight * 0.35) {p_width = indow.innerWidth * 0.8}
-                
-                document.querySelector(':root').style.setProperty('--model-width', p_width + "px");
-            }            
 
             
             // DISPLAY COMBINED
 
-            function display_combined(event, index) {
-
-                if(event) {
-                    event.stopPropagation()
-                    event.preventDefault()
-                }
-
-                // display_issue(index)
+            function display_combined(index) {
                 display_slide(index)
                 display_lib_cover(index)
-            }
-
-
-            function display_issue(index) {
-
-                let issue_list = document.getElementById("issue-library")
-
-                let titles = issue_list.querySelectorAll('.issue-title')
-                titles.forEach((title) => {title.style.display = "flex"})
             }
 
 
@@ -207,27 +162,6 @@
                 }
             }
 
-            // function select_volume(number) {
-            //     if(number == 0) {
-            //         ISSUE_LIST = VOLUME_0_ISSUE_LIST
-            //     } else if (number == 1) {
-            //         ISSUE_LIST = VOLUME_1_ISSUE_LIST
-            //     }
-            //     document.getElementById("issue-lib-list").innerHTML = ""
-            //     document.getElementById("issue-lib-covers").innerHTML = ""
-            //     document.getElementById("issue-library").innerHTML = ""
-            //     document.getElementById("slides").innerHTML = ""
-            //     slide_current = 0
-            //     initcovers()
-            //     init_controls()
-            //     // init_controls()
-            //     display_lib_cover(1)
-            //                     display_slide(1)
-            //     display_combined(null, 1)
-            //     reset_language()
-
-            // }
-            
         </script>
 
         <style>
@@ -241,24 +175,7 @@
         #content {
             display: grid;
             justify-content: center;
-            /* grid-template-areas: "." "issue-library" "." "." "." "."; */
-            grid-template-areas: "." "issue-lib" "." "." "." "volume-list";
-        }
-
-        /* ISSUE LIBRARY */
-        #issue-library {
-            flex-direction: row;
-            justify-content: flex-end;
-            align-items: center;
-            gap: 20px;
-            height: 550px;
-            max-height: 50vh;
-            min-height: 400px;
-            grid-area: issue-library;
-            display: flex;
-            position: relative;
-            padding-left: 450px;
-            margin: 0 auto; /* Center the container */
+            grid-template-areas: "issue-lib";
         }
 
         /* COVER STYLING */
@@ -334,52 +251,6 @@
             width: 45px !important;
         }
 
-        /* VERTICAL TEXT */
-
-        /* .vertical {
-            color: black !important;
-            background-color: white;
-            box-shadow: 10px 10px 10px 0px rgba(0, 0, 0, 0.35);
-            padding: 25px 10px;
-            height: 100%;
-            writing-mode: vertical-rl;
-            text-orientation: mixed;
-            width: fit-content;
-            font-weight: 700;
-        } */
-
-
-        /* PERSPECTIVE AND 3D BOX STYLES */
-        .perspective {
-            margin-left: -225px;
-            margin-right: -225px;
-            display: flex;
-            overflow: visible;
-            transition: all 0.4s ease-in-out;
-            pointer-events: none;
-        }
-
-        .box {
-            position: relative;
-            width: var(--model-width);
-            height: var(--model-height);
-            transform: rotateY(80deg);
-            transition: all 0.4s ease-in-out;
-            transform-style: preserve-3d;
-            pointer-events: auto !important;
-            transform-origin: center left;
-        }
-
-        .box_hovered {
-            transform: rotateY(0deg) !important;
-            margin-right: 475px;
-        }
-
-        .perspective {
-            max-width: 1000px;
-            perspective: 3000px;
-            perspective-origin: unset
-        }
 
         #issue-lib {
             display: flex;
@@ -408,29 +279,11 @@
             display: none;
         }
 
-        #issue-library {
-            display: none !important;
-        }
-
-        /* :root {
-            --model-width: 10vw
-        } */
-
         /* REACTIVE STYLES */
-        @media screen and (max-height: 1000px) {
-            .vertical * {
-                font-size: 18pt;
-            }
-        }
-
         @media screen and (max-width: 800px), (hover: none) {
             body {
                 grid-template-rows: auto minmax(0, 1fr) auto;
                 grid-template-areas: "header" "main" "controls";
-            }
-
-            :root {
-                --model-width: 300px;
             }
 
             #content {
@@ -438,7 +291,7 @@
                 padding-bottom: 0px;
                 display: grid;
                 justify-content: center;
-                grid-template-areas: "." "slides" "." "." "volume-list";
+                grid-template-areas: "slides";
             }
             
 
@@ -446,7 +299,7 @@
                 display: flex !important;
             }
 
-            #issue-library, #issue-lib {
+            #issue-lib {
                 display: none !important;
             }
 
@@ -462,16 +315,6 @@
                 padding: 0;
             }
 
-            .box {
-                transform-style: preserve-3d;
-                transform: rotateY(0deg) !important;
-                margin: 0px !important;
-                transform-origin: center center;
-            }
-
-            .box:hover {
-                transform: rotateY(20deg) !important;
-            }
         }
 
         /* SMALL SCREEN ADJUSTMENTS */
@@ -500,25 +343,6 @@
                 font-size: 20pt !important;
             }
         }
-
-        /* #volume-list {
-            display: flex;
-            grid-area: volume-list;
-            flex-direction: row;
-            align-items: center;
-            justify-content: center;
-            gap: 5px;
-            min-width: 100%;
-            text-align: center;
-            margin-left: auto;
-            margin-right: auto;
-            user-select: none;
-        }
-
-        #volume-list div {
-            cursor: pointer;
-        }
-                */
                             
 
 
@@ -535,13 +359,7 @@
                 <div id="issue-lib-list"></div>
                 <div id="issue-lib-covers"></div>
             </div>
-            <div id="issue-library"></div>
             <div id="slides"></div>
-            <!-- <div id="volume-list">
-                <span>Volume</span>
-                <div onclick="select_volume(0)">0</div>
-                <div onclick="select_volume(1)">1</div>
-            </div> -->
         </main>
         
         <div id="controls"></div>
