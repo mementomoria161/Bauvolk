@@ -63,13 +63,17 @@
         <script type="text/javascript" src="common.js"></script>
         <script>
 
-            // VARIABLES
+            // =====================================================================
+            // PAGE METADATA
+            // =====================================================================
 
             const META = {de: "BAUVOLK – HEFTE", en: "BAUVOLK – ISSUES"}
             
             const OVERRIDE_TITLE_TEXT = "<span class='title-large'><span lang='de'>ÜBERSICHT</span><span lang='en'>OVERVIEW</span></span><span class='title-small'>#</span>"
 
-            // TEMPLATES
+            // =====================================================================
+            // ISSUE MARKUP TEMPLATES
+            // =====================================================================
         
 
             function issue_cover_template(i){
@@ -80,7 +84,7 @@
                         </a>`
             }
 
-            function index_title_template(i){
+            function issue_title_template(i){
                 let issue = ISSUE_LIST[i]
 
                 return `<a class="issue-title center" href=` + issue.url + `>
@@ -89,7 +93,7 @@
                         </a>`
             }
 
-            function index_template(i){
+            function overview_item_template(i){
                 let issue = ISSUE_LIST[i]
 
                 return `<span onclick="select_issue(` + i + `)" id="index` + i + `" class="indexitem issue-title">
@@ -111,7 +115,9 @@
             }
 
             
-            // LOADING
+            // =====================================================================
+            // SHARED COMPONENTS
+            // =====================================================================
 
             load_components(["header", "databanner"])
             
@@ -119,14 +125,24 @@
 
         <script>
 
-            // COVERSCRIPT
+            // =====================================================================
+            // ISSUE VIEW STATE
+            // =====================================================================
 
             document.addEventListener("DOMContentLoaded", init_issues)
 
+            // ---------------------------------------------------------------------
+            // State
+            // ---------------------------------------------------------------------
+
             var current_issue = 0
-            var INDEX_OPEN = false
+            var OVERVIEW_OPEN = false
             var issues_initialized = false
             var controls_initialized = false
+
+            // ---------------------------------------------------------------------
+            // Initialization
+            // ---------------------------------------------------------------------
 
             function pre_init() {
                 init_controls()
@@ -134,7 +150,7 @@
             
             function init_issues() {
                 for (let i = 0; i < ISSUE_LIST.length; i++) {
-                    document.getElementById("issue-covers").insertAdjacentHTML('beforeend', issue_cover_template(i));
+                    document.getElementById("covers").insertAdjacentHTML('beforeend', issue_cover_template(i));
                     document.getElementById("issue-list").insertAdjacentHTML('beforeend', issue_list_template(i));
                 }
 
@@ -150,18 +166,22 @@
 
                 controls_initialized = true
                 for (let i = 0; i < ISSUE_LIST.length; i++) {
-                    document.getElementById('slide-index').insertAdjacentHTML('beforeend', index_template(i))
+                    document.getElementById('overview').insertAdjacentHTML('beforeend', overview_item_template(i))
                 }
 
                 select_issue(current_issue)
             }
 
+            // ---------------------------------------------------------------------
+            // Issue selection
+            // ---------------------------------------------------------------------
+
             function select_issue(index) {
-                document.querySelectorAll("#issue-covers .cover").forEach((item) => {
+                document.querySelectorAll("#covers .cover").forEach((item) => {
                     item.style.display = "none"
                 })
 
-                document.querySelectorAll("#issue-covers .cover")[index].style.display = "flex"
+                document.querySelectorAll("#covers .cover")[index].style.display = "flex"
                 current_issue = index
 
                 document.querySelectorAll("#issue-list .issue-info").forEach((item) => {
@@ -170,13 +190,17 @@
 
                 document.getElementById("issue-list-" + index).style.border = "4px outset grey"
 
-                document.getElementById("slide-title").innerHTML = index_title_template(current_issue)
-                document.getElementById("slide-current").innerHTML = OVERRIDE_TITLE_TEXT
+                document.getElementById("issue-title").innerHTML = issue_title_template(current_issue)
+                document.getElementById("issue-current").innerHTML = OVERRIDE_TITLE_TEXT
 
                 reset_language()
                 limit_buttons(current_issue, ISSUE_LIST, "letztes", "naechstes")
-                hide_slide_index()
+                hide_overview()
             }
+
+            // ---------------------------------------------------------------------
+            // Issue navigation
+            // ---------------------------------------------------------------------
 
             function letztes() {
                 if (current_issue > 0) {
@@ -190,31 +214,37 @@
                 }
             }
 
-            function toggle_slide_index() {
-                if (INDEX_OPEN) {
-                    hide_slide_index()
+            // ---------------------------------------------------------------------
+            // Overview
+            // ---------------------------------------------------------------------
+
+            function toggle_overview() {
+                if (OVERVIEW_OPEN) {
+                    hide_overview()
                 } else {
-                    display_slide_index()
+                    display_overview()
                 }
             }
 
-            function display_slide_index() {
-                document.getElementById("slide-index").style.display = "flex"
-                INDEX_OPEN = true
+            function display_overview() {
+                document.getElementById("overview").style.display = "flex"
+                OVERVIEW_OPEN = true
             }
 
-            function hide_slide_index() {
-                document.getElementById("slide-index").style.display = "none"
-                INDEX_OPEN = false
+            function hide_overview() {
+                document.getElementById("overview").style.display = "none"
+                OVERVIEW_OPEN = false
             }
 
 
 
-            // EAGER LOAD ACCORDING TO LANGUAGE
+            // ---------------------------------------------------------------------
+            // Language-specific image loading
+            // ---------------------------------------------------------------------
 
             function seteagerload() {
 
-                let covers = document.getElementById("issue-covers").getElementsByTagName("img")
+                let covers = document.getElementById("covers").getElementsByTagName("img")
                 let lang = localStorage.getItem("bauvolk_language")
                 
                 for (let i = 0; i < covers.length; i++) {
@@ -228,20 +258,19 @@
 
         <style>
 
+        /* ========================================================================
+           Configuration
+           ======================================================================== */
+
         :root {
-            --scrollbar-color-index: transparent;
-            --color-text-index: white;
+            --scrollbar-color-overview: transparent;
+            --color-text-overview: white;
         }
 
-        #issue-covers > .cover {
-            display: none;
-            flex-wrap: wrap;
-            place-content: center;
-            text-align: center;
-            gap: 40px 80px;
-        }
+        /* ========================================================================
+           Controls
+           ======================================================================== */
 
-        /* HIDDEN CONTROLS */
         #controls {
             display: none !important;
             visibility: inherit;
@@ -250,7 +279,7 @@
             justify-content: center;
             flex-direction: column;
             width: 100vw;
-            padding-bottom: 60px;
+            padding-bottom: 25px;
             text-align: center;
             flex-wrap: wrap;
         }
@@ -263,7 +292,6 @@
             justify-content: center;
             align-items: center;
             gap: 5px 10px;
-            padding-top: 25px;
         }
 
         #control-btns button {
@@ -276,66 +304,102 @@
             align-items: center;
         }
 
-        #control-btns button:not(#slide-current) {
-            padding: 5px 15px;
-            width: 175px;
-            font-size: 15pt;
-            cursor: pointer;
-        }
-
-        #slide-current {
+        #issue-current {
             text-align: center;
-            width: 80px;
-            font-size: 20pt;
             cursor: pointer;
+            font-size: 15pt !important;
+            width: 160px !important;
+            padding: 5px 15px !important;
         }
 
-        #slide-title {
+        #issue-title {
             font-size: 15pt;
-            padding-top: 25px;
             color: white;
             text-align: center;
         }
 
-        #slide-index {
-            max-height: 70vh;
-            overflow: auto;
-            color: white;
-            text-align: center;
-            font-size: 20pt;
-            display: none;
-            width: fit-content;
-            padding: 40px 20px;
-            scrollbar-gutter: stable both-edges;
-            scrollbar-color: var(--scrollbar-color-index) !important;
-        }
-
-        #slide-index::-webkit-scrollbar-thumb {
-            background: var(--scrollbar-color-index) !important;
-        }
-
-        #slide-index > span:hover {
-            color: var(--color-link-hover);
-            cursor: pointer;
+        .control_l {
+            display: none !important;
         }
 
         .control_s {
+            display: inline !important;
             pointer-events: none;
             max-height: 100%;
             padding: 10px;
         }
 
-        /* GRID SETUP FOR CONTENT */
+        #letztes, #naechstes {
+            padding: 0 !important;
+            font-size: 35pt !important;
+            width: 45px !important;
+            cursor: pointer;
+        }
+
+        /* ========================================================================
+           Overview
+           ======================================================================== */
+
+        #overview {
+            display: none;
+            position: absolute;
+            bottom: 70px;
+            left: 50%;
+            z-index: 1;
+            width: 100%;
+            max-width: fit-content;
+            overflow: auto;
+            padding: 20px;
+            gap: 20px;
+            margin-bottom: 10px;
+            border: 3px outset grey;
+            background-color: var(--color-background);
+            text-align: left;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+            transform: translateX(-50%);
+            font-size: 20pt;
+            color: white;
+        }
+
+        #overview::-webkit-scrollbar-thumb {
+            background: var(--scrollbar-color-overview) !important;
+        }
+
+        #overview .issue-info {
+            justify-content: flex-start;
+            width: fit-content;
+        }
+
+        #overview > span:hover {
+            color: var(--color-link-hover);
+            cursor: pointer;
+        }
+
+        /* ========================================================================
+           Desktop layout
+           ======================================================================== */
+
         #content {
             display: grid;
             justify-content: center;
             place-items: start center;
             align-content: start;
             padding-top: 160px;
-            grid-template-areas: "issue-library";
+            grid-template-columns: auto auto;
+            grid-template-areas: "issue-list covers";
+            gap: 50px 30px;
         }
 
-        /* COVER STYLING */
+        /* ========================================================================
+           Covers
+           ======================================================================== */
+
+        #covers > .cover {
+            display: none;
+        }
+
         .cover {
             display: flex;
             -webkit-tap-highlight-color: transparent;
@@ -358,7 +422,7 @@
             max-height: 100%;
         }
 
-        #issue-covers .cover {
+        #covers .cover {
             min-width: 300px;
             max-width: 400px;
             max-height: 100%;
@@ -366,48 +430,13 @@
             justify-content: center;
         }
 
-        #issue-covers .cover-image {
+        #covers .cover-image {
             object-fit: contain;
-            max-height: 100%;
         }
 
-        /* SLIDE INDEX */
-        #slide-index {
-            max-width: 390px !important;
-            flex-direction: column;
-            justify-content: flex-start;
-            align-items: flex-start;
-            gap: 15px;
-        }
-
-        #slide-current {
-            font-size: 15pt !important;
-            width: 160px !important;
-            padding: 5px 15px !important;
-        }
-
-        /* CONTROLS */
-        .control_l {
-            display: none !important;
-        }
-
-        .control_s {
-            display: inline !important;
-        }
-
-        #letztes, #naechstes {
-            padding: 0 !important;
-            font-size: 35pt !important;
-            width: 45px !important;
-        }
-
-
-        #issue-library {
-            display: flex;
-            flex-direction: row;
-            gap: 30px;
-            grid-area: issue-library;
-        }
+        /* ========================================================================
+           Desktop issue library
+           ======================================================================== */
 
         #issue-list {
             display: flex;
@@ -415,6 +444,7 @@
             justify-content: flex-start;
             align-items: flex-start;
             gap: 5px;
+            grid-area: issue-list;
         }
 
         #issue-list .issue-info {
@@ -425,29 +455,25 @@
             justify-content: flex-start;
         }
 
-        #issue-covers > .cover {
-            display: none;
+        #covers {
+            grid-area: covers;
+            display: flex;
+            align-items: center;
         }
 
-        @media screen and (max-height: 800px) {
-            #slide-title {
-                padding-top: 10px;
-            }
+        /* ========================================================================
+           Responsive adjustments
+           ======================================================================== */
 
-            #controls {
-                padding-bottom: 25px;
-            }
-        }
 
         @media screen and (max-width: 520px) {
-            #control-btns button:not(#slide-current) {
+            #letztes, #naechstes {
                 padding: 0;
                 width: 45px;
                 font-size: 35pt;
             }
         }
 
-        /* REACTIVE STYLES */
         @media screen and (max-width: 800px), (hover: none) {
             #content {
                 width: 100vw;
@@ -457,7 +483,7 @@
                 overflow: hidden;
                 position: relative;
                 padding-top: 140px;
-                padding-bottom: 0px;
+                padding-bottom: 0;
                 display: flex;
                 flex-direction: column;
                 align-items: center;
@@ -466,26 +492,16 @@
 
             #controls {
                 display: flex !important;
-                position: static;
                 flex: 0 0 auto;
                 justify-content: space-evenly;
                 gap: 20px;
-                margin-top: 30px;
-            }
-
-            #issue-library {
-                display: flex;
-                flex: 1 1 auto;
-                width: 100%;
-                min-height: 0;
             }
 
             #issue-list {
                 display: none;
             }
 
-            #issue-covers {
-                display: flex;
+            #covers {
                 flex: 1 1 auto;
                 width: 100%;
                 min-height: 0;
@@ -493,49 +509,16 @@
                 align-items: center;
             }
 
-            #issue-covers .cover {
+            #covers .cover {
                 min-width: unset;
                 min-height: 0;
             }
-
-            #content > #slide-index {
-                position: absolute;
-                top: 0;
-                right: 0;
-                bottom: 70px;
-                left: 0;
-                z-index: 1;
-                width: 100%;
-                max-width: none !important;
-                max-height: none;
-                padding: 40px 20px;
-                background-color: var(--color-background);
-                justify-content: flex-end;
-                align-items: center;
-            }
-
-            #slide-index .indexitem,
-            #slide-index .issue-info {
-                width: 100%;
-                max-width: none;
-            }
-
-            #slide-index .issue-info {
-                align-items: flex-start;
-            }
-
-            #slide-index .issue-number {
-                line-height: 1;
-            }
-
-            #issue-wrap {
-                padding: 0;
-            }
-
         }
 
-        /* SMALL SCREEN ADJUSTMENTS */
-        #slide-title * {
+        /* ========================================================================
+           Small screens
+           ======================================================================== */
+        #issue-title * {
             text-transform: uppercase;
             font-weight: 300 !important;
             font-size: clamp(1rem, -0.54rem + 5.7vw, 1.25rem) !important;
@@ -554,7 +537,7 @@
                 display: none;
             }
 
-            #slide-current {
+            #issue-current {
                 padding: 0 !important;
                 width: 45px !important;
                 font-size: 20pt !important;
@@ -572,25 +555,23 @@
         <header id="header"></header>
 
         <main id="content">
-            <div id="issue-library">
-                <div id="issue-list"></div>
-                <div id="issue-covers"></div>
-            </div>
+            <div id="issue-list"></div>
+            <div id="covers"></div>
             <div id="controls">
-                <div id="slide-title"></div>
+                <div id="issue-title"></div>
                 <div id="control-btns">
                     <button id="letztes" class="passive" onclick="letztes()">
                         <span class="control_l"><span lang="de">VORHERIGES</span><span lang="en">PREVIOUS</span></span>
                         <img class="control_s" src="/images/internal/left.svg" alt="Nach rechts">
                     </button>
-                    <button id="slide-current" class="passive" onclick="toggle_slide_index()"></button>
+                    <button id="issue-current" class="passive" onclick="toggle_overview()"></button>
                     <button id="naechstes" class="passive" onclick="naechstes()">
                         <span class="control_l"><span lang="de">NÄCHSTES</span><span lang="en">NEXT</span></span>
                         <img class="control_s" src="/images/internal/right.svg" alt="Nach links">
                     </button>
                 </div>
             </div>
-            <div id="slide-index"></div>
+            <div id="overview"></div>
         </main>
         <div id="databanner"></div>
     </body>

@@ -208,11 +208,11 @@ window.onpopstate = function(event){
         history.forward()
         close_menu()
     }
-    else if(typeof INDEX_OPEN !== "undefined" && INDEX_OPEN){
+    else if(typeof OVERVIEW_OPEN !== "undefined" && OVERVIEW_OPEN){
         event.preventDefault()
         history.pushState({}, '', window.location.href)
         history.forward()
-        hide_slide_index()
+        hide_overview()
     }
     else {
         history.back()
@@ -233,9 +233,9 @@ function init_scrollbar() {
         reset_scrollbar('--scrollbar-color', '--color-text', "scrollbar", 3000)
     });
 
-    if(document.getElementById("slide-index")) {
-        document.getElementById("slide-index").addEventListener("scroll", () => {
-            reset_scrollbar('--scrollbar-color-index', '--color-text-index', "scrollbar_index", 10000)
+    if(document.getElementById("overview")) {
+        document.getElementById("overview").addEventListener("scroll", () => {
+            reset_scrollbar('--scrollbar-color-overview', '--color-text-overview', "overview_scrollbar", 10000)
         })
     }
 }
