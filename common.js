@@ -79,29 +79,6 @@ const ISSUE_LIST = [
 // var ISSUE_LIST = VOLUME_1_ISSUE_LIST
 
 
-function index_title_template(i){
-    let issue = ISSUE_LIST[i]
-
-    return `<a class="issue-title center" href=` + issue.url + `>
-                <span lang="de">` + issue.title_de + `</span>
-                <span lang="en">` + issue.title_en + `</span>
-            </a>`
-}
-            
-
-function index_template(i){
-    let issue = ISSUE_LIST[i]
-
-    return `<span onclick="display_combined(null, ` + i + `)" id="index` + i + `" class="indexitem issue-title">
-                <div class="issue-info">
-                    <span class="issue-number">` + issue.no + `</span>
-                    <span class="issue-title" lang="de">` + issue.title_de + `</span>
-                    <span class="issue-title" lang="en">` + issue.title_en + `</span>
-                </div>
-            </span>`
-}
-
-
 function issue_info_link_template(i){
     let issue = ISSUE_LIST[i]
 
@@ -125,10 +102,6 @@ var componentsloaded = 0
 var componentsneeded = 0
 
 var LOADED = {              // SEQUENCE MATTERS
-    controls: {
-        init: false,
-        func: init_controls,
-    },
     databanner: {
         init: false,
         func: init_cookies,
@@ -235,7 +208,7 @@ window.onpopstate = function(event){
         history.forward()
         close_menu()
     }
-    else if(INDEX_OPEN){
+    else if(typeof INDEX_OPEN !== "undefined" && INDEX_OPEN){
         event.preventDefault()
         history.pushState({}, '', window.location.href)
         history.forward()
@@ -678,7 +651,6 @@ function showcookiecontent() {
     datainfoshown = false;
     clear_cookies_third_party()
 
-    if(document.getElementById("slides")){load_slide_frames()}
 }
 
 
@@ -703,15 +675,8 @@ function hidecookiecontent() {
 }
 
 
-// FRAME LOADING
-
-function load_slide_frames() {
-    load_frame(document.getElementById(SLIDE_LIST[slide_current]).getElementsByTagName("iframe"), 0, slide_current)
-}
-
-
-function load_frame(frames, current, slide) {
-    if(localStorage.getItem("bauvolk_cookies") == "true" && current < frames.length && slide == slide_current) {
+function load_frame(frames, current) {
+    if(localStorage.getItem("bauvolk_cookies") == "true" && current < frames.length) {
 
         if(frames[current].getAttribute('data-source') == "youtube" && frames[current].getAttribute('data-loaded') != "true") {
             let frame = frames[current]
@@ -733,7 +698,7 @@ function load_frame(frames, current, slide) {
                 thumbnail.remove();
                 frame.style.display = "block"
                 frame.setAttribute('data-loaded', 'true')
-                load_frame(frames, current + 1 , slide)
+                load_frame(frames, current + 1)
             };
             
         }
@@ -741,12 +706,9 @@ function load_frame(frames, current, slide) {
             // if( frames[current].getAttribute('data-loaded') == "true") {
             //     console.log("skipped load - was loaded")
             // }
-            load_frame(frames, current + 1 , slide)
+            load_frame(frames, current + 1)
         }
     }
-    // else if(slide != slide_current) {
-    //     console.log("load aborted")
-    // }
     clear_cookies_third_party()
 }
 
@@ -1413,239 +1375,7 @@ function autosetlayout() {
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////// CONTROLS //////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-// INIT
-
-var SLIDE_LIST = []
-var slide_current = 0
-
-function init_controls() {
-    let slidesList = document.getElementById("slides").children
-    for (let i = 0; i < slidesList.length; i++) {
-        let slideID = 'slide'+ (i+1)
-        slidesList.item(i).setAttribute('id', slideID);
-        SLIDE_LIST.push(slideID);
-    }
-
-    for (let i = 0; i < SLIDE_LIST.length; i++) {
-
-		let slide = document.getElementById(SLIDE_LIST[i])
-        let slide_index = document.getElementById('slide-index')
-        console.log("slide: " + slide.id + " index: " + i)
-        slide_index.insertAdjacentHTML('beforeend', index_template(i));
-    }
-    
-    display_slide(slide_current)
-
-    if(typeof AUTOHIDE_CONTROLS == "variable") {
-        document.getElementById("controls").addEventListener("mousemove", initautohidecontrols)
-    }
-
-    document.querySelectorAll("#slide-index, #slide-current, #letztes, #nächstes").forEach((item) => {item.addEventListener("mouseenter", entercontrols)})
-    document.querySelectorAll("#slide-index, #slide-current, #letztes, #nächstes").forEach((item) => {item.addEventListener("mouseleave", leavecontrols)})
-
-    update_slide_height()
-    window.addEventListener("resize", update_slide_height)
-}
-
-
-
-function update_slide_height() {
-    let interface_height = document.getElementById("navigation").offsetHeight + document.getElementById("controls").offsetHeight + 30
-    document.documentElement.style.setProperty('--max-slide-height', 'min(55dvh, calc(100dvh - ' + interface_height + 'px))'); ;
-}
-
-
-
-
-
-
-
-// SLIDE SELECTION
-
-function letztes() {
-    if(slide_current>=0) {
-        if(typeof display_combined === "function") {
-            display_combined(null, slide_current - 1)
-        }
-        else {
-            display_slide(slide_current - 1)
-        }
-    }
-}
-
-
-function nächstes() {
-    if(slide_current<=SLIDE_LIST.length-1) {
-        if(typeof display_combined === "function") {
-            display_combined(null, slide_current + 1)
-        }
-        else {
-            display_slide(slide_current + 1)
-        }
-    }
-}
-
-
-function display_slide(slide_index) {
-
-    document.getElementById(SLIDE_LIST[slide_current]).style.display = "none";
-    document.getElementById(SLIDE_LIST[slide_index]).style.display = "flex";
-    slide_current = slide_index;
-
-    let timeline = document.getElementById(SLIDE_LIST[slide_current]).getElementsByClassName("timeline")[0]
-    let timeline_btns = document.getElementById("timeline-btns")
-    let timeline_lines = timeline_btns.getElementsByClassName("event-line")
-
-    for (let i = 0; i < timeline_lines.length; i++) {
-        timeline_lines[i].style.display = "none"
-    }
-
-    if(timeline) {
-        if(timeline.hasAttribute("data-timeline-index")) {
-            let timeline_index = timeline.getAttribute("data-timeline-index")
-
-            timeline_btns.style.display = "flex"
-            timeline_lines[timeline_index].style.display = "flex"
-        }
-        else {
-            timeline_btns.style.display = "none"
-        }
-    }
-    else {
-        timeline_btns.style.display = "none"
-    }
-
-    if(typeof highlight_title === "function") {
-        highlight_title(slide_current)
-    }
-
-    if(typeof index_title_template === "function") {
-        document.getElementById("slide-title").innerHTML = index_title_template(slide_current)
-    }
-    
-    if(typeof OVERRIDE_TITLE_TEXT !== "undefined") {
-        document.getElementById("slide-current").innerHTML = OVERRIDE_TITLE_TEXT
-    }
-    else {
-        document.getElementById("slide-current").innerHTML = (slide_current + 1) + "/" + SLIDE_LIST.length
-    }
-    
-
-    reset_language()
-    load_slide_frames()
-    limit_buttons(slide_current, SLIDE_LIST, "letztes", "nächstes")
-    reset_scroll()
-    pause_videos()
-    hide_slide_index()
-}
-
-
-// SLIDE INDEX
-
-var INDEX_OPEN = false
-
-function toggle_slide_index() {
-    if(INDEX_OPEN) {
-        hide_slide_index()
-    } 
-    else {
-        display_slide_index()
-    }
-}
-
-function display_slide_index() {
-    var indexitems = document.getElementsByClassName("indexitem")
-    for (let i = 0; i < indexitems.length; i++) {
-        // indexitems[i].style.fontWeight = "400"
-        indexitems[i].style.textDecoration = "none"; 
-    }
-
-    // document.getElementById("slide-current").disabled = true;
-    // document.getElementById("index"+slide_current).style.fontWeight = "700"
-    // document.getElementById("index"+slide_current).style.textDecoration = "underline"; 
-    document.getElementById("timeline-btns").style.display = "none";
-    document.getElementById("slide-title").style.display = "none";
-    document.getElementById(SLIDE_LIST[slide_current]).style.display = "none";
-    document.getElementById("slide-index").style.display = "flex";
-
-    INDEX_OPEN = true
-}
-
-function hide_slide_index() {
-    if(document.getElementById(SLIDE_LIST[slide_current]).getAttribute("data-timeline-index")) {
-        document.getElementById("timeline-btns").style.display = "flex";
-    }
-
-    // document.getElementById("slide-current").disabled = false;
-    document.getElementById("slide-title").style.display = "block";
-    document.getElementById("slide-index").style.display = "none";
-    document.getElementById(SLIDE_LIST[slide_current]).style.display = "flex";
-    
-    INDEX_OPEN = false
-}
-
-
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////// AUTO HIDING CONTROLS //////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-// CONTROL AUTO HIDING
-
-
-var oncontrols = false;
-
-function initautohidecontrols() {
-    document.addEventListener("mousemove", timecontrols);
-    document.getElementById("controls").removeEventListener("mousemove", initautohidecontrols);
-}
-
-function hidecontrols() {
-    document.getElementById("controls-inner").style.visibility = "hidden";
-}
-
-// timer start
-
-function timecontrols() {
-    if(oncontrols) {return}
-
-    document.getElementById("controls-inner").style.visibility = "visible";
-    clearTimeout(TIMEOUT_IDS["controls"])
-    TIMEOUT_IDS["controls"] = setTimeout(hidecontrols, 8000);
-}
-
-function entercontrols() {
-    clearTimeout(TIMEOUT_IDS["controls"])
-    oncontrols = true;
-}
-
-function leavecontrols() {
-    timecontrols();
-    oncontrols = false;
-}
-
-
-
-
-
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////// FUNCTIONALITY /////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
@@ -1721,7 +1451,7 @@ function selectfootnote(event) {
     
     footnote_horizontal_bounds() 
 
-    load_frame(footnotefocused.getElementsByTagName("iframe"), 0, slide_current)
+    load_frame(footnotefocused.getElementsByTagName("iframe"), 0)
 }
 
 function resetfootnote() {

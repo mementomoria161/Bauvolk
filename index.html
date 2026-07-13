@@ -58,7 +58,6 @@
         <link rel="stylesheet" href="styles/general.css">
         
         <link rel="preload" as="fetch" crossorigin href="components/header.html">
-        <link rel="preload" as="fetch" crossorigin href="components/controls.html">
         <link rel="preload" as="fetch" crossorigin href="components/databanner.html">
 
         <script type="text/javascript" src="common.js"></script>
@@ -81,6 +80,27 @@
                         </a>`
             }
 
+            function index_title_template(i){
+                let issue = ISSUE_LIST[i]
+
+                return `<a class="issue-title center" href=` + issue.url + `>
+                            <span lang="de">` + issue.title_de + `</span>
+                            <span lang="en">` + issue.title_en + `</span>
+                        </a>`
+            }
+
+            function index_template(i){
+                let issue = ISSUE_LIST[i]
+
+                return `<span onclick="display_combined(` + i + `)" id="index` + i + `" class="indexitem issue-title">
+                            <div class="issue-info">
+                                <span class="issue-number">` + issue.no + `</span>
+                                <span class="issue-title" lang="de">` + issue.title_de + `</span>
+                                <span class="issue-title" lang="en">` + issue.title_en + `</span>
+                            </div>
+                        </span>`
+            }
+
             function lib_list_template(i){
                 let issue = ISSUE_LIST[i]; 
                 return `<a class="issue-info" id="lib-list-` + i + `" onmouseenter="display_combined(` + i + `)" href=` + issue.url + `>
@@ -101,7 +121,7 @@
             
             // LOADING
 
-            load_components(["header", "controls", "databanner"])
+            load_components(["header", "databanner"])
             
         </script>
 
@@ -110,6 +130,16 @@
             // COVERSCRIPT
 
             document.addEventListener("DOMContentLoaded", initcovers)
+
+            var SLIDE_LIST = []
+            var slide_current = 0
+            var INDEX_OPEN = false
+            var covers_initialized = false
+            var controls_initialized = false
+
+            function pre_init() {
+                init_controls()
+            }
             
             function initcovers() {
                 for (let i = 0; i < ISSUE_LIST.length; i++) {
@@ -120,6 +150,28 @@
 
                 display_lib_cover(slide_current)
                 seteagerload()
+                covers_initialized = true
+                init_controls()
+            }
+
+            function init_controls() {
+                if (!covers_initialized || controls_initialized) {
+                    return
+                }
+
+                controls_initialized = true
+                let slidesList = document.querySelectorAll("#slides > .cover")
+                for (let i = 0; i < slidesList.length; i++) {
+                    let slideID = 'slide' + (i + 1)
+                    slidesList.item(i).setAttribute('id', slideID)
+                    SLIDE_LIST.push(slideID)
+                }
+
+                for (let i = 0; i < SLIDE_LIST.length; i++) {
+                    document.getElementById('slide-index').insertAdjacentHTML('beforeend', index_template(i))
+                }
+
+                display_slide(slide_current)
             }
 
             
@@ -146,6 +198,49 @@
 
             }
 
+            function letztes() {
+                if (slide_current > 0) {
+                    display_combined(slide_current - 1)
+                }
+            }
+
+            function naechstes() {
+                if (slide_current < SLIDE_LIST.length - 1) {
+                    display_combined(slide_current + 1)
+                }
+            }
+
+            function display_slide(slideIndex) {
+                document.getElementById(SLIDE_LIST[slide_current]).style.display = "none"
+                document.getElementById(SLIDE_LIST[slideIndex]).style.display = "flex"
+                slide_current = slideIndex
+
+                document.getElementById("slide-title").innerHTML = index_title_template(slide_current)
+                document.getElementById("slide-current").innerHTML = OVERRIDE_TITLE_TEXT
+
+                reset_language()
+                limit_buttons(slide_current, SLIDE_LIST, "letztes", "naechstes")
+                hide_slide_index()
+            }
+
+            function toggle_slide_index() {
+                if (INDEX_OPEN) {
+                    hide_slide_index()
+                } else {
+                    display_slide_index()
+                }
+            }
+
+            function display_slide_index() {
+                document.getElementById("slide-index").style.display = "flex"
+                INDEX_OPEN = true
+            }
+
+            function hide_slide_index() {
+                document.getElementById("slide-index").style.display = "none"
+                INDEX_OPEN = false
+            }
+
 
 
             // EAGER LOAD ACCORDING TO LANGUAGE
@@ -166,15 +261,110 @@
 
         <style>
 
+        :root {
+            --scrollbar-color-index: transparent;
+            --color-text-index: white;
+        }
+
+        #slides > * {
+            display: none;
+            flex-wrap: wrap;
+            place-content: center;
+            text-align: center;
+            gap: 40px 80px;
+        }
+
         /* HIDDEN CONTROLS */
         #controls {
             display: none !important;
+            visibility: inherit;
+            background-color: transparent;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            width: 100vw;
+            padding-bottom: 60px;
+            text-align: center;
+            flex-wrap: wrap;
+        }
+
+        #control-btns {
+            display: flex;
+            position: relative;
+            z-index: 2;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 10px 20px;
+            padding-top: 25px;
+        }
+
+        #control-btns button {
+            background-color: transparent;
+            color: white;
+            width: 45px;
+            height: 45px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #control-btns button:not(#slide-current) {
+            padding: 5px 15px;
+            width: 175px;
+            font-size: 15pt;
+            cursor: pointer;
+        }
+
+        #slide-current {
+            text-align: center;
+            width: 80px;
+            font-size: 20pt;
+            cursor: pointer;
+        }
+
+        #slide-title {
+            font-size: 15pt;
+            padding-top: 25px;
+            color: white;
+            text-align: center;
+        }
+
+        #slide-index {
+            max-height: 70vh;
+            overflow: auto;
+            color: white;
+            text-align: center;
+            font-size: 20pt;
+            display: none;
+            width: fit-content;
+            padding: 40px 20px;
+            scrollbar-gutter: stable both-edges;
+            scrollbar-color: var(--scrollbar-color-index) !important;
+        }
+
+        #slide-index::-webkit-scrollbar-thumb {
+            background: var(--scrollbar-color-index) !important;
+        }
+
+        #slide-index > span:hover {
+            color: var(--color-link-hover);
+            cursor: pointer;
+        }
+
+        .control_s {
+            pointer-events: none;
+            max-height: 100%;
+            padding: 10px;
         }
 
         /* GRID SETUP FOR CONTENT */
         #content {
             display: grid;
             justify-content: center;
+            place-items: start center;
+            align-content: start;
+            padding-top: 160px;
             grid-template-areas: "issue-lib";
         }
 
@@ -211,7 +401,7 @@
             min-width: 300px;
             max-width: 400px;
             max-height: 100%;
-            height: var(--max-slide-height);
+            height: 100%;
             justify-content: center;
         }
 
@@ -223,7 +413,6 @@
         /* SLIDE INDEX */
         #slide-index {
             max-width: 390px !important;
-            display: flex;
             flex-direction: column;
             justify-content: flex-start;
             align-items: flex-start;
@@ -245,7 +434,7 @@
             display: inline !important;
         }
 
-        #letztes, #nächstes {
+        #letztes, #naechstes {
             padding: 0 !important;
             font-size: 35pt !important;
             width: 45px !important;
@@ -279,24 +468,48 @@
             display: none;
         }
 
-        /* REACTIVE STYLES */
-        @media screen and (max-width: 800px), (hover: none) {
-            body {
-                grid-template-rows: auto minmax(0, 1fr) auto;
-                grid-template-areas: "header" "main" "controls";
+        @media screen and (max-height: 800px) {
+            #slide-title {
+                padding-top: 10px;
             }
 
+            #controls {
+                padding-bottom: 25px;
+            }
+        }
+
+        @media screen and (max-width: 520px) {
+            #control-btns button:not(#slide-current) {
+                padding: 0;
+                width: 45px;
+                font-size: 35pt;
+            }
+        }
+
+        /* REACTIVE STYLES */
+        @media screen and (max-width: 800px), (hover: none) {
             #content {
-                padding-top: 90px;
+                width: 100vw;
+                height: 100%;
+                max-height: 100dvh;
+                min-height: 0;
+                overflow: hidden;
+                position: relative;
+                padding-top: 140px;
                 padding-bottom: 0px;
-                display: grid;
-                justify-content: center;
-                grid-template-areas: "slides";
+                display: flex;
+                flex-direction: column;
+                align-items: center;
             }
             
 
             #controls {
                 display: flex !important;
+                position: static;
+                flex: 0 0 auto;
+                justify-content: space-evenly;
+                gap: 20px;
+                margin-top: 30px;
             }
 
             #issue-lib {
@@ -304,11 +517,47 @@
             }
 
             #slides {
-                display: block;
+                display: flex;
+                flex: 1 1 auto;
+                width: 100%;
+                min-height: 0;
+                justify-content: center;
+                align-items: center;
             }
 
-            .cover {
+            #slides .cover {
                 min-width: unset;
+                min-height: 0;
+            }
+
+            #content > #slide-index {
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 70px;
+                left: 0;
+                z-index: 1;
+                width: 100%;
+                max-width: none !important;
+                max-height: none;
+                padding: 40px 20px;
+                background-color: var(--color-background);
+                justify-content: flex-end;
+                align-items: center;
+            }
+
+            #slide-index .indexitem,
+            #slide-index .issue-info {
+                width: 100%;
+                max-width: none;
+            }
+
+            #slide-index .issue-info {
+                align-items: flex-start;
+            }
+
+            #slide-index .issue-number {
+                line-height: 1;
             }
 
             #issue-wrap {
@@ -360,9 +609,22 @@
                 <div id="issue-lib-covers"></div>
             </div>
             <div id="slides"></div>
+            <div id="controls">
+                <div id="slide-title"></div>
+                <div id="control-btns">
+                    <button id="letztes" class="passive" onclick="letztes()">
+                        <span class="control_l"><span lang="de">VORHERIGES</span><span lang="en">PREVIOUS</span></span>
+                        <img class="control_s" src="/images/internal/left.svg" alt="Nach rechts">
+                    </button>
+                    <button id="slide-current" class="passive" onclick="toggle_slide_index()"></button>
+                    <button id="naechstes" class="passive" onclick="naechstes()">
+                        <span class="control_l"><span lang="de">NÄCHSTES</span><span lang="en">NEXT</span></span>
+                        <img class="control_s" src="/images/internal/right.svg" alt="Nach links">
+                    </button>
+                </div>
+            </div>
+            <div id="slide-index"></div>
         </main>
-        
-        <div id="controls"></div>
         <div id="databanner"></div>
     </body>
 </html>
