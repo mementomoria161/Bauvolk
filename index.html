@@ -268,6 +268,21 @@
         }
 
         /* ========================================================================
+           Desktop layout
+           ======================================================================== */
+
+        #content {
+            display: grid;
+            justify-content: center;
+            place-items: start center;
+            align-content: start;
+            padding-top: 160px;
+            grid-template-columns: auto auto;
+            grid-template-areas: "issue-list covers";
+            gap: 50px 30px;
+        }
+
+        /* ========================================================================
            Controls
            ======================================================================== */
 
@@ -375,21 +390,6 @@
         #overview > span:hover {
             color: var(--color-link-hover);
             cursor: pointer;
-        }
-
-        /* ========================================================================
-           Desktop layout
-           ======================================================================== */
-
-        #content {
-            display: grid;
-            justify-content: center;
-            place-items: start center;
-            align-content: start;
-            padding-top: 160px;
-            grid-template-columns: auto auto;
-            grid-template-areas: "issue-list covers";
-            gap: 50px 30px;
         }
 
         /* ========================================================================
