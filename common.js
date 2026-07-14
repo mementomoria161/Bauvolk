@@ -180,7 +180,6 @@ function init() {
 
 function init_header() {
     init_abo()
-    init_highlights()
     window.addEventListener("resize", openmenufix)
     document.getElementById("header").addEventListener("pointerleave", pointer_close_menu)
     
@@ -1280,41 +1279,6 @@ function pointer_close_menu() {
         close_menu()
     }
 }
-
-// NAVIGATION HIGHLIGHT
-
-const highlights = {
-    "": ["highlight-issues", "highlight-issues-expanded"],
-    "/": ["highlight-issues", "highlight-issues-expanded"],
-    "/heft-i": ["highlight-issues", "highlight-issues-expanded"],
-    "/kanon": ["highlight-kanon", "highlight-kanon-expanded"],
-    "/deabonnieren": ["etc"],
-    "/impressum": ["etc", "highlight-impressum"],
-    "/datenschutz": ["etc", "highlight-datenschutz"],
-}
-
-
-function init_highlights() {
-
-    let window_url = window.location.href.toLowerCase()
-
-    remove_after(window_url, "#")
-    remove_after(window_url, "?")
-
-    for (let [URLsnippet, IDs] of Object.entries(highlights)) {
-        if (window_url == ("https://www.bauvolk.org" + URLsnippet).toLowerCase()) {
-            for (let i = 0; i < IDs.length; i++ ) {
-                console.log("window: " + window_url + "   snippet: " + URLsnippet + " -> " + IDs[i])
-
-                let element = document.getElementById(IDs[i])
-                // element.style.fontWeight = "700"
-                element.style.textDecoration = "underline";  
-            }
-            return
-        }
-    }
-}
-
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////// VERTICAL NAVIGATION ///////////////////////////////////////////////

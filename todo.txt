@@ -1,15 +1,3 @@
--------------- BUGS --------------
-
-safari 
-- check preload
-
-issues
-- share double click issues
-
--------------- IMPROVEMENTS --------------
-
-
-
 -------------- THINGS TO DO WHEN ADDING NEW ISSUE  --------------
 
 WEBSITE
