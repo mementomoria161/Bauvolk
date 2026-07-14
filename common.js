@@ -173,6 +173,7 @@ function init() {
         post_init()
     }
 
+    update_header_height()
     history.pushState({}, '', window.location.href)
     show_body()
 }
@@ -181,6 +182,7 @@ function init() {
 function init_header() {
     init_abo()
     window.addEventListener("resize", openmenufix)
+    window.addEventListener("resize", update_header_height)
     document.getElementById("header").addEventListener("pointerleave", pointer_close_menu)
     
     
@@ -188,6 +190,25 @@ function init_header() {
     for (let i = 0; i < ISSUE_LIST.length; i++) {
         document.getElementById("cover-container").insertAdjacentHTML('beforeend', issue_info_link_template(i))
     }    
+    update_header_height()
+
+    // Update when logo image loads to ensure correct initial layout height calculation
+    const logoImg = document.getElementById("logo-img");
+    if (logoImg) {
+        if (logoImg.complete) {
+            update_header_height();
+        } else {
+            logoImg.addEventListener("load", update_header_height);
+        }
+    }
+}
+
+function update_header_height() {
+    const headerbox = document.getElementById("headerbox");
+    if (headerbox) {
+        const height = headerbox.offsetHeight;
+        document.documentElement.style.setProperty('--header-box-height', height + 'px');
+    }
 }
 
 

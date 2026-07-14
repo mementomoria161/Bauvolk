@@ -14,6 +14,10 @@
 	--color-highlight-background:white;
 	--color-highlight-text: #750000;
 	--color-link-hover: lightgrey;
+
+	/* Header spacing variables */
+	--header-top-offset: 20px;
+	--header-box-height: 60px; /* Fallback before JS measures it */
 }
 
 
@@ -62,8 +66,12 @@ main {
 	overflow-x: hidden;
 	height:100%;
 	padding:20px;
-	padding-top: 100px;
+	padding-top: calc(var(--header-box-height, 60px) + 3 * var(--header-top-offset, 20px));
 	scrollbar-gutter: stable both-edges;
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 
 
